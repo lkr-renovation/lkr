@@ -1,17 +1,419 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LKR – Sito in costruzione</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LKR Renovation MC SARL - Coming Soon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Monaco-inspired geometric background */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            background-image: 
+                linear-gradient(45deg, #dc3545 25%, transparent 25%),
+                linear-gradient(-45deg, #dc3545 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #dc3545 75%),
+                linear-gradient(-45deg, transparent 75%, #dc3545 75%);
+            background-size: 60px 60px;
+            background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .logo-container {
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .logo {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 10px 30px rgba(220, 53, 69, 0.1));
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: translateY(-5px);
+        }
+
+        .main-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: #dc3545;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .description {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: #6c757d;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(220, 53, 69, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #dc3545, #ff6b7a);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover::before {
+            transform: translateX(0);
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(220, 53, 69, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #dc3545;
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            font-size: 1.25rem;
+            color: #2c3e50;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .feature p {
+            color: #6c757d;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .monaco-flag {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 40px;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease-out 0.8s both;
+        }
+
+        .flag-red {
+            background: #dc3545;
+            height: 50%;
+        }
+
+        .flag-white {
+            background: white;
+            height: 50%;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        @media (max-width: 768px) {
+            .monaco-flag {
+                top: 1rem;
+                right: 1rem;
+                width: 50px;
+                height: 33px;
+            }
+            
+            .contact-details {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .coming-soon-badge {
+            position: absolute;
+            top: 50%;
+            left: -60px;
+            transform: rotate(-45deg) translateY(-50%);
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+            padding: 0.5rem 4rem;
+            font-size: 0.9rem;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+            z-index: 10;
+        }
+
+        .sparkle {
+            position: absolute;
+            color: #dc3545;
+            animation: sparkle 2s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <img src="img/Logo%20LKR%20Orizzontale.png" alt="LKR Logo" class="logo">
-    <h1>Sito in costruzione</h1>
-    <p>Stiamo preparando la nostra nuova presenza online.<br>
-    Torna a trovarci presto!</p>
-  </div>
+    <div class="bg-pattern"></div>
+    <div class="coming-soon-badge">Coming Soon</div>
+    <div class="monaco-flag">
+        <div class="flag-red"></div>
+        <div class="flag-white"></div>
+    </div>
+
+    <div class="container">
+        <div class="logo-container">
+            <svg class="logo" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+                <!-- Monaco skyline silhouette -->
+                <path d="M50 350 Q100 340 150 345 L200 340 L250 320 Q280 300 320 305 L350 295 Q380 280 420 285 L450 275 Q480 260 520 265 Q560 250 600 270 L650 260 Q680 240 720 245 Q760 230 800 250 L850 240 Q880 220 920 225 Q960 210 1000 230 L1050 220 Q1080 200 1120 205 L1150 350 Z" fill="none" stroke="#2c3e50" stroke-width="3"/>
+                
+                <!-- Castle towers -->
+                <rect x="320" y="200" width="40" height="150" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                <polygon points="315,200 345,180 365,200" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                <rect x="380" y="180" width="40" height="170" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                <polygon points="375,180 400,160 425,180" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                
+                <!-- Modern buildings -->
+                <rect x="520" y="250" width="60" height="100" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                <rect x="600" y="230" width="80" height="120" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                <rect x="700" y="270" width="50" height="80" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                <rect x="780" y="240" width="70" height="110" fill="none" stroke="#2c3e50" stroke-width="2"/>
+                
+                <!-- LKR Text -->
+                <text x="230" y="480" font-family="Arial, sans-serif" font-size="120" font-weight="bold" fill="#dc3545">LKR</text>
+                
+                <!-- RENOVATION MC SARL Text -->
+                <text x="680" y="440" font-family="Arial, sans-serif" font-size="48" font-weight="normal" fill="#2c3e50">RENOVATION</text>
+                <text x="680" y="500" font-family="Arial, sans-serif" font-size="48" font-weight="normal" fill="#2c3e50">MC SARL</text>
+            </svg>
+        </div>
+
+        <div class="main-content">
+            <h1 class="title">Website Under Construction</h1>
+            <p class="subtitle">Excellence in Renovation</p>
+            <p class="description">
+                We are crafting a premium digital experience that reflects our commitment to luxury renovations in the heart of Monaco. Our new website will showcase our exceptional portfolio and innovative approach to high-end construction and renovation projects.
+            </p>
+
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🏗️</div>
+                    <h3>Luxury Renovations</h3>
+                    <p>Specializing in high-end residential and commercial renovations throughout Monaco and the French Riviera.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">✨</div>
+                    <h3>Premium Quality</h3>
+                    <p>Uncompromising standards with attention to every detail, using only the finest materials and craftsmanship.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🌍</div>
+                    <h3>International Standards</h3>
+                    <p>Serving discerning clients with international expertise and local Monaco market knowledge.</p>
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <h3>Get in Touch</h3>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>info@lkrrenovation.mc</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <span>+377 XX XX XX XX</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>Monaco, MC</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sparkle effects -->
+    <div class="sparkle" style="top: 15%; left: 10%; animation-delay: 0s;">✨</div>
+    <div class="sparkle" style="top: 25%; right: 15%; animation-delay: 1s;">⭐</div>
+    <div class="sparkle" style="bottom: 20%; left: 20%; animation-delay: 1.5s;">✨</div>
+    <div class="sparkle" style="bottom: 30%; right: 10%; animation-delay: 0.5s;">⭐</div>
+
+    <script>
+        // Add dynamic sparkle effects
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.innerHTML = Math.random() > 0.5 ? '✨' : '⭐';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 2 + 's';
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 2000);
+        }
+
+        // Create sparkles periodically
+        setInterval(createSparkle, 3000);
+
+        // Add subtle parallax effect to logo
+        document.addEventListener('mousemove', (e) => {
+            const logo = document.querySelector('.logo');
+            const x = (e.clientX / window.innerWidth - 0.5) * 10;
+            const y = (e.clientY / window.innerHeight - 0.5) * 10;
+            logo.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        });
+
+        // Animate features on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0s';
+                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                }
+            });
+        });
+
+        document.querySelectorAll('.feature').forEach((feature, index) => {
+            feature.style.opacity = '0';
+            feature.style.animationDelay = `${index * 0.2}s`;
+            observer.observe(feature);
+        });
+    </script>
 </body>
 </html>
