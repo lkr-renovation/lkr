@@ -1,707 +1,250 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LKR Renovation MC SARL - Site en Construction</title>
-    <meta name="description" content="Contractant général spécialisé dans la rénovation et modernisation d'espaces résidentiels et professionnels au cœur de Monaco.">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LKR Renovation MC SARL – Contractant général à Monaco</title>
+  <meta name="description" content="Coordination complète des corps de métier pour particuliers et professionnels à Monaco. Rénovation, modernisation et gestion de chantier clé en main.">
 
-        body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%);
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
+  <!-- Icons / Canonical -->
+  <link rel="canonical" href="https://lkr.mc/">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-        .bg-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.02;
-            background-image: 
-                linear-gradient(45deg, #dc3545 25%, transparent 25%),
-                linear-gradient(-45deg, #dc3545 25%, transparent 25%),
-                linear-gradient(45deg, transparent 75%, #dc3545 75%),
-                linear-gradient(-45deg, transparent 75%, #dc3545 75%);
-            background-size: 80px 80px;
-            background-position: 0 0, 0 40px, 40px -40px, -40px 0px;
-        }
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LKR Renovation MC SARL">
+  <meta property="og:title" content="Contractant général à Monaco – Rénovation & Modernisation">
+  <meta property="og:description" content="Coordination complète des corps de métier pour particuliers et professionnels à Monaco.">
+  <meta property="og:url" content="https://lkr.mc/">
+  <meta property="og:image" content="/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#dc3545">
 
-        .container {
-            position: relative;
-            z-index: 1;
-            min-height: 100vh;
-            padding: 2rem;
-        }
+  <!-- JSON-LD LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Contractor",
+    "name":"LKR Renovation MC SARL",
+    "url":"https://lkr.mc",
+    "email":"info@lkr.mc",
+    "telephone":"+377640615650",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"38 Boulevard des Moulins",
+      "addressLocality":"Monaco",
+      "postalCode":"98000",
+      "addressCountry":"MC"
+    },
+    "areaServed":"MC",
+    "image":"https://lkr.mc/og-image.jpg"
+  }
+  </script>
 
-        .header {
-            text-align: center;
-            margin-bottom: 4rem;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .logo-container {
-            margin-bottom: 2rem;
-        }
-
-        .logo {
-            max-width: 350px;
-            width: 100%;
-            height: auto;
-            filter: drop-shadow(0 10px 30px rgba(220, 53, 69, 0.1));
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: translateY(-5px);
-        }
-
-        .hero-title {
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            font-weight: 300;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            letter-spacing: -0.01em;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1rem, 2vw, 1.3rem);
-            color: #dc3545;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .construction-notice {
-            background: linear-gradient(135deg, #dc3545, #c82333);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            display: inline-block;
-            font-weight: 500;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 20px rgba(220, 53, 69, 0.3);
-        }
-
-        .main-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            animation: fadeInUp 1s ease-out 0.3s both;
-        }
-
-        .intro-section {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(220, 53, 69, 0.1);
-        }
-
-        .intro-text {
-            font-size: clamp(1.1rem, 2vw, 1.3rem);
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 2rem;
-            font-style: italic;
-        }
-
-        .highlight {
-            color: #dc3545;
-            font-weight: 600;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .service-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 2.5rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(220, 53, 69, 0.1);
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #dc3545, #ff6b7a);
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover::before {
-            transform: translateX(0);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(220, 53, 69, 0.15);
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .service-title {
-            font-size: 1.4rem;
-            color: #dc3545;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .service-description {
-            color: #6c757d;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        .values-section {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: white;
-            border-radius: 20px;
-            padding: 3rem;
-            margin-bottom: 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .values-section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);
-            transform: rotate(45deg);
-            animation: shine 4s infinite;
-        }
-
-        .values-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .value-item {
-            text-align: center;
-            padding: 1.5rem;
-        }
-
-        .value-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #dc3545;
-        }
-
-        .value-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-section {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem;
-            text-align: center;
-            border: 2px solid #dc3545;
-        }
-
-        .contact-title {
-            font-size: 2rem;
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-text {
-            font-size: 1.1rem;
-            color: #6c757d;
-            margin-bottom: 2rem;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1.1rem;
-            color: #2c3e50;
-        }
-
-        .contact-form-container {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 2px solid rgba(220, 53, 69, 0.1);
-        }
-
-        .contact-form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid rgba(220, 53, 69, 0.2);
-            border-radius: 10px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.9);
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #dc3545;
-            box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .cta-button {
-            background: linear-gradient(135deg, #dc3545, #c82333);
-            color: white;
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            width: 100%;
-            margin-top: 1rem;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(220, 53, 69, 0.4);
-        }
-
-        .cta-button:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .form-success {
-            background: #d4edda;
-            color: #155724;
-            padding: 1rem;
-            border-radius: 10px;
-            text-align: center;
-            margin-bottom: 1rem;
-            border: 1px solid #c3e6cb;
-        }
-
-        .monaco-flag {
-            position: fixed;
-            top: 2rem;
-            right: 2rem;
-            width: 60px;
-            height: 40px;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            z-index: 100;
-        }
-
-        .flag-red {
-            background: #dc3545;
-            height: 50%;
-        }
-
-        .flag-white {
-            background: white;
-            height: 50%;
-        }
-
-        .coming-soon-badge {
-            position: fixed;
-            top: 50%;
-            left: -60px;
-            transform: rotate(-45deg) translateY(-50%);
-            background: linear-gradient(135deg, #dc3545, #c82333);
-            color: white;
-            padding: 0.5rem 4rem;
-            font-size: 0.9rem;
-            font-weight: bold;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
-            z-index: 100;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .intro-section, .service-card, .values-section, .contact-section {
-                padding: 2rem;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .monaco-flag {
-                top: 1rem;
-                right: 1rem;
-                width: 50px;
-                height: 33px;
-            }
-        }
-    </style>
+  <style>
+    :root{
+      --brand:#dc3545; --text:#212529; --muted:#6c757d; --bg:#ffffff; --card:#f8f9fa;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text); background:var(--bg); line-height:1.5;
+    }
+    a{color:var(--brand); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:980px;margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;gap:18px}
+    .logo{width:62px;height:62px;transition:transform .2s ease;will-change:transform}
+    h1{font-size:clamp(1.6rem,2.8vw,2.2rem);margin:0}
+    .subtitle{color:var(--muted);margin-top:4px}
+    .hero{padding:48px 0 24px;position:relative}
+    .badge{position:absolute;right:12px;top:12px;transform:rotate(-8deg);background:var(--brand);color:#fff;padding:6px 10px;border-radius:8px;font-weight:600}
+    @media (max-width:600px){.badge{display:none}}
+    .grid{display:grid;grid-template-columns: repeat(3,1fr);gap:16px;margin:28px 0}
+    @media (max-width:900px){.grid{grid-template-columns:1fr 1fr}}
+    @media (max-width:600px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid #e5e7eb;border-radius:16px;padding:18px}
+    .card h3{margin:0 0 8px;font-size:1.05rem}
+    .card p{margin:0;color:var(--muted)}
+    form{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:18px}
+    label{display:block;font-weight:600;margin:12px 0 6px}
+    input,textarea,select{width:100%;padding:10px 12px;border-radius:10px;border:1px solid #ced4da;font:inherit}
+    textarea{min-height:120px;resize:vertical}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media (max-width:600px){.row{grid-template-columns:1fr}}
+    button{margin-top:14px;padding:12px 16px;border-radius:10px;border:0;font-weight:700;cursor:pointer;background:var(--brand);color:#fff}
+    button:disabled{opacity:.7;cursor:not-allowed}
+    footer{text-align:center;font-size:.95rem;color:var(--muted);margin:36px 0 12px}
+    :focus-visible{outline:3px solid var(--brand);outline-offset:3px}
+    @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+  </style>
 </head>
 <body>
-    <div class="bg-pattern"></div>
-    <div class="coming-soon-badge">Site en Construction</div>
-    <div class="monaco-flag">
-        <div class="flag-red"></div>
-        <div class="flag-white"></div>
-    </div>
+  <div class="container">
+    <section class="hero">
+      <span class="badge" aria-label="Site en construction">Site en construction</span>
+      <header>
+        <!-- Logo SVG accessibile -->
+        <svg class="logo" role="img" aria-labelledby="logoTitle logoDesc" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <title id="logoTitle">LKR Renovation MC – logo</title>
+          <desc id="logoDesc">Logo minimal avec monogramme LKR</desc>
+          <circle cx="60" cy="60" r="58" fill="#ffffff" stroke="#dc3545" stroke-width="4"/>
+          <text x="50%" y="54%" text-anchor="middle" font-size="40" font-family="Georgia, serif" fill="#dc3545">LKR</text>
+        </svg>
+        <div>
+          <h1>LKR Renovation MC SARL</h1>
+          <p class="subtitle">Contractant général à Monaco – Rénovation, modernisation et coordination des corps de métier</p>
+        </div>
+      </header>
+    </section>
 
-    <div class="container">
-        <header class="header">
-            <div class="logo-container">
-                <svg class="logo" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Monaco skyline silhouette -->
-                    <path d="M50 350 Q100 340 150 345 L200 340 L250 320 Q280 300 320 305 L350 295 Q380 280 420 285 L450 275 Q480 260 520 265 Q560 250 600 270 L650 260 Q680 240 720 245 Q760 230 800 250 L850 240 Q880 220 920 225 Q960 210 1000 230 L1050 220 Q1080 200 1120 205 L1150 350 Z" fill="none" stroke="#2c3e50" stroke-width="3"/>
-                    
-                    <!-- Castle towers -->
-                    <rect x="320" y="200" width="40" height="150" fill="none" stroke="#2c3e50" stroke-width="2"/>
-                    <polygon points="315,200 345,180 365,200" fill="none" stroke="#2c3e50" stroke-width="2"/>
-                    <rect x="380" y="180" width="40" height="170" fill="none" stroke="#2c3e50" stroke-width="2"/>
-                    <polygon points="375,180 400,160 425,180" fill="none" stroke="#2c3e50" stroke-width="2"/>
-                    
-                    <!-- Modern buildings -->
-                    <rect x="520" y="250" width="60" height="100" fill="none" stroke="#2c3e50" stroke-width="2"/>
-                    <rect x="600" y="230" width="80" height="120" fill="none" stroke="#2c3e50" stroke-width="2"/>
-                    <rect x="700" y="270" width="50" height="80" fill="none" stroke="#2c3e50" stroke-width="2"/>
-                    <rect x="780" y="240" width="70" height="110" fill="none" stroke="#2c3e50" stroke-width="2"/>
-                    
-                    <!-- LKR Text -->
-                    <text x="230" y="480" font-family="Arial, sans-serif" font-size="120" font-weight="bold" fill="#dc3545">LKR</text>
-                    
-                    <!-- RENOVATION MC SARL Text -->
-                    <text x="680" y="440" font-family="Arial, sans-serif" font-size="48" font-weight="normal" fill="#2c3e50">RÉNOVATION</text>
-                    <text x="680" y="500" font-family="Arial, sans-serif" font-size="48" font-weight="normal" fill="#2c3e50">MC SARL</text>
-                </svg>
-            </div>
-            
-            <h1 class="hero-title">Votre Contractant Général à Monaco</h1>
-            <p class="hero-subtitle">Spécialisé dans la Rénovation & Modernisation</p>
-            <div class="construction-notice">🚧 Site Web en Construction</div>
-        </header>
+    <section>
+      <div class="grid">
+        <div class="card">
+          <h3>Clé en main</h3>
+          <p>Suivi de chantier, coordination des équipes, délais et qualité assurés.</p>
+        </div>
+        <div class="card">
+          <h3>Résidentiel & Tertiaire</h3>
+          <p>Appartements, boutiques et bureaux: rénovation complète ou partielle.</p>
+        </div>
+        <div class="card">
+          <h3>Un seul interlocuteur</h3>
+          <p>Gestion des artisans, planning et budget avec un responsable unique.</p>
+        </div>
+      </div>
+    </section>
 
-        <main class="main-content">
-            <section class="intro-section">
-                <p class="intro-text">
-                    Au cœur de la <span class="highlight">Principauté de Monaco</span>, une nouvelle société voit le jour : <strong>LKR RENOVATION MC SARL</strong>, spécialisée dans la rénovation et la modernisation des espaces résidentiels et professionnels. L'entreprise se positionne comme <span class="highlight">contractant général</span>, offrant à ses clients un interlocuteur unique capable de coordonner l'ensemble des métiers nécessaires à la réussite d'un projet de bâtiment.
-                </p>
-                <p class="intro-text">
-                    L'objectif est clair : rendre plus simple et plus sûr, pour les particuliers comme pour les professionnels, la réalisation de travaux allant de la maintenance courante aux transformations les plus complexes.
-                </p>
-            </section>
+    <section aria-labelledby="contactTitle">
+      <h2 id="contactTitle">Contact</h2>
+      <form id="contactForm" novalidate>
+        <!-- Honeypot anti-spam (invisibile agli utenti) -->
+        <input type="text" name="company" id="company" tabindex="-1" autocomplete="off" style="position:absolute;left:-5000px" aria-hidden="true">
 
-            <section class="services-grid">
-                <div class="service-card">
-                    <span class="service-icon">🏗️</span>
-                    <h3 class="service-title">Un Seul Référent pour Chaque Besoin</h3>
-                    <p class="service-description">
-                        Grâce à un réseau d'artisans et d'entreprises qualifiées, nous prenons en charge des interventions variées : rafraîchissement des intérieurs, remplacement de menuiseries, installations électriques et de climatisation, plomberie, revêtements de sols et agencements sur mesure.
-                    </p>
-                </div>
+        <div class="row">
+          <div>
+            <label for="name">Nom et Prénom *</label>
+            <input id="name" name="name" required autocomplete="name" placeholder="Votre nom et prénom">
+          </div>
+          <div>
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="nom@exemple.com">
+          </div>
+        </div>
 
-                <div class="service-card">
-                    <span class="service-icon">✅</span>
-                    <h3 class="service-title">Conformité & Expertise</h3>
-                    <p class="service-description">
-                        Tous les travaux sont réalisés dans le respect strict de la réglementation locale, avec recours à des architectes et ingénieurs habilités lorsque la loi l'exige. Votre tranquillité d'esprit est notre priorité.
-                    </p>
-                </div>
+        <div class="row">
+          <div>
+            <label for="phone">Téléphone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" pattern="[\\d+\\s()\\-]{6,}" placeholder="+377 …">
+          </div>
+          <div>
+            <label for="projectType">Type de projet</label>
+            <select id="projectType" name="projectType">
+              <option value="">Sélectionner…</option>
+              <option>Rénovation complète</option>
+              <option>Modernisation</option>
+              <option>Aménagement boutique/bureau</option>
+              <option>Autre</option>
+            </select>
+          </div>
+        </div>
 
-                <div class="service-card">
-                    <span class="service-icon">🎯</span>
-                    <h3 class="service-title">Service Clé en Main</h3>
-                    <p class="service-description">
-                        Notre force réside dans notre capacité à coordonner différents professionnels, garantissant des délais maîtrisés, une gestion rigoureuse des coûts et une qualité d'exécution irréprochable, sans la complexité de gérer plusieurs interlocuteurs.
-                    </p>
-                </div>
-            </section>
+        <label for="message">Message *</label>
+        <textarea id="message" name="message" required placeholder="Décrivez brièvement votre projet…"></textarea>
 
-            <section class="values-section">
-                <h2 class="values-title">Nos Engagements</h2>
-                <div class="values-grid">
-                    <div class="value-item">
-                        <div class="value-icon">🏛️</div>
-                        <h3 class="value-title">Patrimoine Monégasque</h3>
-                        <p>Valoriser l'immobilier de Monaco en respectant son identité unique</p>
-                    </div>
-                    <div class="value-item">
-                        <div class="value-icon">🌿</div>
-                        <h3 class="value-title">Durabilité</h3>
-                        <p>Attention particulière au confort, à la durabilité et à l'efficacité énergétique</p>
-                    </div>
-                    <div class="value-item">
-                        <div class="value-icon">🤝</div>
-                        <h3 class="value-title">Transparence</h3>
-                        <p>Un partenaire de confiance, sérieux et transparent pour tous vos projets</p>
-                    </div>
-                </div>
-            </section>
+        <button id="sendBtn" type="submit">Envoyer</button>
+        <p id="formNote" class="subtitle" aria-live="polite" style="margin-top:8px"></p>
+      </form>
+    </section>
 
-            <section class="contact-section">
-                <h2 class="contact-title">Contactez-Nous</h2>
-                <p class="contact-text">
-                    « Notre mission est de donner une nouvelle vie aux espaces, en respectant l'identité de Monaco et les attentes de ceux qui y vivent et y travaillent. »
-                </p>
-                
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <span>📧</span>
-                        <span>info@lkr.mc</span>
-                    </div>
-                    <div class="contact-item">
-                        <span>📱</span>
-                        <span>+377 6 40 61 56 50</span>
-                    </div>
-                    <div class="contact-item">
-                        <span>📍</span>
-                        <span>38 Boulevard des Moulins, 98000 Monaco, MC</span>
-                    </div>
-                    <div class="contact-item">
-                        <span>🏛️</span>
-                        <span>FR72000188879</span>
-                    </div>
-                </div>
+    <footer>
+      LKR RENOVATION MC SARL – 38 Boulevard des Moulins, 98000 Monaco • Tél. +377 6 40 61 56 50 •
+      <a href="mailto:info@lkr.mc">info@lkr.mc</a><br>
+      RCI/ID: <!-- inserisci qui il numero definitivo --> • TVA: FR72000188879<br>
+      <a href="/mentions-legales.html">Mentions légales</a> • <a href="/confidentialite.html">Politique de confidentialité</a>
+    </footer>
+  </div>
 
-                <div class="contact-form-container">
-                    <h3 style="margin-bottom: 1.5rem; color: #2c3e50;">Demande d'Information</h3>
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Nom et Prénom *" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Email *" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" id="phone" name="phone" placeholder="Téléphone">
-                        </div>
-                        <div class="form-group">
-                            <select id="project-type" name="project-type" required>
-                                <option value="">Type de projet *</option>
-                                <option value="renovation-appartement">Rénovation d'appartement</option>
-                                <option value="renovation-bureaux">Rénovation de bureaux</option>
-                                <option value="maintenance">Maintenance</option>
-                                <option value="menuiseries">Menuiseries</option>
-                                <option value="electricite-climatisation">Électricité / Climatisation</option>
-                                <option value="plomberie">Plomberie</option>
-                                <option value="revetements-sols">Revêtements de sols</option>
-                                <option value="agencement">Agencement sur mesure</option>
-                                <option value="autre">Autre projet</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Description du projet et informations complémentaires" rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="cta-button">Envoyer la Demande</button>
-                    </form>
-                </div>
-            </section>
-        </main>
-    </div>
-
-    <script>
-        // Intersection Observer for animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationDelay = '0s';
-                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        // Animate service cards
-        document.querySelectorAll('.service-card').forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.animationDelay = `${index * 0.2}s`;
-            observer.observe(card);
+  <script>
+    // Effetto leggero sul logo con throttling via rAF (performance-friendly)
+    (function(){
+      let rafId=null;
+      const logo=document.querySelector('.logo');
+      if(!logo) return;
+      document.addEventListener('mousemove',(e)=>{
+        if(rafId) return;
+        rafId=requestAnimationFrame(()=>{
+          const r=logo.getBoundingClientRect();
+          const x=(e.clientX - r.left - r.width/2)*0.01;
+          const y=(e.clientY - r.top - r.height/2)*0.01;
+          logo.style.transform=`translateX(${x}px) translateY(${y}px)`;
+          rafId=null;
         });
+      });
+    })();
 
-        // Animate value items
-        document.querySelectorAll('.value-item').forEach((item, index) => {
-            item.style.opacity = '0';
-            item.style.animationDelay = `${index * 0.15}s`;
-            observer.observe(item);
-        });
+    // Submit: prova /api/contact (Vercel). Se fallisce, fallback mailto: info@lkr.mc
+    (function(){
+      const form=document.getElementById('contactForm');
+      const note=document.getElementById('formNote');
+      const btn=document.getElementById('sendBtn');
 
-        // Smooth scroll effect for logo
-        document.addEventListener('mousemove', (e) => {
-            const logo = document.querySelector('.logo');
-            const rect = logo.getBoundingClientRect();
-            const x = (e.clientX - rect.left - rect.width/2) * 0.01;
-            const y = (e.clientY - rect.top - rect.height/2) * 0.01;
-            logo.style.transform = `translateX(${x}px) translateY(${y}px)`;
-        });
+      function mailtoFallback(data){
+        const subject=`Demande d'information • ${data.get('projectType')||'Projet'} • ${data.get('name')||''}`;
+        const bodyLines = [
+          `Nom: ${data.get('name')||''}`,
+          `Email: ${data.get('email')||''}`,
+          `Téléphone: ${data.get('phone')||''}`,
+          `Projet: ${data.get('projectType')||''}`,
+          ``,
+          `Message:`,
+          `${(data.get('message')||'').replace(/\n/g,'%0D%0A')}`
+        ];
+        const body=encodeURIComponent(bodyLines.join('%0D%0A'));
+        window.location.href=`mailto:info@lkr.mc?subject=${encodeURIComponent(subject)}&body=${body}`;
+      }
 
-        // Add dynamic background elements
-        function createFloatingElement() {
-            const element = document.createElement('div');
-            element.style.position = 'fixed';
-            element.style.width = '4px';
-            element.style.height = '4px';
-            element.style.background = '#dc3545';
-            element.style.borderRadius = '50%';
-            element.style.opacity = '0.1';
-            element.style.left = Math.random() * 100 + '%';
-            element.style.top = '100%';
-            element.style.pointerEvents = 'none';
-            element.style.zIndex = '0';
-            
-            document.body.appendChild(element);
-            
-            const animation = element.animate([
-                { transform: 'translateY(0px)', opacity: 0.1 },
-                { transform: 'translateY(-100vh)', opacity: 0 }
-            ], {
-                duration: 8000 + Math.random() * 4000,
-                easing: 'linear'
-            });
-            
-            animation.onfinish = () => element.remove();
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        note.textContent='';
+
+        const data=new FormData(form);
+        if((data.get('company')||'').trim()!==''){ return; } // bot honeypot
+
+        if(!data.get('name') || !data.get('email') || !data.get('message')){
+          note.textContent="Merci de remplir les champs obligatoires (Nom, Email, Message).";
+          return;
         }
 
-        // Handle form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                phone: formData.get('phone'),
-                projectType: formData.get('project-type'),
-                message: formData.get('message')
-            };
-            
-            // Create email body
-            const emailBody = `
-Nouvelle demande d'information - LKR Renovation MC
+        btn.disabled=true; btn.textContent='Envoi…';
 
-Nom: ${data.name}
-Email: ${data.email}
-Téléphone: ${data.phone}
-Type de projet: ${data.projectType}
-
-Message:
-${data.message}
-            `.trim();
-            
-            // Create mailto link
-            const mailtoLink = `mailto:info@lkr.mc?subject=Demande d'information - ${data.name}&body=${encodeURIComponent(emailBody)}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show success message
-            const form = document.getElementById('contactForm');
-            const successDiv = document.createElement('div');
-            successDiv.className = 'form-success';
-            successDiv.innerHTML = '✅ Votre demande a été préparée. Votre client email va s\'ouvrir pour l\'envoi.';
-            form.parentNode.insertBefore(successDiv, form);
-            
-            // Reset form
-            this.reset();
-            
-            // Remove success message after 5 seconds
-            setTimeout(() => {
-                if (successDiv.parentNode) {
-                    successDiv.remove();
-                }
-            }, 5000);
-        });
-
-        // Create floating elements periodically
-        setInterval(createFloatingElement, 2000);
-    </script>
+        try{
+          const res=await fetch('/api/contact', {
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({
+              name:data.get('name'),
+              email:data.get('email'),
+              phone:data.get('phone'),
+              projectType:data.get('projectType'),
+              message:data.get('message')
+            })
+          });
+          if(res.ok){
+            form.reset();
+            note.textContent="Merci, votre message a été envoyé. Nous vous répondrons rapidement.";
+          }else{
+            mailtoFallback(data);
+          }
+        }catch(_err){
+          mailtoFallback(data);
+        }finally{
+          btn.disabled=false; btn.textContent='Envoyer';
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
