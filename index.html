@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-lang="fr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -57,8 +57,6 @@
       background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 50%, var(--bg3) 100%);
       min-height:100vh; position:relative; overflow-x:hidden;
     }
-
-    /* Monaco-inspired geometric background */
     .bg-pattern{
       position:fixed; inset:0; opacity:.04; pointer-events:none;
       background-image:
@@ -69,7 +67,6 @@
       background-size:60px 60px;
       background-position:0 0, 0 30px, 30px -30px, -30px 0;
     }
-
     .container{ max-width:1100px; margin:0 auto; padding:28px; position:relative; z-index:1; }
 
     header{ display:flex; align-items:center; gap:18px; position:relative; }
@@ -78,7 +75,10 @@
       background:linear-gradient(135deg,var(--brand),var(--brand2)); color:#fff;
       padding:6px 12px; border-radius:10px; font-weight:700; box-shadow:0 6px 18px rgba(220,53,69,.3);
     }
-    @media (max-width:600px){ .badge{ display:none; } }
+    .monaco-flag{ position:absolute; top:-6px; left:-6px; width:60px; height:40px; border-radius:6px; overflow:hidden; box-shadow:0 5px 15px rgba(0,0,0,.18); }
+    .flag-red{ background:var(--brand); height:50%; }
+    .flag-white{ background:#fff; height:50%; }
+    @media (max-width:768px){ .monaco-flag{ display:none; } }
 
     .logo-wrap{ margin:24px 0 8px; }
     .logo{
@@ -89,13 +89,11 @@
     h1{ font-size:clamp(1.8rem, 3.2vw, 2.6rem); margin:0; letter-spacing:-.02em; }
     .subtitle{ font-size:clamp(1.05rem,2vw,1.25rem); color:var(--muted); margin:.35rem 0 1.2rem; }
 
-    /* Monaco flag chip */
-    .monaco-flag{ position:absolute; top:-6px; left:-6px; width:60px; height:40px; border-radius:6px; overflow:hidden; box-shadow:0 5px 15px rgba(0,0,0,.18); }
-    .flag-red{ background:var(--brand); height:50%; }
-    .flag-white{ background:#fff; height:50%; }
-    @media (max-width:768px){ .monaco-flag{ display:none; } }
+    nav.lang{ margin-left:auto; display:flex; gap:8px; align-items:center; }
+    nav.lang button{ border:1px solid var(--border); background:#fff; padding:6px 10px; border-radius:10px; cursor:pointer; }
+    nav.lang button.active{ background:linear-gradient(135deg,var(--brand),var(--brand2)); color:#fff; border-color:transparent; }
 
-    /* Features glass cards */
+    /* Features */
     .features{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin:22px 0 34px; }
     @media (max-width:980px){ .features{ grid-template-columns:1fr 1fr; } }
     @media (max-width:680px){ .features{ grid-template-columns:1fr; } }
@@ -113,8 +111,17 @@
     .feature h3{ margin:0 0 8px; font-size:1.08rem; }
     .feature p{ margin:0; color:var(--muted); }
 
+    /* VALUES */
+    .values{ background: linear-gradient(135deg, #2c3e50, #34495e); color: #fff;
+      border-radius:20px; padding:28px; margin:26px 0; }
+    .values h2{ text-align:center; margin:0 0 12px; font-weight:600; color:#fff; }
+    .values-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    @media (max-width:980px){ .values-grid{ grid-template-columns:1fr; } }
+    .values-item{ text-align:center; }
+    .values-item h3{ margin:8px 0; }
+
     /* CONTACT */
-    section h2{ margin:10px 0 12px; }
+    section h2{ margin:12px 0 12px; }
     form{
       background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:18px;
       box-shadow:0 10px 26px rgba(0,0,0,.04);
@@ -137,20 +144,6 @@
     footer{ text-align:center; font-size:.95rem; color:var(--muted); margin:36px 0 12px; }
     a{ color:var(--brand); text-decoration:none; }
     a:hover{ text-decoration:underline; }
-
-    /* Accessibility & Motion */
-    :focus-visible{ outline:3px solid var(--brand); outline-offset:3px; }
-    @media (prefers-reduced-motion: reduce){
-      *{ animation:none !important; transition:none !important; }
-      .sparkle{ display:none !important; }
-    }
-
-    /* Sparkles (decorative) */
-    .sparkle{ position:fixed; pointer-events:none; z-index:0; color:var(--brand); opacity:.7; }
-    @keyframes sparkle {
-      0%,100% { opacity:0; transform:scale(0); }
-      50% { opacity:1; transform:scale(1); }
-    }
   </style>
 </head>
 <body>
@@ -159,13 +152,20 @@
   <div class="container">
     <header>
       <div class="monaco-flag" aria-hidden="true">
-        <div class="flag-red"></div>
-        <div class="flag-white"></div>
+        <div class="flag-red"></div><div class="flag-white"></div>
       </div>
-      <span class="badge">Site en construction</span>
+      <span class="badge" data-i18n="siteBadge">Site en construction</span>
+
+      <nav class="lang" aria-label="Language">
+        <button data-setlang="fr" class="active">FR</button>
+        <button data-setlang="it">IT</button>
+        <button data-setlang="en">EN</button>
+        <button data-setlang="ru">RU</button>
+        <button data-setlang="de">DE</button>
+      </nav>
     </header>
 
-    <!-- LOGO / HERO -->
+    <!-- LOGO -->
     <div class="logo-wrap">
       <div class="logo-container">
         <img src="/img/logo-lkr-orizzontale@2x.png"
@@ -175,52 +175,74 @@
       </div>
     </div>
 
-    <h1>LKR Renovation MC SARL</h1>
-    <p class="subtitle">Contractant général à Monaco – Rénovation, modernisation et coordination des corps de métier</p>
+    <h1 data-i18n="heroTitle">LKR Renovation MC SARL</h1>
+    <p class="subtitle" data-i18n="subtitle">Contractant général à Monaco – Rénovation, modernisation et coordination des corps de métier</p>
 
-    <!-- FEATURES (glass) -->
+    <!-- FEATURES (re-inserite dagli screenshot) -->
     <section aria-label="Points forts" class="features">
       <article class="feature">
-        <h3>Clé en main</h3>
-        <p>Suivi de chantier, coordination des équipes, délais et qualité assurés.</p>
+        <h3 data-i18n="features.0.0">Clé en main</h3>
+        <p data-i18n="features.0.1">Suivi de chantier, coordination des équipes, délais et qualité assurés.</p>
       </article>
       <article class="feature">
-        <h3>Résidentiel & Tertiaire</h3>
-        <p>Appartements, boutiques et bureaux : rénovation complète ou partielle.</p>
+        <h3 data-i18n="features.1.0">Résidentiel & Tertiaire</h3>
+        <p data-i18n="features.1.1">Appartements, boutiques et bureaux : rénovation complète ou partielle.</p>
       </article>
       <article class="feature">
-        <h3>Un seul interlocuteur</h3>
-        <p>Gestion des artisans, planning et budget avec un responsable unique.</p>
+        <h3 data-i18n="features.2.0">Un seul interlocuteur</h3>
+        <p data-i18n="features.2.1">Gestion des artisans, planning et budget avec un responsable unique.</p>
       </article>
     </section>
 
-    <!-- CONTACT -->
+    <!-- COMMITMENTS (re-inseriti dagli screenshot) -->
+    <section class="values">
+      <h2 data-i18n="valuesTitle">Nos Engagements</h2>
+      <div class="values-grid">
+        <div class="values-item">
+          <div style="font-size:42px">🏛️</div>
+          <h3 data-i18n="values.0.0">Patrimoine Monégasque</h3>
+          <p data-i18n="values.0.1">Valoriser l'immobilier de Monaco en respectant son identité unique</p>
+        </div>
+        <div class="values-item">
+          <div style="font-size:42px">🌿</div>
+          <h3 data-i18n="values.1.0">Durabilité</h3>
+          <p data-i18n="values.1.1">Attention particulière au confort, à la durabilité et à l'efficacité énergétique</p>
+        </div>
+        <div class="values-item">
+          <div style="font-size:42px">🤝</div>
+          <h3 data-i18n="values.2.0">Transparence</h3>
+          <p data-i18n="values.2.1">Un partenaire de confiance, sérieux et transparent pour tous vos projets</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT (come nella versione attuale) -->
     <section aria-labelledby="contactTitle">
-      <h2 id="contactTitle">Contact</h2>
+      <h2 id="contactTitle" data-i18n="contact">Contact</h2>
       <form id="contactForm" novalidate>
         <!-- Honeypot anti-spam -->
         <input type="text" name="company" id="company" tabindex="-1" autocomplete="off" style="position:absolute;left:-5000px" aria-hidden="true">
 
         <div class="row">
           <div>
-            <label for="name">Nom et Prénom *</label>
-            <input id="name" name="name" required autocomplete="name" placeholder="Votre nom et prénom">
+            <label for="name" data-i18n="form.name">Nom et Prénom *</label>
+            <input id="name" name="name" required autocomplete="name">
           </div>
           <div>
-            <label for="email">Email *</label>
-            <input id="email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="nom@exemple.com">
+            <label for="email" data-i18n="form.email">Email *</label>
+            <input id="email" name="email" type="email" required autocomplete="email" inputmode="email">
           </div>
         </div>
 
         <div class="row">
           <div>
-            <label for="phone">Téléphone</label>
-            <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" pattern="[\\d+\\s()\\-]{6,}" placeholder="+377 …">
+            <label for="phone" data-i18n="form.phone">Téléphone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" pattern="[\\d+\\s()\\-]{6,}">
           </div>
           <div>
-            <label for="projectType">Type de projet</label>
+            <label for="projectType" data-i18n="form.type">Type de projet</label>
             <select id="projectType" name="projectType">
-              <option value="">Sélectionner…</option>
+              <option value="" data-i18n="form.select">Sélectionner…</option>
               <option>Rénovation complète</option>
               <option>Modernisation</option>
               <option>Aménagement boutique/bureau</option>
@@ -229,30 +251,24 @@
           </div>
         </div>
 
-        <label for="message">Message *</label>
-        <textarea id="message" name="message" required placeholder="Décrivez brièvement votre projet…"></textarea>
+        <label for="message" data-i18n="form.message">Message *</label>
+        <textarea id="message" name="message" required></textarea>
 
-        <button id="sendBtn" type="submit">Envoyer</button>
+        <button id="sendBtn" type="submit" data-i18n="form.send">Envoyer</button>
         <p id="formNote" class="help" aria-live="polite"></p>
       </form>
     </section>
 
     <footer>
-      LKR RENOVATION MC SARL – 38 Boulevard des Moulins, 98000 Monaco • Tél. +377 6 40 61 56 50 •
+      <span data-i18n="footer">LKR RENOVATION MC SARL – 38 Boulevard des Moulins, 98000 Monaco • Tél. +377 6 40 61 56 50 • </span>
       <a href="mailto:info@lkr.mc">info@lkr.mc</a><br>
-      RCI/ID: <!-- insérer le numéro --> • TVA: FR72000188879<br>
-      <a href="/mentions-legales.html">Mentions légales</a> • <a href="/confidentialite.html">Politique de confidentialité</a>
+      <span data-i18n="rci">RCI/ID:  • TVA: FR72000188879</span><br>
+      <a href="/mentions-legales.html" data-i18n="mentions">Mentions légales</a> • <a href="/confidentialite.html" data-i18n="privacy">Politique de confidentialité</a>
     </footer>
   </div>
 
-  <!-- Sparkles décoratifs -->
-  <div class="sparkle" style="top:15%; left:10%; animation:sparkle 2s infinite 0s;"></div>
-  <div class="sparkle" style="top:25%; right:15%; animation:sparkle 2.2s infinite .6s;"></div>
-  <div class="sparkle" style="bottom:20%; left:20%; animation:sparkle 2.4s infinite 1.2s;"></div>
-  <div class="sparkle" style="bottom:30%; right:8%; animation:sparkle 2.1s infinite .3s;"></div>
-
   <script>
-    // Parallax leggero sul logo con throttling via rAF
+    // Parallax leggero sul logo
     (function(){
       let rafId=null;
       const logo=document.querySelector('.logo');
@@ -268,38 +284,116 @@
       });
     })();
 
-    // Animazione "reveal" delle feature al primo scroll
-    (function(){
-      const features=[...document.querySelectorAll('.feature')];
-      const obs=new IntersectionObserver((entries)=>{
-        entries.forEach((en)=>{
-          if(en.isIntersecting){
-            en.target.style.transition='opacity .6s ease, transform .6s ease';
-            en.target.style.opacity='1';
-            en.target.style.transform='translateY(0)';
-            obs.unobserve(en.target);
-          }
-        });
-      },{threshold:.15});
-      features.forEach((f,i)=>{
-        f.style.opacity='0'; f.style.transform='translateY(14px)'; f.style.transitionDelay = (i*80)+'ms';
-        obs.observe(f);
-      });
-    })();
+    // Dizionario i18n
+    const I18N = {
+      fr:{
+        siteBadge:"Site en construction",
+        heroTitle:"LKR Renovation MC SARL",
+        subtitle:"Contractant général à Monaco – Rénovation, modernisation et coordination des corps de métier",
+        features:[["Clé en main","Suivi de chantier, coordination des équipes, délais et qualité assurés."],["Résidentiel & Tertiaire","Appartements, boutiques et bureaux : rénovation complète ou partielle."],["Un seul interlocuteur","Gestion des artisans, planning et budget avec un responsable unique."]],
+        valuesTitle:"Nos Engagements",
+        values:[["Patrimoine Monégasque","Valoriser l'immobilier de Monaco en respectant son identité unique"],["Durabilité","Attention particulière au confort, à la durabilité et à l'efficacité énergétique"],["Transparence","Un partenaire de confiance, sérieux et transparent pour tous vos projets"]],
+        contact:"Contact",
+        form:{name:"Nom et Prénom *",email:"Email *",phone:"Téléphone",type:"Type de projet",select:"Sélectionner…",types:["Rénovation complète","Modernisation","Aménagement boutique/bureau","Autre"],message:"Message *",send:"Envoyer",thanks:"Merci, votre message a été envoyé. Nous vous répondrons rapidement.",fill:"Merci de remplir les champs obligatoires (Nom, Email, Message)."},
+        footer:"LKR RENOVATION MC SARL – 38 Boulevard des Moulins, 98000 Monaco • Tél. +377 6 40 61 56 50 • ",
+        rci:"RCI/ID:  • TVA: FR72000188879",
+        mentions:"Mentions légales",
+        privacy:"Politique de confidentialité"
+      },
+      it:{
+        siteBadge:"Sito in costruzione",
+        heroTitle:"LKR Renovation MC SARL",
+        subtitle:"General contractor a Monaco – Ristrutturazione, modernizzazione e coordinamento delle maestranze",
+        features:[["Chiavi in mano","Direzione lavori, coordinamento squadre, tempi e qualità garantiti."],["Residenziale & Terziario","Appartamenti, negozi e uffici: ristrutturazione totale o parziale."],["Un solo referente","Gestione artigiani, planning e budget con un responsabile unico."]],
+        valuesTitle:"I nostri impegni",
+        values:[["Patrimonio Monegasco","Valorizzare gli immobili del Principato rispettandone l'identità."],["Sostenibilità","Attenzione al comfort, alla durabilità e all'efficienza energetica."],["Trasparenza","Un partner affidabile e trasparente per tutti i vostri progetti."]],
+        contact:"Contatti",
+        form:{name:"Nome e Cognome *",email:"Email *",phone:"Telefono",type:"Tipo di progetto",select:"Seleziona…",types:["Ristrutturazione completa","Modernizzazione","Allestimento negozio/ufficio","Altro"],message:"Messaggio *",send:"Invia",thanks:"Grazie, il messaggio è stato inviato. Risponderemo rapidamente.",fill:"Compila i campi obbligatori (Nome, Email, Messaggio)."},
+        footer:"LKR RENOVATION MC SARL – 38 Boulevard des Moulins, 98000 Monaco • Tel. +377 6 40 61 56 50 • ",
+        rci:"RCI/ID:  • IVA: FR72000188879",
+        mentions:"Note legali",
+        privacy:"Privacy"
+      },
+      en:{
+        siteBadge:"Site under construction",
+        heroTitle:"LKR Renovation MC SARL",
+        subtitle:"General contractor in Monaco – Renovation, modernization and coordination of trades",
+        features:[["Turnkey","Site supervision, team coordination, timelines and quality assured."],["Residential & Commercial","Apartments, shops and offices: full or partial renovation."],["Single point of contact","Artisans, schedule and budget managed by one responsible lead."]],
+        valuesTitle:"Our Commitments",
+        values:[["Monégasque Heritage","Enhancing Monaco real estate while respecting its unique identity"],["Sustainability","Focus on comfort, durability and energy efficiency"],["Transparency","A trustworthy, transparent partner for all your projects"]],
+        contact:"Contact",
+        form:{name:"Full name *",email:"Email *",phone:"Phone",type:"Project type",select:"Select…",types:["Full renovation","Modernization","Shop/office fit-out","Other"],message:"Message *",send:"Send",thanks:"Thank you, your message has been sent. We will reply promptly.",fill:"Please fill the required fields (Name, Email, Message)."},
+        footer:"LKR RENOVATION MC SARL – 38 Boulevard des Moulins, 98000 Monaco • Tel. +377 6 40 61 56 50 • ",
+        rci:"RCI/ID:  • VAT: FR72000188879",
+        mentions:"Legal notice",
+        privacy:"Privacy policy"
+      },
+      ru:{
+        siteBadge:"Сайт в разработке",
+        heroTitle:"LKR Renovation MC SARL",
+        subtitle:"Генеральный подрядчик в Монако – ремонт, модернизация и координация подрядов",
+        features:[["Под ключ","Технический надзор, координация команд, сроки и качество."],["Жилая и коммерческая недвижимость","Квартиры, магазины и офисы: частичный или полный ремонт."],["Одна точка контакта","Мастера, график и бюджет ведёт один ответственный."]],
+        valuesTitle:"Наши принципы",
+        values:[["Наследие Монако","Сохраняем уникальную идентичность недвижимости Монако"],["Устойчивость","Комфорт, долговечность и энергоэффективность"],["Прозрачность","Надёжный и открытый партнёр для ваших проектов"]],
+        contact:"Контакты",
+        form:{name:"Имя и фамилия *",email:"Email *",phone:"Телефон",type:"Тип проекта",select:"Выбрать…",types:["Капитальный ремонт","Модернизация","Торговая/офисная отделка","Другое"],message:"Сообщение *",send:"Отправить",thanks:"Спасибо! Сообщение отправлено. Мы ответим в ближайшее время.",fill:"Пожалуйста, заполните обязательные поля (Имя, Email, Сообщение)."},
+        footer:"LKR RENOVATION MC SARL – 38 Boulevard des Moulins, 98000 Monaco • Тел. +377 6 40 61 56 50 • ",
+        rci:"RCI/ID:  • НДС: FR72000188879",
+        mentions:"Юридическая информация",
+        privacy:"Конфиденциальность"
+      },
+      de:{
+        siteBadge:"Website im Aufbau",
+        heroTitle:"LKR Renovation MC SARL",
+        subtitle:"Generalunternehmer in Monaco – Renovierung, Modernisierung und Gewerke-Koordination",
+        features:[["Schlüsselfertig","Bauleitung, Teamkoordination, Termine und Qualität gesichert."],["Wohnen & Gewerbe","Wohnungen, Shops und Büros: Komplett- oder Teilrenovierung."],["Ein Ansprechpartner","Handwerker, Zeitplan und Budget aus einer Hand."]],
+        valuesTitle:"Unsere Leitlinien",
+        values:[["Monegassisches Erbe","Wertsteigerung bei Wahrung der einzigartigen Identität Monacos"],["Nachhaltigkeit","Komfort, Langlebigkeit und Energieeffizienz"],["Transparenz","Vertrauensvoller, transparenter Partner für alle Projekte"]],
+        contact:"Kontakt",
+        form:{name:"Vor- und Nachname *",email:"E-Mail *",phone:"Telefon",type:"Projekttyp",select:"Auswählen…",types:["Komplettrenovierung","Modernisierung","Shop-/Büro-Ausbau","Andere"],message:"Nachricht *",send:"Senden",thanks:"Vielen Dank, Ihre Nachricht wurde gesendet. Wir melden uns umgehend.",fill:"Bitte füllen Sie die Pflichtfelder aus (Name, E-Mail, Nachricht)."},
+        footer:"LKR RENOVATION MC SARL – 38 Boulevard des Moulins, 98000 Monaco • Tel. +377 6 40 61 56 50 • ",
+        rci:"RCI/ID:  • USt: FR72000188879",
+        mentions:"Impressum",
+        privacy:"Datenschutz"
+      }
+    };
 
-    // FORM: prova /api/contact, fallback mailto se errore
+    const html = document.documentElement;
+
+    function setLang(lang){
+      html.setAttribute('lang', lang);
+      html.setAttribute('data-lang', lang);
+      // testi
+      document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const key = el.getAttribute('data-i18n').split('.');
+        let v = I18N[lang];
+        key.forEach(k => v = v && v[k]);
+        if(typeof v === 'string') el.textContent = v;
+      });
+      // options select
+      const select = document.getElementById('projectType');
+      if(select){
+        select.innerHTML = `<option value="">${I18N[lang].form.select}</option>` + I18N[lang].form.types.map(t=>`<option>${t}</option>`).join('');
+      }
+      document.querySelectorAll('nav.lang button').forEach(b=>b.classList.toggle('active', b.dataset.setlang===lang));
+    }
+
+    document.querySelectorAll('nav.lang button').forEach(b=>b.addEventListener('click', ()=>setLang(b.dataset.setlang)));
+    setLang('fr');
+
+    // Form: prova /api/contact, fallback mailto
     (function(){
       const form=document.getElementById('contactForm');
       const note=document.getElementById('formNote');
       const btn=document.getElementById('sendBtn');
 
       function mailtoFallback(data){
-        const subject=`Demande d'information • ${data.get('projectType')||'Projet'} • ${data.get('name')||''}`;
+        const subject=`Contact LKR • ${data.get('projectType')||'Projet'} • ${data.get('name')||''}`;
         const lines=[
-          `Nom: ${data.get('name')||''}`,
+          `Nom/Name: ${data.get('name')||''}`,
           `Email: ${data.get('email')||''}`,
           `Téléphone: ${data.get('phone')||''}`,
-          `Projet: ${data.get('projectType')||''}`,
+          `Projet/Project: ${data.get('projectType')||''}`,
           ``,
           `Message:`,
           `${(data.get('message')||'').replace(/\n/g,'%0D%0A')}`
@@ -311,14 +405,12 @@
       form.addEventListener('submit', async (e)=>{
         e.preventDefault(); note.textContent='';
         const data=new FormData(form);
+        const L = I18N[document.documentElement.getAttribute('data-lang')||'fr'];
         if((data.get('company')||'').trim()!==''){ return; } // honeypot
-
         if(!data.get('name') || !data.get('email') || !data.get('message')){
-          note.textContent="Merci de remplir les champs obligatoires (Nom, Email, Message).";
-          return;
+          note.textContent=L.form.fill; return;
         }
-
-        btn.disabled=true; const old=btn.textContent; btn.textContent='Envoi…';
+        btn.disabled=true; const old=btn.textContent; btn.textContent='…';
         try{
           const res=await fetch('/api/contact', {
             method:'POST',
@@ -331,12 +423,8 @@
               message:data.get('message')
             })
           });
-          if(res.ok){
-            form.reset();
-            note.textContent="Merci, votre message a été envoyé. Nous vous répondrons rapidement.";
-          } else {
-            mailtoFallback(data);
-          }
+          if(res.ok){ form.reset(); note.textContent=L.form.thanks; }
+          else { mailtoFallback(data); }
         } catch(_){
           mailtoFallback(data);
         } finally {

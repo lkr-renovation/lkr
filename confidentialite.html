@@ -1,25 +1,127 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Politique de confidentialité – LKR Renovation MC SARL</title>
-<link rel="canonical" href="https://lkr.mc/confidentialite.html">
-<meta name="description" content="Politique de confidentialité de LKR Renovation MC SARL.">
-<link rel="icon" href="/favicon.ico">
-<style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;margin:24px;max-width:860px} a{color:#dc3545}</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LKR – Politique de confidentialité</title>
+  <meta name="description" content="Politique de confidentialité de LKR Renovation MC SARL.">
+  <link rel="canonical" href="https://lkr.mc/confidentialite.html">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="theme-color" content="#dc3545">
+  <style>
+    :root{--brand:#dc3545;--brand2:#c82333;--text:#2c3e50;--muted:#6c757d;--border:rgba(220,53,69,.12);}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--text);
+      background:linear-gradient(135deg,#fff 0%,#f8f9fa 50%,#e9ecef 100%);min-height:100vh;position:relative}
+    .bg-pattern{position:fixed;inset:0;opacity:.04;pointer-events:none;background-image:
+      linear-gradient(45deg,var(--brand) 25%,transparent 25%),linear-gradient(-45deg,var(--brand) 25%,transparent 25%),
+      linear-gradient(45deg,transparent 75%,var(--brand) 75%),linear-gradient(-45deg,transparent 75%,var(--brand) 75%);
+      background-size:60px 60px;background-position:0 0,0 30px,30px -30px,-30px 0}
+    .container{max-width:900px;margin:0 auto;padding:28px;position:relative;z-index:1}
+    header{display:flex;align-items:center;gap:12px}
+    nav.lang{margin-left:auto;display:flex;gap:8px}
+    nav.lang button{border:1px solid var(--border);background:#fff;padding:6px 10px;border-radius:10px;cursor:pointer}
+    nav.lang button.active{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border-color:transparent}
+    h1{margin:.5rem 0 1rem}
+    .card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:0 10px 26px rgba(0,0,0,.04)}
+    h3{margin:1rem 0 .4rem}
+    p{margin:.25rem 0;color:var(--muted)}
+    ul{margin:.3rem 0 .7rem 1.2rem;color:var(--muted)}
+    footer{margin:22px 0 8px;text-align:center}
+    a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
+  </style>
 </head>
 <body>
-<h1>Politique de confidentialité</h1>
-<p>Ce site collecte uniquement les données que vous nous envoyez via le formulaire de contact.</p>
-<ul>
-<li><strong>Finalité&nbsp;:</strong> répondre à votre demande d’information.</li>
-<li><strong>Base légale&nbsp;:</strong> intérêt légitime de LKR RENOVATION MC SARL.</li>
-<li><strong>Conservation&nbsp;:</strong> les données ne sont pas stockées dans une base du site. Elles sont transmises par email à <a href="mailto:info@lkr.mc">info@lkr.mc</a>.</li>
-<li><strong>Destinataires&nbsp;:</strong> l’équipe interne de LKR RENOVATION MC SARL.</li>
-<li><strong>Droits&nbsp;:</strong> accès, rectification, suppression. Contact&nbsp;: <a href="mailto:info@lkr.mc">info@lkr.mc</a>.</li>
-</ul>
-<p>Lorsque l’option d’envoi par email (mailto) est utilisée, les informations transitent par votre logiciel de messagerie. Lorsque vous utilisez le formulaire, les données sont traitées via un prestataire d’emailing (Resend) uniquement pour l’acheminement de votre message.</p>
-<p><a href="/">← Retour au site</a></p>
+  <div class="bg-pattern" aria-hidden="true"></div>
+  <div class="container">
+    <header>
+      <h1 id="title">Politique de confidentialité</h1>
+      <nav class="lang" aria-label="Language">
+        <button data-setlang="fr" class="active">FR</button>
+        <button data-setlang="it">IT</button>
+        <button data-setlang="en">EN</button>
+        <button data-setlang="ru">RU</button>
+        <button data-setlang="de">DE</button>
+      </nav>
+    </header>
+
+    <section class="card" id="content"></section>
+
+    <footer><a href="/index.html">← Accueil / Home</a></footer>
+  </div>
+
+  <script>
+    const TITLES={fr:"Politique de confidentialité",it:"Privacy",en:"Privacy policy",ru:"Конфиденциальность",de:"Datenschutz"};
+    const COPY={
+      fr:[
+        ["Responsable","LKR Renovation MC SARL est responsable du traitement des données."],
+        ["Données collectées","Nom, email, téléphone et message transmis via le formulaire de contact."],
+        ["Finalités","Répondre aux demandes, organiser des rendez-vous et assurer le suivi commercial légitime."],
+        ["Base légale","Intérêt légitime (art. 6.1.f RGPD)."],
+        ["Durée de conservation","12 mois après le dernier contact."],
+        ["Destinataires","Uniquement l’équipe interne et nos prestataires techniques sécurisés (UE)."],
+        ["Transferts hors UE","Pas de transfert sans garanties adéquates."],
+        ["Droits RGPD","Accès, rectification, effacement, opposition. Exercer vos droits : info@lkr.mc"],
+        ["Cookies","Aucun cookie tiers de suivi."]
+      ],
+      it:[
+        ["Titolare","LKR Renovation MC SARL è il titolare del trattamento."],
+        ["Dati raccolti","Nome, email, telefono e messaggio inviati dal form."],
+        ["Finalità","Rispondere alle richieste, fissare appuntamenti e follow-up commerciale legittima."],
+        ["Base giuridica","Legittimo interesse (art. 6.1.f GDPR)."],
+        ["Conservazione","12 mesi dopo l’ultimo contatto."],
+        ["Destinatari","Solo personale interno e fornitori tecnici nell’UE."],
+        ["Trasferimenti extra-UE","Nessun trasferimento senza garanzie adeguate."],
+        ["Diritti","Accesso, rettifica, cancellazione, opposizione: info@lkr.mc"],
+        ["Cookie","Nessun cookie di tracciamento di terze parti."]
+      ],
+      en:[
+        ["Controller","LKR Renovation MC SARL is the data controller."],
+        ["Data collected","Name, email, phone and message from the contact form."],
+        ["Purposes","Reply to requests, schedule meetings and perform legitimate follow-up."],
+        ["Legal basis","Legitimate interest (Art. 6(1)(f) GDPR)."],
+        ["Retention","12 months after last contact."],
+        ["Recipients","Internal staff and EU-based technical providers."],
+        ["International transfers","No transfers outside the EU without appropriate safeguards."],
+        ["Your rights","Access, rectification, erasure, objection: info@lkr.mc"],
+        ["Cookies","No third-party tracking cookies."]
+      ],
+      ru:[
+        ["Оператор","LKR Renovation MC SARL – оператор персональных данных."],
+        ["Собираемые данные","Имя, email, телефон и текст сообщения из формы."],
+        ["Цели","Ответ на запросы, назначение встреч, легитимный последующий контакт."],
+        ["Правовое основание","Законный интерес (ст. 6(1)(f) GDPR)."],
+        ["Срок хранения","12 месяцев после последнего контакта."],
+        ["Получатели","Внутренняя команда и технические подрядчики в ЕС."],
+        ["Передачи за пределы ЕС","Не осуществляются без надлежащих гарантий."],
+        ["Права","Доступ, исправление, удаление, возражение: info@lkr.mc"],
+        ["Cookies","Файлы cookie для отслеживания третьих лиц не используются."]
+      ],
+      de:[
+        ["Verantwortlicher","LKR Renovation MC SARL ist Verantwortlicher gem. DSGVO."],
+        ["Erhobene Daten","Name, E-Mail, Telefon und Nachricht aus dem Kontaktformular."],
+        ["Zwecke","Beantwortung von Anfragen, Terminvereinbarungen, legitime Nachverfolgung."],
+        ["Rechtsgrundlage","Berechtigtes Interesse (Art. 6 Abs.1 lit.f DSGVO)."],
+        ["Speicherdauer","12 Monate nach letztem Kontakt."],
+        ["Empfänger","Nur internes Personal und EU-Dienstleister."],
+        ["Datenübermittlung in Drittländer","Keine Übermittlung ohne geeignete Garantien."],
+        ["Ihre Rechte","Auskunft, Berichtigung, Löschung, Widerspruch: info@lkr.mc"],
+        ["Cookies","Keine Tracking-Cookies von Drittanbietern."]
+      ]
+    };
+
+    function render(lang){
+      document.querySelectorAll('nav.lang button').forEach(b=>b.classList.toggle('active',b.dataset.setlang===lang));
+      document.getElementById('title').textContent=TITLES[lang];
+      const c=document.getElementById('content'); c.innerHTML="";
+      COPY[lang].forEach(([h,p])=>{
+        const h3=document.createElement('h3'); h3.textContent=h;
+        const pp=document.createElement('p'); pp.textContent=p;
+        c.appendChild(h3); c.appendChild(pp);
+      });
+      document.documentElement.lang=lang;
+    }
+    document.querySelectorAll('nav.lang button').forEach(b=>b.addEventListener('click',()=>render(b.dataset.setlang)));
+    render('fr');
+  </script>
 </body>
 </html>
