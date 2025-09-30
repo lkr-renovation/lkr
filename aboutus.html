@@ -1,0 +1,621 @@
+<!-- Website designed and developed by Riccardo Barlozzetti -->
+<!doctype html>
+<html lang="fr" data-lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qui sommes-nous - LKR Renovation MC SARL</title>
+  <meta name="description" content="Découvrez l'équipe de LKR Renovation: Luca Borella, Riccardo Barlozzetti et Simona Karotinsky. Expertise, passion et savoir-faire à Monaco.">
+  <link rel="canonical" href="https://lkr.mc/aboutus.html">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="theme-color" content="#dc3545">
+  
+  <style>
+    :root {
+      --brand: #dc3545;
+      --brand2: #c82333;
+      --text: #2c3e50;
+      --muted: #6c757d;
+      --glass: rgba(255,255,255,.85);
+      --border: rgba(220,53,69,.12);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    
+    .bg-pattern {
+      position: fixed;
+      inset: 0;
+      opacity: .04;
+      pointer-events: none;
+      background-image:
+        linear-gradient(45deg, var(--brand) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--brand) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--brand) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--brand) 75%);
+      background-size: 60px 60px;
+      background-position: 0 0, 0 30px, 30px -30px, -30px 0;
+    }
+    
+    nav.main-nav {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0,0,0,.06);
+    }
+    
+    nav.main-nav .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 28px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    
+    .nav-logo {
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--brand);
+      text-decoration: none;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      margin-left: auto;
+      align-items: center;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all .2s;
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color: #fff;
+    }
+    
+    nav.lang {
+      display: flex;
+      gap: 6px;
+    }
+    
+    nav.lang button {
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 6px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: .9rem;
+      transition: all .2s;
+      color: var(--text);
+    }
+    
+    nav.lang button.active {
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color: #fff;
+      border-color: transparent;
+    }
+    
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      color: var(--brand);
+      font-size: 1.5rem;
+    }
+    
+    @media (max-width: 900px) {
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--glass);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        box-shadow: 0 8px 24px rgba(0,0,0,.1);
+        transform: translateY(-120%);
+        transition: transform .3s;
+      }
+      
+      .nav-links.open {
+        transform: translateY(0);
+      }
+      
+      .mobile-toggle {
+        display: block;
+        margin-left: auto;
+      }
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 28px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .page-hero {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    
+    .page-hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      margin: 0 0 16px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .page-hero p {
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    .about-intro {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+      margin-bottom: 64px;
+    }
+    
+    .about-intro h2 {
+      font-size: 2rem;
+      margin: 0 0 20px;
+      color: var(--brand);
+    }
+    
+    .about-intro p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    
+    .team-section h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin: 0 0 48px;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+      margin-bottom: 64px;
+    }
+    
+    .team-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+      transition: transform .3s, box-shadow .3s;
+    }
+    
+    .team-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(220,53,69,.15);
+    }
+    
+    .team-photo {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid var(--border);
+      background: #fff;
+    }
+    
+    .team-card h3 {
+      font-size: 1.5rem;
+      margin: 0 0 8px;
+      color: var(--brand);
+    }
+    
+    .team-card .role {
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+    }
+    
+    .team-card p {
+      line-height: 1.7;
+      color: var(--text);
+      text-align: left;
+    }
+    
+    .partners-section {
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      color: #fff;
+      border-radius: 20px;
+      padding: 48px 32px;
+      margin: 64px 0;
+      text-align: center;
+    }
+    
+    .partners-section h2 {
+      font-size: 2.2rem;
+      margin: 0 0 16px;
+      color: #fff;
+    }
+    
+    .partners-section .subtitle {
+      font-size: 1.1rem;
+      opacity: .9;
+      margin-bottom: 32px;
+    }
+    
+    .partners-placeholder {
+      background: rgba(255,255,255,.1);
+      backdrop-filter: blur(10px);
+      border: 2px dashed rgba(255,255,255,.3);
+      border-radius: 16px;
+      padding: 60px 40px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .partners-placeholder .icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      opacity: .6;
+    }
+    
+    .partners-placeholder p {
+      opacity: .85;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    
+    footer {
+      text-align: center;
+      font-size: .95rem;
+      color: var(--muted);
+      padding: 32px 28px;
+      margin-top: 64px;
+      border-top: 1px solid var(--border);
+    }
+    
+    footer a {
+      color: var(--brand);
+      text-decoration: none;
+    }
+    
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-pattern" aria-hidden="true"></div>
+  
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">LKR</a>
+      <button class="mobile-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+      <ul class="nav-links">
+        <li><a href="/" data-i18n="nav.home">Accueil</a></li>
+        <li><a href="/aboutus.html" class="active" data-i18n="nav.about">Qui sommes-nous</a></li>
+        <li><a href="/services.html" data-i18n="nav.services">Services</a></li>
+        <li><a href="/portfolio.html" data-i18n="nav.portfolio">Réalisations</a></li>
+        <li><a href="/consigli.html" data-i18n="nav.tips">Conseils</a></li>
+        <li><a href="/munegascu.html" data-i18n="nav.munegascu">Munegascu</a></li>
+        <li><a href="/#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <nav class="lang" aria-label="Language">
+        <button data-setlang="fr" class="active">FR</button>
+        <button data-setlang="it">IT</button>
+        <button data-setlang="en">EN</button>
+        <button data-setlang="ru">RU</button>
+        <button data-setlang="de">DE</button>
+        <button data-setlang="es">ES</button>
+      </nav>
+    </div>
+  </nav>
+  
+  <div class="container">
+    <section class="page-hero">
+      <h1 data-i18n="hero.title">Qui sommes-nous</h1>
+      <p data-i18n="hero.subtitle">Une équipe de professionnels passionnés, au service de vos projets à Monaco</p>
+    </section>
+    
+    <section class="about-intro">
+      <h2 data-i18n="intro.title">LKR Renovation MC SARL</h2>
+      <p data-i18n="intro.p1">
+        LKR Renovation est un general contractor spécialisé dans la rénovation et la modernisation d'immeubles résidentiels et commerciaux dans la Principauté de Monaco. Fondée sur les valeurs de Chic, Know-how et Smile, notre société coordonne l'ensemble des corps de métier pour transformer vos espaces avec professionnalisme et attention aux détails.
+      </p>
+      <p data-i18n="intro.p2">
+        Notre mission est d'offrir un service complet clé en main, garantissant qualité, respect des délais et transparence à chaque étape. Nous collaborons avec les meilleurs artisans et fournisseurs de la région pour assurer des résultats exceptionnels.
+      </p>
+      <p data-i18n="intro.p3">
+        Que ce soit pour une rénovation complète, une modernisation ou l'aménagement d'espaces commerciaux, LKR est votre partenaire de confiance pour tous vos besoins à Monaco et sur la Côte d'Azur.
+      </p>
+    </section>
+    
+    <section class="team-section">
+      <h2 data-i18n="team.title">Notre Équipe</h2>
+      <div class="team-grid">
+        <article class="team-card">
+          <div class="team-photo">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="100" cy="100" r="100" fill="#f0f0f0"/>
+              <circle cx="100" cy="80" r="35" fill="#d4a574"/>
+              <path d="M100 115 Q85 125 70 145 Q65 155 65 170 L135 170 Q135 155 130 145 Q115 125 100 115" fill="#4a90e2"/>
+              <rect x="45" y="50" width="110" height="30" rx="15" fill="#fff"/>
+              <text x="100" y="70" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#dc3545">LKR</text>
+              <path d="M75 85 Q85 90 95 85 M105 85 Q115 90 125 85" stroke="#333" stroke-width="2" fill="none"/>
+              <path d="M85 105 Q100 110 115 105" stroke="#8b6f47" stroke-width="3" fill="none"/>
+            </svg>
+          </div>
+          <h3 data-i18n="team.luca.name">Luca Borella</h3>
+          <p class="role" data-i18n="team.luca.role">Gérant • Coordination Chantiers</p>
+          <p data-i18n="team.luca.bio">
+            Expert dans la coordination des équipes et la gestion de chantiers, Luca assure la direction opérationnelle de LKR. Son expertise dans la supervision des corps de métier garantit la qualité d'exécution et le respect des délais de chaque projet.
+          </p>
+        </article>
+        
+        <article class="team-card">
+          <div class="team-photo">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="100" cy="100" r="100" fill="#f0f0f0"/>
+              <circle cx="100" cy="80" r="35" fill="#d4a574"/>
+              <path d="M100 115 Q85 125 70 145 Q65 155 65 170 L135 170 Q135 155 130 145 Q115 125 100 115" fill="#6ba3d8"/>
+              <rect x="45" y="50" width="110" height="30" rx="15" fill="#fff"/>
+              <text x="100" y="70" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#dc3545">LKR</text>
+              <circle cx="85" cy="85" r="2" fill="#333"/>
+              <circle cx="115" cy="85" r="2" fill="#333"/>
+              <circle cx="100" cy="92" r="15" fill="none" stroke="#333" stroke-width="1.5" opacity="0.5"/>
+              <path d="M85 105 Q100 112 115 105" stroke="#8b6f47" stroke-width="3" fill="none"/>
+            </svg>
+          </div>
+          <h3 data-i18n="team.riccardo.name">Riccardo Barlozzetti</h3>
+          <p class="role" data-i18n="team.riccardo.role">Directeur Commercial • Relations Clients</p>
+          <p data-i18n="team.riccardo.bio">
+            Responsable du développement commercial et des relations clients, Riccardo est l'interface privilégiée entre LKR et ses clients. Son approche centrée sur l'écoute et la compréhension des besoins assure une expérience client d'exception.
+          </p>
+        </article>
+        
+        <article class="team-card">
+          <div class="team-photo">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="100" cy="100" r="100" fill="#f0f0f0"/>
+              <path d="M70 65 Q80 55 90 60 Q95 50 100 45 Q105 50 110 60 Q120 55 130 65 L125 90 Q120 95 115 95 L85 95 Q80 95 75 90 Z" fill="#e74c3c"/>
+              <circle cx="100" cy="85" r="35" fill="#f4d4a8"/>
+              <path d="M100 120 Q85 130 70 150 Q65 160 65 175 L135 175 Q135 160 130 150 Q115 130 100 120" fill="#e8b4d9"/>
+              <rect x="45" y="55" width="110" height="30" rx="15" fill="#fff"/>
+              <text x="100" y="75" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#dc3545">LKR</text>
+              <circle cx="85" cy="90" r="2" fill="#333"/>
+              <circle cx="115" cy="90" r="2" fill="#333"/>
+              <path d="M90 108 Q100 112 110 108" stroke="#c9625f" stroke-width="2" fill="none"/>
+            </svg>
+          </div>
+          <h3 data-i18n="team.simona.name">Simona Karotinsky</h3>
+          <p class="role" data-i18n="team.simona.role">Interior Designer</p>
+          <p data-i18n="team.simona.bio">
+            Designer d'intérieur talentueuse, Simona apporte sa créativité et son sens esthétique à chaque projet. Sa capacité à créer des espaces harmonieux et fonctionnels, en respectant l'identité de chaque client, fait d'elle un atout essentiel de l'équipe LKR.
+          </p>
+        </article>
+      </div>
+    </section>
+    
+    <section class="partners-section">
+      <h2 data-i18n="partners.title">Nos Partenaires</h2>
+      <p class="subtitle" data-i18n="partners.subtitle">Réseau d'excellence pour Monaco et la Côte d'Azur</p>
+      
+      <div class="partners-placeholder">
+        <div class="icon">🏗️</div>
+        <p data-i18n="partners.placeholder">
+          Nos partenaires exclusifs seront bientôt dévoilés. Nous collaborons avec les meilleurs artisans et entreprises spécialisées de la région pour garantir l'excellence de nos prestations.
+        </p>
+      </div>
+    </section>
+  </div>
+  
+  <footer>
+    <p>
+      <span data-i18n="footer">LKR RENOVATION MC SARL – 38 Boulevard des Moulins, 98000 Monaco • Tél. +377 6 40 61 56 50 • </span>
+      <a href="mailto:info@lkr.mc">info@lkr.mc</a>
+    </p>
+    <p><span data-i18n="rci">RCI: 25S10110 • TVA: FR72000188879</span></p>
+    <p>
+      <a href="/mentions-legales.html" data-i18n="mentions">Mentions légales</a> • 
+      <a href="/confidentialite.html" data-i18n="privacy">Politique de confidentialité</a>
+    </p>
+  </footer>
+  
+  <script>
+    const I18N = {
+      fr: {
+        nav: {home:"Accueil",about:"Qui sommes-nous",services:"Services",portfolio:"Réalisations",tips:"Conseils",munegascu:"Munegascu",contact:"Contact"},
+        hero: {title:"Qui sommes-nous",subtitle:"Une équipe de professionnels passionnés, au service de vos projets à Monaco"},
+        intro: {
+          title:"LKR Renovation MC SARL",
+          p1:"LKR Renovation est un general contractor spécialisé dans la rénovation et la modernisation d'immeubles résidentiels et commerciaux dans la Principauté de Monaco. Fondée sur les valeurs de Chic, Know-how et Smile, notre société coordonne l'ensemble des corps de métier pour transformer vos espaces avec professionnalisme et attention aux détails.",
+          p2:"Notre mission est d'offrir un service complet clé en main, garantissant qualité, respect des délais et transparence à chaque étape. Nous collaborons avec les meilleurs artisans et fournisseurs de la région pour assurer des résultats exceptionnels.",
+          p3:"Que ce soit pour une rénovation complète, une modernisation ou l'aménagement d'espaces commerciaux, LKR est votre partenaire de confiance pour tous vos besoins à Monaco et sur la Côte d'Azur."
+        },
+        team: {
+          title:"Notre Équipe",
+          luca: {name:"Luca Borella",role:"Gérant • Coordination Chantiers",bio:"Expert dans la coordination des équipes et la gestion de chantiers, Luca assure la direction opérationnelle de LKR. Son expertise dans la supervision des corps de métier garantit la qualité d'exécution et le respect des délais de chaque projet."},
+          riccardo: {name:"Riccardo Barlozzetti",role:"Directeur Commercial • Relations Clients",bio:"Responsable du développement commercial et des relations clients, Riccardo est l'interface privilégiée entre LKR et ses clients. Son approche centrée sur l'écoute et la compréhension des besoins assure une expérience client d'exception."},
+          simona: {name:"Simona Karotinsky",role:"Interior Designer",bio:"Designer d'intérieur talentueuse, Simona apporte sa créativité et son sens esthétique à chaque projet. Sa capacité à créer des espaces harmonieux et fonctionnels, en respectant l'identité de chaque client, fait d'elle un atout essentiel de l'équipe LKR."}
+        },
+        partners: {title:"Nos Partenaires",subtitle:"Réseau d'excellence pour Monaco et la Côte d'Azur",placeholder:"Nos partenaires exclusifs seront bientôt dévoilés. Nous collaborons avec les meilleurs artisans et entreprises spécialisées de la région pour garantir l'excellence de nos prestations."},
+        footer:"LKR RENOVATION MC SARL – 38 Boulevard des Moulins, 98000 Monaco • Tél. +377 6 40 61 56 50 • ",
+        rci:"RCI: 25S10110 • TVA: FR72000188879",
+        mentions:"Mentions légales",
+        privacy:"Politique de confidentialité"
+      },
+      it: {
+        nav: {home:"Home",about:"Chi siamo",services:"Servizi",portfolio:"Realizzazioni",tips:"Consigli",munegascu:"Munegascu",contact:"Contatto"},
+        hero: {title:"Chi Siamo",subtitle:"Un team di professionisti appassionati, al servizio dei vostri progetti a Monaco"},
+        intro: {
+          title:"LKR Renovation MC SARL",
+          p1:"LKR Renovation è un general contractor specializzato nella ristrutturazione e modernizzazione di immobili residenziali e commerciali nel Principato di Monaco. Fondata sui valori di Chic, Know-how e Smile, la nostra società coordina tutti i mestieri per trasformare i vostri spazi con professionalità e attenzione ai dettagli.",
+          p2:"La nostra missione è offrire un servizio completo chiavi in mano, garantendo qualità, rispetto dei tempi e trasparenza in ogni fase. Collaboriamo con i migliori artigiani e fornitori della regione per assicurare risultati eccezionali.",
+          p3:"Che si tratti di una ristrutturazione completa, una modernizzazione o l'allestimento di spazi commerciali, LKR è il vostro partner di fiducia per tutte le vostre esigenze a Monaco e sulla Costa Azzurra."
+        },
+        team: {
+          title:"Il Nostro Team",
+          luca: {name:"Luca Borella",role:"Gérant • Coordinamento Cantieri",bio:"Esperto nel coordinamento delle squadre e nella gestione dei cantieri, Luca assicura la direzione operativa di LKR. La sua competenza nella supervisione dei mestieri garantisce la qualità di esecuzione e il rispetto dei tempi di ogni progetto."},
+          riccardo: {name:"Riccardo Barlozzetti",role:"Direttore Commerciale • Relazioni Clienti",bio:"Responsabile dello sviluppo commerciale e delle relazioni con i clienti, Riccardo è l'interfaccia privilegiata tra LKR e i suoi clienti. Il suo approccio centrato sull'ascolto e la comprensione delle esigenze assicura un'esperienza cliente d'eccezione."},
+          simona: {name:"Simona Karotinsky",role:"Interior Designer",bio:"Designer d'interni di talento, Simona porta la sua creatività e il suo senso estetico a ogni progetto. La sua capacità di creare spazi armoniosi e funzionali, rispettando l'identità di ogni cliente, la rende una risorsa essenziale del team LKR."}
+        },
+        partners: {title:"I Nostri Partner",subtitle:"Rete di eccellenza per Monaco e la Costa Azzurra",placeholder:"I nostri partner esclusivi saranno presto svelati. Collaboriamo con i migliori artigiani e aziende specializzate della regione per garantire l'eccellenza delle nostre prestazioni."},
+        footer:"LKR RENOVATION MC SARL – 38 Boulevard des Moulins, 98000 Monaco • Tel. +377 6 40 61 56 50 • ",
+        rci:"RCI: 25S10110 • IVA: FR72000188879",
+        mentions:"Note legali",
+        privacy:"Privacy"
+      },
+      en: {
+        nav: {home:"Home",about:"About us",services:"Services",portfolio:"Portfolio",tips:"Tips",munegascu:"Munegascu",contact:"Contact"},
+        hero: {title:"About Us",subtitle:"A team of passionate professionals serving your projects in Monaco"},
+        intro: {
+          title:"LKR Renovation MC SARL",
+          p1:"LKR Renovation is a general contractor specialized in renovation and modernization of residential and commercial properties in the Principality of Monaco. Founded on the values of Chic, Know-how and Smile, our company coordinates all trades to transform your spaces with professionalism and attention to detail.",
+          p2:"Our mission is to provide a complete turnkey service, ensuring quality, timely delivery and transparency at every stage. We work with the best craftsmen and suppliers in the region to ensure exceptional results.",
+          p3:"Whether it's a complete renovation, modernization or commercial fit-out, LKR is your trusted partner for all your needs in Monaco and the French Riviera."
+        },
+        team: {
+          title:"Our Team",
+          luca: {name:"Luca Borella",role:"Managing Director • Site Coordination",bio:"Expert in team coordination and site management, Luca ensures LKR's operational direction. His expertise in supervising trades guarantees execution quality and respect of deadlines for each project."},
+          riccardo: {name:"Riccardo Barlozzetti",role:"Commercial Director • Client Relations",bio:"Responsible for business development and client relations, Riccardo is the key interface between LKR and its clients. His approach focused on listening and understanding needs ensures an exceptional client experience."},
+          simona: {name:"Simona Karotinsky",role:"Interior Designer",bio:"Talented interior designer, Simona brings her creativity and aesthetic sense to every project. Her ability to create harmonious and functional spaces, respecting each client's identity, makes her an essential asset to the LKR team."}
+        },
+        partners: {title:"Our Partners",subtitle:"Network of excellence for Monaco and French Riviera",placeholder:"Our exclusive partners will be unveiled soon. We collaborate with the best craftsmen and specialized companies in the region to guarantee the excellence of our services."},
+        footer:"LKR RENOVATION MC SARL – 38 Boulevard des Moulins, 98000 Monaco • Tel. +377 6 40 61 56 50 • ",
+        rci:"RCI: 25S10110 • VAT: FR72000188879",
+        mentions:"Legal notice",
+        privacy:"Privacy policy"
+      },
+      ru: {
+        nav: {home:"Главная",about:"О нас",services:"Услуги",portfolio:"Портфолио",tips:"Советы",munegascu:"Munegascu",contact:"Контакты"},
+        hero: {title:"О Нас",subtitle:"Команда увлечённых профессионалов на службе ваших проектов в Монако"},
+        intro: {
+          title:"LKR Renovation MC SARL",
+          p1:"LKR Renovation — генеральный подрядчик, специализирующийся на ремонте и модернизации жилой и коммерческой недвижимости в Княжестве Монако. Основанная на ценностях Chic, Know-how и Smile, наша компания координирует все специальности для преобразования ваших пространств с профессионализмом и вниманием к деталям.",
+          p2:"Наша миссия — предоставить полный комплекс услуг под ключ, гарантируя качество, соблюдение сроков и прозрачность на каждом этапе. Мы сотрудничаем с лучшими мастерами и поставщиками региона для обеспечения исключительных результатов.",
+          p3:"Будь то полная реконструкция, модернизация или обустройство коммерческих помещений, LKR — ваш надёжный партнёр для всех ваших потребностей в Монако и на Лазурном Берегу."
+        },
+        team: {
+          title:"Наша Команда",
+          luca: {name:"Luca Borella",role:"Директор • Координация Объектов",bio:"Эксперт в координации команд и управлении объектами, Лука обеспечивает оперативное руководство LKR. Его компетенция в надзоре за специалистами гарантирует качество выполнения и соблюдение сроков каждого проекта."},
+          riccardo: {name:"Riccardo Barlozzetti",role:"Коммерческий Директор • Связи с Клиентами",bio:"Ответственный за коммерческое развитие и отношения с клиентами, Риккардо является ключевым связующим звеном между LKR и его клиентами. Его подход, ориентированный на внимание и понимание потребностей, обеспечивает исключительный клиентский опыт."},
+          simona: {name:"Simona Karotinsky",role:"Дизайнер Интерьеров",bio:"Талантливый дизайнер интерьеров, Симона привносит свою креативность и эстетическое чувство в каждый проект. Её способность создавать гармоничные и функциональные пространства, уважая идентичность каждого клиента, делает её незаменимой частью команды LKR."}
+        },
+        partners: {title:"Наши Партнёры",subtitle:"Сеть мастерства для Монако и Лазурного Берега",placeholder:"Наши эксклюзивные партнёры скоро будут представлены. Мы сотрудничаем с лучшими мастерами и специализированными компаниями региона для гарантии превосходства наших услуг."},
+        footer:"LKR RENOVATION MC SARL – 38 Boulevard des Moulins, 98000 Monaco • Тел. +377 6 40 61 56 50 • ",
+        rci:"RCI: 25S10110 • НДС: FR72000188879",
+        mentions:"Правовая информация",
+        privacy:"Конфиденциальность"
+      },
+      de: {
+        nav: {home:"Home",about:"Über uns",services:"Leistungen",portfolio:"Portfolio",tips:"Tipps",munegascu:"Munegascu",contact:"Kontakt"},
+        hero: {title:"Über Uns",subtitle:"Ein Team leidenschaftlicher Fachleute im Dienste Ihrer Projekte in Monaco"},
+        intro: {
+          title:"LKR Renovation MC SARL",
+          p1:"LKR Renovation ist ein Generalunternehmer, spezialisiert auf Renovierung und Modernisierung von Wohn- und Gewerbeimmobilien im Fürstentum Monaco. Gegründet auf den Werten Chic, Know-how und Smile, koordiniert unser Unternehmen alle Gewerke zur Transformation Ihrer Räume mit Professionalität und Detailgenauigkeit.",
+          p2:"Unsere Mission ist es, einen kompletten schlüsselfertigen Service zu bieten, der Qualität, Termintreue und Transparenz in jeder Phase garantiert. Wir arbeiten mit den besten Handwerkern und Lieferanten der Region zusammen, um außergewöhnliche Ergebnisse sicherzustellen.",
+          p3:"Ob Komplettrenovierung, Modernisierung oder Gewerbeausbau, LKR ist Ihr vertrauenswürdiger Partner für alle Ihre Bedürfnisse in Monaco und an der Côte d'Azur."
+        },
+        team: {
+          title:"Unser Team",
+          luca: {name:"Luca Borella",role:"Geschäftsführer • Bauleitung",bio:"Experte in Teamkoordination und Bauleitung, Luca gewährleistet die operative Führung von LKR. Seine Expertise in der Überwachung der Gewerke garantiert Ausführungsqualität und Einhaltung der Termine bei jedem Projekt."},
+          riccardo: {name:"Riccardo Barlozzetti",role:"Geschäftsführer • Kundenbeziehungen",bio:"Verantwortlich für Geschäftsentwicklung und Kundenbeziehungen, ist Riccardo die Schlüsselschnittstelle zwischen LKR und seinen Kunden. Sein auf Zuhören und Bedarfsverständnis fokussierter Ansatz gewährleistet ein außergewöhnliches Kundenerlebnis."},
+          simona: {name:"Simona Karotinsky",role:"Innenarchitektin",bio:"Talentierte Innenarchitektin, Simona bringt ihre Kreativität und ästhetisches Gespür in jedes Projekt ein. Ihre Fähigkeit, harmonische und funktionale Räume zu schaffen, die die Identität jedes Kunden respektieren, macht sie zu einem wesentlichen Teil des LKR-Teams."}
+        },
+        partners: {title:"Unsere Partner",subtitle:"Exzellenznetzwerk für Monaco und Côte d'Azur",placeholder:"Unsere exklusiven Partner werden bald vorgestellt. Wir arbeiten mit den besten Handwerkern und spezialisierten Unternehmen der Region zusammen, um die Exzellenz unserer Leistungen zu garantieren."},
+        footer:"LKR RENOVATION MC SARL – 38 Boulevard des Moulins, 98000 Monaco • Tel. +377 6 40 61 56 50 • ",
+        rci:"RCI: 25S10110 • USt: FR72000188879",
+        mentions:"Impressum",
+        privacy:"Datenschutz"
+      },
+      es: {
+        nav: {home:"Inicio",about:"Quiénes somos",services:"Servicios",portfolio:"Proyectos",tips:"Consejos",munegascu:"Munegascu",contact:"Contacto"},
+        hero: {title:"Quiénes Somos",subtitle:"Un equipo de profesionales apasionados al servicio de sus proyectos en Mónaco"},
+        intro: {
+          title:"LKR Renovation MC SARL",
+          p1:"LKR Renovation es un general contractor especializado en renovación y modernización de propiedades residenciales y comerciales en el Principado de Mónaco. Fundada en los valores de Chic, Know-how y Smile, nuestra empresa coordina todos los oficios para transformar sus espacios con profesionalismo y atención al detalle.",
+          p2:"Nuestra misión es ofrecer un servicio completo llave en mano, garantizando calidad, cumplimiento de plazos y transparencia en cada etapa. Colaboramos con los mejores artesanos y proveedores de la región para asegurar resultados excepcionales.",
+          p3:"Ya sea una renovación completa, modernización o acondicionamiento de espacios comerciales, LKR es su socio de confianza para todas sus necesidades en Mónaco y la Costa Azul."
+        },
+        team: {
+          title:"Nuestro Equipo",
+          luca: {name:"Luca Borella",role:"Director General • Coordinación de Obras",bio:"Experto en coordinación de equipos y gestión de obras, Luca asegura la dirección operativa de LKR. Su experiencia en la supervisión de oficios garantiza la calidad de ejecución y el respeto de los plazos en cada proyecto."},
+          riccardo: {name:"Riccardo Barlozzetti",role:"Director Comercial • Relaciones con Clientes",bio:"Responsable del desarrollo comercial y relaciones con clientes, Riccardo es la interfaz clave entre LKR y sus clientes. Su enfoque centrado en la escucha y comprensión de necesidades asegura una experiencia excepcional al cliente."},
+          simona: {name:"Simona Karotinsky",role:"Diseñadora de Interiores",bio:"Talentosa diseñadora de interiores, Simona aporta su creatividad y sentido estético a cada proyecto. Su capacidad para crear espacios armoniosos y funcionales, respetando la identidad de cada cliente, la convierte en un activo esencial del equipo LKR."}
+        },
+        partners: {title:"Nuestros Socios",subtitle:"Red de excelencia para Mónaco y Costa Azul",placeholder:"Nuestros socios exclusivos serán revelados pronto. Colaboramos con los mejores artesanos y empresas especializadas de la región para garantizar la excelencia de nuestros servicios."},
+        footer:"LKR RENOVATION MC SARL – 38 Boulevard des Moulins, 98000 Monaco • Tel. +377 6 40 61 56 50 • ",
+        rci:"RCI: 25S10110 • IVA: FR72000188879",
+        mentions:"Aviso legal",
+        privacy:"Política de privacidad"
+      }
+    };
+    
+    const html = document.documentElement;
+    
+    function setLang(lang) {
+      html.setAttribute('lang', lang);
+      html.setAttribute('data-lang', lang);
+      
+      document.
+        querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n').split('.');
+        let v = I18N[lang];
+        key.forEach(k => v = v && v[k]);
+        if (typeof v === 'string') el.textContent = v;
+      });
+      
+      document.querySelectorAll('nav.lang button').forEach(b => 
+        b.classList.toggle('active', b.dataset.setlang === lang)
+      );
+    }
+    
+    document.querySelectorAll('nav.lang button').forEach(b => 
+      b.addEventListener('click', () => setLang(b.dataset.setlang))
+    );
+    
+    setLang('fr');
+  </script>
+</body>
+</html>
