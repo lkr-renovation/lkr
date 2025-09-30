@@ -992,6 +992,10 @@ function detectBrowserLanguage() {
 }
 
 setLang(detectBrowserLanguage());
+
+document.querySelectorAll('nav.lang button').forEach(b => 
+  b.addEventListener('click', () => setLang(b.dataset.setlang))
+);
     
     // Form submission handler
     (function() {
