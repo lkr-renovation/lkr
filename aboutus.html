@@ -615,7 +615,23 @@
       b.addEventListener('click', () => setLang(b.dataset.setlang))
     );
     
-    setLang('fr');
+    // Auto-detect lingua browser
+function detectBrowserLanguage() {
+  const browserLang = navigator.language || navigator.userLanguage;
+  const langCode = browserLang.split('-')[0]; // es: 'it-IT' → 'it'
+  
+  // Verifica se la lingua è supportata
+  const supportedLangs = ['fr', 'it', 'en', 'ru', 'de', 'es'];
+  
+  if (supportedLangs.includes(langCode)) {
+    return langCode;
+  }
+  
+  // Default: francese
+  return 'fr';
+}
+
+setLang(detectBrowserLanguage());
   </script>
 </body>
 </html>
