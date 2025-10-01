@@ -1,1 +1,683 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Website designed and developed by Riccardo Barlozzetti -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio réalisations LKR Renovation Monaco - Projets rénovation appartements, salles de bain, cuisines Monte-Carlo">
+    <meta name="keywords" content="portfolio renovation monaco, projets travaux monaco, réalisations LKR, renovation appartement monte-carlo">
+    <meta name="author" content="LKR Renovation MC">
+    <meta property="og:title" content="Portfolio Réalisations - LKR Renovation Monaco">
+    <meta property="og:description" content="Découvrez nos projets de rénovation haut de gamme à Monaco et sur la Côte d'Azur">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lkr.mc/portfolio.html">
+    <title>Portfolio Réalisations - LKR Renovation Monaco</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: system-ui, -apple-system, Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #ffffff;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            margin-left: 1rem;
+        }
+
+        .lang-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 0.3rem 0.6rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover,
+        .lang-btn.active {
+            background: white;
+            color: #dc3545;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 4rem 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Filtri Portfolio */
+        .filters {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: white;
+            color: #2c3e50;
+            border: 2px solid #dc3545;
+            padding: 0.6rem 1.5rem;
+            cursor: pointer;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #dc3545;
+            color: white;
+        }
+
+        /* Griglia Portfolio */
+        .portfolio-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 20px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-year {
+            display: inline-block;
+            background: #dc3545;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin: 0.5rem 0;
+        }
+
+        .project-location {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-description {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+/* Lightbox per galleria immagini */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            padding: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255,255,255,0.4);
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        .lightbox-info {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-align: center;
+            background: rgba(0,0,0,0.7);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 4rem;
+            font-size: 1.2rem;
+            color: #7f8c8d;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .empty-state h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .empty-state p {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 20px;
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                gap: 1rem;
+            }
+
+            .lang-switcher {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+
+            .filters {
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="index.html" class="logo">LKR</a>
+            <nav>
+                <a href="index.html" data-translate="nav-home">Accueil</a>
+                <a href="aboutus.html" data-translate="nav-about">Qui sommes-nous</a>
+                <a href="services.html" data-translate="nav-services">Services</a>
+                <a href="portfolio.html" data-translate="nav-portfolio">Réalisations</a>
+                <a href="contact.html" data-translate="nav-contact">Contact</a>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="fr">FR</button>
+                    <button class="lang-btn" data-lang="it">IT</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ru">RU</button>
+                    <button class="lang-btn" data-lang="de">DE</button>
+                    <button class="lang-btn" data-lang="es">ES</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1 data-translate="hero-title">Nos Réalisations</h1>
+        <p data-translate="hero-subtitle">Découvrez nos projets de rénovation haut de gamme à Monaco et sur la Côte d'Azur</p>
+    </section>
+
+    <!-- Filtri -->
+    <div class="filters">
+        <button class="filter-btn active" data-filter="all" data-translate="filter-all">Tous les projets</button>
+        <button class="filter-btn" data-filter="rénovation-complète" data-translate="filter-complete">Rénovation complète</button>
+        <button class="filter-btn" data-filter="rénovation-salle-de-bain" data-translate="filter-bathroom">Salle de bain</button>
+        <button class="filter-btn" data-filter="rénovation-cuisine" data-translate="filter-kitchen">Cuisine</button>
+    </div>
+
+    <!-- Contenitore Portfolio -->
+    <div class="portfolio-container">
+        <div class="projects-grid" id="projectsGrid">
+            <div class="loading">Chargement des projets...</div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">&#10094;</button>
+            <img class="lightbox-image" id="lightboxImage" src="" alt="">
+            <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">&#10095;</button>
+            <div class="lightbox-info" id="lightboxInfo"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 LKR Renovation MC. Tous droits réservés.</p>
+    </footer>
+    <script>
+        // Traduzioni interfaccia
+        const translations = {
+            fr: {
+                'nav-home': 'Accueil',
+                'nav-about': 'Qui sommes-nous',
+                'nav-services': 'Services',
+                'nav-portfolio': 'Réalisations',
+                'nav-contact': 'Contact',
+                'hero-title': 'Nos Réalisations',
+                'hero-subtitle': 'Découvrez nos projets de rénovation haut de gamme à Monaco et sur la Côte d\'Azur',
+                'filter-all': 'Tous les projets',
+                'filter-complete': 'Rénovation complète',
+                'filter-bathroom': 'Salle de bain',
+                'filter-kitchen': 'Cuisine',
+                'loading': 'Chargement des projets...',
+                'no-projects': 'Aucun projet disponible pour le moment',
+                'no-projects-desc': 'Nos réalisations seront bientôt disponibles'
+            },
+            it: {
+                'nav-home': 'Home',
+                'nav-about': 'Chi siamo',
+                'nav-services': 'Servizi',
+                'nav-portfolio': 'Realizzazioni',
+                'nav-contact': 'Contatti',
+                'hero-title': 'Le Nostre Realizzazioni',
+                'hero-subtitle': 'Scopri i nostri progetti di ristrutturazione di lusso a Monaco e Costa Azzurra',
+                'filter-all': 'Tutti i progetti',
+                'filter-complete': 'Ristrutturazione completa',
+                'filter-bathroom': 'Bagno',
+                'filter-kitchen': 'Cucina',
+                'loading': 'Caricamento progetti...',
+                'no-projects': 'Nessun progetto disponibile al momento',
+                'no-projects-desc': 'Le nostre realizzazioni saranno presto disponibili'
+            },
+            en: {
+                'nav-home': 'Home',
+                'nav-about': 'About Us',
+                'nav-services': 'Services',
+                'nav-portfolio': 'Portfolio',
+                'nav-contact': 'Contact',
+                'hero-title': 'Our Projects',
+                'hero-subtitle': 'Discover our high-end renovation projects in Monaco and French Riviera',
+                'filter-all': 'All projects',
+                'filter-complete': 'Complete renovation',
+                'filter-bathroom': 'Bathroom',
+                'filter-kitchen': 'Kitchen',
+                'loading': 'Loading projects...',
+                'no-projects': 'No projects available at the moment',
+                'no-projects-desc': 'Our projects will be available soon'
+            },
+            ru: {
+                'nav-home': 'Главная',
+                'nav-about': 'О нас',
+                'nav-services': 'Услуги',
+                'nav-portfolio': 'Портфолио',
+                'nav-contact': 'Контакты',
+                'hero-title': 'Наши Проекты',
+                'hero-subtitle': 'Откройте для себя наши элитные проекты ремонта в Монако и на Французской Ривьере',
+                'filter-all': 'Все проекты',
+                'filter-complete': 'Полная реконструкция',
+                'filter-bathroom': 'Ванная комната',
+                'filter-kitchen': 'Кухня',
+                'loading': 'Загрузка проектов...',
+                'no-projects': 'Проектов пока нет',
+                'no-projects-desc': 'Наши проекты скоро будут доступны'
+            },
+            de: {
+                'nav-home': 'Startseite',
+                'nav-about': 'Über uns',
+                'nav-services': 'Dienstleistungen',
+                'nav-portfolio': 'Portfolio',
+                'nav-contact': 'Kontakt',
+                'hero-title': 'Unsere Projekte',
+                'hero-subtitle': 'Entdecken Sie unsere High-End-Renovierungsprojekte in Monaco und an der Côte d\'Azur',
+                'filter-all': 'Alle Projekte',
+                'filter-complete': 'Vollständige Renovierung',
+                'filter-bathroom': 'Badezimmer',
+                'filter-kitchen': 'Küche',
+                'loading': 'Projekte werden geladen...',
+                'no-projects': 'Momentan keine Projekte verfügbar',
+                'no-projects-desc': 'Unsere Projekte werden bald verfügbar sein'
+            },
+            es: {
+                'nav-home': 'Inicio',
+                'nav-about': 'Quiénes somos',
+                'nav-services': 'Servicios',
+                'nav-portfolio': 'Realizaciones',
+                'nav-contact': 'Contacto',
+                'hero-title': 'Nuestras Realizaciones',
+                'hero-subtitle': 'Descubre nuestros proyectos de renovación de alta gama en Mónaco y Costa Azul',
+                'filter-all': 'Todos los proyectos',
+                'filter-complete': 'Renovación completa',
+                'filter-bathroom': 'Baño',
+                'filter-kitchen': 'Cocina',
+                'loading': 'Cargando proyectos...',
+                'no-projects': 'No hay proyectos disponibles por el momento',
+                'no-projects-desc': 'Nuestras realizaciones estarán disponibles pronto'
+            }
+        };
+
+        // Variabili globali
+        let currentLang = 'fr';
+        let allProjects = [];
+        let currentFilter = 'all';
+        let lightboxImages = [];
+        let currentImageIndex = 0;
+
+        // Carica progetti dal JSON
+        async function loadProjects() {
+            try {
+                const response = await fetch('data/progetti.json');
+                const data = await response.json();
+                allProjects = data.progetti;
+                displayProjects(allProjects);
+            } catch (error) {
+                console.error('Errore caricamento progetti:', error);
+                document.getElementById('projectsGrid').innerHTML = `
+                    <div class="empty-state">
+                        <h2 data-translate="no-projects">${translations[currentLang]['no-projects']}</h2>
+                        <p data-translate="no-projects-desc">${translations[currentLang]['no-projects-desc']}</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Mostra progetti
+        function displayProjects(projects) {
+            const grid = document.getElementById('projectsGrid');
+            
+            if (projects.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <h2>${translations[currentLang]['no-projects']}</h2>
+                        <p>${translations[currentLang]['no-projects-desc']}</p>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = projects.map(project => {
+                const trad = project.traduzioni[currentLang];
+                const firstImage = project.immagini[0];
+                
+                return `
+                    <div class="project-card" onclick="openLightbox('${project.id}', 0)">
+                        <img src="${firstImage}" alt="${trad.titolo}" class="project-image" 
+                             onerror="this.src='https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&h=600&fit=crop'">
+                        <div class="project-info">
+                            <span class="project-year">${project.anno}</span>
+                            <h3 class="project-title">${trad.titolo}</h3>
+                            <p class="project-location">📍 ${trad.luogo}</p>
+                            <p class="project-description">${trad.descrizione}</p>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Filtra progetti
+        function filterProjects(category) {
+            currentFilter = category;
+            
+            // Aggiorna bottoni filtro
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.filter === category) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Filtra e mostra
+            const filtered = category === 'all' 
+                ? allProjects 
+                : allProjects.filter(p => p.categoria === category);
+            
+            displayProjects(filtered);
+        }
+
+        // Lightbox
+        function openLightbox(projectId, imageIndex) {
+            const project = allProjects.find(p => p.id === projectId);
+            if (!project) return;
+
+            lightboxImages = project.immagini;
+            currentImageIndex = imageIndex;
+            
+            const trad = project.traduzioni[currentLang];
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxInfo = document.getElementById('lightboxInfo');
+            
+            lightboxImage.src = lightboxImages[currentImageIndex];
+            lightboxInfo.innerHTML = `
+                <h3>${trad.titolo}</h3>
+                <p>${imageIndex + 1} / ${lightboxImages.length}</p>
+            `;
+            
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function navigateLightbox(direction) {
+            currentImageIndex += direction;
+            
+            if (currentImageIndex < 0) {
+                currentImageIndex = lightboxImages.length - 1;
+            } else if (currentImageIndex >= lightboxImages.length) {
+                currentImageIndex = 0;
+            }
+            
+            document.getElementById('lightboxImage').src = lightboxImages[currentImageIndex];
+            
+            const info = document.getElementById('lightboxInfo');
+            const currentInfo = info.querySelector('p');
+            currentInfo.textContent = `${currentImageIndex + 1} / ${lightboxImages.length}`;
+        }
+
+        // Chiudi lightbox con ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+        });
+
+        // Traduci pagina
+        function translatePage() {
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.dataset.translate;
+                if (translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProjects();
+            
+            // Bottoni lingua
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentLang = btn.dataset.lang;
+                    translatePage();
+                    displayProjects(currentFilter === 'all' ? allProjects : allProjects.filter(p => p.categoria === currentFilter));
+                });
+            });
+            
+            // Bottoni filtro
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterProjects(btn.dataset.filter);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
