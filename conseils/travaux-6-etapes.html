@@ -1,0 +1,1083 @@
+<!-- Website designed and developed by Riccardo Barlozzetti -->
+<!doctype html>
+<html lang="fr" data-lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vos Travaux en 6 Étapes avec LKR Monaco | Méthode de Rénovation</title>
+  <meta name="description" content="Découvrez la méthode LKR pour gérer votre projet de rénovation à Monaco en 6 étapes claires. De la prise de contact à la livraison, un processus structuré qui garantit qualité et sérénité.">
+  <meta name="keywords" content="méthode rénovation Monaco, étapes travaux Monaco, processus rénovation, gestion projet rénovation, contractor Monaco, travaux clé en main Monaco, coordination chantier Monaco">
+  <link rel="canonical" href="https://lkr.mc/conseils/travaux-6-etapes.html">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="theme-color" content="#dc3545">
+  
+  <meta property="og:title" content="Vos Travaux en 6 Étapes avec LKR Monaco">
+  <meta property="og:description" content="Méthode éprouvée pour gérer votre projet de rénovation du premier contact à la livraison finale. Processus clair et structuré.">
+  <meta property="og:url" content="https://lkr.mc/conseils/travaux-6-etapes.html">
+  <meta property="og:type" content="article">
+  
+  <style>
+    :root {
+      --brand: #dc3545;
+      --brand2: #c82333;
+      --text: #2c3e50;
+      --muted: #6c757d;
+      --glass: rgba(255,255,255,.85);
+      --border: rgba(220,53,69,.12);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    
+    .bg-pattern {
+      position: fixed;
+      inset: 0;
+      opacity: .04;
+      pointer-events: none;
+      background-image:
+        linear-gradient(45deg, var(--brand) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--brand) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--brand) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--brand) 75%);
+      background-size: 60px 60px;
+      background-position: 0 0, 0 30px, 30px -30px, -30px 0;
+    }
+    
+    nav.main-nav {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0,0,0,.06);
+    }
+    
+    nav.main-nav .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 28px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    
+    .nav-logo {
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--brand);
+      text-decoration: none;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      margin-left: auto;
+      align-items: center;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all .2s;
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color: #fff;
+    }
+    
+    nav.lang {
+      display: flex;
+      gap: 6px;
+    }
+    
+    nav.lang button {
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 6px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: .9rem;
+      transition: all .2s;
+      color: var(--text);
+    }
+    
+    nav.lang button.active {
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color: #fff;
+      border-color: transparent;
+    }
+    
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      color: var(--brand);
+      font-size: 1.5rem;
+    }
+    
+    @media (max-width: 900px) {
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--glass);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        box-shadow: 0 8px 24px rgba(0,0,0,.1);
+        transform: translateY(-120%);
+        transition: transform .3s;
+      }
+      
+      .nav-links.open {
+        transform: translateY(0);
+      }
+      
+      .mobile-toggle {
+        display: block;
+        margin-left: auto;
+      }
+    }
+    
+    .breadcrumb {
+      max-width: 900px;
+      margin: 24px auto 0;
+      padding: 0 28px;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+    
+    .breadcrumb a {
+      color: var(--brand);
+      text-decoration: none;
+    }
+    
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    
+    article {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 28px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .article-header {
+      margin-bottom: 48px;
+    }
+    
+    .article-meta {
+      color: var(--muted);
+      font-size: .95rem;
+      margin-bottom: 16px;
+    }
+    
+    h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin: 0 0 20px;
+      line-height: 1.2;
+      color: var(--text);
+    }
+    
+    .article-intro {
+      font-size: 1.2rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      padding: 24px;
+      background: var(--glass);
+      border-left: 4px solid var(--brand);
+      border-radius: 8px;
+    }
+    
+    .article-content h2 {
+      font-size: 1.8rem;
+      color: var(--brand);
+      margin: 48px 0 24px;
+      line-height: 1.3;
+    }
+    
+    .article-content h3 {
+      font-size: 1.3rem;
+      color: var(--text);
+      margin: 32px 0 16px;
+    }
+    
+    .article-content p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+    
+    .step-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 32px 0;
+      box-shadow: 0 8px 24px rgba(0,0,0,.06);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .step-box::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+      background: linear-gradient(180deg, var(--brand), var(--brand2));
+    }
+    
+    .step-number {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color: #fff;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 48px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    
+    .step-box h3 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      color: var(--brand);
+    }
+    
+    .step-box p {
+      margin-bottom: 16px;
+    }
+    
+    .step-box ul {
+      margin: 16px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    
+    .step-box li {
+      padding: 8px 0 8px 32px;
+      position: relative;
+      line-height: 1.6;
+    }
+    
+    .step-box li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--brand);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+    .highlight-box {
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      color: #fff;
+      padding: 32px;
+      border-radius: 16px;
+      margin: 40px 0;
+    }
+    
+    .highlight-box h3 {
+      color: #fff;
+      margin-top: 0;
+    }
+    
+    .highlight-box p {
+      color: rgba(255,255,255,.95);
+      margin-bottom: 0;
+    }
+    
+    .cta-box {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border: 2px solid var(--brand);
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+      margin: 56px 0;
+    }
+    
+    .cta-box h3 {
+      margin: 0 0 16px;
+      font-size: 1.8rem;
+      color: var(--brand);
+    }
+    
+    .cta-box p {
+      margin-bottom: 24px;
+      font-size: 1.1rem;
+    }
+    
+    .cta-btn {
+      display: inline-block;
+      padding: 16px 40px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color: #fff;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 8px 24px rgba(220,53,69,.3);
+      transition: transform .2s, box-shadow .2s;
+    }
+    
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(220,53,69,.4);
+    }
+    
+    .back-link {
+      display: inline-block;
+      margin: 40px 0;
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    
+    footer {
+      text-align: center;
+      font-size: .95rem;
+      color: var(--muted);
+      padding: 40px 28px;
+      margin-top: 64px;
+      border-top: 1px solid var(--border);
+      background: rgba(255,255,255,.5);
+    }
+    
+    footer p {
+      margin: 8px 0;
+    }
+    
+    footer a {
+      color: var(--brand);
+      text-decoration: none;
+    }
+    
+    footer a:hover {
+      text-decoration: underline;
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      .article-intro {
+        font-size: 1.05rem;
+        padding: 20px;
+      }
+      
+      .step-box {
+        padding: 24px;
+      }
+      
+      .article-content h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-pattern" aria-hidden="true"></div>
+  
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">LKR</a>
+      <button class="mobile-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+      <ul class="nav-links">
+        <li><a href="/" data-i18n="nav.home">Accueil</a></li>
+        <li><a href="/aboutus.html" data-i18n="nav.about">Qui sommes-nous</a></li>
+        <li><a href="/services.html" data-i18n="nav.services">Services</a></li>
+        <li><a href="/portfolio.html" data-i18n="nav.portfolio">Réalisations</a></li>
+        <li><a href="/consigli.html" class="active" data-i18n="nav.tips">Conseils</a></li>
+        <li><a href="/munegascu.html" data-i18n="nav.munegascu">Munegascu</a></li>
+        <li><a href="/#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <nav class="lang" aria-label="Language">
+        <button data-setlang="fr" class="active">FR</button>
+        <button data-setlang="it">IT</button>
+        <button data-setlang="en">EN</button>
+        <button data-setlang="ru">RU</button>
+        <button data-setlang="de">DE</button>
+        <button data-setlang="es">ES</button>
+      </nav>
+    </div>
+  </nav>
+  
+  <div class="breadcrumb">
+    <a href="/" data-i18n="breadcrumb.home">Accueil</a> › 
+    <a href="/consigli.html" data-i18n="breadcrumb.conseils">Conseils</a> › 
+    <span data-i18n="breadcrumb.current">Vos Travaux en 6 Étapes</span>
+  </div>
+  
+  <article>
+    <header class="article-header">
+      <div class="article-meta">
+        <span data-i18n="meta.reading">📖 Temps de lecture : 8 minutes</span> • 
+        <span data-i18n="meta.updated">Mis à jour : Janvier 2025</span>
+      </div>
+      <h1 data-i18n="title">Vos Travaux en 6 Grandes Étapes avec LKR</h1>
+    </header>
+    
+    <div class="article-intro" data-i18n="intro">
+      Un projet de rénovation à Monaco demande méthode, coordination et anticipation. Chez LKR Renovation, nous avons structuré notre démarche en 6 étapes clés pour piloter votre projet de A à Z, en vous simplifiant la vie et en garantissant un résultat exceptionnel.
+    </div>
+    
+    <div class="article-content">
+      <div class="step-box">
+        <div class="step-number">1</div>
+        <h3 data-i18n="step1.title">Prise de Contact et Découverte du Projet</h3>
+        <p data-i18n="step1.p1">
+          Tout commence par une prise de contact simple et rapide, par téléphone, email ou via notre formulaire en ligne. Ce premier échange nous permet de poser les bases de votre projet : type de rénovation envisagée, vos attentes, le calendrier souhaité et les contraintes éventuelles.
+        </p>
+        <p data-i18n="step1.p2">
+          Nous poursuivons ensuite par un rendez-vous d'analyse approfondie, directement sur place à Monaco ou sur la Côte d'Azur. Cette visite nous permet de mieux comprendre vos besoins techniques et esthétiques, d'évaluer les contraintes du site (accès, état actuel, réglementations spécifiques au Principat) et d'imaginer les premières solutions adaptées.
+        </p>
+        <p data-i18n="step1.objective"><strong>Objectif :</strong> Cerner précisément vos attentes et évaluer la faisabilité globale du projet.</p>
+      </div>
+      
+      <div class="step-box">
+        <div class="step-number">2</div>
+        <h3 data-i18n="step2.title">Étude Technique, Estimation et Devis Détaillé</h3>
+        <p data-i18n="step2.p1">
+          Une fois vos besoins clarifiés, nous passons à l'étude technique et financière approfondie. Notre équipe analyse tous les aspects de votre projet : travaux de gros œuvre nécessaires, installations électriques et plomberie, choix des matériaux, finitions haut de gamme et coordination des différents corps de métier.
+        </p>
+        <p data-i18n="step2.p2">
+          Nous vous présentons ensuite un devis détaillé et transparent, avec éventuellement plusieurs options selon les matériaux sélectionnés et les prestations envisagées. Chaque poste de dépense est clairement explicité pour vous permettre de prendre vos décisions en toute connaissance de cause.
+        </p>
+        <ul>
+          <li data-i18n="step2.li1">Évaluation précise des travaux à prévoir</li>
+          <li data-i18n="step2.li2">Propositions de solutions concrètes et innovantes</li>
+          <li data-i18n="step2.li3">Chiffrage estimatif basé sur les éléments validés ensemble</li>
+          <li data-i18n="step2.li4">Devis détaillé poste par poste, sans surprise</li>
+        </ul>
+        <p data-i18n="step2.objective"><strong>Objectif :</strong> Vous permettre de décider en toute transparence avec une vision claire des coûts.</p>
+      </div>
+      
+      <div class="step-box">
+        <div class="step-number">3</div>
+        <h3 data-i18n="step3.title">Validation du Projet et Planification des Travaux</h3>
+        <p data-i18n="step3.p1">
+          Après vos retours et vos questions, nous vous accompagnons pour finaliser tous vos choix : matériaux définitifs, équipements sanitaires, robinetterie, revêtements de sols et murs, couleurs, finitions et tous les détails esthétiques qui feront l'identité de votre espace rénové.
+        </p>
+        <p data-i18n="step3.p2">
+          Ces décisions peuvent nécessiter quelques ajustements du devis initial pour refléter vos choix finaux. Une fois le tout validé, nous établissons un devis définitif accompagné d'un planning prévisionnel détaillé des travaux, incluant les différentes phases d'intervention et les jalons importants.
+        </p>
+        <p data-i18n="step3.p3">
+          La signature de cet accord marque le début officiel de votre projet. Nous nous occupons également des démarches administratives nécessaires auprès de la DPUM (Direction de la Prospective, de l'Urbanisme et de la Mobilité) à Monaco si votre projet le requiert.
+        </p>
+        <p data-i18n="step3.objective"><strong>Objectif :</strong> Sécuriser tous les choix et cadrer précisément les délais d'exécution.</p>
+      </div>
+      
+      <div class="highlight-box">
+        <h3 data-i18n="highlight.title">Pourquoi Choisir un General Contractor comme LKR ?</h3>
+        <p data-i18n="highlight.text">
+          En tant que general contractor, nous coordonnons l'ensemble des corps de métier impliqués dans votre projet. Vous avez un seul interlocuteur de confiance qui pilote tous les artisans et fournisseurs, garantissant cohérence, qualité et respect des délais. Plus besoin de jongler entre plusieurs entreprises : nous gérons tout pour vous.
+        </p>
+      </div>
+      
+      <div class="step-box">
+        <div class="step-number">4</div>
+        <h3 data-i18n="step4.title">Coordination Complète des Intervenants</h3>
+        <p data-i18n="step4.p1">
+          En tant que contractant général, nous assurons la coordination complète et rigoureuse de tous les professionnels intervenant sur votre chantier : maçons, électriciens, plombiers, carreleurs, menuisiers, peintres et tous les corps de métier spécialisés nécessaires à votre projet.
+        </p>
+        <p data-i18n="step4.p2">
+          Avant le démarrage des travaux, nous organisons une réunion préparatoire sur site avec tous les intervenants. Cette rencontre permet de s'assurer que chaque professionnel a une compréhension parfaite du projet, des contraintes techniques, des délais et des standards de qualité attendus.
+        </p>
+        <ul>
+          <li data-i18n="step4.li1">Sélection d'artisans qualifiés et de confiance</li>
+          <li data-i18n="step4.li2">Coordination des plannings d'intervention</li>
+          <li data-i18n="step4.li3">Gestion des approvisionnements et livraisons</li>
+          <li data-i18n="step4.li4">Communication permanente entre tous les corps de métier</li>
+        </ul>
+        <p data-i18n="step4.objective"><strong>Objectif :</strong> Garantir une organisation sans faille et éviter les imprévus.</p>
+      </div>
+      
+      <div class="step-box">
+        <div class="step-number">5</div>
+        <h3 data-i18n="step5.title">Réalisation des Travaux et Suivi de Chantier Rigoureux</h3>
+        <p data-i18n="step5.p1">
+          Le chantier démarre selon le planning établi. Notre chef de chantier assure un suivi hebdomadaire rigoureux pour contrôler l'avancement des travaux, la qualité d'exécution, le respect des normes en vigueur à Monaco et la conformité au cahier des charges validé ensemble.
+        </p>
+        <p data-i18n="step5.p2">
+          Nous organisons également des réunions de chantier à des étapes clés (fin du gros œuvre, pose des réseaux, installation des cloisons, début des finitions) pour valider ensemble les avancées et vous tenir informé en permanence de l'évolution de votre projet.
+        </p>
+        <p data-i18n="step5.p3">
+          Tout au long du chantier, nous restons votre interlocuteur unique. Vous n'avez pas besoin de contacter chaque artisan individuellement : nous centralisons toutes les informations et gérons la coordination opérationnelle quotidienne.
+        </p>
+        <ul>
+          <li data-i18n="step5.li1">Contrôle quotidien de la qualité des travaux</li>
+          <li data-i18n="step5.li2">Respect strict des délais et du planning</li>
+          <li data-i18n="step5.li3">Gestion proactive des aléas éventuels</li>
+          <li data-i18n="step5.li4">Communication transparente et régulière avec vous</li>
+        </ul>
+        <p data-i18n="step5.objective"><strong>Objectif :</strong> Piloter efficacement le chantier pour livrer dans les temps avec un niveau de qualité irréprochable.</p>
+      </div>
+      
+      <div class="step-box">
+        <div class="step-number">6</div>
+        <h3 data-i18n="step6.title">Livraison du Projet et Garanties Complètes</h3>
+        <p data-i18n="step6.p1">
+          Une fois les travaux terminés, nous procédons à une réception complète avec vous, accompagnée d'un procès-verbal détaillé. Ce moment officiel marque la fin du chantier, mais surtout le début de vos garanties légales qui protègent votre investissement.
+        </p>
+        <p data-i18n="step6.p2">
+          Nous vous remettons un dossier technique complet comprenant tous les documents nécessaires : factures détaillées, certificats de conformité, garanties des équipements installés, notices d'utilisation et d'entretien, et contacts pour le service après-vente.
+        </p>
+        <p data-i18n="step6.p3">
+          Même après la livraison, nous restons à votre disposition pour tout besoin, question ou intervention de maintenance. Votre satisfaction est notre priorité, et nous nous engageons à vous accompagner dans la durée.
+        </p>
+        <ul>
+          <li data-i18n="step6.li1">Garantie biennale sur tous les équipements</li>
+          <li data-i18n="step6.li2">Garantie décennale pour les travaux structurels</li>
+          <li data-i18n="step6.li3">Service après-vente réactif et disponible</li>
+          <li data-i18n="step6.li4">Dossier technique complet pour votre propriété</li>
+        </ul>
+        <p data-i18n="step6.objective"><strong>Objectif :</strong> Vous livrer un projet conforme à vos attentes, avec toutes les garanties en main et une tranquillité d'esprit totale.</p>
+      </div>
+      
+      <div class="highlight-box">
+        <h3 data-i18n="conclusion.title">Conclusion</h3>
+        <p data-i18n="conclusion.text">
+          En structurant notre accompagnement en 6 phases bien définies, nous vous offrons une vision claire et rassurante du déroulement complet de vos travaux. Avec LKR Renovation, vous êtes accompagné à chaque instant par des professionnels passionnés, sans stress ni mauvaise surprise. Notre méthode éprouvée garantit la réussite de votre projet de rénovation à Monaco, de la première idée jusqu'à la remise des clés de votre espace transformé.
+        </p>
+      </div>
+      
+      <div class="cta-box">
+        <h3 data-i18n="cta.title">Prêt à Démarrer Votre Projet ?</h3>
+        <p data-i18n="cta.text">Contactez-nous pour une première consultation gratuite et découvrez comment nous pouvons transformer votre espace</p>
+        <a href="/#contact" class="cta-btn" data-i18n="cta.button">Demander un devis gratuit</a>
+      </div>
+      
+      <a href="/consigli.html" class="back-link" data-i18n="back">← Retour aux conseils</a>
+    </div>
+  </article>
+  
+  <footer>
+    <p><strong>LKR RENOVATION MC SARL</strong></p>
+    <p>38 Boulevard des Moulins, 98000 Monaco</p>
+    <p>Tél. <a href="tel:+37764061565">+377 6 40 61 56 50</a> • Email: <a href="mailto:info@lkr.mc">info@lkr.mc</a></p>
+    <p style="margin-top:16px;font-size:.9rem">
+      <a href="/mentions-legales.html" data-i18n="footer.legal">Mentions légales</a> • 
+      <a href="/confidentialite.html" data-i18n="footer.privacy">Confidentialité</a>
+    </p>
+    <p style="margin-top:12px;font-size:.85rem;opacity:.7">© 2025 LKR Renovation MC SARL • Tous droits réservés</p>
+  </footer>
+  
+  <script>
+    const I18N = {
+      fr: {
+        nav: {home:"Accueil",about:"Qui sommes-nous",services:"Services",portfolio:"Réalisations",tips:"Conseils",munegascu:"Munegascu",contact:"Contact"},
+        breadcrumb: {home:"Accueil",conseils:"Conseils",current:"Vos Travaux en 6 Étapes"},
+        meta: {reading:"📖 Temps de lecture : 8 minutes",updated:"Mis à jour : Janvier 2025"},
+        title: "Vos Travaux en 6 Grandes Étapes avec LKR",
+        intro: "Un projet de rénovation à Monaco demande méthode, coordination et anticipation. Chez LKR Renovation, nous avons structuré notre démarche en 6 étapes clés pour piloter votre projet de A à Z, en vous simplifiant la vie et en garantissant un résultat exceptionnel.",
+        step1: {
+          title: "Prise de Contact et Découverte du Projet",
+          p1: "Tout commence par une prise de contact simple et rapide, par téléphone, email ou via notre formulaire en ligne. Ce premier échange nous permet de poser les bases de votre projet : type de rénovation envisagée, vos attentes, le calendrier souhaité et les contraintes éventuelles.",
+          p2: "Nous poursuivons ensuite par un rendez-vous d'analyse approfondie, directement sur place à Monaco ou sur la Côte d'Azur. Cette visite nous permet de mieux comprendre vos besoins techniques et esthétiques, d'évaluer les contraintes du site (accès, état actuel, réglementations spécifiques au Principat) et d'imaginer les premières solutions adaptées.",
+          objective: "Objectif : Cerner précisément vos attentes et évaluer la faisabilité globale du projet."
+        },
+        step2: {
+          title: "Étude Technique, Estimation et Devis Détaillé",
+          p1: "Une fois vos besoins clarifiés, nous passons à l'étude technique et financière approfondie. Notre équipe analyse tous les aspects de votre projet : travaux de gros œuvre nécessaires, installations électriques et plomberie, choix des matériaux, finitions haut de gamme et coordination des différents corps de métier.",
+          p2: "Nous vous présentons ensuite un devis détaillé et transparent, avec éventuellement plusieurs options selon les matériaux sélectionnés et les prestations envisagées. Chaque poste de dépense est clairement explicité pour vous permettre de prendre vos décisions en toute connaissance de cause.",
+          li1: "Évaluation précise des travaux à prévoir",
+          li2: "Propositions de solutions concrètes et innovantes",
+          li3: "Chiffrage estimatif basé sur les éléments validés ensemble",
+          li4: "Devis détaillé poste par poste, sans surprise",
+          objective: "Objectif : Vous permettre de décider en toute transparence avec une vision claire des coûts."
+        },
+        step3: {
+          title: "Validation du Projet et Planification des Travaux",
+          p1: "Après vos retours et vos questions, nous vous accompagnons pour finaliser tous vos choix : matériaux définitifs, équipements sanitaires, robinetterie, revêtements de sols et murs, couleurs, finitions et tous les détails esthétiques qui feront l'identité de votre espace rénové.",
+          p2: "Ces décisions peuvent nécessiter quelques ajustements du devis initial pour refléter vos choix finaux. Une fois le tout validé, nous établissons un devis définitif accompagné d'un planning prévisionnel détaillé des travaux, incluant les différentes phases d'intervention et les jalons importants.",
+          p3: "La signature de cet accord marque le début officiel de votre projet. Nous nous occupons également des démarches administratives nécessaires auprès de la DPUM (Direction de la Prospective, de l'Urbanisme et de la Mobilité) à Monaco si votre projet le requiert.",
+          objective: "Objectif : Sécuriser tous les choix et cadrer précisément les délais d'exécution."
+        },
+        highlight: {
+          title: "Pourquoi Choisir un General Contractor comme LKR ?",
+          text: "En tant que general contractor, nous coordonnons l'ensemble des corps de métier impliqués dans votre projet. Vous avez un seul interlocuteur de confiance qui pilote tous les artisans et fournisseurs, garantissant cohérence, qualité et respect des délais. Plus besoin de jongler entre plusieurs entreprises : nous gérons tout pour vous."
+        },
+        step4: {
+          title: "Coordination Complète des Intervenants",
+          p1: "En tant que contractant général, nous assurons la coordination complète et rigoureuse de tous les professionnels intervenant sur votre chantier : maçons, électriciens, plombiers, carreleurs, menuisiers, peintres et tous les corps de métier spécialisés nécessaires à votre projet.",
+          p2: "Avant le démarrage des travaux, nous organisons une réunion préparatoire sur site avec tous les intervenants. Cette rencontre permet de s'assurer que chaque professionnel a une compréhension parfaite du projet, des contraintes techniques, des délais et des standards de qualité attendus.",
+          li1: "Sélection d'artisans qualifiés et de confiance",
+          li2: "Coordination des plannings d'intervention",
+          li3: "Gestion des approvisionnements et livraisons",
+          li4: "Communication permanente entre tous les corps de métier",
+          objective: "Objectif : Garantir une organisation sans faille et éviter les imprévus."
+        },
+        step5: {
+          title: "Réalisation des Travaux et Suivi de Chantier Rigoureux",
+          p1: "Le chantier démarre selon le planning établi. Notre chef de chantier assure un suivi hebdomadaire rigoureux pour contrôler l'avancement des travaux, la qualité d'exécution, le respect des normes en vigueur à Monaco et la conformité au cahier des charges validé ensemble.",
+          p2: "Nous organisons également des réunions de chantier à des étapes clés (fin du gros œuvre, pose des réseaux, installation des cloisons, début des finitions) pour valider ensemble les avancées et vous tenir informé en permanence de l'évolution de votre projet.",
+          p3: "Tout au long du chantier, nous restons votre interlocuteur unique. Vous n'avez pas besoin de contacter chaque artisan individuellement : nous centralisons toutes les informations et gérons la coordination opérationnelle quotidienne.",
+          li1: "Contrôle quotidien de la qualité des travaux",
+          li2: "Respect strict des délais et du planning",
+          li3: "Gestion proactive des aléas éventuels",
+          li4: "Communication transparente et régulière avec vous",
+          objective: "Objectif : Piloter efficacement le chantier pour livrer dans les temps avec un niveau de qualité irréprochable."
+        },
+        step6: {
+          title: "Livraison du Projet et Garanties Complètes",
+          p1: "Une fois les travaux terminés, nous procédons à une réception complète avec vous, accompagnée d'un procès-verbal détaillé. Ce moment officiel marque la fin du chantier, mais surtout le début de vos garanties légales qui protègent votre investissement.",
+          p2: "Nous vous remettons un dossier technique complet comprenant tous les documents nécessaires : factures détaillées, certificats de conformité, garanties des équipements installés, notices d'utilisation et d'entretien, et contacts pour le service après-vente.",
+          p3: "Même après la livraison, nous restons à votre disposition pour tout besoin, question ou intervention de maintenance. Votre satisfaction est notre priorité, et nous nous engageons à vous accompagner dans la durée.",
+          li1: "Garantie biennale sur tous les équipements",
+          li2: "Garantie décennale pour les travaux structurels",
+          li3: "Service après-vente réactif et disponible",
+          li4: "Dossier technique complet pour votre propriété",
+          objective: "Objectif : Vous livrer un projet conforme à vos attentes, avec toutes les garanties en main et une tranquillité d'esprit totale."
+        },
+        conclusion: {
+          title: "Conclusion",
+          text: "En structurant notre accompagnement en 6 phases bien définies, nous vous offrons une vision claire et rassurante du déroulement complet de vos travaux. Avec LKR Renovation, vous êtes accompagné à chaque instant par des professionnels passionnés, sans stress ni mauvaise surprise. Notre méthode éprouvée garantit la réussite de votre projet de rénovation à Monaco, de la première idée jusqu'à la remise des clés de votre espace transformé."
+        },
+        cta: {title:"Prêt à Démarrer Votre Projet ?",text:"Contactez-nous pour une première consultation gratuite et découvrez comment nous pouvons transformer votre espace",button:"Demander un devis gratuit"},
+        back: "← Retour aux conseils",
+        footer: {legal:"Mentions légales",privacy:"Confidentialité"}
+      },
+      it: {
+        nav: {home:"Home",about:"Chi siamo",services:"Servizi",portfolio:"Realizzazioni",tips:"Consigli",munegascu:"Munegascu",contact:"Contatto"},
+        breadcrumb: {home:"Home",conseils:"Consigli",current:"I Vostri Lavori in 6 Tappe"},
+        meta: {reading:"📖 Tempo di lettura: 8 minuti",updated:"Aggiornato: Gennaio 2025"},
+        title: "I Vostri Lavori in 6 Grandi Tappe con LKR",
+        intro: "Un progetto di ristrutturazione a Monaco richiede metodo, coordinamento e anticipazione. In LKR Renovation, abbiamo strutturato il nostro approccio in 6 tappe chiave per pilotare il vostro progetto dalla A alla Z, semplificandovi la vita e garantendo un risultato eccezionale.",
+        step1: {
+          title: "Primo Contatto e Scoperta del Progetto",
+          p1: "Tutto inizia con un primo contatto semplice e rapido, per telefono, email o tramite il nostro modulo online. Questo primo scambio ci permette di porre le basi del vostro progetto: tipo di ristrutturazione prevista, le vostre aspettative, il calendario desiderato e gli eventuali vincoli.",
+          p2: "Proseguiamo poi con un incontro di analisi approfondita, direttamente sul posto a Monaco o sulla Costa Azzurra. Questa visita ci permette di comprendere meglio le vostre esigenze tecniche ed estetiche, valutare i vincoli del sito (accesso, stato attuale, regolamentazioni specifiche del Principato) e immaginare le prime soluzioni adatte.",
+          objective: "Obiettivo: Definire precisamente le vostre aspettative e valutare la fattibilità globale del progetto."
+        },
+        step2: {
+          title: "Studio Tecnico, Stima e Preventivo Dettagliato",
+          p1: "Una volta chiarite le vostre esigenze, passiamo allo studio tecnico e finanziario approfondito. Il nostro team analizza tutti gli aspetti del vostro progetto: lavori di muratura necessari, impianti elettrici e idraulici, scelta dei materiali, finiture di alta gamma e coordinamento dei diversi mestieri.",
+          p2: "Vi presentiamo poi un preventivo dettagliato e trasparente, con eventualmente diverse opzioni secondo i materiali selezionati e le prestazioni previste. Ogni voce di spesa è chiaramente spiegata per permettervi di prendere le vostre decisioni in piena consapevolezza.",
+          li1: "Valutazione precisa dei lavori da prevedere",
+          li2: "Proposte di soluzioni concrete e innovative",
+          li3: "Preventivo stimato basato sugli elementi validati insieme",
+          li4: "Preventivo dettagliato voce per voce, senza sorprese",
+          objective: "Obiettivo: Permettervi di decidere in piena trasparenza con una visione chiara dei costi."
+        },
+        step3: {
+          title: "Validazione del Progetto e Pianificazione dei Lavori",
+          p1: "Dopo i vostri riscontri e le vostre domande, vi accompagniamo per finalizzare tutte le vostre scelte: materiali definitivi, sanitari, rubinetteria, rivestimenti di pavimenti e pareti, colori, finiture e tutti i dettagli estetici che faranno l'identità del vostro spazio rinnovato.",
+          p2: "Queste decisioni possono necessitare alcuni aggiustamenti del preventivo iniziale per riflettere le vostre scelte finali. Una volta validato il tutto, stabiliamo un preventivo definitivo accompagnato da un planning previsionale dettagliato dei lavori, includendo le diverse fasi di intervento e le tappe importanti.",
+          p3: "La firma di questo accordo segna l'inizio ufficiale del vostro progetto. Ci occupiamo anche delle pratiche amministrative necessarie presso la DPUM (Direction de la Prospective, de l'Urbanisme et de la Mobilité) a Monaco se il vostro progetto lo richiede.",
+          objective: "Obiettivo: Garantire tutte le scelte e inquadrare precisamente i tempi di esecuzione."
+        },
+        highlight: {
+          title: "Perché Scegliere un General Contractor come LKR?",
+          text: "Come general contractor, coordiniamo tutti i mestieri coinvolti nel vostro progetto. Avete un unico interlocutore di fiducia che coordina tutti gli artigiani e i fornitori, garantendo coerenza, qualità e rispetto dei tempi. Non c'è più bisogno di destreggiarsi tra diverse aziende: gestiamo tutto noi per voi."
+        },
+        step4: {
+          title: "Coordinamento Completo degli Interventi",
+          p1: "Come appaltatore generale, assicuriamo il coordinamento completo e rigoroso di tutti i professionisti che intervengono sul vostro cantiere: muratori, elettricisti, idraulici, piastrellisti, falegnami, imbianchini e tutti i mestieri specializzati necessari al vostro progetto.",
+          p2: "Prima dell'avvio dei lavori, organizziamo una riunione preparatoria sul sito con tutti gli intervenuti. Questo incontro permette di assicurarsi che ogni professionista abbia una comprensione perfetta del progetto, dei vincoli tecnici, dei tempi e degli standard di qualità attesi.",
+          li1: "Selezione di artigiani qualificati e di fiducia",
+          li2: "Coordinamento dei planning di intervento",
+          li3: "Gestione degli approvvigionamenti e consegne",
+          li4: "Comunicazione permanente tra tutti i mestieri",
+          objective: "Obiettivo: Garantire un'organizzazione impeccabile ed evitare imprevisti."
+        },
+        step5: {
+          title: "Realizzazione dei Lavori e Monitoraggio Rigoroso del Cantiere",
+          p1: "Il cantiere inizia secondo il planning stabilito. Il nostro capo cantiere assicura un monitoraggio settimanale rigoroso per controllare l'avanzamento dei lavori, la qualità di esecuzione, il rispetto delle norme in vigore a Monaco e la conformità al capitolato validato insieme.",
+          p2: "Organizziamo anche riunioni di cantiere in tappe chiave (fine del rustico, posa delle reti, installazione delle tramezze, inizio delle finiture) per validare insieme gli avanzamenti e tenervi informati permanentemente dell'evoluzione del vostro progetto.",
+          p3: "Durante tutto il cantiere, rimaniamo il vostro unico interlocutore. Non dovete contattare ogni artigiano individualmente: centralizziamo tutte le informazioni e gestiamo il coordinamento operativo quotidiano.",
+          li1: "Controllo quotidiano della qualità dei lavori",
+          li2: "Rispetto rigoroso dei tempi e del planning",
+          li3: "Gestione proattiva degli eventuali imprevisti",
+          li4: "Comunicazione trasparente e regolare con voi",
+          objective: "Obiettivo: Pilotare efficacemente il cantiere per consegnare in tempo con un livello di qualità irreprensibile."
+        },
+        step6: {
+          title: "Consegna del Progetto e Garanzie Complete",
+          p1: "Una volta terminati i lavori, procediamo a una ricezione completa con voi, accompagnata da un verbale dettagliato. Questo momento ufficiale segna la fine del cantiere, ma soprattutto l'inizio delle vostre garanzie legali che proteggono il vostro investimento.",
+          p2: "Vi consegniamo un dossier tecnico completo comprendente tutti i documenti necessari: fatture dettagliate, certificati di conformità, garanzie degli equipaggiamenti installati, istruzioni d'uso e manutenzione, e contatti per il servizio post-vendita.",
+          p3: "Anche dopo la consegna, rimaniamo a vostra disposizione per qualsiasi esigenza, domanda o intervento di manutenzione. La vostra soddisfazione è la nostra priorità, e ci impegniamo ad accompagnarvi nel tempo.",
+          li1: "Garanzia biennale su tutti gli equipaggiamenti",
+          li2: "Garanzia decennale per i lavori strutturali",
+          li3: "Servizio post-vendita reattivo e disponibile",
+          li4: "Dossier tecnico completo per la vostra proprietà",
+          objective: "Obiettivo: Consegnarvi un progetto conforme alle vostre aspettative, con tutte le garanzie in mano e una tranquillità totale."
+        },
+        conclusion: {
+          title: "Conclusione",
+          text: "Strutturando il nostro accompagnamento in 6 fasi ben definite, vi offriamo una visione chiara e rassicurante dello svolgimento completo dei vostri lavori. Con LKR Renovation, siete accompagnati in ogni momento da professionisti appassionati, senza stress né brutte sorprese. Il nostro metodo collaudato garantisce il successo del vostro progetto di ristrutturazione a Monaco, dalla prima idea fino alla consegna delle chiavi del vostro spazio trasformato."
+        },
+        cta: {title:"Pronti a Iniziare il Vostro Progetto?",text:"Contattateci per una prima consulenza gratuita e scoprite come possiamo trasformare il vostro spazio",button:"Richiedere un preventivo gratuito"},
+        back: "← Ritorno ai consigli",
+        footer: {legal:"Note legali",privacy:"Privacy"}
+      },
+      en: {
+        nav: {home:"Home",about:"About us",services:"Services",portfolio:"Portfolio",tips:"Tips",munegascu:"Munegascu",contact:"Contact"},
+        breadcrumb: {home:"Home",conseils:"Tips",current:"Your Works in 6 Steps"},
+        meta: {reading:"📖 Reading time: 8 minutes",updated:"Updated: January 2025"},
+        title: "Your Works in 6 Major Steps with LKR",
+        intro: "A renovation project in Monaco requires method, coordination and anticipation. At LKR Renovation, we have structured our approach in 6 key steps to manage your project from A to Z, simplifying your life and guaranteeing exceptional results.",
+        step1: {
+          title: "Initial Contact and Project Discovery",
+          p1: "Everything starts with a simple and quick initial contact, by phone, email or via our online form. This first exchange allows us to lay the foundations of your project: type of renovation planned, your expectations, desired timeline and any constraints.",
+          p2: "We then continue with an in-depth analysis meeting, directly on site in Monaco or on the French Riviera. This visit allows us to better understand your technical and aesthetic needs, assess site constraints (access, current condition, Principality-specific regulations) and imagine the first suitable solutions.",
+          objective: "Objective: Precisely identify your expectations and assess the overall feasibility of the project."
+        },
+        step2: {
+          title: "Technical Study, Estimation and Detailed Quote",
+          p1: "Once your needs are clarified, we proceed to an in-depth technical and financial study. Our team analyzes all aspects of your project: necessary structural work, electrical and plumbing installations, choice of materials, high-end finishes and coordination of different trades.",
+          p2: "We then present you with a detailed and transparent quote, possibly with several options depending on selected materials and planned services. Each expense item is clearly explained to allow you to make your decisions with full knowledge.",
+          li1: "Precise assessment of work to be planned",
+          li2: "Proposals for concrete and innovative solutions",
+          li3: "Estimated costing based on elements validated together",
+          li4: "Detailed quote item by item, no surprises",
+          objective: "Objective: Allow you to decide in complete transparency with a clear vision of costs."
+        },
+        step3: {
+          title: "Project Validation and Work Planning",
+          p1: "After your feedback and questions, we accompany you to finalize all your choices: final materials, sanitary equipment, taps, floor and wall coverings, colors, finishes and all aesthetic details that will make the identity of your renovated space.",
+          p2: "These decisions may require some adjustments to the initial quote to reflect your final choices. Once everything is validated, we establish a final quote accompanied by a detailed provisional work schedule, including different intervention phases and important milestones.",
+          p3: "The signature of this agreement marks the official start of your project. We also take care of necessary administrative procedures with DPUM (Direction de la Prospective, de l'Urbanisme et de la Mobilité) in Monaco if your project requires it.",
+          objective: "Objective: Secure all choices and precisely frame execution deadlines."
+        },
+        highlight: {
+          title: "Why Choose a General Contractor like LKR?",
+          text: "As a general contractor, we coordinate all trades involved in your project. You have a single trusted contact who manages all craftsmen and suppliers, guaranteeing consistency, quality and respect of deadlines. No more need to juggle between several companies: we manage everything for you."
+        },
+        step4: {
+          title: "Complete Coordination of Contractors",
+          p1: "As general contractor, we ensure complete and rigorous coordination of all professionals working on your site: masons, electricians, plumbers, tilers, carpenters, painters and all specialized trades necessary for your project.",
+          p2: "Before work begins, we organize a preparatory meeting on site with all contractors. This meeting ensures that each professional has a perfect understanding of the project, technical constraints, deadlines and expected quality standards.",
+          li1: "Selection of qualified and trusted craftsmen",
+          li2: "Coordination of intervention schedules",
+          li3: "Management of supplies and deliveries",
+          li4: "Permanent communication between all trades",
+          objective: "Objective: Guarantee flawless organization and avoid surprises."
+        },
+        step5: {
+          title: "Work Execution and Rigorous Site Monitoring",
+          p1: "The site starts according to the established schedule. Our site manager ensures rigorous weekly monitoring to control work progress, execution quality, compliance with Monaco standards and conformity to the specifications validated together.",
+          p2: "We also organize site meetings at key stages (end of structural work, network installation, partition installation, start of finishes) to validate progress together and keep you permanently informed of your project's evolution.",
+          p3: "Throughout the site, we remain your single contact. You don't need to contact each craftsman individually: we centralize all information and manage daily operational coordination.",
+          li1: "Daily quality control of works",
+          li2: "Strict respect of deadlines and schedule",
+          li3: "Proactive management of any contingencies",
+          li4: "Transparent and regular communication with you",
+          objective: "Objective: Efficiently manage the site to deliver on time with impeccable quality."
+        },
+        step6: {
+          title: "Project Delivery and Complete Guarantees",
+          p1: "Once work is completed, we proceed to a complete reception with you, accompanied by a detailed report. This official moment marks the end of the site, but especially the beginning of your legal guarantees that protect your investment.",
+          p2: "We provide you with a complete technical file including all necessary documents: detailed invoices, certificates of conformity, warranties for installed equipment, use and maintenance instructions, and after-sales service contacts.",
+          p3: "Even after delivery, we remain at your disposal for any need, question or maintenance intervention. Your satisfaction is our priority, and we commit to supporting you in the long term.",
+          li1: "Two-year warranty on all equipment",
+          li2: "Ten-year warranty for structural work",
+          li3: "Responsive and available after-sales service",
+          li4: "Complete technical file for your property",
+          objective: "Objective: Deliver a project that meets your expectations, with all guarantees in hand and complete peace of mind."
+        },
+        conclusion: {
+          title: "Conclusion",
+          text: "By structuring our support in 6 well-defined phases, we offer you a clear and reassuring vision of the complete progress of your works. With LKR Renovation, you are accompanied at every moment by passionate professionals, without stress or bad surprises. Our proven method guarantees the success of your renovation project in Monaco, from the first idea to the handover of keys to your transformed space."
+        },
+        cta: {title:"Ready to Start Your Project?",text:"Contact us for a free initial consultation and discover how we can transform your space",button:"Request a free quote"},
+        back: "← Back to tips",
+        footer: {legal:"Legal notice",privacy:"Privacy"}
+      },
+      ru: {
+        nav: {home:"Главная",about:"О нас",services:"Услуги",portfolio:"Портфолио",tips:"Советы",munegascu:"Munegascu",contact:"Контакты"},
+        breadcrumb: {home:"Главная",conseils:"Советы",current:"Ваши Работы в 6 Этапов"},
+        meta: {reading:"📖 Время чтения: 8 минут",updated:"Обновлено: Январь 2025"},
+        title: "Ваши Работы в 6 Основных Этапов с LKR",
+        intro: "Проект ремонта в Монако требует метода, координации и предвидения. В LKR Renovation мы структурировали наш подход в 6 ключевых этапов для управления вашим проектом от А до Я, упрощая вашу жизнь и гарантируя исключительный результат.",
+        step1: {
+          title: "Первый Контакт и Изучение Проекта",
+          p1: "Всё начинается с простого и быстрого первого контакта по телефону, электронной почте или через нашу онлайн-форму. Этот первый обмен позволяет нам заложить основы вашего проекта: тип планируемого ремонта, ваши ожидания, желаемые сроки и возможные ограничения.",
+          p2: "Затем мы продолжаем углублённой встречей-анализом непосредственно на месте в Монако или на Лазурном Берегу. Этот визит позволяет нам лучше понять ваши технические и эстетические потребности, оценить ограничения объекта (доступ, текущее состояние, специфические регламенты Княжества) и представить первые подходящие решения.",
+          objective: "Цель: Точно определить ваши ожидания и оценить общую осуществимость проекта."
+        },
+        step2: {
+          title: "Техническое Изучение, Оценка и Детальная Смета",
+          p1: "После прояснения ваших потребностей мы переходим к углублённому техническому и финансовому изучению. Наша команда анализирует все аспекты вашего проекта: необходимые строительные работы, электрические и сантехнические установки, выбор материалов, высококлассную отделку и координацию различных специалистов.",
+          p2: "Затем мы представляем вам детальную и прозрачную смету, возможно с несколькими вариантами в зависимости от выбранных материалов и планируемых услуг. Каждая статья расходов чётко объяснена, чтобы позволить вам принимать решения с полным знанием дела.",
+          li1: "Точная оценка предстоящих работ",
+          li2: "Предложения конкретных и инновационных решений",
+          li3: "Предварительная оценка на основе согласованных элементов",
+          li4: "Детальная смета по статьям, без сюрпризов",
+          objective: "Цель: Позволить вам принять решение с полной прозрачностью и ясным представлением о затратах."
+        },
+        step3: {
+          title: "Утверждение Проекта и Планирование Работ",
+          p1: "После ваших отзывов и вопросов мы сопровождаем вас для завершения всех ваших выборов: окончательные материалы, сантехника, смесители, напольные и настенные покрытия, цвета, отделка и все эстетические детали, которые создадут идентичность вашего обновлённого пространства.",
+          p2: "Эти решения могут потребовать некоторых корректировок первоначальной сметы для отражения ваших окончательных выборов. После утверждения всего мы составляем окончательную смету с детальным предварительным графиком работ, включающим различные фазы вмешательства и важные этапы.",
+          p3: "Подписание этого соглашения отмечает официальное начало вашего проекта. Мы также занимаемся необходимыми административными процедурами в DPUM (Direction de la Prospective, de l'Urbanisme et de la Mobilité) в Монако, если ваш проект этого требует.",
+          objective: "Цель: Гарантировать все выборы и точно определить сроки выполнения."
+        },
+        highlight: {
+          title: "Почему Выбрать Генерального Подрядчика как LKR?",
+          text: "Как генеральный подрядчик, мы координируем все специальности, задействованные в вашем проекте. У вас есть единый доверенный контакт, который управляет всеми мастерами и поставщиками, гарантируя согласованность, качество и соблюдение сроков. Больше не нужно жонглировать между несколькими компаниями: мы управляем всем за вас."
+        },
+        step4: {
+          title: "Полная Координация Исполнителей",
+          p1: "Как генеральный подрядчик, мы обеспечиваем полную и строгую координацию всех профессионалов, работающих на вашем объекте: каменщиков, электриков, сантехников, плиточников, столяров, маляров и всех специализированных специалистов, необходимых для вашего проекта.",
+          p2: "Перед началом работ мы организуем подготовительную встречу на объекте со всеми исполнителями. Эта встреча гарантирует, что каждый профессионал имеет совершенное понимание проекта, технических ограничений, сроков и ожидаемых стандартов качества.",
+          li1: "Отбор квалифицированных и надёжных мастеров",
+          li2: "Координация графиков работ",
+          li3: "Управление поставками и доставками",
+          li4: "Постоянная коммуникация между всеми специалистами",
+          objective: "Цель: Гарантировать безупречную организацию и избежать непредвиденных ситуаций."
+        },
+        step5: {
+          title: "Выполнение Работ и Строгий Контроль Объекта",
+          p1: "Объект начинается согласно установленному графику. Наш начальник объекта обеспечивает строгий еженедельный мониторинг для контроля хода работ, качества выполнения, соблюдения действующих в Монако норм и соответствия согласованным техническим условиям.",
+          p2: "Мы также организуем собрания на объекте на ключевых этапах (окончание черновых работ, установка сетей, монтаж перегородок, начало отделки) для совместного утверждения прогресса и постоянного информирования вас об эволюции вашего проекта.",
+          p3: "На протяжении всего объекта мы остаёмся вашим единым контактом. Вам не нужно связываться с каждым мастером индивидуально: мы централизуем всю информацию и управляем ежедневной оперативной координацией.",
+          li1: "Ежедневный контроль качества работ",
+          li2: "Строгое соблюдение сроков и графика",
+          li3: "Проактивное управление возможными непредвиденными ситуациями",
+          li4: "Прозрачная и регулярная коммуникация с вами",
+          objective: "Цель: Эффективно управлять объектом для сдачи в срок с безупречным уровнем качества."
+        },
+        step6: {
+          title: "Сдача Проекта и Полные Гарантии",
+          p1: "После завершения работ мы проводим полную приёмку с вами, сопровождаемую детальным актом. Этот официальный момент отмечает окончание объекта, но особенно начало ваших юридических гарантий, которые защищают ваши инвестиции.",
+          p2: "Мы передаём вам полное техническое досье, включающее все необходимые документы: детальные счета, сертификаты соответствия, гарантии на установленное оборудование, инструкции по использованию и обслуживанию, и контакты для послепродажного обслуживания.",
+          p3: "Даже после сдачи мы остаёмся в вашем распоряжении для любых потребностей, вопросов или вмешательства по обслуживанию. Ваше удовлетворение – наш приоритет, и мы обязуемся сопровождать вас в долгосрочной перспективе.",
+          li1: "Двухлетняя гарантия на всё оборудование",
+          li2: "Десятилетняя гарантия на структурные работы",
+          li3: "Реактивное и доступное послепродажное обслуживание",
+          li4: "Полное техническое досье для вашей собственности",
+          objective: "Цель: Сдать вам проект, соответствующий вашим ожиданиям, со всеми гарантиями и полным спокойствием."
+        },
+        conclusion: {
+          title: "Заключение",
+          text: "Структурируя наше сопровождение в 6 чётко определённых фаз, мы предлагаем вам ясное и обнадёживающее видение полного хода ваших работ. С LKR Renovation вас сопровождают в каждый момент увлечённые профессионалы, без стресса и плохих сюрпризов. Наш проверенный метод гарантирует успех вашего проекта ремонта в Монако, от первой идеи до передачи ключей от вашего преображённого пространства."
+        },
+        cta: {title:"Готовы Начать Ваш Проект?",text:"Свяжитесь с нами для бесплатной первой консультации и узнайте, как мы можем преобразить ваше пространство",button:"Запросить бесплатную смету"},
+        back: "← Назад к советам",
+        footer: {legal:"Правовая информация",privacy:"Конфиденциальность"}
+      },
+      de: {
+        nav: {home:"Home",about:"Über uns",services:"Leistungen",portfolio:"Portfolio",tips:"Tipps",munegascu:"Munegascu",contact:"Kontakt"},
+        breadcrumb: {home:"Home",conseils:"Tipps",current:"Ihre Arbeiten in 6 Schritten"},
+        meta: {reading:"📖 Lesezeit: 8 Minuten",updated:"Aktualisiert: Januar 2025"},
+        title: "Ihre Arbeiten in 6 Großen Schritten mit LKR",
+        intro: "Ein Renovierungsprojekt in Monaco erfordert Methode, Koordination und Vorausplanung. Bei LKR Renovation haben wir unseren Ansatz in 6 Schlüsselschritten strukturiert, um Ihr Projekt von A bis Z zu steuern, Ihr Leben zu vereinfachen und außergewöhnliche Ergebnisse zu garantieren.",
+        step1: {
+          title: "Erstkontakt und Projektentdeckung",
+          p1: "Alles beginnt mit einem einfachen und schnellen Erstkontakt per Telefon, E-Mail oder über unser Online-Formular. Dieser erste Austausch ermöglicht es uns, die Grundlagen Ihres Projekts zu legen: Art der geplanten Renovierung, Ihre Erwartungen, gewünschter Zeitplan und eventuelle Einschränkungen.",
+          p2: "Wir setzen dann mit einem gründlichen Analysetermin fort, direkt vor Ort in Monaco oder an der Côte d'Azur. Dieser Besuch ermöglicht es uns, Ihre technischen und ästhetischen Bedürfnisse besser zu verstehen, die Standortbedingungen zu bewerten (Zugang, aktueller Zustand, fürstentumsspezifische Vorschriften) und erste geeignete Lösungen zu entwickeln.",
+          objective: "Ziel: Ihre Erwartungen präzise erfassen und die allgemeine Machbarkeit des Projekts bewerten."
+        },
+        step2: {
+          title: "Technische Studie, Schätzung und Detailliertes Angebot",
+          p1: "Sobald Ihre Bedürfnisse geklärt sind, gehen wir zu einer gründlichen technischen und finanziellen Studie über. Unser Team analysiert alle Aspekte Ihres Projekts: notwendige Bauarbeiten, Elektro- und Sanitärinstallationen, Materialauswahl, hochwertige Verarbeitung und Koordination verschiedener Gewerke.",
+          p2: "Wir präsentieren Ihnen dann ein detailliertes und transparentes Angebot, möglicherweise mit mehreren Optionen je nach ausgewählten Materialien und geplanten Leistungen. Jeder Kostenposten wird klar erläutert, damit Sie Ihre Entscheidungen in voller Kenntnis treffen können.",
+          li1: "Präzise Bewertung der zu planenden Arbeiten",
+          li2: "Vorschläge für konkrete und innovative Lösungen",
+          li3: "Geschätzte Kalkulation basierend auf gemeinsam validierten Elementen",
+          li4: "Detailliertes Angebot Posten für Posten, keine Überraschungen",
+          objective: "Ziel: Ihnen ermöglichen, in völliger Transparenz mit klarer Kostensicht zu entscheiden."
+        },
+        step3: {
+          title: "Projektvalidierung und Arbeitsplanung",
+          p1: "Nach Ihrem Feedback und Ihren Fragen begleiten wir Sie bei der Finalisierung aller Ihrer Entscheidungen: endgültige Materialien, Sanitärausstattung, Armaturen, Boden- und Wandbeläge, Farben, Verarbeitung und alle ästhetischen Details, die die Identität Ihres renovierten Raums ausmachen.",
+          p2: "Diese Entscheidungen können einige Anpassungen des ursprünglichen Angebots erfordern, um Ihre endgültigen Entscheidungen widerzuspiegeln. Sobald alles validiert ist, erstellen wir ein endgültiges Angebot mit einem detaillierten vorläufigen Arbeitsplan, einschließlich verschiedener Interventionsphasen und wichtiger Meilensteine.",
+          p3: "Die Unterzeichnung dieser Vereinbarung markiert den offiziellen Start Ihres Projekts. Wir kümmern uns auch um notwendige Verwaltungsverfahren bei der DPUM (Direction de la Prospective, de l'Urbanisme et de la Mobilité) in Monaco, falls Ihr Projekt dies erfordert.",
+          objective: "Ziel: Alle Entscheidungen absichern und Ausführungsfristen präzise festlegen."
+        },
+        highlight: {
+          title: "Warum Einen Generalunternehmer wie LKR Wählen?",
+          text: "Als Generalunternehmer koordinieren wir alle an Ihrem Projekt beteiligten Gewerke. Sie haben einen einzigen vertrauenswürdigen Ansprechpartner, der alle Handwerker und Lieferanten steuert und Kohärenz, Qualität und Termintreue garantiert. Kein Jonglieren mehr zwischen mehreren Unternehmen: Wir managen alles für Sie."
+        },
+        step4: {
+          title: "Vollständige Koordination der Beteiligten",
+          p1: "Als Generalunternehmer gewährleisten wir die vollständige und rigorose Koordination aller auf Ihrer Baustelle tätigen Fachleute: Maurer, Elektriker, Klempner, Fliesenleger, Schreiner, Maler und alle für Ihr Projekt erforderlichen spezialisierten Gewerke.",
+          p2: "Vor Arbeitsbeginn organisieren wir ein vorbereitendes Treffen vor Ort mit allen Beteiligten. Dieses Treffen stellt sicher, dass jeder Fachmann ein perfektes Verständnis des Projekts, der technischen Einschränkungen, der Fristen und der erwarteten Qualitätsstandards hat.",
+          li1: "Auswahl qualifizierter und vertrauenswürdiger Handwerker",
+          li2: "Koordination der Interventionspläne",
+          li3: "Verwaltung von Lieferungen und Anlieferungen",
+          li4: "Permanente Kommunikation zwischen allen Gewerken",
+          objective: "Ziel: Fehlerfreie Organisation garantieren und Überraschungen vermeiden."
+        },
+        step5: {
+          title: "Arbeitsausführung und Rigorose Baustellenüberwachung",
+          p1: "Die Baustelle beginnt gemäß dem festgelegten Plan. Unser Bauleiter gewährleistet eine rigorose wöchentliche Überwachung zur Kontrolle des Arbeitsfortschritts, der Ausführungsqualität, der Einhaltung der in Monaco geltenden Normen und der Konformität mit den gemeinsam validierten Spezifikationen.",
+          p2: "Wir organisieren auch Baustellenbesprechungen zu Schlüsselphasen (Ende Rohbau, Netzinstallation, Trennwandinstallation, Beginn der Verarbeitung), um gemeinsam Fortschritte zu validieren und Sie permanent über die Entwicklung Ihres Projekts zu informieren.",
+          p3: "Während der gesamten Baustelle bleiben wir Ihr einziger Ansprechpartner. Sie müssen nicht jeden Handwerker einzeln kontaktieren: Wir zentralisieren alle Informationen und verwalten die tägliche operative Koordination.",
+          li1: "Tägliche Qualitätskontrolle der Arbeiten",
+          li2: "Strikte Einhaltung von Fristen und Zeitplan",
+          li3: "Proaktives Management eventueller Unwägbarkeiten",
+          li4: "Transparente und regelmäßige Kommunikation mit Ihnen",
+          objective: "Ziel: Die Baustelle effizient steuern, um termingerecht mit einwandfreier Qualität zu liefern."
+        },
+        step6: {
+          title: "Projektübergabe und Vollständige Garantien",
+          p1: "Nach Abschluss der Arbeiten führen wir mit Ihnen eine vollständige Abnahme durch, begleitet von einem detaillierten Protokoll. Dieser offizielle Moment markiert das Ende der Baustelle, aber vor allem den Beginn Ihrer gesetzlichen Garantien, die Ihre Investition schützen.",
+          p2: "Wir übergeben Ihnen eine vollständige technische Mappe mit allen notwendigen Dokumenten: detaillierte Rechnungen, Konformitätszertifikate, Garantien für installierte Ausrüstung, Gebrauchs- und Wartungsanleitungen sowie Kontakte für den Kundendienst.",
+          p3: "Auch nach der Übergabe stehen wir Ihnen für jeden Bedarf, jede Frage oder Wartungsintervention zur Verfügung. Ihre Zufriedenheit ist unsere Priorität, und wir verpflichten uns, Sie langfristig zu begleiten.",
+          li1: "Zweijährige Garantie auf alle Ausrüstung",
+          li2: "Zehnjährige Garantie für Bauarbeiten",
+          li3: "Reaktiver und verfügbarer Kundendienst",
+          li4: "Vollständige technische Mappe für Ihre Immobilie",
+          objective: "Ziel: Ihnen ein Projekt zu übergeben, das Ihren Erwartungen entspricht, mit allen Garantien und völliger Gelassenheit."
+        },
+        conclusion: {
+          title: "Fazit",
+          text: "Durch die Strukturierung unserer Begleitung in 6 gut definierten Phasen bieten wir Ihnen eine klare und beruhigende Vision des vollständigen Ablaufs Ihrer Arbeiten. Mit LKR Renovation werden Sie in jedem Moment von leidenschaftlichen Fachleuten begleitet, ohne Stress oder böse Überraschungen. Unsere bewährte Methode garantiert den Erfolg Ihres Renovierungsprojekts in Monaco, von der ersten Idee bis zur Schlüsselübergabe Ihres verwandelten Raums."
+        },
+        cta: {title:"Bereit Ihr Projekt zu Starten?",text:"Kontaktieren Sie uns für eine kostenlose Erstberatung und entdecken Sie, wie wir Ihren Raum verwandeln können",button:"Kostenloses Angebot anfordern"},
+        back: "← Zurück zu Tipps",
+        footer: {legal:"Impressum",privacy:"Datenschutz"}
+      },
+      es: {
+        nav: {home:"Inicio",about:"Quiénes somos",services:"Servicios",portfolio:"Proyectos",tips:"Consejos",munegascu:"Munegascu",contact:"Contacto"},
+        breadcrumb: {home:"Inicio",conseils:"Consejos",current:"Sus Obras en 6 Etapas"},
+        meta: {reading:"📖 Tiempo de lectura: 8 minutos",updated:"Actualizado: Enero 2025"},
+        title: "Sus Obras en 6 Grandes Etapas con LKR",
+        intro: "Un proyecto de renovación en Mónaco requiere método, coordinación y anticipación. En LKR Renovation, hemos estructurado nuestro enfoque en 6 etapas clave para gestionar su proyecto de A a Z, simplificando su vida y garantizando resultados excepcionales.",
+        step1: {
+          title: "Primer Contacto y Descubrimiento del Proyecto",
+          p1: "Todo comienza con un primer contacto simple y rápido, por teléfono, correo electrónico o a través de nuestro formulario en línea. Este primer intercambio nos permite sentar las bases de su proyecto: tipo de renovación prevista, sus expectativas, calendario deseado y posibles restricciones.",
+          p2: "Luego continuamos con una reunión de análisis en profundidad, directamente en el lugar en Mónaco o en la Costa Azul. Esta visita nos permite comprender mejor sus necesidades técnicas y estéticas, evaluar las restricciones del sitio (acceso, estado actual, regulaciones específicas del Principado) e imaginar las primeras soluciones adecuadas.",
+          objective: "Objetivo: Definir precisamente sus expectativas y evaluar la viabilidad global del proyecto."
+        },
+        step2: {
+          title: "Estudio Técnico, Estimación y Presupuesto Detallado",
+          p1: "Una vez aclaradas sus necesidades, pasamos al estudio técnico y financiero en profundidad. Nuestro equipo analiza todos los aspectos de su proyecto: trabajos de obra gruesa necesarios, instalaciones eléctricas y de fontanería, elección de materiales, acabados de alta gama y coordinación de diferentes oficios.",
+          p2: "Luego le presentamos un presupuesto detallado y transparente, posiblemente con varias opciones según los materiales seleccionados y los servicios previstos. Cada partida de gasto está claramente explicada para permitirle tomar sus decisiones con pleno conocimiento.",
+          li1: "Evaluación precisa de los trabajos a prever",
+          li2: "Propuestas de soluciones concretas e innovadoras",
+          li3: "Presupuesto estimado basado en elementos validados juntos",
+          li4: "Presupuesto detallado partida por partida, sin sorpresas",
+          objective: "Objetivo: Permitirle decidir con total transparencia con una visión clara de los costes."
+        },
+        step3: {
+          title: "Validación del Proyecto y Planificación de Obras",
+          p1: "Después de sus comentarios y preguntas, le acompañamos para finalizar todas sus elecciones: materiales definitivos, equipamiento sanitario, grifería, revestimientos de suelos y paredes, colores, acabados y todos los detalles estéticos que harán la identidad de su espacio renovado.",
+          p2: "Estas decisiones pueden requerir algunos ajustes del presupuesto inicial para reflejar sus elecciones finales. Una vez validado todo, establecemos un presupuesto definitivo acompañado de un calendario provisional detallado de obras, incluyendo diferentes fases de intervención e hitos importantes.",
+          p3: "La firma de este acuerdo marca el inicio oficial de su proyecto. También nos encargamos de los trámites administrativos necesarios ante la DPUM (Direction de la Prospective, de l'Urbanisme et de la Mobilité) en Mónaco si su proyecto lo requiere.",
+          objective: "Objetivo: Asegurar todas las elecciones y enmarcar precisamente los plazos de ejecución."
+        },
+        highlight: {
+          title: "¿Por Qué Elegir un General Contractor como LKR?",
+          text: "Como general contractor, coordinamos todos los oficios involucrados en su proyecto. Tiene un único interlocutor de confianza que gestiona todos los artesanos y proveedores, garantizando coherencia, calidad y respeto de los plazos. Ya no necesita hacer malabarismos entre varias empresas: gestionamos todo por usted."
+        },
+        step4: {
+          title: "Coordinación Completa de los Intervinientes",
+          p1: "Como contratista general, aseguramos la coordinación completa y rigurosa de todos los profesionales que intervienen en su obra: albañiles, electricistas, fontaneros, alicatadores, carpinteros, pintores y todos los oficios especializados necesarios para su proyecto.",
+          p2: "Antes del inicio de las obras, organizamos una reunión preparatoria en el sitio con todos los intervinientes. Esta reunión asegura que cada profesional tiene una comprensión perfecta del proyecto, las restricciones técnicas, los plazos y los estándares de calidad esperados.",
+          li1: "Selección de artesanos cualificados y de confianza",
+          li2: "Coordinación de calendarios de intervención",
+          li3: "Gestión de suministros y entregas",
+          li4: "Comunicación permanente entre todos los oficios",
+          objective: "Objetivo: Garantizar una organización impecable y evitar imprevistos."
+        },
+        step5: {
+          title: "Realización de Obras y Seguimiento Riguroso de Obra",
+          p1: "La obra comienza según el calendario establecido. Nuestro jefe de obra asegura un seguimiento semanal riguroso para controlar el avance de las obras, la calidad de ejecución, el respeto de las normas vigentes en Mónaco y la conformidad con las especificaciones validadas juntos.",
+          p2: "También organizamos reuniones de obra en etapas clave (fin de obra gruesa, instalación de redes, instalación de tabiques, inicio de acabados) para validar juntos los avances y mantenerle permanentemente informado de la evolución de su proyecto.",
+          p3: "Durante toda la obra, permanecemos como su único interlocutor. No necesita contactar cada artesano individualmente: centralizamos toda la información y gestionamos la coordinación operativa diaria.",
+          li1: "Control diario de la calidad de las obras",
+          li2: "Respeto estricto de plazos y calendario",
+          li3: "Gestión proactiva de posibles contingencias",
+          li4: "Comunicación transparente y regular con usted",
+          objective: "Objetivo: Gestionar eficazmente la obra para entregar a tiempo con nivel de calidad impecable."
+        },
+        step6: {
+          title: "Entrega del Proyecto y Garantías Completas",
+          p1: "Una vez terminadas las obras, procedemos a una recepción completa con usted, acompañada de un acta detallada. Este momento oficial marca el fin de la obra, pero sobre todo el inicio de sus garantías legales que protegen su inversión.",
+          p2: "Le entregamos un dossier técnico completo que incluye todos los documentos necesarios: facturas detalladas, certificados de conformidad, garantías de equipamiento instalado, instrucciones de uso y mantenimiento, y contactos para servicio postventa.",
+          p3: "Incluso después de la entrega, permanecemos a su disposición para cualquier necesidad, pregunta o intervención de mantenimiento. Su satisfacción es nuestra prioridad, y nos comprometemos a acompañarle a largo plazo.",
+          li1: "Garantía bienal sobre todo el equipamiento",
+          li2: "Garantía decenal para obras estructurales",
+          li3: "Servicio postventa reactivo y disponible",
+          li4: "Dossier técnico completo para su propiedad",
+          objective: "Objetivo: Entregarle un proyecto conforme a sus expectativas, con todas las garantías y total tranquilidad."
+        },
+        conclusion: {
+          title: "Conclusión",
+          text: "Al estructurar nuestro acompañamiento en 6 fases bien definidas, le ofrecemos una visión clara y tranquilizadora del desarrollo completo de sus obras. Con LKR Renovation, está acompañado en cada momento por profesionales apasionados, sin estrés ni malas sorpresas. Nuestro método probado garantiza el éxito de su proyecto de renovación en Mónaco, desde la primera idea hasta la entrega de llaves de su espacio transformado."
+        },
+        cta: {title:"¿Listo para Comenzar Su Proyecto?",text:"Contáctenos para una primera consulta gratuita y descubra cómo podemos transformar su espacio",button:"Solicitar presupuesto gratuito"},
+        back: "← Volver a consejos",
+        footer: {legal:"Aviso legal",privacy:"Privacidad"}
+      }
+    };
+    
+    const html = document.documentElement;
+    
+    function setLang(lang) {
+      html.setAttribute('lang', lang);
+      html.setAttribute('data-lang', lang);
+      
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n').split('.');
+        let v = I18N[lang];
+        key.forEach(k => v = v && v[k]);
+        if (typeof v === 'string') el.textContent = v;
+      });
+      
+      document.querySelectorAll('nav.lang button').forEach(b => 
+        b.classList.toggle('active', b.dataset.setlang === lang)
+      );
+    }
+    
+    document.querySelectorAll('nav.lang button').forEach(b => 
+      b.addEventListener('click', () => {
+        setLang(b.dataset.setlang);
+        localStorage.setItem('selectedLang', b.dataset.setlang);
+      })
+    );
+    
+    // Auto-detect lingua browser o usa quella salvata
+    function detectBrowserLanguage() {
+      const savedLang = localStorage.getItem('selectedLang');
+      if (savedLang) return savedLang;
+      
+      const browserLang = navigator.language || navigator.userLanguage;
+      const langCode = browserLang.split('-')[0];
+      const supportedLangs = ['fr', 'it', 'en', 'ru', 'de', 'es'];
+      
+      return supportedLangs.includes(langCode) ? langCode : 'fr';
+    }
+    
+    setLang(detectBrowserLanguage());
+  </script>
+</body>
+</html>
