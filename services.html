@@ -394,5 +394,38 @@
       });
     }
   </script>
+<script>
+    // Rileva lingua da altre pagine o browser
+    (function() {
+      const savedLang = localStorage.getItem('selectedLang') || 
+                        document.documentElement.lang || 
+                        navigator.language.split('-')[0] || 
+                        'fr';
+      
+      const supportedLangs = ['fr', 'it', 'en', 'ru', 'de', 'es'];
+      const lang = supportedLangs.includes(savedLang) ? savedLang : 'fr';
+      
+      document.documentElement.setAttribute('lang', lang);
+      document.documentElement.setAttribute('data-lang', lang);
+      
+      // Attiva bottone lingua corretta
+      document.querySelectorAll('[data-setlang]').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.setlang === lang);
+      });
+      
+      // Applica traduzioni
+      if (window.I18N && window.I18N[lang]) {
+        applyTranslations(lang);
+      }
+    })();
+
+    // Salva lingua quando cambia
+    document.querySelectorAll('[data-setlang]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.setlang;
+        localStorage.setItem('selectedLang', lang);
+      });
+    });
+  </script>
 </body>
 </html>
