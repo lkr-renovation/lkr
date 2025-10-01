@@ -1,0 +1,654 @@
+<!-- Website designed and developed by Riccardo Barlozzetti -->
+<!doctype html>
+<html lang="fr" data-lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conseils Travaux et Rénovation Monaco | Guide LKR Renovation</title>
+  <meta name="description" content="Conseils d'experts pour vos travaux de rénovation à Monaco. Guide complet rénovation appartement, coûts, choix contractor, processus travaux. LKR Renovation votre partenaire conseil.">
+  <meta name="keywords" content="conseils rénovation Monaco, guide travaux Monaco, coût rénovation Monaco, choisir contractor Monaco, rénovation appartement Monaco, travaux Principauté Monaco, conseils travaux Costa Azzurra">
+  <link rel="canonical" href="https://lkr.mc/consigli.html">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="theme-color" content="#dc3545">
+  
+  <meta property="og:title" content="Conseils Travaux et Rénovation Monaco | LKR Renovation">
+  <meta property="og:description" content="Guide complet pour réussir vos travaux de rénovation à Monaco. Conseils d'experts, processus, coûts et meilleures pratiques.">
+  <meta property="og:url" content="https://lkr.mc/consigli.html">
+  <meta property="og:type" content="website">
+  
+  <style>
+    :root {
+      --brand: #dc3545;
+      --brand2: #c82333;
+      --text: #2c3e50;
+      --muted: #6c757d;
+      --glass: rgba(255,255,255,.85);
+      --border: rgba(220,53,69,.12);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    
+    .bg-pattern {
+      position: fixed;
+      inset: 0;
+      opacity: .04;
+      pointer-events: none;
+      background-image:
+        linear-gradient(45deg, var(--brand) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--brand) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--brand) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--brand) 75%);
+      background-size: 60px 60px;
+      background-position: 0 0, 0 30px, 30px -30px, -30px 0;
+    }
+    
+    nav.main-nav {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0,0,0,.06);
+    }
+    
+    nav.main-nav .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 28px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    
+    .nav-logo {
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--brand);
+      text-decoration: none;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      margin-left: auto;
+      align-items: center;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all .2s;
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color: #fff;
+    }
+    
+    nav.lang {
+      display: flex;
+      gap: 6px;
+    }
+    
+    nav.lang button {
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 6px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: .9rem;
+      transition: all .2s;
+      color: var(--text);
+    }
+    
+    nav.lang button.active {
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color: #fff;
+      border-color: transparent;
+    }
+    
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      color: var(--brand);
+      font-size: 1.5rem;
+    }
+    
+    @media (max-width: 900px) {
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--glass);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        box-shadow: 0 8px 24px rgba(0,0,0,.1);
+        transform: translateY(-120%);
+        transition: transform .3s;
+      }
+      
+      .nav-links.open {
+        transform: translateY(0);
+      }
+      
+      .mobile-toggle {
+        display: block;
+        margin-left: auto;
+      }
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 28px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .page-hero {
+      text-align: center;
+      margin-bottom: 64px;
+      padding: 32px 0;
+    }
+    
+    .page-hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      margin: 0 0 20px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    
+    .page-hero p {
+      font-size: 1.25rem;
+      color: var(--muted);
+      max-width: 800px;
+      margin: 0 auto 12px;
+      line-height: 1.7;
+    }
+    
+    .intro-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 64px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+    }
+    
+    .intro-box p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    
+    .intro-box p:last-child {
+      margin-bottom: 0;
+    }
+    
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 32px;
+      margin-bottom: 64px;
+    }
+    
+    .article-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+      transition: transform .3s, box-shadow .3s;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .article-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--brand), #ff6b7a);
+      transform: translateX(-100%);
+      transition: transform .3s ease;
+    }
+    
+    .article-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(220,53,69,.15);
+    }
+    
+    .article-card:hover::before {
+      transform: translateX(0);
+    }
+    
+    .article-icon {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+    
+    .article-card h2 {
+      font-size: 1.5rem;
+      margin: 0 0 16px;
+      color: var(--brand);
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    
+    .article-card p {
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+    
+    .article-card .read-more {
+      display: inline-block;
+      padding: 12px 28px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: transform .2s, box-shadow .2s;
+      text-align: center;
+    }
+    
+    .article-card .read-more:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(220,53,69,.3);
+    }
+    
+    .cta-banner {
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      color: #fff;
+      border-radius: 24px;
+      padding: 56px 40px;
+      text-align: center;
+      margin: 80px 0 64px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.15);
+    }
+    
+    .cta-banner h2 {
+      font-size: 2.2rem;
+      margin: 0 0 20px;
+      font-weight: 700;
+    }
+    
+    .cta-banner p {
+      font-size: 1.2rem;
+      opacity: .95;
+      margin: 0 0 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .cta-btn {
+      display: inline-block;
+      padding: 16px 40px;
+      background: var(--brand);
+      color: #fff;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 8px 24px rgba(220,53,69,.3);
+      transition: transform .2s, box-shadow .2s;
+    }
+    
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(220,53,69,.4);
+    }
+    
+    footer {
+      text-align: center;
+      font-size: .95rem;
+      color: var(--muted);
+      padding: 40px 28px;
+      margin-top: 64px;
+      border-top: 1px solid var(--border);
+      background: rgba(255,255,255,.5);
+    }
+    
+    footer p {
+      margin: 8px 0;
+    }
+    
+    footer a {
+      color: var(--brand);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    
+    footer a:hover {
+      text-decoration: underline;
+      color: var(--brand2);
+    }
+    
+    @media (max-width: 768px) {
+      .articles-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      
+      .article-card {
+        padding: 28px;
+      }
+      
+      .page-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .page-hero p {
+        font-size: 1.1rem;
+      }
+      
+      .cta-banner {
+        padding: 40px 24px;
+      }
+      
+      .cta-banner h2 {
+        font-size: 1.8rem;
+      }
+      
+      .intro-box {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-pattern" aria-hidden="true"></div>
+  
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">LKR</a>
+      <button class="mobile-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+      <ul class="nav-links">
+        <li><a href="/" data-i18n="nav.home">Accueil</a></li>
+        <li><a href="/aboutus.html" data-i18n="nav.about">Qui sommes-nous</a></li>
+        <li><a href="/services.html" data-i18n="nav.services">Services</a></li>
+        <li><a href="/portfolio.html" data-i18n="nav.portfolio">Réalisations</a></li>
+        <li><a href="/consigli.html" class="active" data-i18n="nav.tips">Conseils</a></li>
+        <li><a href="/munegascu.html" data-i18n="nav.munegascu">Munegascu</a></li>
+        <li><a href="/#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <nav class="lang" aria-label="Language">
+        <button data-setlang="fr" class="active">FR</button>
+        <button data-setlang="it">IT</button>
+        <button data-setlang="en">EN</button>
+        <button data-setlang="ru">RU</button>
+        <button data-setlang="de">DE</button>
+        <button data-setlang="es">ES</button>
+      </nav>
+    </div>
+  </nav>
+  
+  <div class="container">
+    <section class="page-hero">
+      <h1 data-i18n="hero.title">Nos Conseils pour Vos Travaux</h1>
+      <p data-i18n="hero.subtitle">Guides pratiques et conseils d'experts pour réussir vos projets de rénovation à Monaco et sur la Côte d'Azur</p>
+    </section>
+    
+    <section class="intro-box">
+      <p data-i18n="intro.p1">
+        Rénover un appartement ou une villa à Monaco demande une planification minutieuse et une connaissance approfondie des spécificités locales. Dans cette section, nous partageons notre expertise acquise sur des dizaines de projets dans la Principauté et sur la Côte d'Azur.
+      </p>
+      <p data-i18n="intro.p2">
+        Découvrez nos guides détaillés pour comprendre chaque étape d'un projet de rénovation, anticiper les coûts, choisir les bons professionnels et éviter les pièges courants. Que vous soyez propriétaire d'un appartement à Monaco, d'une villa à Cap d'Ail ou d'un espace commercial à Beausoleil, ces conseils vous aideront à prendre les meilleures décisions.
+      </p>
+    </section>
+    
+    <section class="articles-grid">
+      <article class="article-card">
+        <div class="article-icon">🔄</div>
+        <h2 data-i18n="art1.title">Vos Travaux en 6 Étapes avec LKR</h2>
+        <p data-i18n="art1.desc">
+          Découvrez notre méthode éprouvée pour gérer votre projet de rénovation du premier contact à la livraison finale. Un processus clair et structuré qui vous garantit sérénité et résultats exceptionnels.
+        </p>
+        <a href="/conseils/travaux-6-etapes.html" class="read-more" data-i18n="art1.cta">Découvrir le processus</a>
+      </article>
+      
+      <article class="article-card">
+        <div class="article-icon">✨</div>
+        <h2 data-i18n="art2.title">5 Bonnes Raisons de Rénover Votre Bien</h2>
+        <p data-i18n="art2.desc">
+          Valorisation immobilière, confort de vie, économies d'énergie, modernisation et personnalisation. Explorez les avantages concrets d'une rénovation bien planifiée pour votre propriété à Monaco.
+        </p>
+        <a href="/conseils/raisons-renover.html" class="read-more" data-i18n="art2.cta">Lire l'article</a>
+      </article>
+      
+      <article class="article-card">
+        <div class="article-icon">💰</div>
+        <h2 data-i18n="art3.title">Combien Coûte une Rénovation Complète</h2>
+        <p data-i18n="art3.desc">
+          Budget prévisionnel, facteurs de coût, prix au m² à Monaco et sur la Côte d'Azur. Un guide transparent pour estimer votre investissement et planifier votre budget rénovation en toute clarté.
+        </p>
+        <a href="/conseils/cout-renovation.html" class="read-more" data-i18n="art3.cta">Voir les prix</a>
+      </article>
+      
+      <article class="article-card">
+        <div class="article-icon">🎯</div>
+        <h2 data-i18n="art4.title">Comment Choisir le Bon Contractor</h2>
+        <p data-i18n="art4.desc">
+          Critères de sélection, questions essentielles à poser, pièges à éviter et avantages d'un general contractor. Les clés pour identifier le partenaire idéal pour vos travaux à Monaco.
+        </p>
+        <a href="/conseils/choisir-contractor.html" class="read-more" data-i18n="art4.cta">Lire le guide</a>
+      </article>
+      
+      <article class="article-card">
+        <div class="article-icon">🏠</div>
+        <h2 data-i18n="art5.title">Rénovation Appartement: Guide Complet</h2>
+        <p data-i18n="art5.desc">
+          De la conception à la livraison, tous les aspects d'une rénovation d'appartement à Monaco. Normes, délais, coordination, finitions haut de gamme et meilleures pratiques pour un projet réussi.
+        </p>
+        <a href="/conseils/guide-renovation-appartement.html" class="read-more" data-i18n="art5.cta">Consulter le guide</a>
+      </article>
+    </section>
+    
+    <section class="cta-banner">
+      <h2 data-i18n="cta.title">Besoin de Conseils Personnalisés ?</h2>
+      <p data-i18n="cta.text">Notre équipe d'experts est à votre disposition pour discuter de votre projet et répondre à toutes vos questions</p>
+      <a href="/#contact" class="cta-btn" data-i18n="cta.button">Contactez-nous</a>
+    </section>
+  </div>
+  
+  <footer>
+    <p><strong>LKR RENOVATION MC SARL</strong></p>
+    <p>38 Boulevard des Moulins, 98000 Monaco</p>
+    <p>Tél. <a href="tel:+37764061565">+377 6 40 61 56 50</a> • Email: <a href="mailto:info@lkr.mc">info@lkr.mc</a></p>
+    <p style="margin-top:16px;font-size:.9rem">
+      <a href="/mentions-legales.html" data-i18n="footer.legal">Mentions légales</a> • 
+      <a href="/confidentialite.html" data-i18n="footer.privacy">Confidentialité</a>
+    </p>
+    <p style="margin-top:12px;font-size:.85rem;opacity:.7">© 2025 LKR Renovation MC SARL • Tous droits réservés</p>
+  </footer>
+  
+  <script>
+    const I18N = {
+      fr: {
+        nav: {home:"Accueil",about:"Qui sommes-nous",services:"Services",portfolio:"Réalisations",tips:"Conseils",munegascu:"Munegascu",contact:"Contact"},
+        hero: {
+          title:"Nos Conseils pour Vos Travaux",
+          subtitle:"Guides pratiques et conseils d'experts pour réussir vos projets de rénovation à Monaco et sur la Côte d'Azur"
+        },
+        intro: {
+          p1:"Rénover un appartement ou une villa à Monaco demande une planification minutieuse et une connaissance approfondie des spécificités locales. Dans cette section, nous partageons notre expertise acquise sur des dizaines de projets dans la Principauté et sur la Côte d'Azur.",
+          p2:"Découvrez nos guides détaillés pour comprendre chaque étape d'un projet de rénovation, anticiper les coûts, choisir les bons professionnels et éviter les pièges courants. Que vous soyez propriétaire d'un appartement à Monaco, d'une villa à Cap d'Ail ou d'un espace commercial à Beausoleil, ces conseils vous aideront à prendre les meilleures décisions."
+        },
+        art1: {title:"Vos Travaux en 6 Étapes avec LKR",desc:"Découvrez notre méthode éprouvée pour gérer votre projet de rénovation du premier contact à la livraison finale. Un processus clair et structuré qui vous garantit sérénité et résultats exceptionnels.",cta:"Découvrir le processus"},
+        art2: {title:"5 Bonnes Raisons de Rénover Votre Bien",desc:"Valorisation immobilière, confort de vie, économies d'énergie, modernisation et personnalisation. Explorez les avantages concrets d'une rénovation bien planifiée pour votre propriété à Monaco.",cta:"Lire l'article"},
+        art3: {title:"Combien Coûte une Rénovation Complète",desc:"Budget prévisionnel, facteurs de coût, prix au m² à Monaco et sur la Côte d'Azur. Un guide transparent pour estimer votre investissement et planifier votre budget rénovation en toute clarté.",cta:"Voir les prix"},
+        art4: {title:"Comment Choisir le Bon Contractor",desc:"Critères de sélection, questions essentielles à poser, pièges à éviter et avantages d'un general contractor. Les clés pour identifier le partenaire idéal pour vos travaux à Monaco.",cta:"Lire le guide"},
+        art5: {title:"Rénovation Appartement: Guide Complet",desc:"De la conception à la livraison, tous les aspects d'une rénovation d'appartement à Monaco. Normes, délais, coordination, finitions haut de gamme et meilleures pratiques pour un projet réussi.",cta:"Consulter le guide"},
+        cta: {title:"Besoin de Conseils Personnalisés ?",text:"Notre équipe d'experts est à votre disposition pour discuter de votre projet et répondre à toutes vos questions",button:"Contactez-nous"},
+        footer: {legal:"Mentions légales",privacy:"Confidentialité"}
+      },
+      it: {
+        nav: {home:"Home",about:"Chi siamo",services:"Servizi",portfolio:"Realizzazioni",tips:"Consigli",munegascu:"Munegascu",contact:"Contatto"},
+        hero: {
+          title:"I Nostri Consigli per i Vostri Lavori",
+          subtitle:"Guide pratiche e consigli di esperti per il successo dei vostri progetti di ristrutturazione a Monaco e sulla Costa Azzurra"
+        },
+        intro: {
+          p1:"Ristrutturare un appartamento o una villa a Monaco richiede una pianificazione accurata e una conoscenza approfondita delle specificità locali. In questa sezione, condividiamo la nostra esperienza acquisita su decine di progetti nel Principato e sulla Costa Azzurra.",
+          p2:"Scoprite le nostre guide dettagliate per comprendere ogni fase di un progetto di ristrutturazione, anticipare i costi, scegliere i professionisti giusti ed evitare le trappole comuni. Che siate proprietari di un appartamento a Monaco, di una villa a Cap d'Ail o di uno spazio commerciale a Beausoleil, questi consigli vi aiuteranno a prendere le migliori decisioni."
+        },
+        art1: {title:"I Vostri Lavori in 6 Tappe con LKR",desc:"Scoprite il nostro metodo collaudato per gestire il vostro progetto di ristrutturazione dal primo contatto alla consegna finale. Un processo chiaro e strutturato che vi garantisce serenità e risultati eccezionali.",cta:"Scoprire il processo"},
+        art2: {title:"5 Buone Ragioni per Ristrutturare il Vostro Immobile",desc:"Valorizzazione immobiliare, comfort abitativo, risparmio energetico, modernizzazione e personalizzazione. Esplorate i vantaggi concreti di una ristrutturazione ben pianificata per la vostra proprietà a Monaco.",cta:"Leggere l'articolo"},
+        art3: {title:"Quanto Costa una Ristrutturazione Completa",desc:"Budget preventivo, fattori di costo, prezzi al m² a Monaco e sulla Costa Azzurra. Una guida trasparente per stimare il vostro investimento e pianificare il vostro budget ristrutturazione in tutta chiarezza.",cta:"Vedere i prezzi"},
+        art4: {title:"Come Scegliere il Contractor Giusto",desc:"Criteri di selezione, domande essenziali da porre, trappole da evitare e vantaggi di un general contractor. Le chiavi per identificare il partner ideale per i vostri lavori a Monaco.",cta:"Leggere la guida"},
+        art5: {title:"Ristrutturazione Appartamento: Guida Completa",desc:"Dalla progettazione alla consegna, tutti gli aspetti di una ristrutturazione di appartamento a Monaco. Norme, tempi, coordinamento, finiture di alta gamma e migliori pratiche per un progetto riuscito.",cta:"Consultare la guida"},
+        cta: {title:"Bisogno di Consigli Personalizzati?",text:"Il nostro team di esperti è a vostra disposizione per discutere del vostro progetto e rispondere a tutte le vostre domande",button:"Contattateci"},
+        footer: {legal:"Note legali",privacy:"Privacy"}
+      },
+      en: {
+        nav: {home:"Home",about:"About us",services:"Services",portfolio:"Portfolio",tips:"Tips",munegascu:"Munegascu",contact:"Contact"},
+        hero: {
+          title:"Our Tips for Your Works",
+          subtitle:"Practical guides and expert advice to succeed in your renovation projects in Monaco and the French Riviera"
+        },
+        intro: {
+          p1:"Renovating an apartment or villa in Monaco requires careful planning and in-depth knowledge of local specificities. In this section, we share our expertise gained from dozens of projects in the Principality and the French Riviera.",
+          p2:"Discover our detailed guides to understand each stage of a renovation project, anticipate costs, choose the right professionals and avoid common pitfalls. Whether you own an apartment in Monaco, a villa in Cap d'Ail or a commercial space in Beausoleil, these tips will help you make the best decisions."
+        },
+        art1: {title:"Your Works in 6 Steps with LKR",desc:"Discover our proven method to manage your renovation project from first contact to final delivery. A clear and structured process that guarantees you serenity and exceptional results.",cta:"Discover the process"},
+        art2: {title:"5 Good Reasons to Renovate Your Property",desc:"Property value enhancement, living comfort, energy savings, modernization and customization. Explore the concrete advantages of a well-planned renovation for your Monaco property.",cta:"Read article"},
+        art3: {title:"How Much Does a Complete Renovation Cost",desc:"Budget forecast, cost factors, price per m² in Monaco and French Riviera. A transparent guide to estimate your investment and plan your renovation budget with clarity.",cta:"See prices"},
+        art4: {title:"How to Choose the Right Contractor",desc:"Selection criteria, essential questions to ask, pitfalls to avoid and advantages of a general contractor. The keys to identify the ideal partner for your works in Monaco.",cta:"Read guide"},
+        art5: {title:"Apartment Renovation: Complete Guide",desc:"From design to delivery, all aspects of an apartment renovation in Monaco. Standards, deadlines, coordination, high-end finishes and best practices for a successful project.",cta:"Consult guide"},
+        cta: {title:"Need Personalized Advice?",text:"Our team of experts is at your disposal to discuss your project and answer all your questions",button:"Contact us"},
+        footer: {legal:"Legal notice",privacy:"Privacy policy"}
+      },
+      ru: {
+        nav: {home:"Главная",about:"О нас",services:"Услуги",portfolio:"Портфолио",tips:"Советы",munegascu:"Munegascu",contact:"Контакты"},
+        hero: {
+          title:"Наши Советы для Ваших Работ",
+          subtitle:"Практические руководства и советы экспертов для успеха ваших проектов по ремонту в Монако и на Лазурном Берегу"
+        },
+        intro: {
+          p1:"Ремонт квартиры или виллы в Монако требует тщательного планирования и глубокого знания местных особенностей. В этом разделе мы делимся опытом, полученным в десятках проектов в Княжестве и на Лазурном Берегу.",
+          p2:"Откройте для себя наши подробные руководства, чтобы понять каждый этап проекта ремонта, предвидеть расходы, выбрать правильных специалистов и избежать распространённых ошибок. Являетесь ли вы владельцем квартиры в Монако, виллы в Cap d'Ail или коммерческого помещения в Beausoleil, эти советы помогут вам принять лучшие решения."
+        },
+        art1: {title:"Ваши Работы в 6 Этапов с LKR",desc:"Откройте наш проверенный метод управления проектом ремонта от первого контакта до окончательной сдачи. Ясный и структурированный процесс, гарантирующий спокойствие и исключительные результаты.",cta:"Узнать процесс"},
+        art2: {title:"5 Веских Причин Отремонтировать Вашу Недвижимость",desc:"Повышение стоимости недвижимости, комфорт проживания, энергосбережение, модернизация и персонализация. Изучите конкретные преимущества хорошо спланированного ремонта для вашей собственности в Монако.",cta:"Читать статью"},
+        art3: {title:"Сколько Стоит Полный Ремонт",desc:"Прогноз бюджета, факторы стоимости, цена за м² в Монако и на Лазурном Берегу. Прозрачное руководство для оценки вашей инвестиции и планирования бюджета ремонта с ясностью.",cta:"Посмотреть цены"},
+        art4: {title:"Как Выбрать Правильного Подрядчика",desc:"Критерии отбора, ключевые вопросы, ошибки, которых следует избегать, и преимущества генерального подрядчика. Ключи к выбору идеального партнёра для ваших работ в Монако.",cta:"Читать руководство"},
+        art5: {title:"Ремонт Квартиры: Полное Руководство",desc:"От проектирования до сдачи, все аспекты ремонта квартиры в Монако. Стандарты, сроки, координация, высококлассная отделка и лучшие практики для успешного проекта.",cta:"Изучить руководство"},
+        cta: {title:"Нужен Персонализированный Совет?",text:"Наша команда экспертов в вашем распоряжении для обсуждения вашего проекта и ответов на все ваши вопросы",button:"Свяжитесь с нами"},
+        footer: {legal:"Правовая информация",privacy:"Конфиденциальность"}
+      },
+      de: {
+        nav: {home:"Home",about:"Über uns",services:"Leistungen",portfolio:"Portfolio",tips:"Tipps",munegascu:"Munegascu",contact:"Kontakt"},
+        hero: {
+          title:"Unsere Tipps für Ihre Arbeiten",
+          subtitle:"Praktische Leitfäden und Expertenrat für erfolgreiche Renovierungsprojekte in Monaco und an der Côte d'Azur"
+        },
+        intro: {
+          p1:"Die Renovierung einer Wohnung oder Villa in Monaco erfordert sorgfältige Planung und fundierte Kenntnisse der lokalen Besonderheiten. In diesem Bereich teilen wir unsere Expertise aus Dutzenden von Projekten im Fürstentum und an der Côte d'Azur.",
+          p2:"Entdecken Sie unsere detaillierten Leitfäden, um jede Phase eines Renovierungsprojekts zu verstehen, Kosten vorauszusehen, die richtigen Fachleute auszuwählen und häufige Fallen zu vermeiden. Ob Sie eine Wohnung in Monaco, eine Villa in Cap d'Ail oder eine Gewerbefläche in Beausoleil besitzen, diese Tipps helfen Ihnen, die besten Entscheidungen zu treffen."
+        },
+        art1: {title:"Ihre Arbeiten in 6 Schritten mit LKR",desc:"Entdecken Sie unsere bewährte Methode zur Verwaltung Ihres Renovierungsprojekts vom Erstkontakt bis zur endgültigen Übergabe. Ein klarer und strukturierter Prozess, der Ihnen Gelassenheit und außergewöhnliche Ergebnisse garantiert.",cta:"Prozess entdecken"},
+        art2: {title:"5 Gute Gründe Ihre Immobilie zu Renovieren",desc:"Wertsteigerung, Wohnkomfort, Energieeinsparungen, Modernisierung und Personalisierung. Erkunden Sie die konkreten Vorteile einer gut geplanten Renovierung für Ihre Monaco-Immobilie.",cta:"Artikel lesen"},
+        art3: {title:"Was Kostet eine Vollständige Renovierung",desc:"Budgetprognose, Kostenfaktoren, Preis pro m² in Monaco und Côte d'Azur. Ein transparenter Leitfaden zur Schätzung Ihrer Investition und Planung Ihres Renovierungsbudgets mit Klarheit.",cta:"Preise ansehen"},
+        art4: {title:"Wie Man den Richtigen Contractor Wählt",desc:"Auswahlkriterien, wesentliche Fragen, Fallen zu vermeiden und Vorteile eines Generalunternehmers. Die Schlüssel zur Identifizierung des idealen Partners für Ihre Arbeiten in Monaco.",cta:"Leitfaden lesen"},
+        art5: {title:"Wohnungsrenovierung: Vollständiger Leitfaden",desc:"Von der Planung bis zur Übergabe, alle Aspekte einer Wohnungsrenovierung in Monaco. Standards, Fristen, Koordination, hochwertige Verarbeitung und Best Practices für ein erfolgreiches Projekt.",cta:"Leitfaden konsultieren"},
+        cta: {title:"Brauchen Sie Persönliche Beratung?",text:"Unser Expertenteam steht Ihnen zur Verfügung, um Ihr Projekt zu besprechen und alle Ihre Fragen zu beantworten",button:"Kontaktieren Sie uns"},
+        footer: {legal:"Impressum",privacy:"Datenschutz"}
+      },
+      es: {
+        nav: {home:"Inicio",about:"Quiénes somos",services:"Servicios",portfolio:"Proyectos",tips:"Consejos",munegascu:"Munegascu",contact:"Contacto"},
+        hero: {
+          title:"Nuestros Consejos para Sus Obras",
+          subtitle:"Guías prácticas y consejos de expertos para el éxito de sus proyectos de renovación en Mónaco y la Costa Azul"
+        },
+        intro: {
+          p1:"Renovar un apartamento o villa en Mónaco requiere una planificación cuidadosa y conocimiento profundo de las especificidades locales. En esta sección, compartimos nuestra experiencia adquirida en decenas de proyectos en el Principado y la Costa Azul.",
+          p2:"Descubra nuestras guías detalladas para comprender cada etapa de un proyecto de renovación, anticipar costes, elegir los profesionales correctos y evitar trampas comunes. Ya sea propietario de un apartamento en Mónaco, una villa en Cap d'Ail o un espacio comercial en Beausoleil, estos consejos le ayudarán a tomar las mejores decisiones."
+        },
+        art1: {title:"Sus Obras en 6 Etapas con LKR",desc:"Descubra nuestro método probado para gestionar su proyecto de renovación desde el primer contacto hasta la entrega final. Un proceso claro y estructurado que le garantiza serenidad y resultados excepcionales.",cta:"Descubrir el proceso"},
+        art2: {title:"5 Buenas Razones para Renovar Su Propiedad",desc:"Valorización inmobiliaria, confort de vida, ahorro energético, modernización y personalización. Explore las ventajas concretas de una renovación bien planificada para su propiedad en Mónaco.",cta:"Leer artículo"},
+        art3: {title:"Cuánto Cuesta una Renovación Completa",desc:"Presupuesto previsional, factores de coste, precio por m² en Mónaco y Costa Azul. Una guía transparente para estimar su inversión y planificar su presupuesto de renovación con claridad.",cta:"Ver precios"},
+        art4: {title:"Cómo Elegir el Contractor Correcto",desc:"Criterios de selección, preguntas esenciales, trampas a evitar y ventajas de un general contractor. Las claves para identificar el socio ideal para sus obras en Mónaco.",cta:"Leer guía"},
+        art5: {title:"Renovación Apartamento: Guía Completa",desc:"Del diseño a la entrega, todos los aspectos de una renovación de apartamento en Mónaco. Normas, plazos, coordinación, acabados de alta gama y mejores prácticas para un proyecto exitoso.",cta:"Consultar guía"},
+        cta: {title:"¿Necesita Consejos Personalizados?",text:"Nuestro equipo de expertos está a su disposición para discutir su proyecto y responder a todas sus preguntas",button:"Contáctenos"},
+        footer: {legal:"Aviso legal",privacy:"Privacidad"}
+      }
+    };
+    
+    const html = document.documentElement;
+    
+    function setLang(lang) {
+      html.setAttribute('lang', lang);
+      html.setAttribute('data-lang', lang);
+      
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n').split('.');
+        let v = I18N[lang];
+        key.forEach(k => v = v && v[k]);
+        if (typeof v === 'string') el.textContent = v;
+      });
+      
+      document.querySelectorAll('nav.lang button').forEach(b => 
+        b.classList.toggle('active', b.dataset.setlang === lang)
+      );
+    }
+    
+    document.querySelectorAll('nav.lang button').forEach(b => 
+      b.addEventListener('click', () => {
+        setLang(b.dataset.setlang);
+        localStorage.setItem('selectedLang', b.dataset.setlang);
+      })
+    );
+    
+    // Auto-detect lingua browser o usa quella salvata
+    function detectBrowserLanguage() {
+      const savedLang = localStorage.getItem('selectedLang');
+      if (savedLang) return savedLang;
+      
+      const browserLang = navigator.language || navigator.userLanguage;
+      const langCode = browserLang.split('-')[0];
+      const supportedLangs = ['fr', 'it', 'en', 'ru', 'de', 'es'];
+      
+      return supportedLangs.includes(langCode) ? langCode : 'fr';
+    }
+    
+    setLang(detectBrowserLanguage());
+  </script>
+</body>
+</html>
