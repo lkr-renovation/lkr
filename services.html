@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="fr" data-lang="fr">
+<head>
+  <!-- Website designed and developed by Riccardo Barlozzetti -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Services de Rénovation à Monaco | LKR Renovation - Tous Corps d'État</title>
+  <meta name="description" content="LKR Rénovation Monaco : entreprise générale tous corps d'état. Rénovation complète appartements, coordination chantier, design intérieur, ravalement façades. Services haut de gamme clé en main dans la Principauté.">
+  <meta name="keywords" content="rénovation Monaco, travaux Monaco, entreprise rénovation Monaco, tous corps d'état Monaco, rénovation appartement Monaco, ravalement façade Monaco, coordination chantier Monaco, clé en main Monaco">
+  <link rel="canonical" href="https://lkr.mc/services.html">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="theme-color" content="#dc3545">
+  
+  <meta property="og:title" content="Services de Rénovation à Monaco | LKR Renovation">
+  <meta property="og:description" content="Entreprise générale de rénovation tous corps d'état à Monaco. Coordination de chantier, design intérieur, travaux haut de gamme clé en main.">
+  <meta property="og:url" content="https://lkr.mc/services.html">
+  <meta property="og:type" content="website">
+  
+  <style>
+    :root{--brand:#dc3545;--brand2:#c82333;--text:#2c3e50;--muted:#6c757d;--glass:rgba(255,255,255,.82);--border:rgba(220,53,69,.12)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:linear-gradient(135deg,#fff 0%,#f8f9fa 50%,#e9ecef 100%);min-height:100vh;line-height:1.6}
+    .bg-pattern{position:fixed;inset:0;opacity:.04;pointer-events:none;background-image:linear-gradient(45deg,var(--brand) 25%,transparent 25%),linear-gradient(-45deg,var(--brand) 25%,transparent 25%),linear-gradient(45deg,transparent 75%,var(--brand) 75%),linear-gradient(-45deg,transparent 75%,var(--brand) 75%);background-size:60px 60px;background-position:0 0,0 30px,30px -30px,-30px 0}
+    nav.main-nav{background:var(--glass);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 4px 12px rgba(0,0,0,.06)}
+    nav.main-nav .nav-container{max-width:1200px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;gap:32px}
+    .nav-logo{font-weight:800;font-size:1.3rem;color:var(--brand);text-decoration:none;letter-spacing:1px}
+    .nav-links{display:flex;gap:24px;margin-left:auto;align-items:center;list-style:none}
+    .nav-links a{color:var(--text);text-decoration:none;font-weight:500;padding:8px 12px;border-radius:8px;transition:all .2s}
+    .nav-links a:hover,.nav-links a.active{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff}
+    nav.lang{display:flex;gap:6px}
+    nav.lang button{border:1px solid var(--border);background:#fff;padding:5px 9px;border-radius:8px;cursor:pointer;font-size:.9rem;transition:all .2s}
+    nav.lang button:hover{border-color:var(--brand);transform:translateY(-1px)}
+    nav.lang button.active{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border-color:transparent}
+    .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--brand);font-size:1.5rem}
+    @media (max-width:900px){
+      .nav-links{position:fixed;top:70px;left:0;right:0;flex-direction:column;background:var(--glass);backdrop-filter:blur(10px);padding:20px;box-shadow:0 8px 24px rgba(0,0,0,.1);transform:translateY(-120%);transition:transform .3s}
+      .nav-links.open{transform:translateY(0)}
+      .mobile-toggle{display:block;margin-left:auto}
+    }
+    .container{max-width:1200px;margin:0 auto;padding:48px 28px;position:relative;z-index:1}
+    .page-hero{text-align:center;margin-bottom:64px;padding:32px 0}
+    .page-hero h1{font-size:clamp(2.2rem,4vw,3.2rem);margin:0 0 20px;background:linear-gradient(135deg,var(--brand),var(--brand2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:800;line-height:1.2}
+    .page-hero p{font-size:1.25rem;color:var(--muted);max-width:800px;margin:0 auto 12px;line-height:1.7}
+    .page-hero .subtitle{font-size:1rem;color:var(--brand);font-weight:600}
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:32px;margin-bottom:64px}
+    .service-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:36px;box-shadow:0 10px 30px rgba(0,0,0,.06);transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden}
+    .service-card::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--brand),#ff6b7a);transform:translateX(-100%);transition:transform .3s ease}
+    .service-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(220,53,69,.15)}
+    .service-card:hover::before{transform:translateX(0)}
+    .service-icon{font-size:3.5rem;margin-bottom:20px;display:block}
+    .service-card h3{font-size:1.5rem;margin:0 0 16px;color:var(--brand);font-weight:700;line-height:1.3}
+    .service-card p{line-height:1.8;color:var(--text);margin-bottom:20px;font-size:1.05rem}
+    .service-card ul{list-style:none;padding:0;margin:0}
+    .service-card li{padding:8px 0;color:var(--muted);position:relative;padding-left:28px;font-size:.95rem}
+    .service-card li::before{content:"✓";position:absolute;left:0;color:var(--brand);font-weight:bold;font-size:1.1rem}
+    .cta-banner{background:linear-gradient(135deg,#2c3e50,#34495e);color:#fff;border-radius:24px;padding:56px 40px;text-align:center;margin:80px 0 64px;box-shadow:0 20px 60px rgba(0,0,0,.15)}
+    .cta-banner h2{font-size:2.2rem;margin:0 0 20px;font-weight:700}
+    .cta-banner p{font-size:1.2rem;opacity:.95;margin:0 0 32px;max-width:600px;margin-left:auto;margin-right:auto}
+    .cta-btn{display:inline-block;padding:16px 40px;background:var(--brand);color:#fff;border-radius:12px;text-decoration:none;font-weight:700;font-size:1.1rem;box-shadow:0 8px 24px rgba(220,53,69,.3);transition:transform .2s,box-shadow .2s}
+    .cta-btn:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(220,53,69,.4)}
+    footer{text-align:center;font-size:.95rem;color:var(--muted);padding:40px 28px;margin-top:64px;border-top:1px solid var(--border);background:rgba(255,255,255,.5)}
+    footer p{margin:8px 0}
+    footer a{color:var(--brand);text-decoration:none;transition:color .2s}
+    footer a:hover{text-decoration:underline;color:var(--brand2)}
+    @media (max-width:768px){
+      .services-grid{grid-template-columns:1fr;gap:24px}
+      .service-card{padding:28px}
+      .page-hero h1{font-size:2rem}
+      .page-hero p{font-size:1.1rem}
+      .cta-banner{padding:40px 24px}
+      .cta-banner h2{font-size:1.8rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-pattern" aria-hidden="true"></div>
+
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">LKR</a>
+      <button class="mobile-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+      <ul class="nav-links">
+        <li><a href="/" data-i18n="nav.home">Accueil</a></li>
+        <li><a href="/chi-siamo.html" data-i18n="nav.about">Qui sommes-nous</a></li>
+        <li><a href="/services.html" class="active" data-i18n="nav.services">Services</a></li>
+        <li><a href="/realizzazioni.html" data-i18n="nav.portfolio">Réalisations</a></li>
+        <li><a href="/consigli.html" data-i18n="nav.tips">Conseils</a></li>
+        <li><a href="/#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <nav class="lang" aria-label="Language">
+        <button data-setlang="fr" class="active">FR</button>
+        <button data-setlang="it">IT</button>
+        <button data-setlang="en">EN</button>
+        <button data-setlang="ru">RU</button>
+        <button data-setlang="de">DE</button>
+        <button data-setlang="es">ES</button>
+      </nav>
+    </div>
+  </nav>
+
+  <div class="container">
+    <section class="page-hero">
+      <h1 data-i18n="hero.title">Nos Services de Rénovation à Monaco</h1>
+      <p data-i18n="hero.subtitle">Solutions complètes tous corps d'état pour la rénovation et la modernisation de vos espaces dans la Principauté de Monaco</p>
+      <p class="subtitle" data-i18n="hero.tagline">Entreprise générale • Coordination de chantier • Travaux clé en main</p>
+    </section>
+
+    <section class="services-grid">
+      <article class="service-card">
+        <div class="service-icon">🏗️</div>
+        <h3 data-i18n="s1.title">Coordination et Gestion de Chantier</h3>
+        <p data-i18n="s1.desc">Maîtrise d'œuvre complète pour vos projets de rénovation à Monaco. Nous coordonnons tous les corps d'état et gérons les autorisations DPUM.</p>
+        <ul>
+          <li data-i18n="s1.item1">Gestion complète du projet clé en main</li>
+          <li data-i18n="s1.item2">Coordination tous corps d'état</li>
+          <li data-i18n="s1.item3">Gestion autorisations DPUM Monaco</li>
+          <li data-i18n="s1.item4">Planning et suivi de chantier</li>
+          <li data-i18n="s1.item5">Contrôle qualité et réception travaux</li>
+        </ul>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3 data-i18n="s2.title">Rénovation Complète Appartements et Villas</h3>
+        <p data-i18n="s2.desc">Rénovation intégrale haut de gamme d'appartements et villas à Monaco. De la conception à la livraison, nous transformons vos espaces.</p>
+        <ul>
+          <li data-i18n="s2.item1">Rénovation appartements Monaco</li>
+          <li data-i18n="s2.item2">Rénovation villas Costa Azzurra</li>
+          <li data-i18n="s2.item3">Restructuration complète espaces</li>
+          <li data-i18n="s2.item4">Mise aux normes réglementaires</li>
+          <li data-i18n="s2.item5">Rénovation énergétique et isolation</li>
+        </ul>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">✨</div>
+        <h3 data-i18n="s3.title">Architecture et Design d'Intérieur</h3>
+        <p data-i18n="s3.desc">Conception d'espaces intérieurs sur-mesure alliant esthétique et fonctionnalité. Design haut de gamme pour propriétés d'exception.</p>
+        <ul>
+          <li data-i18n="s3.item1">Architecture d'intérieur personnalisée</li>
+          <li data-i18n="s3.item2">Projets 3D et visualisations</li>
+          <li data-i18n="s3.item3">Sélection matériaux nobles</li>
+          <li data-i18n="s3.item4">Aménagement espaces optimisés</li>
+          <li data-i18n="s3.item5">Conseil décoration haut de gamme</li>
+        </ul>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">🧱</div>
+        <h3 data-i18n="s4.title">Maçonnerie et Gros Œuvre</h3>
+        <p data-i18n="s4.desc">Travaux structurels et maçonnerie générale. Ouverture de murs porteurs, modifications structurelles, démolitions contrôlées.</p>
+        <ul>
+          <li data-i18n="s4.item1">Gros œuvre et structure béton</li>
+          <li data-i18n="s4.item2">Ouverture murs porteurs</li>
+          <li data-i18n="s4.item3">Cloisons et agencements</li>
+          <li data-i18n="s4.item4">Démolitions contrôlées</li>
+          <li data-i18n="s4.item5">Maçonnerie traditionnelle et moderne</li>
+        </ul>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3 data-i18n="s5.title">Ravalement de Façades</h3>
+        <p data-i18n="s5.desc">Rénovation et ravalement de façades à Monaco. Conformité réglementaire obligatoire tous les 10 ans. Valorisation de votre patrimoine.</p>
+        <ul>
+          <li data-i18n="s5.item1">Ravalement façades Monaco</li>
+          <li data-i18n="s5.item2">Enduits traditionnels et modernes</li>
+          <li data-i18n="s5.item3">Peinture extérieure haut de gamme</li>
+          <li data-i18n="s5.item4">Isolation thermique extérieure</li>
+          <li data-i18n="s5.item5">Conformité réglementation Monaco</li>
+        </ul>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">📸</div>
+        <h3 data-i18n="s6.title">Services Numériques Immobiliers</h3>
+        <p data-i18n="s6.desc">Technologies avancées pour valoriser votre bien. Photographie professionnelle, scans LiDAR 3D, visites virtuelles 360° et home staging virtuel.</p>
+        <ul>
+          <li data-i18n="s6.item1">Photographie immobilière luxe</li>
+          <li data-i18n="s6.item2">Scan LiDAR et plans 3D précis</li>
+          <li data-i18n="s6.item3">Visites virtuelles 360° interactives</li>
+          <li data-i18n="s6.item4">Home staging virtuel</li>
+          <li data-i18n="s6.item5">Valorisation pour vente et location</li>
+        </ul>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">🚰</div>
+        <h3 data-i18n="s7.title">Plomberie et Sanitaires</h3>
+        <p data-i18n="s7.desc">Installation complète de plomberie et sanitaires haut de gamme. Salles de bain clé en main avec robinetterie et équipements de luxe.</p>
+        <ul>
+          <li data-i18n="s7.item1">Salles de bain complètes clé en main</li>
+          <li data-i18n="s7.item2">Robinetterie et sanitaires luxe</li>
+          <li data-i18n="s7.item3">Installation systèmes eau chaude</li>
+          <li data-i18n="s7.item4">Plomberie cuivre et multicouche</li>
+          <li data-i18n="s7.item5">Réparations et maintenance rapide</li>
+        </ul>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3 data-i18n="s8.title">Installations Électriques et Domotique</h3>
+        <p data-i18n="s8.desc">Installations électriques conformes aux normes Monaco. Domotique intelligente, éclairage LED design et mise aux normes complète.</p>
+        <ul>
+          <li data-i18n="s8.item1">Installation électrique complète</li>
+          <li data-i18n="s8.item2">Domotique et automatisation maison</li>
+          <li data-i18n="s8.item3">Éclairage LED design et scénarios</li>
+          <li data-i18n="s8.item4">Mise aux normes électriques Monaco</li>
+          <li data-i18n="s8.item5">Tableaux électriques et sécurité</li>
+        </ul>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">❄️</div>
+        <h3 data-i18n="s9.title">Climatisation et Chauffage</h3>
+        <p data-i18n="s9.desc">Systèmes de climatisation et chauffage performants. Pompes à chaleur, chauffage au sol et solutions éco-énergétiques pour confort optimal.</p>
+        <ul>
+          <li data-i18n="s9.item1">Climatisation réversible inverter</li>
+          <li data-i18n="s9.item2">Pompes à chaleur haute performance</li>
+          <li data-i18n="s9.item3">Chauffage au sol basse température</li>
+          <li data-i18n="s9.item4">Chaudières à condensation</li>
+          <li data-i18n="s9.item5">VMC double flux et ventilation</li>
+        </ul>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3 data-i18n="s10.title">Isolation Thermique et Acoustique</h3>
+        <p data-i18n="s10.desc">Solutions d'isolation performantes pour confort et économies d'énergie. Conformité réglementation énergétique Monaco.</p>
+        <ul>
+          <li data-i18n="s10.item1">Isolation thermique intérieure</li>
+          <li data-i18n="s10.item2">Isolation extérieure ITE</li>
+          <li data-i18n="s10.item3">Insonorisation acoustique avancée</li>
+          <li data-i18n="s10.item4">Matériaux écologiques certifiés</li>
+          <li data-i18n="s10.item5">Conformité réglementation Monaco REM</li>
+        </ul>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">🪵</div>
+        <h3 data-i18n="s11.title">Revêtements de Sols et Parquets</h3>
+        <p data-i18n="s11.desc">Installation et restauration de sols nobles. Parquets massifs, carrelage haut de gamme, marbre et pierres naturelles.</p>
+        <ul>
+          <li data-i18n="s11.item1">Parquet massif et contrecollé noble</li>
+          <li data-i18n="s11.item2">Ponçage et vitrification parquet</li>
+          <li data-i18n="s11.item3">Carrelage et faïence grand format</li>
+          <li data-i18n="s11.item4">Marbre, granit et pierres naturelles</li>
+          <li data-i18n="s11.item5">Résines et sols continus design</li>
+        </ul>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">🚪</div>
+        <h3 data-i18n="s12.title">Menuiseries et Fermetures</h3>
+        <p data-i18n="s12.desc">Menuiseries intérieures et extérieures sur-mesure. Fenêtres, portes blindées, portes intérieures et systèmes de fermeture haut de gamme.</p>
+        <ul>
+          <li data-i18n="s12.item1">Fenêtres PVC, aluminium et bois</li>
+          <li data-i18n="s12.item2">Portes d'entrée blindées sécurisées</li>
+          <li data-i18n="s12.item3">Portes intérieures sur-mesure</li>
+          <li data-i18n="s12.item4">Volets, stores et pergolas</li>
+          <li data-i18n="s12.item5">Baies vitrées et vérandas</li>
+        </ul>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3 data-i18n="s13.title">Peinture et Décoration</h3>
+        <p data-i18n="s13.desc">Peinture intérieure et décoration murale haut de gamme. Finitions parfaites, papiers peints luxe et enduits décoratifs.</p>
+        <ul>
+          <li data-i18n="s13.item1">Peinture intérieure haut de gamme</li>
+          <li data-i18n="s13.item2">Papiers peints de luxe et panoramiques</li>
+          <li data-i18n="s13.item3">Enduits décoratifs et stucs</li>
+          <li data-i18n="s13.item4">Conseil chromatique personnalisé</li>
+          <li data-i18n="s13.item5">Finitions et patines artistiques</li>
+        </ul>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">🧊</div>
+        <h3 data-i18n="s13.title">Cuisines et Électroménager Haut de Gamme</h3>
+        <p data-i18n="s14.desc">Cuisines complètes sur-mesure clé en main. Électroménager haut de gamme encastrable, design italien et allemand.</p>
+        <ul>
+          <li data-i18n="s14.item1">Cuisines complètes clé en main</li>
+          <li data-i18n="s14.item2">Électroménager luxe encastrable</li>
+          <li data-i18n="s14.item3">Plans de travail Corian, quartz, granit</li>
+          <li data-i18n="s14.item4">Caves à vin et réfrigérateurs pro</li>
+          <li data-i18n="s14.item5">Design italien et allemand</li>
+        </ul>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">🌿</div>
+        <h3 data-i18n="s15.title">Aménagements Extérieurs</h3>
+        <p data-i18n="s15.desc">Valorisation des espaces extérieurs. Terrasses, balconi, pergolas et aménagements outdoor pour propriétés Monaco.</p>
+        <ul>
+          <li data-i18n="s15.item1">Terrasses bois et composite</li>
+          <li data-i18n="s15.item2">Pergolas et stores extérieurs</li>
+          <li data-i18n="s15.item3">Éclairage extérieur design</li>
+          <li data-i18n="s15.item4">Revêtements sols extérieurs</li>
+          <li data-i18n="s15.item5">Jacuzzis et espaces détente</li>
+        </ul>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">🪑</div>
+        <h3 data-i18n="s16.title">Restauration de Mobilier Ancien</h3>
+        <p data-i18n="s16.desc">Restauration d'art de meubles anciens et d'époque. Techniques traditionnelles d'ébénisterie pour préserver votre patrimoine.</p>
+        <ul>
+          <li data-i18n="s16.item1">Restauration conservatoire certifiée</li>
+          <li data-i18n="s16.item2">Ébénisterie traditionnelle</li>
+          <li data-i18n="s16.item3">Polissage au tampon à la cire</li>
+          <li data-i18n="s16.item4">Réparation marqueterie et incrustations</li>
+          <li data-i18n="s16.item5">Tapisserie d'ameublement d'époque</li>
+        </ul>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">🔒</div>
+        <h3 data-i18n="s17.title">Systèmes de Sécurité</h3>
+        <p data-i18n="s17.desc">Solutions de sécurité avancées pour votre tranquillité. Alarmes, vidéosurveillance IP, contrôle d'accès et domotique sécurisée.</p>
+        <ul>
+          <li data-i18n="s17.item1">Alarmes anti-intrusion connectées</li>
+          <li data-i18n="s17.item2">Vidéosurveillance IP haute résolution</li>
+          <li data-i18n="s17.item3">Contrôle d'accès et interphone vidéo</li>
+          <li data-i18n="s17.item4">Coffres-forts et zones sécurisées</li>
+          <li data-i18n="s17.item5">Intégration domotique sécurité</li>
+        </ul>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3 data-i18n="s18.title">Aménagement d'Espaces Commerciaux</h3>
+        <p data-i18n="s18.desc">Conception et réalisation de boutiques, bureaux et espaces professionnels. Shop fitting haut de gamme à Monaco.</p>
+        <ul>
+          <li data-i18n="s18.item1">Shop fitting boutiques luxe</li>
+          <li data-i18n="s18.item2">Aménagement bureaux modernes</li>
+          <li data-i18n="s18.item3">Showrooms et espaces d'exposition</li>
+          <li data-i18n="s18.item4">Conformité normes ERP Monaco</li>
+          <li data-i18n="s18.item5">Design commercial et merchandising</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="cta-banner">
+      <h2 data-i18n="cta.title">Votre projet de rénovation à Monaco ?</h2>
+      <p data-i18n="cta.text">Contactez-nous pour un devis gratuit et une consultation personnalisée avec nos experts</p>
+      <a href="/#contact" class="cta-btn" data-i18n="cta.button">Demander un devis gratuit</a>
+    </section>
+  </div>
+
+  <footer>
+    <p><strong>LKR RENOVATION MC SARL</strong></p>
+    <p>38 Boulevard des Moulins, 98000 Monaco</p>
+    <p>Tél. <a href="tel:+37764061565">+377 6 40 61 56 50</a> • Email: <a href="mailto:info@lkr.mc">info@lkr.mc</a></p>
+    <p style="margin-top:16px;font-size:.9rem">
+      <a href="/mentions-legales.html" data-i18n="footer.legal">Mentions légales</a> • 
+      <a href="/confidentialite.html" data-i18n="footer.privacy">Confidentialité</a>
+    </p>
+    <p style="margin-top:12px;font-size:.85rem;opacity:.7">© 2025 LKR Renovation MC SARL • Tous droits réservés</p>
+  </footer>
+
+  <script src="services-translations.js"></script>
+  <script>
+    // Sistema cambio lingua
+    document.querySelectorAll('[data-setlang]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.setlang;
+        document.documentElement.setAttribute('data-lang', lang);
+        document.documentElement.setAttribute('lang', lang);
+        
+        document.querySelectorAll('[data-setlang]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        applyTranslations(lang);
+      });
+    });
+
+    function applyTranslations(lang) {
+      if (!window.I18N || !window.I18N[lang]) return;
+      
+      const translations = window.I18N[lang];
+      
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        const keys = key.split('.');
+        let value = translations;
+        
+        for (let k of keys) {
+          if (value && value[k]) value = value[k];
+          else return;
+        }
+        
+        if (value) el.textContent = value;
+      });
+    }
+  </script>
+</body>
+</html>
