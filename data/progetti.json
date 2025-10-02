@@ -2,43 +2,45 @@
   "progetti": [
     {
       "id": "progetto-01",
-      "anno": "2024",
-      "categoria": "rénovation-complète",
+      "anno": "2025",
+      "categoria": "rénovation-salle-de-bain",
       "immagini": [
-        "img/portfolio/progetto-01-foto-01.jpg",
-        "img/portfolio/progetto-01-foto-02.jpg",
-        "img/portfolio/progetto-01-foto-03.jpg"
+        "img/portfolio/progetto-bagno-marmo-01.jpg",
+        "img/portfolio/progetto-bagno-marmo-02.jpg",
+        "img/portfolio/progetto-bagno-marmo-03.jpg",
+        "img/portfolio/progetto-bagno-marmo-04.jpg",
+        "img/portfolio/progetto-bagno-marmo-05.jpg"
       ],
       "traduzioni": {
         "fr": {
-          "titolo": "Rénovation Complète Appartement Monte-Carlo",
-          "luogo": "Monte-Carlo, Monaco",
-          "descrizione": "Rénovation haut de gamme d'un appartement de 180m² avec vue mer. Travaux incluant restructuration complète, cuisine sur mesure, salles de bains en marbre, parquet massif et domotique intégrée."
+          "titolo": "Rénovation Salle de Bain Luxe Monaco",
+          "luogo": "Monaco",
+          "descrizione": "Transformation complète d'une salle de bain avec revêtements en marbre Calacatta, baignoire d'angle avec hydromassage, douche italienne et éclairage LED intégré. Finitions haut de gamme."
         },
         "it": {
-          "titolo": "Ristrutturazione Completa Appartamento Monte-Carlo",
-          "luogo": "Monte-Carlo, Monaco",
-          "descrizione": "Ristrutturazione di lusso di un appartamento di 180m² con vista mare. Lavori includono ristrutturazione completa, cucina su misura, bagni in marmo, parquet massello e domotica integrata."
+          "titolo": "Ristrutturazione Bagno di Lusso Monaco",
+          "luogo": "Monaco",
+          "descrizione": "Trasformazione completa di un bagno con rivestimenti in marmo Calacatta, vasca angolare con idromassaggio, doccia walk-in e illuminazione LED integrata. Finiture di alta gamma."
         },
         "en": {
-          "titolo": "Complete Renovation Monte-Carlo Apartment",
-          "luogo": "Monte-Carlo, Monaco",
-          "descrizione": "High-end renovation of a 180m² apartment with sea view. Works including complete restructuring, custom kitchen, marble bathrooms, solid wood flooring and integrated home automation."
+          "titolo": "Luxury Bathroom Renovation Monaco",
+          "luogo": "Monaco",
+          "descrizione": "Complete transformation of a bathroom with Calacatta marble finishes, corner whirlpool bathtub, walk-in shower and integrated LED lighting. High-end finishes."
         },
         "ru": {
-          "titolo": "Полная Реконструкция Квартиры Монте-Карло",
-          "luogo": "Монте-Карло, Монако",
-          "descrizione": "Элитный ремонт квартиры 180м² с видом на море. Работы включают полную перепланировку, кухню на заказ, мраморные ванные комнаты, массивный паркет и интегрированную систему умного дома."
+          "titolo": "Ремонт Роскошной Ванной Монако",
+          "luogo": "Монако",
+          "descrizione": "Полная трансформация ванной комнаты с отделкой мрамором Calacatta, угловой ванной с гидромассажем, душевой кабиной и встроенным LED освещением. Отделка премиум-класса."
         },
         "de": {
-          "titolo": "Vollständige Renovierung Wohnung Monte-Carlo",
-          "luogo": "Monte-Carlo, Monaco",
-          "descrizione": "High-End-Renovierung einer 180m² Wohnung mit Meerblick. Arbeiten umfassen komplette Umstrukturierung, maßgefertigte Küche, Marmorbäder, Massivholzboden und integrierte Hausautomation."
+          "titolo": "Luxus-Badezimmer Renovierung Monaco",
+          "luogo": "Monaco",
+          "descrizione": "Komplette Umgestaltung eines Badezimmers mit Calacatta-Marmorverkleidung, Eck-Whirlpool-Badewanne, begehbarer Dusche und integrierter LED-Beleuchtung. Hochwertige Ausstattung."
         },
         "es": {
-          "titolo": "Renovación Completa Apartamento Monte-Carlo",
-          "luogo": "Monte-Carlo, Mónaco",
-          "descrizione": "Renovación de alta gama de un apartamento de 180m² con vista al mar. Trabajos que incluyen reestructuración completa, cocina a medida, baños de mármol, parquet macizo y domótica integrada."
+          "titolo": "Renovación Baño de Lujo Mónaco",
+          "luogo": "Mónaco",
+          "descrizione": "Transformación completa de un baño con revestimientos de mármol Calacatta, bañera de esquina con hidromasaje, ducha walk-in e iluminación LED integrada. Acabados de alta gama."
         }
       }
     },
