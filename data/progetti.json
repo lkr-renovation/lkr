@@ -46,42 +46,44 @@
     },
     {
       "id": "progetto-02",
-      "anno": "2023",
-      "categoria": "rénovation-salle-de-bain",
+      "anno": "2025",
+      "categoria": "décoration-murale",
       "immagini": [
-        "img/portfolio/progetto-02-foto-01.jpg",
-        "img/portfolio/progetto-02-foto-02.jpg"
+        "img/portfolio/progetto-carta-parati-01.jpeg",
+        "img/portfolio/progetto-carta-parati-02.jpeg",
+        "img/portfolio/progetto-carta-parati-03.jpeg",
+        "img/portfolio/progetto-carta-parati-04.jpeg"
       ],
       "traduzioni": {
         "fr": {
-          "titolo": "Rénovation Salle de Bain Fontvieille",
-          "luogo": "Fontvieille, Monaco",
-          "descrizione": "Transformation complète d'une salle de bain en espace wellness moderne avec douche italienne, vasque design et éclairage LED intégré."
+          "titolo": "Pose Papier Peint Décoratif Côte d'Azur",
+          "luogo": "Côte d'Azur, France",
+          "descrizione": "Installation professionnelle de papiers peints décoratifs haut de gamme dans plusieurs résidences. Motifs rayures élégantes et panoramique tropical avec raccords parfaits et finitions impeccables."
         },
         "it": {
-          "titolo": "Ristrutturazione Bagno Fontvieille",
-          "luogo": "Fontvieille, Monaco",
-          "descrizione": "Trasformazione completa di un bagno in spazio wellness moderno con doccia italiana, lavabo design e illuminazione LED integrata."
+          "titolo": "Installazione Carta da Parati Decorativa Costa Azzurra",
+          "luogo": "Costa Azzurra, Francia",
+          "descrizione": "Installazione professionale di carte da parati decorative di alta gamma in diverse residenze. Motivi a righe eleganti e panoramica tropicale con giunzioni perfette e finiture impeccabili."
         },
         "en": {
-          "titolo": "Bathroom Renovation Fontvieille",
-          "luogo": "Fontvieille, Monaco",
-          "descrizione": "Complete transformation of a bathroom into a modern wellness space with walk-in shower, designer sink and integrated LED lighting."
+          "titolo": "Decorative Wallpaper Installation French Riviera",
+          "luogo": "French Riviera, France",
+          "descrizione": "Professional installation of high-end decorative wallpapers in multiple residences. Elegant stripe patterns and tropical panoramic with perfect seams and impeccable finishes."
         },
         "ru": {
-          "titolo": "Ремонт Ванной Комнаты Фонвьей",
-          "luogo": "Фонвьей, Монако",
-          "descrizione": "Полная трансформация ванной комнаты в современное велнес-пространство с душевой кабиной, дизайнерской раковиной и встроенным LED-освещением."
+          "titolo": "Установка Декоративных Обоев Лазурный Берег",
+          "luogo": "Лазурный Берег, Франция",
+          "descrizione": "Профессиональная установка элитных декоративных обоев в нескольких резиденциях. Элегантные полосатые узоры и тропическая панорама с идеальными стыками и безупречной отделкой."
         },
         "de": {
-          "titolo": "Badezimmer-Renovierung Fontvieille",
-          "luogo": "Fontvieille, Monaco",
-          "descrizione": "Komplette Umgestaltung eines Badezimmers in einen modernen Wellness-Bereich mit ebenerdiger Dusche, Designer-Waschbecken und integrierter LED-Beleuchtung."
+          "titolo": "Dekorative Tapeten Installation Côte d'Azur",
+          "luogo": "Côte d'Azur, Frankreich",
+          "descrizione": "Professionelle Installation hochwertiger dekorativer Tapeten in mehreren Residenzen. Elegante Streifenmuster und tropisches Panorama mit perfekten Nähten und tadellosen Verarbeitungen."
         },
         "es": {
-          "titolo": "Renovación Baño Fontvieille",
-          "luogo": "Fontvieille, Mónaco",
-          "descrizione": "Transformación completa de un baño en espacio wellness moderno con ducha italiana, lavabo de diseño e iluminación LED integrada."
+          "titolo": "Instalación Papel Pintado Decorativo Costa Azul",
+          "luogo": "Costa Azul, Francia",
+          "descrizione": "Instalación profesional de papeles pintados decorativos de alta gama en múltiples residencias. Motivos de rayas elegantes y panorámico tropical con uniones perfectas y acabados impecables."
         }
       }
     }
