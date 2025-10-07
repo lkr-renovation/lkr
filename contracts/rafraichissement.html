@@ -6,13 +6,17 @@
     <title>Contrat de Rafraîchissement - LKR RENOVATION MC SARL</title>
     <style>
         @media print {
-            input, select {
+            input, select, textarea {
                 border: none !important;
                 border-bottom: 1px solid #000 !important;
                 background: transparent !important;
             }
             .no-print {
                 display: none !important;
+            }
+            .container {
+                box-shadow: none;
+                padding: 40px;
             }
         }
         
@@ -41,42 +45,59 @@
         .header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             margin-bottom: 40px;
             padding-bottom: 20px;
             border-bottom: 3px solid #c41e3a;
         }
         
+        .logo-container {
+            flex: 0 0 250px;
+        }
+        
         .logo {
-            max-width: 180px;
+            max-width: 100%;
+            height: auto;
         }
         
         .company-info {
             text-align: right;
             font-size: 11px;
             color: #666;
+            line-height: 1.8;
         }
         
         .company-info strong {
             color: #c41e3a;
-            font-size: 12px;
+            font-size: 13px;
+            display: block;
+            margin-bottom: 5px;
         }
         
         h1 {
             text-align: center;
             color: #c41e3a;
-            font-size: 24px;
-            margin: 30px 0;
+            font-size: 26px;
+            margin: 30px 0 20px 0;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-weight: 700;
+        }
+        
+        .contract-date {
+            text-align: center;
+            margin: 20px 0 40px 0;
+            font-size: 14px;
+            color: #666;
         }
         
         h2 {
             color: #c41e3a;
             font-size: 16px;
-            margin: 25px 0 15px 0;
-            padding-bottom: 5px;
+            margin: 30px 0 15px 0;
+            padding-bottom: 8px;
             border-bottom: 2px solid #f0f0f0;
+            font-weight: 600;
         }
         
         .section {
@@ -94,12 +115,29 @@
             background: #f9f9f9;
             padding: 20px;
             border-left: 4px solid #c41e3a;
+            min-height: 400px;
         }
         
         .party h3 {
             color: #c41e3a;
             font-size: 14px;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        
+        .party p {
+            margin: 5px 0;
+            font-size: 13px;
+        }
+        
+        .field-label {
+            display: block;
+            font-weight: 600;
+            margin-top: 12px;
+            margin-bottom: 5px;
+            font-size: 12px;
+            color: #555;
         }
         
         input[type="text"],
@@ -116,6 +154,7 @@
             font-family: inherit;
             margin: 5px 0;
             background: white;
+            transition: border-color 0.3s;
         }
         
         input[type="text"]:focus,
@@ -130,42 +169,41 @@
         }
         
         textarea {
-            min-height: 100px;
+            min-height: 80px;
             resize: vertical;
         }
         
         .inline-input {
             display: inline-block;
-            min-width: 150px;
+            min-width: 120px;
+            border: none;
             border-bottom: 1px solid #333;
             background: transparent;
             padding: 2px 5px;
-        }
-        
-        .field-label {
-            display: block;
-            font-weight: 600;
-            margin-top: 10px;
-            margin-bottom: 5px;
-            font-size: 13px;
-            color: #555;
+            border-radius: 0;
         }
         
         .article {
             margin: 20px 0;
-            padding-left: 10px;
-        }
-        
-        .article-title {
-            font-weight: 700;
-            color: #c41e3a;
-            margin-bottom: 8px;
         }
         
         .article-content {
             text-align: justify;
             font-size: 14px;
-            line-height: 1.8;
+            line-height: 1.9;
+        }
+        
+        .article-content p {
+            margin-bottom: 12px;
+        }
+        
+        .article-content ul {
+            margin: 12px 0 12px 25px;
+            line-height: 2;
+        }
+        
+        .article-content li {
+            margin: 8px 0;
         }
         
         .checkbox-group {
@@ -174,25 +212,38 @@
         
         .checkbox-item {
             display: flex;
-            align-items: center;
-            margin: 8px 0;
+            align-items: flex-start;
+            margin: 12px 0;
         }
         
         .checkbox-item input[type="checkbox"] {
             width: auto;
             margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .checkbox-item label {
+            font-size: 13px;
+        }
+        
+        .checkbox-item textarea {
+            margin-left: 28px;
+            margin-top: 8px;
+            font-size: 12px;
         }
         
         .price-table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
+            font-size: 13px;
         }
         
         .price-table th,
         .price-table td {
             border: 1px solid #ddd;
-            padding: 10px;
+            padding: 12px;
             text-align: left;
         }
         
@@ -200,10 +251,12 @@
             background: #c41e3a;
             color: white;
             font-weight: 600;
+            font-size: 13px;
         }
         
         .price-table input {
             margin: 0;
+            border: 1px solid #ddd;
         }
         
         .total-row {
@@ -211,11 +264,68 @@
             font-weight: 700;
         }
         
+        .total-row td {
+            font-size: 14px;
+        }
+        
+        .payment-section {
+            background: #f9f9f9;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #c41e3a;
+        }
+        
+        .payment-option {
+            margin: 15px 0;
+            padding: 15px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .payment-option strong {
+            color: #c41e3a;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .bank-details {
+            background: #fff;
+            border: 2px solid #c41e3a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .bank-details p {
+            margin: 8px 0;
+            font-size: 13px;
+        }
+        
+        .bank-details strong {
+            display: inline-block;
+            width: 120px;
+            color: #c41e3a;
+        }
+        
+        .important-notice {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+        
+        .important-notice p {
+            margin: 8px 0;
+        }
+        
         .signatures {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 50px;
+            gap: 50px;
+            margin-top: 60px;
             page-break-inside: avoid;
         }
         
@@ -223,30 +333,96 @@
             text-align: center;
         }
         
-        .signature-box p {
-            margin-bottom: 60px;
-            font-weight: 600;
+        .signature-box > p:first-child {
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #c41e3a;
+            font-size: 14px;
+        }
+        
+        .signature-box .name-field {
+            margin: 10px 0 15px 0;
+        }
+        
+        .signature-space {
+            height: 100px;
+            border: 1px dashed #ccc;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 12px;
+            background: #fafafa;
         }
         
         .signature-line {
-            border-top: 1px solid #333;
-            padding-top: 5px;
-            font-size: 12px;
+            border-top: 2px solid #333;
+            padding-top: 8px;
+            font-size: 11px;
             color: #666;
+            margin-top: 10px;
         }
         
         .footer {
-            margin-top: 50px;
-            padding-top: 20px;
+            margin-top: 60px;
+            padding-top: 25px;
             border-top: 3px solid #c41e3a;
             text-align: center;
             font-size: 10px;
             color: #666;
-            line-height: 1.8;
+            line-height: 2;
         }
         
         .footer strong {
             color: #c41e3a;
+            font-size: 11px;
+        }
+        
+        .legal-ref {
+            font-size: 11px;
+            color: #888;
+            font-style: italic;
+            margin: 10px 0 5px 0;
+            padding-left: 10px;
+            border-left: 2px solid #f0f0f0;
+        }
+        
+        .legal-ref a {
+            color: #c41e3a;
+            text-decoration: none;
+        }
+        
+        .legal-ref a:hover {
+            text-decoration: underline;
+        }
+        
+        .acceptance-box {
+            background: #f9f9f9;
+            border: 2px solid #c41e3a;
+            padding: 25px;
+            margin: 40px 0;
+            text-align: center;
+            border-radius: 4px;
+        }
+        
+        .acceptance-box p:first-child {
+            font-size: 15px;
+            font-weight: 700;
+            color: #c41e3a;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .acceptance-box p:nth-child(2) {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .acceptance-box p:last-child {
+            font-weight: 700;
+            font-size: 14px;
+            color: #333;
         }
         
         .print-button {
@@ -263,6 +439,7 @@
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
             transition: all 0.3s ease;
+            z-index: 1000;
         }
         
         .print-button:hover {
@@ -271,19 +448,29 @@
             box-shadow: 0 6px 20px rgba(196, 30, 58, 0.4);
         }
         
-        .legal-ref {
-            font-size: 11px;
-            color: #888;
-            font-style: italic;
-            margin-top: 5px;
-        }
-        
-        .important-notice {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 20px 0;
-            font-size: 13px;
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .parties {
+                grid-template-columns: 1fr;
+            }
+            
+            .signatures {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .company-info {
+                text-align: center;
+                margin-top: 15px;
+            }
         }
     </style>
 </head>
@@ -291,9 +478,16 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjgwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iODAiIGZpbGw9IiNmZmYiLz48dGV4dCB4PSI1MCUiIHk9IjM1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjgiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSIjYzQxZTNhIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5MS1I8L3RleHQ+PHRleHQgeD0iNTAlIiB5PSI2MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjMzMzIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5SRU5PVkFUSU9OIE1DIFNBUTE8L3RleHQ+PC9zdmc+" alt="LKR Logo" class="logo">
+            <div class="logo-container">
+                <!-- PLACEHOLDER: Sostituire con logo-lkr-horizontal.svg -->
+                <svg class="logo" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="300" height="80" fill="white"/>
+                    <text x="20" y="45" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#c41e3a">LKR</text>
+                    <text x="20" y="70" font-family="Arial, sans-serif" font-size="14" fill="#333">RENOVATION MC SARL</text>
+                </svg>
+            </div>
             <div class="company-info">
-                <strong>LKR RENOVATION MC SARL</strong><br>
+                <strong>LKR RENOVATION MC SARL</strong>
                 38, Boulevard des Moulins<br>
                 98000 Monaco<br>
                 RCI: 25S10110<br>
@@ -303,221 +497,528 @@
         </div>
 
         <!-- Title -->
-        <h1>Contrat de Rafraîchissement<br>Prestations Standard</h1>
-
-        <div class="section">
-            <p style="text-align: center; margin: 20px 0;">
-                Fait à Monaco, le <input type="date" class="inline-input" style="width: 180px;">
-            </p>
+        <h1>Contrat de Rafraîchissement</h1>
+        
+        <div class="contract-date">
+            Fait à Monaco, le <input type="date" class="inline-input" id="contract-date" style="width: 180px;">
         </div>
 
-        <!-- Parties -->
+        <!-- Article 1: Parties -->
         <h2>Article 1 - Identification des Parties</h2>
         
         <div class="parties">
             <div class="party">
-                <h3>LE PRESTATAIRE</h3>
+                <h3>Le Prestataire</h3>
                 <p><strong>LKR RENOVATION MC SARL</strong></p>
                 <p>Société à Responsabilité Limitée</p>
                 <p>Capital social: 15.000 €</p>
-                <p>Siège: 38, Boulevard des Moulins, 98000 Monaco</p>
+                <p>Siège social: 38, Boulevard des Moulins, 98000 Monaco</p>
                 <p>RCI: 25S10110</p>
                 <p>TVA: FR72000188879</p>
-                <p>Représentée par: <strong>M. Luca Borella</strong>, Gérant</p>
+                <p style="margin-top: 10px;">Représentée par: <strong>M. Luca Borella</strong>, Gérant</p>
                 <p>Email: info@lkr.mc</p>
-                <p>Tél: +377 6 40 61 56 50</p>
+                <p>Téléphone: +377 6 40 61 56 50</p>
             </div>
 
             <div class="party">
-                <h3>LE CLIENT</h3>
+                <h3>Le Client</h3>
                 <label class="field-label">Raison sociale / Nom complet *</label>
-                <input type="text" placeholder="Ex: Agence Immobilière Monaco Premium SARL">
+                <input type="text" id="client-name" placeholder="Ex: Société ABC SARL ou M. Dupont Jean">
                 
-                <label class="field-label">Forme juridique</label>
-                <select>
-                    <option>SARL</option>
-                    <option>SAM</option>
-                    <option>SAS</option>
-                    <option>Personne Physique</option>
-                    <option>Autre</option>
+                <label class="field-label">Forme juridique (si société)</label>
+                <select id="client-type">
+                    <option value="">-- Sélectionner --</option>
+                    <option value="personne">Personne Physique</option>
+                    <option value="sarl">SARL</option>
+                    <option value="sam">SAM</option>
+                    <option value="sas">SAS</option>
+                    <option value="autre">Autre</option>
                 </select>
                 
                 <label class="field-label">RCI (si société monégasque)</label>
-                <input type="text" placeholder="Ex: 12S34567">
+                <input type="text" id="client-rci" placeholder="Ex: 12S34567">
                 
                 <label class="field-label">Adresse complète *</label>
-                <input type="text" placeholder="Numéro, rue">
-                <input type="text" placeholder="Code postal, Ville, Pays">
+                <input type="text" id="client-address1" placeholder="Numéro et nom de rue">
+                <input type="text" id="client-address2" placeholder="Code postal, Ville, Pays">
                 
                 <label class="field-label">Représenté(e) par *</label>
-                <input type="text" placeholder="Nom du représentant légal">
+                <input type="text" id="client-rep" placeholder="Nom et qualité du représentant">
                 
                 <label class="field-label">Email *</label>
-                <input type="email" placeholder="contact@client.com">
+                <input type="email" id="client-email" placeholder="contact@exemple.com">
                 
                 <label class="field-label">Téléphone *</label>
-                <input type="text" placeholder="+377 / +33">
+                <input type="text" id="client-phone" placeholder="+377 ou +33">
             </div>
         </div>
 
-        <p class="legal-ref">Base légale: Art. 1184 Code Civil de Monaco (résolution pour inexécution); Art. 1794 Code Civil (droit de résiliation)</p>
+        <p class="legal-ref">Base légale: Art. 1108 et suivants du Code Civil de Monaco relatifs aux conditions de validité des contrats - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
 
-        <!-- Responsabilité -->
-        <h2>Article 14 - Limitation de Responsabilité</h2>
+        <!-- Article 2: Objet -->
+        <h2>Article 2 - Objet du Contrat</h2>
+        <div class="article">
+            <div class="article-content">
+                <p>Le présent contrat a pour objet la réalisation de travaux de rafraîchissement dans le bien immobilier suivant:</p>
+                
+                <label class="field-label">Adresse du bien concerné *</label>
+                <input type="text" id="property-address" placeholder="Adresse complète de l'appartement, bureau ou local">
+                
+                <label class="field-label">Type de bien</label>
+                <select id="property-type">
+                    <option value="appartement">Appartement</option>
+                    <option value="bureau">Bureau</option>
+                    <option value="commerce">Commerce</option>
+                    <option value="maison">Maison</option>
+                    <option value="autre">Autre</option>
+                </select>
+                
+                <label class="field-label">Surface approximative (m²)</label>
+                <input type="number" id="property-surface" placeholder="Ex: 45" style="width: 150px;"> m²
+            </div>
+        </div>
+
+        <!-- Article 3: Description travaux -->
+        <h2>Article 3 - Description Détaillée des Travaux</h2>
+        <div class="article">
+            <div class="article-content">
+                <p style="margin-bottom: 15px; font-weight: 600;">Les travaux comprennent les prestations suivantes:</p>
+                
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="work-peinture">
+                        <div style="flex: 1;">
+                            <label for="work-peinture">Peinture murale</label>
+                            <textarea placeholder="Détailler: pièces concernées, nombre de couches, teintes..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="work-plafond">
+                        <div style="flex: 1;">
+                            <label for="work-plafond">Peinture plafond</label>
+                            <textarea placeholder="Détailler: pièces, teintes..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="work-papier">
+                        <div style="flex: 1;">
+                            <label for="work-papier">Pose/Dépose papier peint</label>
+                            <textarea placeholder="Référence papier peint, surfaces concernées..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="work-prep">
+                        <label for="work-prep">Préparation des surfaces (rebouchage, ponçage, lessivage)</label>
+                    </div>
+                    
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="work-protection">
+                        <label for="work-protection">Protection des sols et mobilier</label>
+                    </div>
+                    
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="work-nettoyage">
+                        <label for="work-nettoyage">Nettoyage final et évacuation déchets</label>
+                    </div>
+                </div>
+                
+                <label class="field-label">Prestations complémentaires ou spécifications particulières</label>
+                <textarea id="work-additional" placeholder="Ex: déplacement léger de meubles, retouches spécifiques, contraintes d'accès..."></textarea>
+            </div>
+        </div>
+
+        <!-- Article 4: Prix -->
+        <h2>Article 4 - Prix des Prestations</h2>
+        <div class="article">
+            <div class="article-content">
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 60%;">Désignation</th>
+                            <th style="width: 40%;">Montant HT (€)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="price-table-body">
+                        <tr>
+                            <td><input type="text" placeholder="Ex: Peinture chambre principale"></td>
+                            <td><input type="number" step="0.01" placeholder="0.00" class="price-input"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" placeholder="Ex: Peinture salon/séjour"></td>
+                            <td><input type="number" step="0.01" placeholder="0.00" class="price-input"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" placeholder="Ex: Papier peint couloir"></td>
+                            <td><input type="number" step="0.01" placeholder="0.00" class="price-input"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" placeholder="Autres prestations"></td>
+                            <td><input type="number" step="0.01" placeholder="0.00" class="price-input"></td>
+                        </tr>
+                        <tr class="total-row">
+                            <td><strong>TOTAL HT</strong></td>
+                            <td><input type="number" step="0.01" id="total-ht" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>TVA 20%</td>
+                            <td><input type="number" step="0.01" id="tva" readonly></td>
+                        </tr>
+                        <tr class="total-row">
+                            <td><strong>TOTAL TTC</strong></td>
+                            <td><input type="number" step="0.01" id="total-ttc" readonly></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <p class="legal-ref">Base légale: Art. 1134 et 1315 du Code Civil de Monaco (force obligatoire des conventions) - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <!-- Article 5: Modalités de paiement -->
+        <h2>Article 5 - Modalités de Paiement</h2>
+        <div class="article">
+            <div class="payment-section">
+                <label class="field-label">Sélectionner le mode de paiement:</label>
+                <select id="payment-mode" style="width: 100%; padding: 12px; font-size: 14px; font-weight: 600;">
+                    <option value="50-50">50% acconto / 50% fine lavori</option>
+                    <option value="30-70">30% acconto / 70% fine lavori</option>
+                    <option value="40-60">40% acconto / 60% fine lavori</option>
+                    <option value="100-0">100% anticipo (acconto intégral)</option>
+                </select>
+                
+                <div class="payment-option" style="margin-top: 20px;">
+                    <strong>Échéancier de paiement:</strong>
+                    <p id="payment-schedule">
+                        • Acompte de <span id="acompte-percent">50</span>% à la signature: <span id="acompte-amount">0,00</span> € TTC<br>
+                        • Solde de <span id="solde-percent">50</span>% à la réception définitive: <span id="solde-amount">0,00</span> € TTC
+                    </p>
+                </div>
+                
+                <div class="bank-details">
+                    <p><strong>Bénéficiaire:</strong> LKR RENOVATION MC SARL</p>
+                    <p><strong>IBAN:</strong> MC58 3000 3009 1000 0203 3699 939</p>
+                    <p><strong>BIC:</strong> SOGEMCM1</p>
+                    <p><strong>Banque:</strong> Société Générale Private Banking Monaco</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Article 6: Délais -->
+        <h2>Article 6 - Délais d'Exécution</h2>
+        <div class="article">
+            <div class="article-content">
+                <p><strong>Date de début prévue:</strong> <input type="date" class="inline-input" id="start-date" style="width: 180px;"></p>
+                <p><strong>Date de fin prévue:</strong> <input type="date" class="inline-input" id="end-date" style="width: 180px;"></p>
+                <p><strong>Durée estimée:</strong> <input type="number" class="inline-input" id="duration" style="width: 80px;"> jours ouvrés</p>
+                
+                <p style="margin-top: 15px;">Les délais indiqués sont donnés à titre indicatif et peuvent être ajustés en fonction des contraintes du chantier, sous réserve d'accord entre les parties. Tout retard significatif sera communiqué au Client dans les meilleurs délais.</p>
+            </div>
+        </div>
+
+        <!-- Article 7: Conditions d'accès -->
+        <h2>Article 7 - Conditions d'Accès au Bien</h2>
+        <div class="article">
+            <div class="article-content">
+                <p>Le Client s'engage à garantir l'accès au bien immobilier aux équipes du Prestataire selon les modalités suivantes:</p>
+                
+                <label class="field-label">Mode d'accès au bien</label>
+                <select id="access-mode">
+                    <option value="cles">Remise de clés au Prestataire</option>
+                    <option value="presence">Présence d'un représentant du Client</option>
+                    <option value="gardien">Accès via gardien/concierge</option>
+                    <option value="autre">Autre (préciser ci-dessous)</option>
+                </select>
+                
+                <label class="field-label">Précisions sur l'accès</label>
+                <textarea id="access-details" placeholder="Ex: codes d'accès, instructions particulières, horaires autorisés, personne de contact sur place..."></textarea>
+                
+                <p style="margin-top: 15px;">Le Client garantit que le bien est libre d'occupation et accessible pendant toute la durée des travaux. En cas d'impossibilité d'accès non imputable au Prestataire, les délais seront prolongés d'autant.</p>
+            </div>
+        </div>
+
+        <!-- Article 8: Garanties -->
+        <h2>Article 8 - Garanties</h2>
+        <div class="article">
+            <div class="article-content">
+                <p>Le Prestataire garantit la conformité des travaux pendant une durée de <strong>un (1) an</strong> à compter de la date de réception des travaux, contre tout vice ou malfaçon imputable à son intervention ou à celle de ses sous-traitants.</p>
+                
+                <p style="margin-top: 12px;">Cette garantie couvre:</p>
+                <ul>
+                    <li>Les défauts d'application (coulures, traces, irrégularités manifestes)</li>
+                    <li>Le décollement du papier peint non imputable à l'humidité préexistante</li>
+                    <li>Les défauts de préparation des surfaces ayant un impact sur le résultat final</li>
+                </ul>
+                
+                <p style="margin-top: 12px;"><strong>Sont exclus de la garantie:</strong></p>
+                <ul>
+                    <li>Les dommages résultant d'un usage anormal ou d'un défaut d'entretien</li>
+                    <li>Les dommages causés par un tiers après réception des travaux</li>
+                    <li>L'usure normale des revêtements</li>
+                    <li>Les problèmes d'humidité ou de structure préexistants non signalés</li>
+                </ul>
+            </div>
+        </div>
+        
+        <p class="legal-ref">Base légale: Art. 1641 et suivants du Code Civil de Monaco (garantie des vices cachés); Art. 1792 et suivants (garantie de parfait achèvement) - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <!-- Article 9: Obligations du Client -->
+        <h2>Article 9 - Obligations du Client</h2>
+        <div class="article">
+            <div class="article-content">
+                <p>Le Client s'engage à:</p>
+                <ul>
+                    <li>Fournir un bien vide de tout mobilier ou objets encombrants, sauf accord contraire écrit</li>
+                    <li>S'assurer que les fluides nécessaires (eau, électricité) sont disponibles sur le chantier</li>
+                    <li>Informer le Prestataire de toute particularité du bien (matériaux fragiles, installations spécifiques, présence d'amiante, etc.)</li>
+                    <li>Procéder au règlement des factures selon l'échéancier convenu à l'article 5</li>
+                    <li>Effectuer la réception des travaux dans un délai raisonnable après leur achèvement</li>
+                    <li>Ne pas intervenir sur les travaux en cours sans accord préalable du Prestataire</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Article 10: Obligations du Prestataire -->
+        <h2>Article 10 - Obligations du Prestataire</h2>
+        <div class="article">
+            <div class="article-content">
+                <p>Le Prestataire s'engage à:</p>
+                <ul>
+                    <li>Réaliser les travaux dans les règles de l'art et conformément aux standards professionnels en vigueur</li>
+                    <li>Utiliser des matériaux de qualité professionnelle adaptés aux surfaces à traiter</li>
+                    <li>Assurer la protection efficace des surfaces, sols et mobilier non concernés par les travaux</li>
+                    <li>Procéder au nettoyage complet du chantier et à l'évacuation des déchets en fin d'intervention</li>
+                    <li>Respecter les horaires convenus et minimiser les nuisances pour le voisinage</li>
+                    <li>Coordonner l'intervention de ses sous-traitants éventuels</li>
+                    <li>Informer immédiatement le Client de toute difficulté technique ou retard prévisible</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Article 11: Réception des travaux -->
+        <h2>Article 11 - Réception des Travaux</h2>
+        <div class="article">
+            <div class="article-content">
+                <p>À l'achèvement des travaux, les parties procèdent conjointement à la réception des prestations. Un procès-verbal de réception sera établi mentionnant, le cas échéant, les réserves éventuelles.</p>
+                
+                <p style="margin-top: 12px;">En l'absence de réserves significatives, les travaux seront réputés réceptionnés sans réserve et le solde deviendra immédiatement exigible.</p>
+                
+                <p style="margin-top: 12px;">Si des réserves sont formulées, le Prestataire s'engage à y remédier dans un délai maximum de <input type="number" class="inline-input" style="width: 60px;" value="15"> jours ouvrés. Le solde sera versé après levée complète des réserves.</p>
+                
+                <p style="margin-top: 12px;">À défaut de réponse du Client dans les 8 jours suivant la notification d'achèvement, les travaux seront réputés acceptés tacitement.</p>
+            </div>
+        </div>
+
+        <!-- Article 12: Sous-traitance et Assurances -->
+        <h2>Article 12 - Sous-Traitance et Assurances</h2>
+        <div class="article">
+            <div class="article-content">
+                <p>Le Prestataire se réserve le droit de faire appel à des sous-traitants qualifiés pour l'exécution de tout ou partie des travaux. Le Prestataire demeure seul responsable de la bonne exécution des prestations vis-à-vis du Client.</p>
+                
+                <div class="important-notice">
+                    <p><strong>📋 Assurances professionnelles:</strong></p>
+                    <p>Le Prestataire déclare être titulaire d'une assurance Responsabilité Civile Professionnelle couvrant les dommages pouvant résulter de son activité de coordination de travaux.</p>
+                    <p style="margin-top: 8px;">Tout sous-traitant intervenant sur le chantier justifie de ses propres assurances professionnelles obligatoires (RC Professionnelle et, le cas échéant, Garantie Décennale), dont le Prestataire conserve copie.</p>
+                </div>
+            </div>
+        </div>
+        
+        <p class="legal-ref">Base légale: Art. 1382-1384 Code Civil de Monaco (responsabilité civile); Loi n° 1.430 du 13 juillet 2016 relative à la sous-traitance - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <!-- Article 13: Modifications en cours d'exécution -->
+        <h2>Article 13 - Modifications en Cours d'Exécution</h2>
+        <div class="article">
+            <div class="article-content">
+                <p>Toute modification de la nature, de l'étendue ou des spécifications des travaux demandée par le Client en cours d'exécution fera l'objet d'un avenant écrit précisant:</p>
+                <ul>
+                    <li>La nature exacte des modifications souhaitées</li>
+                    <li>Leur impact sur le prix global (supplément ou réduction)</li>
+                    <li>Leur impact sur le délai d'exécution</li>
+                </ul>
+                <p style="margin-top: 12px;">Aucune modification ne pourra être prise en compte sans validation écrite préalable des deux parties. Les travaux supplémentaires non validés par écrit ne pourront faire l'objet d'une facturation.</p>
+            </div>
+        </div>
+
+        <!-- Article 14: Résiliation -->
+        <h2>Article 14 - Conditions de Résiliation</h2>
+        <div class="article">
+            <div class="article-content">
+                <p><strong>Résiliation par le Client avant début des travaux:</strong> Le Client peut résilier le présent contrat avant le début effectif des travaux moyennant un préavis de 7 jours calendaires et la conservation par le Prestataire de l'acompte versé à titre d'indemnité forfaitaire pour frais engagés.</p>
+                
+                <p style="margin-top: 12px;"><strong>Résiliation après début des travaux:</strong> Une fois les travaux commencés, la résiliation anticipée par le Client entraînera la facturation des prestations déjà réalisées ainsi qu'une indemnité correspondant à 30% du montant restant dû au titre des frais de mobilisation et de perte de marge.</p>
+                
+                <p style="margin-top: 12px;"><strong>Résiliation par le Prestataire:</strong> En cas de manquement grave du Client à ses obligations (notamment défaut de paiement de l'acompte ou impossibilité d'accès au bien), le Prestataire pourra résilier le contrat de plein droit après mise en demeure par lettre recommandée avec accusé de réception restée sans effet pendant 8 jours calendaires.</p>
+            </div>
+        </div>
+        
+        <p class="legal-ref">Base légale: Art. 1184 Code Civil de Monaco (résolution pour inexécution); Art. 1794 Code Civil (droit de résiliation) - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <!-- Article 15: Limitation de Responsabilité -->
+        <h2>Article 15 - Limitation de Responsabilité</h2>
         <div class="article">
             <div class="article-content">
                 <p>La responsabilité du Prestataire ne pourra être recherchée que pour les dommages directs et prévisibles résultant de son intervention ou de celle de ses sous-traitants.</p>
                 
                 <p style="margin-top: 12px;">Le Prestataire ne saurait être tenu responsable:</p>
-                <ul style="margin-left: 20px; margin-top: 8px;">
+                <ul>
                     <li>Des vices cachés de construction ou des défauts structurels préexistants</li>
-                    <li>Des problèmes d'humidité, d'infiltration ou de condensation non apparents</li>
+                    <li>Des problèmes d'humidité, d'infiltration ou de condensation non apparents lors du diagnostic initial</li>
                     <li>Des dommages causés par des tiers intervenants après sa prestation</li>
                     <li>Des retards dus à des cas de force majeure ou à un fait du Client</li>
+                    <li>De la non-conformité des teintes si le Client n'a pas validé d'échantillon préalable</li>
                 </ul>
                 
-                <p style="margin-top: 12px;">En tout état de cause, la responsabilité du Prestataire est limitée au montant total des prestations facturées au titre du présent contrat.</p>
+                <p style="margin-top: 12px;">En tout état de cause, la responsabilité totale du Prestataire est plafonnée au montant des prestations effectivement facturées au titre du présent contrat.</p>
             </div>
         </div>
         
-        <p class="legal-ref">Base légale: Art. 1147-1150 Code Civil de Monaco (responsabilité contractuelle); Art. 1382 (responsabilité délictuelle)</p>
+        <p class="legal-ref">Base légale: Art. 1147-1150 Code Civil de Monaco (responsabilité contractuelle); Art. 1382 (responsabilité délictuelle) - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
 
-        <!-- Force majeure -->
-        <h2>Article 15 - Force Majeure</h2>
+        <!-- Article 16: Force Majeure -->
+        <h2>Article 16 - Force Majeure</h2>
         <div class="article">
             <div class="article-content">
-                <p>Les parties ne pourront être tenues responsables si l'inexécution ou le retard dans l'exécution de l'une quelconque de leurs obligations décrites dans le présent contrat découle d'un cas de force majeure tel que défini par la jurisprudence monégasque.</p>
+                <p>Les parties ne pourront être tenues responsables si l'inexécution ou le retard dans l'exécution de l'une quelconque de leurs obligations découle d'un cas de force majeure tel que défini par la jurisprudence monégasque.</p>
                 
-                <p style="margin-top: 12px;">Sont notamment considérés comme cas de force majeure: catastrophes naturelles, incendies, inondations, grèves générales, épidémies, guerres, actes de terrorisme, interruption des réseaux de communication ou d'approvisionnement.</p>
+                <p style="margin-top: 12px;">Sont notamment considérés comme cas de force majeure: catastrophes naturelles, incendies, inondations, grèves générales affectant les transports ou l'approvisionnement, épidémies, restrictions gouvernementales, guerres, actes de terrorisme, interruption prolongée des réseaux de communication ou d'approvisionnement en matériaux.</p>
+                
+                <p style="margin-top: 12px;">En cas de force majeure, les délais d'exécution seront suspendus pendant toute la durée de l'événement. Si l'empêchement persiste au-delà de 30 jours, chaque partie pourra résilier le contrat sans pénalité.</p>
             </div>
         </div>
         
-        <p class="legal-ref">Base légale: Art. 1148 Code Civil de Monaco (force majeure)</p>
+        <p class="legal-ref">Base légale: Art. 1148 Code Civil de Monaco (force majeure) - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
 
-        <!-- Protection données -->
-        <h2>Article 16 - Protection des Données Personnelles</h2>
+        <!-- Article 17: Protection des Données -->
+        <h2>Article 17 - Protection des Données Personnelles</h2>
         <div class="article">
             <div class="article-content">
                 <p>Conformément à la Loi n° 1.165 du 23 décembre 1993 réglementant les traitements d'informations nominatives, le Client est informé que les données personnelles collectées dans le cadre du présent contrat sont nécessaires à son exécution et à la gestion de la relation contractuelle.</p>
                 
-                <p style="margin-top: 12px;">Ces données sont destinées exclusivement au Prestataire et à ses sous-traitants éventuels. Le Client dispose d'un droit d'accès, de rectification et de suppression des données le concernant en écrivant à: info@lkr.mc</p>
+                <p style="margin-top: 12px;">Ces données sont destinées exclusivement au Prestataire et à ses sous-traitants éventuels dans le cadre strict de l'exécution des travaux. Elles sont conservées pendant la durée légale de prescription.</p>
+                
+                <p style="margin-top: 12px;">Le Client dispose d'un droit d'accès, de rectification et de suppression des données le concernant en adressant sa demande par écrit à: info@lkr.mc ou LKR RENOVATION MC SARL, 38 Boulevard des Moulins, 98000 Monaco.</p>
             </div>
         </div>
         
-        <p class="legal-ref">Base légale: Loi n° 1.165 du 23/12/1993 (protection données personnelles Monaco); <a href="https://www.legimonaco.mc/305/legismc.nsf/ViewTNC/37DBE391E460FC80C12569F50032F2F8" target="_blank">legimonaco.mc</a></p>
+        <p class="legal-ref">Base légale: Loi n° 1.165 du 23 décembre 1993 relative à la protection des informations nominatives - <a href="https://www.legimonaco.mc/305/legismc.nsf/ViewTNC/37DBE391E460FC80C12569F50032F2F8" target="_blank">legimonaco.mc</a></p>
 
-        <!-- Confidentialité -->
-        <h2>Article 17 - Confidentialité</h2>
+        <!-- Article 18: Confidentialité -->
+        <h2>Article 18 - Confidentialité</h2>
         <div class="article">
             <div class="article-content">
                 <p>Les parties s'engagent à respecter la confidentialité de toutes les informations échangées dans le cadre du présent contrat, notamment concernant:</p>
-                <ul style="margin-left: 20px; margin-top: 8px;">
+                <ul>
                     <li>Les conditions commerciales et tarifaires</li>
-                    <li>Les caractéristiques du bien immobilier</li>
+                    <li>Les caractéristiques et l'état du bien immobilier</li>
                     <li>Les coordonnées et données personnelles</li>
                     <li>Toute information sensible découverte lors de l'intervention</li>
                 </ul>
-                <p style="margin-top: 12px;">Cette obligation de confidentialité demeure applicable après la fin du contrat.</p>
+                <p style="margin-top: 12px;">Cette obligation de confidentialité demeure applicable pendant toute la durée du contrat et pour une période de 3 ans après son terme.</p>
             </div>
         </div>
 
-        <!-- Cession -->
-        <h2>Article 18 - Cession du Contrat</h2>
+        <!-- Article 19: Cession du Contrat -->
+        <h2>Article 19 - Cession du Contrat</h2>
         <div class="article">
             <div class="article-content">
-                <p>Le présent contrat est conclu intuitu personae. Il ne peut être cédé, en tout ou partie, par l'une ou l'autre des parties sans l'accord écrit et préalable de l'autre partie.</p>
+                <p>Le présent contrat est conclu intuitu personae. Il ne peut être cédé, en tout ou partie, par l'une ou l'autre des parties sans l'accord écrit et préalable de l'autre partie, sous peine de nullité de la cession.</p>
             </div>
         </div>
 
-        <!-- Intégralité -->
-        <h2>Article 19 - Intégralité de l'Accord</h2>
+        <!-- Article 20: Intégralité de l'Accord -->
+        <h2>Article 20 - Intégralité de l'Accord</h2>
         <div class="article">
             <div class="article-content">
-                <p>Le présent contrat constitue l'intégralité de l'accord entre les parties et annule et remplace tout accord, lettre d'intention, offre ou proposition antérieure ayant le même objet.</p>
+                <p>Le présent contrat, accompagné de ses éventuelles annexes, constitue l'intégralité de l'accord entre les parties et annule et remplace tout accord verbal ou écrit, lettre d'intention, offre ou proposition antérieure ayant le même objet.</p>
                 
-                <p style="margin-top: 12px;">Toute modification du présent contrat devra faire l'objet d'un avenant écrit signé par les deux parties.</p>
+                <p style="margin-top: 12px;">Toute modification ou complément au présent contrat devra faire l'objet d'un avenant écrit, daté et signé par les deux parties pour être opposable.</p>
             </div>
         </div>
 
-        <!-- Nullité -->
-        <h2>Article 20 - Nullité Partielle</h2>
+        <!-- Article 21: Nullité Partielle -->
+        <h2>Article 21 - Nullité Partielle</h2>
         <div class="article">
             <div class="article-content">
                 <p>Si une ou plusieurs stipulations du présent contrat sont tenues pour non valides ou déclarées telles en application d'une loi, d'un règlement ou à la suite d'une décision définitive d'une juridiction compétente, les autres stipulations garderont toute leur force et leur portée.</p>
+                
+                <p style="margin-top: 12px;">Les parties s'engagent dans ce cas à remplacer la clause annulée par une clause valide d'effet équivalent.</p>
             </div>
         </div>
 
-        <!-- Litiges -->
-        <h2>Article 21 - Règlement des Différends et Juridiction</h2>
+        <!-- Article 22: Règlement des Différends -->
+        <h2>Article 22 - Règlement des Différends et Juridiction Compétente</h2>
         <div class="article">
             <div class="article-content">
-                <p>En cas de différend relatif à l'interprétation ou à l'exécution du présent contrat, les parties s'efforceront de trouver une solution amiable.</p>
+                <p>En cas de différend relatif à l'interprétation, l'exécution ou la résiliation du présent contrat, les parties s'efforceront de trouver une solution amiable dans un esprit de bonne foi.</p>
                 
-                <p style="margin-top: 12px;">À défaut d'accord amiable dans un délai de 30 jours suivant la notification du différend par lettre recommandée, le litige sera soumis aux tribunaux compétents de la Principauté de Monaco, auxquels les parties attribuent compétence exclusive.</p>
+                <p style="margin-top: 12px;">À défaut d'accord amiable dans un délai de 30 jours suivant la notification du différend par lettre recommandée avec accusé de réception, le litige sera porté devant les tribunaux compétents de la Principauté de Monaco, auxquels les parties attribuent compétence exclusive.</p>
                 
-                <p style="margin-top: 12px;"><strong>Droit applicable:</strong> Le présent contrat est régi par le droit monégasque.</p>
+                <p style="margin-top: 12px;"><strong>Droit applicable:</strong> Le présent contrat est intégralement régi par le droit monégasque.</p>
             </div>
         </div>
         
-        <p class="legal-ref">Base légale: Tribunaux de Monaco selon compétence (Tribunal de Première Instance, Cour d'Appel); Code de Procédure Civile de Monaco</p>
+        <p class="legal-ref">Base légale: Compétence des Tribunaux de Monaco (Tribunal de Première Instance, Cour d'Appel); Code de Procédure Civile de Monaco - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
 
-        <!-- Déclarations -->
-        <h2>Article 22 - Déclarations des Parties</h2>
+        <!-- Article 23: Déclarations des Parties -->
+        <h2>Article 23 - Déclarations des Parties</h2>
         <div class="article">
             <div class="article-content">
-                <p>Les parties déclarent avoir pris connaissance de l'ensemble des termes et conditions du présent contrat, en accepter pleinement le contenu et disposer de la capacité et des pouvoirs nécessaires pour le conclure.</p>
-                
-                <p style="margin-top: 12px;">Le Client reconnaît avoir été informé de la possibilité de faire vérifier le présent contrat par un conseil de son choix avant signature.</p>
+                <p>Les parties déclarent:</p>
+                <ul>
+                    <li>Avoir pris connaissance de l'ensemble des termes et conditions du présent contrat</li>
+                    <li>En accepter pleinement le contenu sans réserve</li>
+                    <li>Disposer de la capacité juridique et des pouvoirs nécessaires pour le conclure</li>
+                    <li>Avoir été en mesure de faire vérifier le présent contrat par un conseil de leur choix avant signature</li>
+                </ul>
             </div>
         </div>
 
         <!-- Documents annexes -->
-        <div class="section" style="margin-top: 30px;">
-            <h2>Documents Annexés</h2>
+        <div class="section" style="margin-top: 40px;">
+            <h2>Documents Annexés au Présent Contrat</h2>
             <div class="checkbox-group">
                 <div class="checkbox-item">
-                    <input type="checkbox" id="devis">
-                    <label for="devis">Devis détaillé</label>
+                    <input type="checkbox" id="annex-devis">
+                    <label for="annex-devis">Devis détaillé</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="plans">
-                    <label for="plans">Plans ou photos du bien</label>
+                    <input type="checkbox" id="annex-plans">
+                    <label for="annex-plans">Plans, photos ou relevés du bien</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="planning">
-                    <label for="planning">Planning prévisionnel</label>
+                    <input type="checkbox" id="annex-planning">
+                    <label for="annex-planning">Planning prévisionnel des travaux</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="assurance">
-                    <label for="assurance">Attestation d'assurance RC Professionnelle</label>
+                    <input type="checkbox" id="annex-assurance">
+                    <label for="annex-assurance">Attestation d'assurance RC Professionnelle</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="autre">
-                    <label for="autre">Autre (préciser): <input type="text" style="width: 300px; display: inline;"></label>
+                    <input type="checkbox" id="annex-other">
+                    <label for="annex-other">Autre document (préciser): <input type="text" style="width: 350px; display: inline; margin-left: 10px;"></label>
                 </div>
             </div>
         </div>
 
         <!-- Acceptation -->
-        <div class="section" style="margin-top: 40px; background: #f9f9f9; padding: 20px; border-left: 4px solid #c41e3a;">
-            <p style="text-align: center; font-size: 15px; font-weight: 600; margin-bottom: 15px;">
-                ACCEPTATION DU CONTRAT
-            </p>
-            <p style="text-align: center; font-style: italic;">
-                Les soussignés déclarent avoir lu et accepté l'intégralité des termes et conditions du présent contrat.
-            </p>
-            <p style="text-align: center; font-weight: 600; margin-top: 15px;">
-                Lu et approuvé, bon pour accord
-            </p>
+        <div class="acceptance-box">
+            <p>Acceptation du Contrat</p>
+            <p>Les soussignés déclarent avoir lu et accepté l'intégralité des termes et conditions du présent contrat.</p>
+            <p>Lu et approuvé, bon pour accord</p>
         </div>
 
         <!-- Signatures -->
         <div class="signatures">
             <div class="signature-box">
-                <p><strong>Pour LKR RENOVATION MC SARL</strong></p>
-                <p style="margin-top: 10px; margin-bottom: 50px;">M. Luca Borella, Gérant</p>
-                <p>Date: <input type="date" class="inline-input" style="width: 150px;"></p>
-                <div style="height: 80px; border: 1px dashed #ccc; margin: 20px 0; display: flex; align-items: center; justify-content: center; color: #999; font-size: 12px;">
+                <p>Pour LKR RENOVATION MC SARL</p>
+                <div class="name-field">
+                    <p>M. Luca Borella</p>
+                    <p style="font-weight: normal; font-size: 12px;">Gérant</p>
+                </div>
+                <p style="font-size: 13px;">Date: <input type="date" class="inline-input" style="width: 150px;"></p>
+                <div class="signature-space">
                     Signature et cachet
                 </div>
                 <div class="signature-line">
@@ -526,12 +1027,12 @@
             </div>
 
             <div class="signature-box">
-                <p><strong>Pour le Client</strong></p>
-                <p style="margin-top: 10px; margin-bottom: 50px;">
-                    <input type="text" placeholder="Nom et qualité du signataire" style="width: 100%;">
-                </p>
-                <p>Date: <input type="date" class="inline-input" style="width: 150px;"></p>
-                <div style="height: 80px; border: 1px dashed #ccc; margin: 20px 0; display: flex; align-items: center; justify-content: center; color: #999; font-size: 12px;">
+                <p>Pour le Client</p>
+                <div class="name-field">
+                    <input type="text" placeholder="Nom et qualité du signataire" style="width: 100%; text-align: center;">
+                </div>
+                <p style="font-size: 13px;">Date: <input type="date" class="inline-input" style="width: 150px;"></p>
+                <div class="signature-space">
                     Signature et cachet
                 </div>
                 <div class="signature-line">
@@ -542,335 +1043,100 @@
 
         <!-- Footer -->
         <div class="footer">
-            <p><strong>LKR RENOVATION MC SARL</strong> | SARL au capital de 15.000€</p>
-            <p>38, Boulevard des Moulins, 98000 Monaco</p>
-            <p>RCI: 25S10110 | TVA: FR72000188879</p>
-            <p>Tél: +377 6 40 61 56 50 | Email: info@lkr.mc | Web: www.lkr.mc</p>
-            <p style="margin-top: 10px; font-size: 9px;">
+            <p><strong>LKR RENOVATION MC SARL</strong> | Société à Responsabilité Limitée au capital de 15.000 €</p>
+            <p>Siège social: 38, Boulevard des Moulins, 98000 Monaco</p>
+            <p>RCI: 25S10110 | TVA Intracommunautaire: FR72000188879</p>
+            <p>Téléphone: +377 6 40 61 56 50 | Email: info@lkr.mc | Site web: www.lkr.mc</p>
+            <p style="margin-top: 15px; font-size: 9px; line-height: 1.6;">
                 Contrat régi par le Code Civil de Monaco et le Code de Commerce de Monaco<br>
-                Juridiction compétente: Tribunaux de la Principauté de Monaco
+                Juridiction compétente: Tribunaux de la Principauté de Monaco<br>
+                Document généré par LKR RENOVATION MC SARL - Tous droits réservés
             </p>
         </div>
     </div>
 
     <!-- Print Button -->
     <button class="print-button no-print" onclick="window.print()">
-        🖨️ Imprimer / Sauvegarder en PDF
+        🖨️ Imprimer / PDF
     </button>
 
     <script>
-        // Auto-calculate TVA and totals
+        // Calcul automatique des totaux
         document.addEventListener('input', function(e) {
-            if (e.target.type === 'number' && e.target.closest('.price-table')) {
-                calculateTotal();
+            if (e.target.classList.contains('price-input')) {
+                calculateTotals();
             }
         });
 
-        function calculateTotal() {
-            const table = document.querySelector('.price-table tbody');
-            const rows = table.querySelectorAll('tr:not(.total-row)');
+        function calculateTotals() {
+            const priceInputs = document.querySelectorAll('.price-input');
             let totalHT = 0;
 
-            rows.forEach(row => {
-                const input = row.querySelector('input[type="number"]');
-                if (input && input.value) {
-                    totalHT += parseFloat(input.value);
-                }
+            priceInputs.forEach(input => {
+                const value = parseFloat(input.value) || 0;
+                totalHT += value;
             });
 
-            const totalHTInput = table.querySelector('.total-row:first-of-type input');
-            const tvaInput = table.querySelectorAll('tr')[rows.length + 1].querySelector('input');
-            const totalTTCInput = table.querySelector('.total-row:last-of-type input');
+            const tva = totalHT * 0.20;
+            const totalTTC = totalHT + tva;
 
-            if (totalHTInput) totalHTInput.value = totalHT.toFixed(2);
-            if (tvaInput) tvaInput.value = (totalHT * 0.20).toFixed(2);
-            if (totalTTCInput) totalTTCInput.value = (totalHT * 1.20).toFixed(2);
+            document.getElementById('total-ht').value = totalHT.toFixed(2);
+            document.getElementById('tva').value = tva.toFixed(2);
+            document.getElementById('total-ttc').value = totalTTC.toFixed(2);
 
-            // Update payment fields
-            const acompte = document.querySelector('ul li:first-child input');
-            const solde = document.querySelector('ul li:nth-child(2) input');
-            
-            if (acompte && totalHTInput) {
-                const totalTTC = totalHT * 1.20;
-                acompte.value = (totalTTC * 0.50).toFixed(2);
-                if (solde) solde.value = (totalTTC * 0.50).toFixed(2);
-            }
+            updatePaymentSchedule(totalTTC);
         }
+
+        // Mise à jour échéancier de paiement
+        document.getElementById('payment-mode').addEventListener('change', function() {
+            const totalTTC = parseFloat(document.getElementById('total-ttc').value) || 0;
+            updatePaymentSchedule(totalTTC);
+        });
+
+        function updatePaymentSchedule(totalTTC) {
+            const mode = document.getElementById('payment-mode').value;
+            let acomptePercent, soldePercent;
+
+            switch(mode) {
+                case '50-50':
+                    acomptePercent = 50;
+                    soldePercent = 50;
+                    break;
+                case '30-70':
+                    acomptePercent = 30;
+                    soldePercent = 70;
+                    break;
+                case '40-60':
+                    acomptePercent = 40;
+                    soldePercent = 60;
+                    break;
+                case '100-0':
+                    acomptePercent = 100;
+                    soldePercent = 0;
+                    break;
+            }
+
+            const acompteAmount = (totalTTC * acomptePercent / 100).toFixed(2);
+            const soldeAmount = (totalTTC * soldePercent / 100).toFixed(2);
+
+            document.getElementById('acompte-percent').textContent = acomptePercent;
+            document.getElementById('solde-percent').textContent = soldePercent;
+            document.getElementById('acompte-amount').textContent = acompteAmount.replace('.', ',');
+            document.getElementById('solde-amount').textContent = soldeAmount.replace('.', ',');
+
+            // Mise à jour du texte
+            const scheduleText = soldePercent > 0 
+                ? `• Acompte de ${acomptePercent}% à la signature: ${acompteAmount.replace('.', ',')} € TTC<br>• Solde de ${soldePercent}% à la réception définitive: ${soldeAmount.replace('.', ',')} € TTC`
+                : `• Paiement intégral de 100% à la signature: ${acompteAmount.replace('.', ',')} € TTC`;
+            
+            document.getElementById('payment-schedule').innerHTML = scheduleText;
+        }
+
+        // Date du jour par défaut
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('contract-date').value = today;
+        });
     </script>
 </body>
-</html>108 et suivants du Code Civil de Monaco relatifs aux conditions de validité des contrats</p>
-
-        <!-- Objet -->
-        <h2>Article 2 - Objet du Contrat</h2>
-        <div class="article">
-            <div class="article-content">
-                <p>Le présent contrat a pour objet la réalisation de travaux de rafraîchissement dans le bien immobilier suivant:</p>
-                
-                <label class="field-label">Adresse du bien concerné *</label>
-                <input type="text" placeholder="Adresse complète de l'appartement/local">
-                
-                <label class="field-label">Type de bien</label>
-                <select>
-                    <option>Appartement</option>
-                    <option>Bureau</option>
-                    <option>Commerce</option>
-                    <option>Maison</option>
-                    <option>Autre</option>
-                </select>
-                
-                <label class="field-label">Surface approximative</label>
-                <input type="number" placeholder="m²" style="width: 150px;"> m²
-            </div>
-        </div>
-
-        <!-- Description travaux -->
-        <h2>Article 3 - Description des Travaux</h2>
-        <div class="article">
-            <div class="article-content">
-                <p style="margin-bottom: 15px;">Les travaux comprennent les prestations suivantes:</p>
-                
-                <div class="checkbox-group">
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="peinture">
-                        <label for="peinture">Peinture murale (préciser pièces et teinte)</label>
-                    </div>
-                    <textarea placeholder="Détails: pièces concernées, nombre de couches, teintes..."></textarea>
-                    
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="plafond">
-                        <label for="plafond">Peinture plafond</label>
-                    </div>
-                    <textarea placeholder="Détails: pièces, teintes..."></textarea>
-                    
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="papier">
-                        <label for="papier">Pose/dépose papier peint</label>
-                    </div>
-                    <textarea placeholder="Détails: référence papier peint, surfaces..."></textarea>
-                    
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="prep">
-                        <label for="prep">Préparation des surfaces (rebouchage, ponçage, lessivage)</label>
-                    </div>
-                    
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="protection">
-                        <label for="protection">Protection des sols et mobilier</label>
-                    </div>
-                    
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="nettoyage">
-                        <label for="nettoyage">Nettoyage final du chantier</label>
-                    </div>
-                </div>
-                
-                <label class="field-label">Prestations complémentaires ou spécifications particulières</label>
-                <textarea placeholder="Ex: déplacement de petits meubles, retouches spécifiques, accès particulier..."></textarea>
-            </div>
-        </div>
-
-        <!-- Prix -->
-        <h2>Article 4 - Prix et Modalités de Paiement</h2>
-        <div class="article">
-            <div class="article-content">
-                <table class="price-table">
-                    <thead>
-                        <tr>
-                            <th>Désignation</th>
-                            <th style="width: 150px;">Montant HT (€)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><input type="text" placeholder="Ex: Peinture chambre 1"></td>
-                            <td><input type="number" step="0.01" placeholder="0.00"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" placeholder="Ex: Peinture salon"></td>
-                            <td><input type="number" step="0.01" placeholder="0.00"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" placeholder="Ex: Papier peint couloir"></td>
-                            <td><input type="number" step="0.01" placeholder="0.00"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="text" placeholder="Autres prestations"></td>
-                            <td><input type="number" step="0.01" placeholder="0.00"></td>
-                        </tr>
-                        <tr class="total-row">
-                            <td><strong>TOTAL HT</strong></td>
-                            <td><input type="number" step="0.01" placeholder="0.00"></td>
-                        </tr>
-                        <tr>
-                            <td>TVA 20%</td>
-                            <td><input type="number" step="0.01" placeholder="0.00"></td>
-                        </tr>
-                        <tr class="total-row">
-                            <td><strong>TOTAL TTC</strong></td>
-                            <td><input type="number" step="0.01" placeholder="0.00"></td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <p style="margin-top: 20px;"><strong>Modalités de paiement:</strong></p>
-                <ul style="margin-left: 20px; margin-top: 10px;">
-                    <li><strong>Acompte de 50%</strong> à la signature du présent contrat: <input type="number" class="inline-input" style="width: 120px;"> €</li>
-                    <li><strong>Solde de 50%</strong> à la réception définitive des travaux: <input type="number" class="inline-input" style="width: 120px;"> €</li>
-                </ul>
-                
-                <p style="margin-top: 15px;"><strong>Coordonnées bancaires pour virement:</strong></p>
-                <div style="background: #f9f9f9; padding: 15px; margin-top: 10px; border-left: 3px solid #c41e3a;">
-                    <p><strong>Bénéficiaire:</strong> LKR RENOVATION MC SARL</p>
-                    <p><strong>IBAN:</strong> MC58 3000 3009 1000 0203 3699 939</p>
-                    <p><strong>BIC:</strong> SOGEMCM1</p>
-                    <p><strong>Banque:</strong> Société Générale Private Banking Monaco</p>
-                </div>
-            </div>
-        </div>
-        
-        <p class="legal-ref">Base légale: Art. 1134 et 1315 du Code Civil de Monaco (force obligatoire des conventions)</p>
-
-        <!-- Délais -->
-        <h2>Article 5 - Délais d'Exécution</h2>
-        <div class="article">
-            <div class="article-content">
-                <p><strong>Date de début prévue:</strong> <input type="date" class="inline-input" style="width: 180px;"></p>
-                <p><strong>Date de fin prévue:</strong> <input type="date" class="inline-input" style="width: 180px;"></p>
-                <p><strong>Durée estimée:</strong> <input type="number" class="inline-input" style="width: 80px;"> jours ouvrés</p>
-                
-                <p style="margin-top: 15px;">Les délais indiqués sont donnés à titre indicatif et peuvent être ajustés en fonction des contraintes du chantier, sous réserve d'accord entre les parties. Tout retard significatif sera communiqué au Client dans les meilleurs délais.</p>
-            </div>
-        </div>
-
-        <!-- Conditions d'accès -->
-        <h2>Article 6 - Conditions d'Accès au Bien</h2>
-        <div class="article">
-            <div class="article-content">
-                <p>Le Client s'engage à garantir l'accès au bien immobilier aux équipes du Prestataire selon les modalités suivantes:</p>
-                
-                <label class="field-label">Mode d'accès</label>
-                <select>
-                    <option>Remise de clés au Prestataire</option>
-                    <option>Présence d'un représentant du Client</option>
-                    <option>Accès via gardien/concierge</option>
-                    <option>Autre (préciser ci-dessous)</option>
-                </select>
-                
-                <label class="field-label">Précisions sur l'accès</label>
-                <textarea placeholder="Ex: codes d'accès, instructions particulières, horaires autorisés, contact sur place..."></textarea>
-                
-                <p style="margin-top: 15px;">Le Client garantit que le bien est libre d'occupation et accessible pendant toute la durée des travaux. En cas d'impossibilité d'accès non imputable au Prestataire, les délais seront prolongés d'autant.</p>
-            </div>
-        </div>
-
-        <!-- Obligations Client -->
-        <h2>Article 7 - Obligations du Client</h2>
-        <div class="article">
-            <div class="article-content">
-                <p>Le Client s'engage à:</p>
-                <ul style="margin-left: 20px; margin-top: 10px; line-height: 2;">
-                    <li>Fournir un bien vide de tout mobilier ou objets encombrants, sauf accord contraire</li>
-                    <li>S'assurer que les fluides nécessaires (eau, électricité) sont disponibles</li>
-                    <li>Informer le Prestataire de toute particularité du bien (matériaux fragiles, installations spécifiques, etc.)</li>
-                    <li>Procéder au règlement des factures selon l'échéancier convenu</li>
-                    <li>Effectuer la réception des travaux dans un délai raisonnable après leur achèvement</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Obligations Prestataire -->
-        <h2>Article 8 - Obligations du Prestataire</h2>
-        <div class="article">
-            <div class="article-content">
-                <p>Le Prestataire s'engage à:</p>
-                <ul style="margin-left: 20px; margin-top: 10px; line-height: 2;">
-                    <li>Réaliser les travaux dans les règles de l'art et conformément aux standards professionnels</li>
-                    <li>Utiliser des matériaux de qualité professionnelle</li>
-                    <li>Assurer la protection des surfaces non concernées par les travaux</li>
-                    <li>Procéder au nettoyage complet du chantier en fin d'intervention</li>
-                    <li>Respecter les horaires convenus et minimiser les nuisances</li>
-                    <li>Coordonner l'intervention de ses sous-traitants éventuels</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Sous-traitance -->
-        <h2>Article 9 - Sous-Traitance et Assurances</h2>
-        <div class="article">
-            <div class="article-content">
-                <p>Le Prestataire se réserve le droit de faire appel à des sous-traitants qualifiés pour l'exécution de tout ou partie des travaux. Le Prestataire demeure responsable de la bonne exécution des prestations vis-à-vis du Client.</p>
-                
-                <div class="important-notice">
-                    <p><strong>Assurances professionnelles:</strong></p>
-                    <p>Le Prestataire déclare être titulaire d'une assurance Responsabilité Civile Professionnelle couvrant les dommages pouvant résulter de son activité de coordination de travaux.</p>
-                    <p style="margin-top: 8px;">Tout sous-traitant intervenant sur le chantier est tenu de justifier de ses propres assurances professionnelles obligatoires, dont le Prestataire conserve copie.</p>
-                </div>
-            </div>
-        </div>
-        
-        <p class="legal-ref">Base légale: Art. 1382-1384 Code Civil de Monaco (responsabilité civile); Loi n° 1.430 du 13/07/2016 relative à la sous-traitance</p>
-
-        <!-- Garanties -->
-        <h2>Article 10 - Garanties</h2>
-        <div class="article">
-            <div class="article-content">
-                <p>Le Prestataire garantit la conformité des travaux pendant une durée de <strong>un (1) an</strong> à compter de la date de réception des travaux, contre tout vice ou malfaçon imputable à son intervention ou à celle de ses sous-traitants.</p>
-                
-                <p style="margin-top: 12px;">Cette garantie couvre:</p>
-                <ul style="margin-left: 20px; margin-top: 8px;">
-                    <li>Les défauts d'application (coulures, traces, irrégularités manifestes)</li>
-                    <li>Le décollement du papier peint non imputable à l'humidité préexistante</li>
-                    <li>Les défauts de préparation des surfaces ayant un impact sur le résultat final</li>
-                </ul>
-                
-                <p style="margin-top: 12px;"><strong>Sont exclus de la garantie:</strong></p>
-                <ul style="margin-left: 20px; margin-top: 8px;">
-                    <li>Les dommages résultant d'un usage anormal ou d'un défaut d'entretien</li>
-                    <li>Les dommages causés par un tiers après réception des travaux</li>
-                    <li>L'usure normale des revêtements</li>
-                    <li>Les problèmes d'humidité ou de structure préexistants non signalés</li>
-                </ul>
-            </div>
-        </div>
-        
-        <p class="legal-ref">Base légale: Art. 1641 et suivants du Code Civil de Monaco (garantie des vices cachés); Art. 1792 et suivants (garantie de parfait achèvement)</p>
-
-        <!-- Réception -->
-        <h2>Article 11 - Réception des Travaux</h2>
-        <div class="article">
-            <div class="article-content">
-                <p>À l'achèvement des travaux, les parties procèdent conjointement à la réception des prestations. Un procès-verbal de réception sera établi mentionnant, le cas échéant, les réserves éventuelles.</p>
-                
-                <p style="margin-top: 12px;">En l'absence de réserves significatives, les travaux seront réputés réceptionnés et le solde deviendra immédiatement exigible.</p>
-                
-                <p style="margin-top: 12px;">Si des réserves sont formulées, le Prestataire s'engage à y remédier dans un délai de <input type="number" class="inline-input" style="width: 60px;"> jours ouvrés. Le solde sera versé après levée des réserves.</p>
-            </div>
-        </div>
-
-        <!-- Modifications -->
-        <h2>Article 12 - Modifications en Cours d'Exécution</h2>
-        <div class="article">
-            <div class="article-content">
-                <p>Toute modification de la nature, de l'étendue ou des spécifications des travaux demandée par le Client en cours d'exécution fera l'objet d'un avenant écrit précisant:</p>
-                <ul style="margin-left: 20px; margin-top: 8px;">
-                    <li>La nature des modifications</li>
-                    <li>Leur impact sur le prix global (supplément ou réduction)</li>
-                    <li>Leur impact sur le délai d'exécution</li>
-                </ul>
-                <p style="margin-top: 12px;">Aucune modification ne pourra être prise en compte sans validation écrite préalable des deux parties.</p>
-            </div>
-        </div>
-
-        <!-- Résiliation -->
-        <h2>Article 13 - Résiliation</h2>
-        <div class="article">
-            <div class="article-content">
-                <p><strong>Résiliation par le Client:</strong> Le Client peut résilier le présent contrat avant le début des travaux moyennant un préavis de 7 jours et la conservation par le Prestataire de l'acompte versé à titre d'indemnité forfaitaire.</p>
-                
-                <p style="margin-top: 12px;">Une fois les travaux commencés, la résiliation anticipée par le Client entraînera la facturation des prestations déjà réalisées ainsi qu'une indemnité correspondant à 30% du montant restant.</p>
-                
-                <p style="margin-top: 12px;"><strong>Résiliation par le Prestataire:</strong> En cas de manquement grave du Client à ses obligations (notamment défaut de paiement ou impossibilité d'accès au bien), le Prestataire pourra résilier le contrat de plein droit après mise en demeure restée sans effet pendant 8 jours.</p>
-            </div>
-        </div>
-        
-        <p class="legal-ref">Base légale: Art. 1
+</html>
