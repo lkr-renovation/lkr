@@ -16,25 +16,51 @@
     }
     .container {
         box-shadow: none;
-        padding: 40px;
+        padding: 30px 40px;
     }
     
-    /* Controllo interruzioni di pagina */
+    /* CONTROLLO AGGRESSIVO INTERRUZIONI PAGINA */
+    h1 {
+        page-break-after: avoid;
+        margin-bottom: 15px;
+    }
+    
     h2 {
         page-break-after: avoid;
         page-break-inside: avoid;
+        page-break-before: auto;
+        margin-top: 20px;
+        margin-bottom: 10px;
     }
     
     .article {
         page-break-inside: avoid;
+        margin-bottom: 15px;
     }
     
+    .article-content {
+        page-break-inside: avoid;
+    }
+    
+    .legal-ref {
+        page-break-inside: avoid;
+        page-break-before: avoid;
+        margin-bottom: 20px;
+    }
+    
+    /* Sezioni critiche che NON devono spezzarsi */
     .parties {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+    
+    .party {
         page-break-inside: avoid;
     }
     
     .price-table {
         page-break-inside: avoid;
+        page-break-before: auto;
     }
     
     .payment-section {
@@ -43,29 +69,72 @@
     
     .bank-details {
         page-break-inside: avoid;
+        page-break-before: avoid;
     }
     
     .important-notice {
         page-break-inside: avoid;
     }
     
+    .checkbox-group {
+        page-break-inside: avoid;
+    }
+    
+    /* Sezione firme - CRITICA */
     .acceptance-box {
         page-break-inside: avoid;
         page-break-before: auto;
+        margin-top: 30px;
     }
     
     .signatures {
         page-break-inside: avoid;
-        page-break-before: auto;
+        page-break-before: avoid;
+        margin-top: 30px;
+    }
+    
+    .signature-box {
+        page-break-inside: avoid;
     }
     
     .footer {
         page-break-inside: avoid;
+        page-break-before: avoid;
+        margin-top: 30px;
     }
     
-    /* Forza nuova pagina prima delle firme se necessario */
-    .acceptance-box {
-        margin-top: 40px;
+    /* Raggruppa titolo + contenuto */
+    h2 + .article {
+        page-break-before: avoid;
+    }
+    
+    h2 + .parties {
+        page-break-before: avoid;
+    }
+    
+    /* Lista documenti allegati */
+    .section {
+        page-break-inside: avoid;
+    }
+    
+    /* Evita orfani e vedove */
+    p {
+        orphans: 3;
+        widows: 3;
+    }
+    
+    ul, ol {
+        page-break-inside: avoid;
+    }
+    
+    /* Header compatto per stampa */
+    .header {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+    }
+    
+    .contract-date {
+        margin: 15px 0 30px 0;
     }
 }
         
