@@ -6,19 +6,68 @@
     <title>Contrat de Rafraîchissement - LKR RENOVATION MC SARL</title>
     <style>
         @media print {
-            input, select, textarea {
-                border: none !important;
-                border-bottom: 1px solid #000 !important;
-                background: transparent !important;
-            }
-            .no-print {
-                display: none !important;
-            }
-            .container {
-                box-shadow: none;
-                padding: 40px;
-            }
-        }
+    input, select, textarea {
+        border: none !important;
+        border-bottom: 1px solid #000 !important;
+        background: transparent !important;
+    }
+    .no-print {
+        display: none !important;
+    }
+    .container {
+        box-shadow: none;
+        padding: 40px;
+    }
+    
+    /* Controllo interruzioni di pagina */
+    h2 {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+    
+    .article {
+        page-break-inside: avoid;
+    }
+    
+    .parties {
+        page-break-inside: avoid;
+    }
+    
+    .price-table {
+        page-break-inside: avoid;
+    }
+    
+    .payment-section {
+        page-break-inside: avoid;
+    }
+    
+    .bank-details {
+        page-break-inside: avoid;
+    }
+    
+    .important-notice {
+        page-break-inside: avoid;
+    }
+    
+    .acceptance-box {
+        page-break-inside: avoid;
+        page-break-before: auto;
+    }
+    
+    .signatures {
+        page-break-inside: avoid;
+        page-break-before: auto;
+    }
+    
+    .footer {
+        page-break-inside: avoid;
+    }
+    
+    /* Forza nuova pagina prima delle firme se necessario */
+    .acceptance-box {
+        margin-top: 40px;
+    }
+}
         
         * {
             margin: 0;
