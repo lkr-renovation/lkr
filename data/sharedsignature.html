@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>Firma Email LKR Renovation</title>
+    <title>Configurazione Email LKR Renovation</title>
     <style>
         body {
             margin: 0;
@@ -23,8 +23,9 @@
             border-radius: 12px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             padding: 40px;
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
+            margin: 20px;
         }
         h1 {
             color: #2c3e50;
@@ -36,11 +37,22 @@
             margin: 0 0 30px 0;
             font-size: 14px;
         }
+        .section-divider {
+            border-top: 3px solid #dc3545;
+            margin: 40px 0 30px 0;
+            padding-top: 20px;
+        }
+        .section-title {
+            color: #dc3545;
+            font-size: 24px;
+            margin: 0 0 20px 0;
+            font-weight: bold;
+        }
         .instructions {
             background: #f8f9fa;
             border-left: 4px solid #dc3545;
             padding: 20px;
-            margin: 30px 0;
+            margin: 20px 0;
             border-radius: 4px;
         }
         .instructions h3 {
@@ -48,13 +60,27 @@
             color: #dc3545;
             font-size: 18px;
         }
-        .instructions ol {
+        .instructions ol, .instructions ul {
             margin: 0;
             padding-left: 20px;
         }
         .instructions li {
             margin: 8px 0;
             line-height: 1.6;
+        }
+        .config-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 6px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+        .config-box strong {
+            color: #2c3e50;
+            display: block;
+            margin: 8px 0 3px 0;
         }
         .preview-box {
             background: #ffffff;
@@ -107,12 +133,160 @@
             margin-right: 10px;
             font-size: 24px;
         }
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .warning-box strong {
+            color: #856404;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Firma Email LKR Renovation</h1>
-        <p class="subtitle">Copia e incolla questa firma nelle impostazioni della tua email</p>
+        <h1>📧 Configurazione Email info@lkr.mc</h1>
+        <p class="subtitle">Guida completa per configurare l'account email e la firma aziendale</p>
+
+        <!-- SEZIONE 1: CONFIGURAZIONE ACCOUNT -->
+        <div class="section-divider">
+            <h2 class="section-title">1️⃣ Configurazione Account Email</h2>
+        </div>
+
+        <div class="warning-box">
+            <strong>⚠️ Password:</strong> Usare la password che avete ricevuto via SMS o WhatsApp
+        </div>
+
+        <div class="platform-section">
+            <div class="instructions">
+                <h3 class="platform-title"><span class="platform-icon">🍏</span> Mac (Mail)</h3>
+                <ol>
+                    <li>Apri <strong>Mail</strong></li>
+                    <li>Vai su <strong>Mail → Impostazioni → Account</strong></li>
+                    <li>Clicca sul pulsante <strong>"+"</strong> in basso a sinistra</li>
+                    <li>Seleziona <strong>"Altro account Mail..."</strong> e clicca Continua</li>
+                    <li>Compila i campi:
+                        <ul>
+                            <li><strong>Nome:</strong> LKR Renovation</li>
+                            <li><strong>Indirizzo email:</strong> info@lkr.mc</li>
+                            <li><strong>Password:</strong> quella ricevuta via SMS/WhatsApp</li>
+                        </ul>
+                    </li>
+                    <li>Clicca su <strong>Accedi</strong></li>
+                    <li>Se richiesto, inserisci manualmente questi parametri:</li>
+                </ol>
+                
+                <div class="config-box">
+                    <strong>📥 Server Posta in Arrivo (IMAP):</strong>
+                    Nome host: mails.monaco.mc<br>
+                    Nome utente: info@lkr.mc<br>
+                    Porta: 993<br>
+                    Crittografia: SSL/TLS<br>
+                    <br>
+                    <strong>📤 Server Posta in Uscita (SMTP):</strong>
+                    Nome host: prosmtps.monaco.mc<br>
+                    Nome utente: info@lkr.mc<br>
+                    Porta: 587<br>
+                    Crittografia: SSL/TLS<br>
+                    Autenticazione: Sì
+                </div>
+                
+                <ol start="8">
+                    <li>Seleziona solo <strong>Mail</strong> (deseleziona Note se presente)</li>
+                    <li>Clicca su <strong>Fine</strong></li>
+                </ol>
+            </div>
+
+            <div class="instructions">
+                <h3 class="platform-title"><span class="platform-icon">🪟</span> Windows (Mail / Outlook)</h3>
+                <ol>
+                    <li>Apri l'app <strong>Mail</strong> di Windows (o <strong>Outlook</strong>)</li>
+                    <li>Vai su <strong>Impostazioni → Gestisci account → Aggiungi account</strong></li>
+                    <li>Seleziona <strong>"Altro account"</strong> o <strong>"IMAP/POP"</strong></li>
+                    <li>Inserisci:
+                        <ul>
+                            <li><strong>Indirizzo email:</strong> info@lkr.mc</li>
+                            <li><strong>Password:</strong> quella ricevuta via SMS/WhatsApp</li>
+                        </ul>
+                    </li>
+                    <li>Configura i server:</li>
+                </ol>
+
+                <div class="config-box">
+                    <strong>📥 Server Posta in Arrivo (IMAP):</strong>
+                    Server: mails.monaco.mc<br>
+                    Porta: 993<br>
+                    Sicurezza: SSL/TLS<br>
+                    <br>
+                    <strong>📤 Server Posta in Uscita (SMTP):</strong>
+                    Server: prosmtps.monaco.mc<br>
+                    Porta: 587<br>
+                    Sicurezza: SSL/TLS<br>
+                    Autenticazione richiesta: Sì
+                </div>
+
+                <ol start="6">
+                    <li>Clicca su <strong>Accedi</strong> o <strong>Connetti</strong></li>
+                    <li>Attendi la sincronizzazione</li>
+                </ol>
+            </div>
+
+            <div class="instructions">
+                <h3 class="platform-title"><span class="platform-icon">🍎</span> iPhone / iPad</h3>
+                <ol>
+                    <li>Vai su <strong>Impostazioni → Mail → Account → Aggiungi account</strong></li>
+                    <li>Seleziona <strong>"Altro" → "Aggiungi account Mail"</strong></li>
+                    <li>Inserisci:
+                        <ul>
+                            <li><strong>Nome:</strong> LKR Renovation</li>
+                            <li><strong>Email:</strong> info@lkr.mc</li>
+                            <li><strong>Password:</strong> quella ricevuta via SMS/WhatsApp</li>
+                            <li><strong>Descrizione:</strong> Info LKR</li>
+                        </ul>
+                    </li>
+                    <li>Tocca <strong>Avanti</strong> e seleziona <strong>IMAP</strong></li>
+                    <li>Configura i server:</li>
+                </ol>
+
+                <div class="config-box">
+                    <strong>📥 Server Posta in Arrivo:</strong>
+                    Nome host: mails.monaco.mc<br>
+                    Nome utente: info@lkr.mc<br>
+                    Password: quella ricevuta via SMS/WhatsApp<br>
+                    <br>
+                    <strong>📤 Server Posta in Uscita:</strong>
+                    Nome host: prosmtps.monaco.mc<br>
+                    Nome utente: info@lkr.mc<br>
+                    Password: quella ricevuta via SMS/WhatsApp
+                </div>
+
+                <ol start="6">
+                    <li>Tocca <strong>Avanti</strong> e attiva <strong>Mail</strong></li>
+                    <li>Tocca <strong>Salva</strong></li>
+                </ol>
+            </div>
+
+            <div class="instructions">
+                <h3 class="platform-title"><span class="platform-icon">🤖</span> Android (Gmail / Email)</h3>
+                <ol>
+                    <li>Apri l'app <strong>Gmail</strong> o <strong>Email</strong></li>
+                    <li>Vai su <strong>Menu → Impostazioni → Aggiungi account</strong></li>
+                    <li>Seleziona <strong>"Altro"</strong></li>
+                    <li>Inserisci <strong>info@lkr.mc</strong> e tocca <strong>Avanti</strong></li>
+                    <li>Seleziona <strong>IMAP</strong></li>
+                    <li>Inserisci la password ricevuta via SMS/WhatsApp</li>
+                    <li>Configura i server usando i parametri nella sezione iPhone qui sopra</li>
+                    <li>Completa la configurazione</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- SEZIONE 2: FIRMA EMAIL -->
+        <div class="section-divider">
+            <h2 class="section-title">2️⃣ Firma Email Aziendale</h2>
+        </div>
 
         <div class="preview-box" id="signaturePreview">
             <!-- FIRMA EMAIL -->
@@ -172,53 +346,61 @@
 
         <div class="platform-section">
             <div class="instructions">
-                <h3 class="platform-title"><span class="platform-icon">🍎</span> iPhone / iPad</h3>
+                <h3 class="platform-title"><span class="platform-icon">🍏</span> Installare Firma su Mac (Mail)</h3>
                 <ol>
-                    <li>Apri questa pagina con <strong>Safari</strong> sul tuo iPhone/iPad</li>
                     <li>Clicca sul pulsante "Copia Firma" qui sopra</li>
-                    <li>Vai su <strong>Impostazioni → Mail → Firma</strong></li>
-                    <li>Seleziona l'account <strong>info@lkr.mc</strong></li>
-                    <li>Cancella tutto e <strong>incolla</strong> (tap prolungato → Incolla)</li>
-                    <li>Esci dalle impostazioni (si salva automaticamente)</li>
+                    <li>Apri <strong>Mail → Impostazioni → Firme</strong></li>
+                    <li>Seleziona l'account <strong>info@lkr.mc</strong> nella colonna sinistra</li>
+                    <li>Clicca sul pulsante <strong>"+"</strong> per creare una nuova firma</li>
+                    <li>Dai un nome alla firma (es: "LKR Info")</li>
+                    <li>Nel riquadro destro, cancella tutto il contenuto</li>
+                    <li><strong>Incolla</strong> la firma copiata (Cmd+V)</li>
+                    <li>Chiudi le impostazioni (si salva automaticamente)</li>
                 </ol>
             </div>
 
             <div class="instructions">
-                <h3 class="platform-title"><span class="platform-icon">🪟</span> Windows (Mail / Outlook)</h3>
+                <h3 class="platform-title"><span class="platform-icon">🪟</span> Installare Firma su Windows (Mail / Outlook)</h3>
                 <ol>
-                    <li>Apri questa pagina con il browser sul tuo PC</li>
                     <li>Clicca sul pulsante "Copia Firma" qui sopra</li>
                     <li>Apri <strong>Mail</strong> o <strong>Outlook</strong></li>
                     <li>Vai su <strong>Impostazioni → Firme</strong></li>
                     <li>Crea una nuova firma o modifica quella esistente</li>
-                    <li>Cancella tutto e <strong>incolla</strong> (Ctrl+V)</li>
+                    <li>Cancella tutto il contenuto</li>
+                    <li><strong>Incolla</strong> la firma copiata (Ctrl+V)</li>
                     <li>Salva le modifiche</li>
                 </ol>
             </div>
 
             <div class="instructions">
-                <h3 class="platform-title"><span class="platform-icon">🤖</span> Android (Gmail)</h3>
+                <h3 class="platform-title"><span class="platform-icon">🍎</span> Installare Firma su iPhone / iPad</h3>
+                <ol>
+                    <li>Apri questa pagina con <strong>Safari</strong> sul tuo iPhone/iPad</li>
+                    <li>Clicca sul pulsante "Copia Firma" qui sopra</li>
+                    <li>Vai su <strong>Impostazioni → Mail → Firma</strong></li>
+                    <li>Seleziona <strong>"Per account"</strong></li>
+                    <li>Tocca l'account <strong>info@lkr.mc</strong></li>
+                    <li>Cancella tutto e fai <strong>tap prolungato → Incolla</strong></li>
+                    <li>Esci dalle impostazioni (si salva automaticamente)</li>
+                </ol>
+                <div class="warning-box">
+                    <strong>Nota:</strong> Su iPhone la firma potrebbe apparire leggermente diversa, ma manterrà logo e contenuti.
+                </div>
+            </div>
+
+            <div class="instructions">
+                <h3 class="platform-title"><span class="platform-icon">🤖</span> Installare Firma su Android (Gmail)</h3>
                 <ol>
                     <li>Apri questa pagina con <strong>Chrome</strong> sul tuo Android</li>
                     <li>Clicca sul pulsante "Copia Firma" qui sopra</li>
                     <li>Apri l'app <strong>Gmail</strong></li>
                     <li>Vai su <strong>Menu → Impostazioni → [Account info@lkr.mc] → Firma mobile</strong></li>
-                    <li>Cancella tutto e <strong>incolla</strong></li>
-                    <li>Salva</li>
+                    <li>Cancella tutto e <strong>incolla</strong> la firma</li>
+                    <li>Tocca <strong>OK</strong> per salvare</li>
                 </ol>
-            </div>
-
-            <div class="instructions">
-                <h3 class="platform-title"><span class="platform-icon">🍏</span> Mac (Mail)</h3>
-                <ol>
-                    <li>Apri questa pagina con <strong>Safari</strong> sul tuo Mac</li>
-                    <li>Clicca sul pulsante "Copia Firma" qui sopra</li>
-                    <li>Apri <strong>Mail → Impostazioni → Firme</strong></li>
-                    <li>Seleziona l'account <strong>info@lkr.mc</strong></li>
-                    <li>Crea una nuova firma o seleziona quella esistente</li>
-                    <li>Cancella tutto nel riquadro destro e <strong>incolla</strong> (Cmd+V)</li>
-                    <li>Chiudi le impostazioni</li>
-                </ol>
+                <div class="warning-box">
+                    <strong>Nota:</strong> Su Android Gmail la formattazione potrebbe essere semplificata, ma logo e info rimarranno visibili.
+                </div>
             </div>
         </div>
     </div>
