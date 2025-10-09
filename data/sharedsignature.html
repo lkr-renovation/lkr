@@ -99,6 +99,7 @@
             cursor: pointer;
             transition: all 0.3s;
             margin: 20px 0;
+            width: 100%;
         }
         .copy-button:hover {
             background: #c82333;
@@ -114,6 +115,10 @@
             font-weight: bold;
             margin: 10px 0;
             animation: fadeIn 0.3s;
+            text-align: center;
+        }
+        .success-message.active {
+            display: block;
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -143,11 +148,103 @@
         .warning-box strong {
             color: #856404;
         }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #dc3545;
+        }
+        .code-box {
+            background: #2c3e50;
+            color: #00ff00;
+            padding: 12px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            overflow-x: auto;
+            margin: 10px 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .step-number {
+            display: inline-block;
+            background: #dc3545;
+            color: white;
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 8px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        #generatorSection {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        #resultSection {
+            display: none;
+            margin-top: 30px;
+        }
+        #resultSection.active {
+            display: block;
+        }
+        .btn-generate {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .btn-generate:hover {
+            background: #c82333;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+        }
+        .signature-output {
+            background: #2c3e50;
+            color: #00ff00;
+            padding: 20px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            overflow-x: auto;
+            margin: 15px 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 400px;
+            overflow-y: auto;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>📧 Configurazione Email info@lkr.mc</h1>
+        <h1>📧 Configurazione Email LKR Renovation</h1>
         <p class="subtitle">Guida completa per configurare l'account email e la firma aziendale</p>
 
         <!-- SEZIONE 1: CONFIGURAZIONE ACCOUNT -->
@@ -169,8 +266,8 @@
                     <li>Seleziona <strong>"Altro account Mail..."</strong> e clicca Continua</li>
                     <li>Compila i campi:
                         <ul>
-                            <li><strong>Nome:</strong> LKR Renovation</li>
-                            <li><strong>Indirizzo email:</strong> info@lkr.mc</li>
+                            <li><strong>Nome:</strong> LKR Renovation (o il tuo nome)</li>
+                            <li><strong>Indirizzo email:</strong> tuoemail@lkr.mc</li>
                             <li><strong>Password:</strong> quella ricevuta via SMS/WhatsApp</li>
                         </ul>
                     </li>
@@ -181,13 +278,13 @@
                 <div class="config-box">
                     <strong>📥 Server Posta in Arrivo (IMAP):</strong>
                     Nome host: mails.monaco.mc<br>
-                    Nome utente: info@lkr.mc<br>
+                    Nome utente: tuoemail@lkr.mc<br>
                     Porta: 993<br>
                     Crittografia: SSL/TLS<br>
                     <br>
                     <strong>📤 Server Posta in Uscita (SMTP):</strong>
                     Nome host: prosmtps.monaco.mc<br>
-                    Nome utente: info@lkr.mc<br>
+                    Nome utente: tuoemail@lkr.mc<br>
                     Porta: 587<br>
                     Crittografia: SSL/TLS<br>
                     Autenticazione: Sì
@@ -207,7 +304,7 @@
                     <li>Seleziona <strong>"Altro account"</strong> o <strong>"IMAP/POP"</strong></li>
                     <li>Inserisci:
                         <ul>
-                            <li><strong>Indirizzo email:</strong> info@lkr.mc</li>
+                            <li><strong>Indirizzo email:</strong> tuoemail@lkr.mc</li>
                             <li><strong>Password:</strong> quella ricevuta via SMS/WhatsApp</li>
                         </ul>
                     </li>
@@ -240,10 +337,10 @@
                     <li>Seleziona <strong>"Altro" → "Aggiungi account Mail"</strong></li>
                     <li>Inserisci:
                         <ul>
-                            <li><strong>Nome:</strong> LKR Renovation</li>
-                            <li><strong>Email:</strong> info@lkr.mc</li>
+                            <li><strong>Nome:</strong> LKR Renovation (o il tuo nome)</li>
+                            <li><strong>Email:</strong> tuoemail@lkr.mc</li>
                             <li><strong>Password:</strong> quella ricevuta via SMS/WhatsApp</li>
-                            <li><strong>Descrizione:</strong> Info LKR</li>
+                            <li><strong>Descrizione:</strong> LKR</li>
                         </ul>
                     </li>
                     <li>Tocca <strong>Avanti</strong> e seleziona <strong>IMAP</strong></li>
@@ -253,12 +350,12 @@
                 <div class="config-box">
                     <strong>📥 Server Posta in Arrivo:</strong>
                     Nome host: mails.monaco.mc<br>
-                    Nome utente: info@lkr.mc<br>
+                    Nome utente: tuoemail@lkr.mc<br>
                     Password: quella ricevuta via SMS/WhatsApp<br>
                     <br>
                     <strong>📤 Server Posta in Uscita:</strong>
                     Nome host: prosmtps.monaco.mc<br>
-                    Nome utente: info@lkr.mc<br>
+                    Nome utente: tuoemail@lkr.mc<br>
                     Password: quella ricevuta via SMS/WhatsApp
                 </div>
 
@@ -274,7 +371,7 @@
                     <li>Apri l'app <strong>Gmail</strong> o <strong>Email</strong></li>
                     <li>Vai su <strong>Menu → Impostazioni → Aggiungi account</strong></li>
                     <li>Seleziona <strong>"Altro"</strong></li>
-                    <li>Inserisci <strong>info@lkr.mc</strong> e tocca <strong>Avanti</strong></li>
+                    <li>Inserisci <strong>tuoemail@lkr.mc</strong> e tocca <strong>Avanti</strong></li>
                     <li>Seleziona <strong>IMAP</strong></li>
                     <li>Inserisci la password ricevuta via SMS/WhatsApp</li>
                     <li>Configura i server usando i parametri nella sezione iPhone qui sopra</li>
@@ -283,148 +380,282 @@
             </div>
         </div>
 
-        <!-- SEZIONE 2: FIRMA EMAIL -->
+        <!-- SEZIONE 2: GENERATORE FIRMA EMAIL -->
         <div class="section-divider">
-            <h2 class="section-title">2️⃣ Firma Email Aziendale</h2>
+            <h2 class="section-title">2️⃣ Generatore Firma Email Personalizzata</h2>
         </div>
 
-        <div class="preview-box" id="signaturePreview">
-            <!-- FIRMA EMAIL -->
-            <table cellpadding="0" cellspacing="0" border="0" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: #2c3e50; max-width: 480px; border-left: 3px solid #dc3545; padding-left: 15px;">
-                <tr>
-                    <td style="padding-bottom: 12px;">
-                        <img src="https://lkr.mc/img/LKRorizzontalepiccolo.png" alt="LKR Renovation" width="160" style="display: block; border: 0;">
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding-bottom: 10px;">
-                        <div style="font-size: 11px; color: #666; font-style: italic; line-height: 1.4;">
-                            Rénovation • Construction • Coordination de travaux
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <table cellpadding="0" cellspacing="0" border="0" style="font-size: 12px;">
-                            <tr>
-                                <td style="padding-bottom: 4px;">
-                                    <span style="color: #dc3545; font-size: 10px;">●</span> <a href="tel:+37764061565" style="color: #2c3e50; text-decoration: none;">+377 6 40 61 56 50</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding-bottom: 4px;">
-                                    <span style="color: #dc3545; font-size: 10px;">●</span> <a href="mailto:info@lkr.mc" style="color: #2c3e50; text-decoration: none;">info@lkr.mc</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding-bottom: 4px;">
-                                    <span style="color: #dc3545; font-size: 10px;">●</span> <a href="https://lkr.mc" style="color: #2c3e50; text-decoration: none;">lkr.mc</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding-top: 4px; padding-bottom: 10px; color: #666; font-size: 11px;">
-                                    38, Boulevard des Moulins, 98000 Monaco
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding-top: 10px; border-top: 1px solid #e0e0e0;">
-                        <div style="font-size: 9px; color: #999; line-height: 1.5;">
-                            LKR RENOVATION MC SARL<br>
-                            RCI 25S10110 • Capital Social 15.000€ • TVA FR72000188879
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            <!-- FINE FIRMA EMAIL -->
+        <div id="generatorSection">
+            <p style="margin-bottom: 20px; color: #666;">Compila i campi per generare automaticamente la tua firma email personalizzata LKR</p>
+            
+            <div class="form-group">
+                <label for="nome">Nome completo *</label>
+                <input type="text" id="nome" placeholder="es: Riccardo Barlozzetti">
+            </div>
+
+            <div class="form-group">
+                <label for="ruolo">Ruolo *</label>
+                <input type="text" id="ruolo" placeholder="es: Associé, Directeur, Manager">
+            </div>
+
+            <div class="form-group">
+                <label for="telefono">Telefono *</label>
+                <input type="text" id="telefono" placeholder="es: +33 680 86 37 70">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" placeholder="es: nome@lkr.mc">
+            </div>
+
+            <button class="btn-generate" onclick="generateSignature()">🚀 Genera la mia Firma</button>
         </div>
 
-        <button class="copy-button" onclick="copySignature()">📋 Copia Firma</button>
-        <div class="success-message" id="successMessage">✓ Firma copiata! Ora incollala nelle impostazioni email</div>
+        <div id="resultSection">
+            <div class="success-message active" style="margin-bottom: 20px;">
+                ✓ Firma generata con successo! Segui le istruzioni sotto per installarla.
+            </div>
+
+            <h3 style="color: #2c3e50; margin: 20px 0 10px 0;">📋 Anteprima della tua firma:</h3>
+            <div class="preview-box" id="signaturePreview"></div>
+
+            <h3 style="color: #2c3e50; margin: 30px 0 10px 0;">💾 Codice completo (copia tutto):</h3>
+            <div class="signature-output" id="signatureCode"></div>
+            <button class="copy-button" onclick="copyCode()">📋 Copia Codice Firma</button>
+            <div class="success-message" id="copySuccess">✓ Codice copiato negli appunti!</div>
+        </div>
+
+        <!-- SEZIONE 3: ISTRUZIONI INSTALLAZIONE -->
+        <div class="section-divider">
+            <h2 class="section-title">3️⃣ Installazione Firma Email</h2>
+        </div>
 
         <div class="platform-section">
             <div class="instructions">
-                <h3 class="platform-title"><span class="platform-icon">🍏</span> Installare Firma su Mac (Mail)</h3>
+                <h3 class="platform-title"><span class="platform-icon">🍏</span> Mac (Mail) - METODO CORRETTO</h3>
+                <div class="warning-box">
+                    <strong>⚠️ Importante:</strong> Su Mac, il metodo standard (Impostazioni → Firme) NON funziona correttamente per firme HTML complesse. Segui questo metodo alternativo che funziona al 100%.
+                </div>
                 <ol>
-                    <li>Clicca sul pulsante "Copia Firma" qui sopra</li>
-                    <li>Apri <strong>Mail → Impostazioni → Firme</strong></li>
-                    <li>Seleziona l'account <strong>info@lkr.mc</strong> nella colonna sinistra</li>
-                    <li>Clicca sul pulsante <strong>"+"</strong> per creare una nuova firma</li>
-                    <li>Dai un nome alla firma (es: "LKR Info")</li>
-                    <li>Nel riquadro destro, cancella tutto il contenuto</li>
-                    <li><strong>Incolla</strong> la firma copiata (Cmd+V)</li>
-                    <li>Chiudi le impostazioni (si salva automaticamente)</li>
-                </ol>
-            </div>
-
-            <div class="instructions">
-                <h3 class="platform-title"><span class="platform-icon">🪟</span> Installare Firma su Windows (Mail / Outlook)</h3>
-                <ol>
-                    <li>Clicca sul pulsante "Copia Firma" qui sopra</li>
-                    <li>Apri <strong>Mail</strong> o <strong>Outlook</strong></li>
-                    <li>Vai su <strong>Impostazioni → Firme</strong></li>
-                    <li>Crea una nuova firma o modifica quella esistente</li>
-                    <li>Cancella tutto il contenuto</li>
-                    <li><strong>Incolla</strong> la firma copiata (Ctrl+V)</li>
-                    <li>Salva le modifiche</li>
-                </ol>
-            </div>
-
-            <div class="instructions">
-                <h3 class="platform-title"><span class="platform-icon">🍎</span> Installare Firma su iPhone / iPad</h3>
-                <ol>
-                    <li>Apri questa pagina con <strong>Safari</strong> sul tuo iPhone/iPad</li>
-                    <li>Clicca sul pulsante "Copia Firma" qui sopra</li>
-                    <li>Vai su <strong>Impostazioni → Mail → Firma</strong></li>
-                    <li>Seleziona <strong>"Per account"</strong></li>
-                    <li>Tocca l'account <strong>info@lkr.mc</strong></li>
-                    <li>Cancella tutto e fai <strong>tap prolungato → Incolla</strong></li>
-                    <li>Esci dalle impostazioni (si salva automaticamente)</li>
+                    <li><strong><span class="step-number">1</span>Chiudi Mail completamente</strong> (Cmd+Q)</li>
+                    
+                    <li><strong><span class="step-number">2</span>Apri il Terminale</strong> (Applicazioni → Utilità → Terminale)</li>
+                    
+                    <li><strong><span class="step-number">3</span>Trova i file delle firme</strong><br>
+                        Copia e incolla questo comando nel Terminale:
+                        <div class="code-box">ls -lO ~/Library/Mail/V10/MailData/Signatures/</div>
+                        Premi Invio. Ti mostrerà una lista di file .mailsignature
+                    </li>
+                    
+                    <li><strong><span class="step-number">4</span>Identifica il tuo account email</strong><br>
+                        Copia e incolla questo comando:
+                        <div class="code-box">cat ~/Library/Mail/V10/MailData/Signatures/AccountsMap.plist</div>
+                        Cerca la tua email (es: <code>riccardo@lkr.mc</code>) e annota il codice UUID associato.<br>
+                        <em>Esempio di UUID: E131D59D-0DBD-4E3F-8FF0-76584C083B46</em>
+                    </li>
+                    
+                    <li><strong><span class="step-number">5</span>Sblocca il file della firma</strong><br>
+                        Sostituisci <code>ILTUOUUID</code> con l'UUID trovato al passo 4:
+                        <div class="code-box">chflags nouchg ~/Library/Mail/V10/MailData/Signatures/ILTUOUUID.mailsignature</div>
+                    </li>
+                    
+                    <li><strong><span class="step-number">6</span>Apri il file con TextEdit</strong><br>
+                        Sostituisci <code>ILTUOUUID</code> con il tuo UUID:
+                        <div class="code-box">open -a TextEdit ~/Library/Mail/V10/MailData/Signatures/ILTUOUUID.mailsignature</div>
+                    </li>
+                    
+                    <li><strong><span class="step-number">7</span>Sostituisci il contenuto</strong><br>
+                        In TextEdit:
+                        <ul>
+                            <li>Seleziona tutto il contenuto esistente (Cmd+A)</li>
+                            <li>Cancella tutto (Backspace)</li>
+                            <li>Incolla il codice completo della firma copiato sopra (Cmd+V)</li>
+                            <li>Salva il file (Cmd+S)</li>
+                            <li>Chiudi TextEdit</li>
+                        </ul>
+                        <div class="warning-box">
+                            <strong>Attenzione:</strong> Verifica che ci sia una riga completamente vuota dopo gli header MIME (dopo "Mime-Version...") e prima del codice HTML della tabella!
+                        </div>
+                    </li>
+                    
+                    <li><strong><span class="step-number">8</span>Blocca il file per proteggere la firma</strong><br>
+                        Torna nel Terminale e sostituisci <code>ILTUOUUID</code>:
+                        <div class="code-box">chflags uchg ~/Library/Mail/V10/MailData/Signatures/ILTUOUUID.mailsignature</div>
+                        Questo comando impedisce a Mail di modificare automaticamente la firma.
+                    </li>
+                    
+                    <li><strong><span class="step-number">9</span>Riapri Mail e verifica</strong><br>
+                        Apri Mail.app, crea una nuova email e verifica che la firma appaia correttamente.<br>
+                        Invia un'email di prova al tuo indirizzo Gmail per confermare che tutto funzioni.
+                    </li>
                 </ol>
                 <div class="warning-box">
-                    <strong>Nota:</strong> Su iPhone la firma potrebbe apparire leggermente diversa, ma manterrà logo e contenuti.
+                    <strong>💡 Suggerimento:</strong> Se in futuro dovessi modificare la firma, ricorda di sbloccare il file (passo 5), fare le modifiche, salvare e ribloccare il file (passo 8).
                 </div>
             </div>
 
             <div class="instructions">
-                <h3 class="platform-title"><span class="platform-icon">🤖</span> Installare Firma su Android (Gmail)</h3>
+                <h3 class="platform-title"><span class="platform-icon">🪟</span> Windows (Mail / Outlook)</h3>
+                <ol>
+                    <li>Genera e copia la firma usando il generatore qui sopra</li>
+                    <li>Apri <strong>Mail</strong> o <strong>Outlook</strong></li>
+                    <li>Vai su <strong>Impostazioni → Firme</strong></li>
+                    <li>Crea una nuova firma o modifica quella esistente</li>
+                    <li>Seleziona la modalità <strong>HTML</strong> (se disponibile)</li>
+                    <li><strong>Incolla</strong> il codice HTML della firma (solo la parte della tabella, senza gli header MIME)</li>
+                    <li>Salva le modifiche</li>
+                </ol>
+                <div class="warning-box">
+                    <strong>Nota:</strong> Su Windows, incolla SOLO il codice HTML della tabella, NON gli header MIME che iniziano con "Content-Transfer-Encoding".
+                </div>
+            </div>
+
+            <div class="instructions">
+                <h3 class="platform-title"><span class="platform-icon">🍎</span> iPhone / iPad</h3>
+                <ol>
+                    <li>Apri questa pagina con <strong>Safari</strong> sul tuo iPhone/iPad</li>
+                    <li>Genera la tua firma usando il form qui sopra</li>
+                    <li>Copia SOLO la parte HTML (la tabella)</li>
+                    <li>Vai su <strong>Impostazioni → Mail → Firma</strong></li>
+                    <li>Seleziona <strong>"Per account"</strong></li>
+                    <li>Tocca il tuo account LKR</li>
+                    <li>Cancella tutto e fai <strong>tap prolungato → Incolla</strong></li>
+                    <li>Esci dalle impostazioni (si salva automaticamente)</li>
+                </ol>
+                <div class="warning-box">
+                    <strong>Nota:</strong> Su iPhone la firma potrebbe apparire leggermente semplificata, ma logo e contenuti rimarranno visibili.
+                </div>
+            </div>
+
+            <div class="instructions">
+                <h3 class="platform-title"><span class="platform-icon">🤖</span> Android (Gmail)</h3>
                 <ol>
                     <li>Apri questa pagina con <strong>Chrome</strong> sul tuo Android</li>
-                    <li>Clicca sul pulsante "Copia Firma" qui sopra</li>
+                    <li>Genera la tua firma e copia il codice HTML</li>
                     <li>Apri l'app <strong>Gmail</strong></li>
-                    <li>Vai su <strong>Menu → Impostazioni → [Account info@lkr.mc] → Firma mobile</strong></li>
-                    <li>Cancella tutto e <strong>incolla</strong> la firma</li>
+                    <li>Vai su <strong>Menu → Impostazioni → [Il tuo account LKR] → Firma mobile</strong></li>
+                    <li>Cancella tutto e <strong>incolla</strong> il codice HTML</li>
                     <li>Tocca <strong>OK</strong> per salvare</li>
                 </ol>
                 <div class="warning-box">
-                    <strong>Nota:</strong> Su Android Gmail la formattazione potrebbe essere semplificata, ma logo e info rimarranno visibili.
+                    <strong>Nota:</strong> Su Android Gmail la formattazione HTML potrebbe essere semplificata, ma logo e informazioni rimarranno visibili.
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        function copySignature() {
-            const signatureElement = document.getElementById('signaturePreview');
-            const range = document.createRange();
-            range.selectNode(signatureElement);
-            window.getSelection().removeAllRanges();
-            window.getSelection().addRange(range);
-            
-            try {
-                document.execCommand('copy');
-                const successMessage = document.getElementById('successMessage');
-                successMessage.style.display = 'block';
-                setTimeout(() => {
-                    successMessage.style.display = 'none';
-                }, 3000);
-            } catch (err) {
-                alert('Errore nella copia. Seleziona manualmente la firma e copia con Cmd+C (Mac) o Ctrl+C (Windows)');
+        function generateSignature() {
+            const nome = document.getElementById('nome').value.trim();
+            const ruolo = document.getElementById('ruolo').value.trim();
+            const telefono = document.getElementById('telefono').value.trim();
+            const email = document.getElementById('email').value.trim();
+
+            if (!nome || !ruolo || !telefono || !email) {
+                alert('Per favore, compila tutti i campi obbligatori!');
+                return;
             }
+
+            const telefonoFormatted = telefono.replace(/\s+/g, '');
             
-            window.getSelection().removeAllRanges();
+            const signatureHTML = `<table cellpadding="0" cellspacing="0" border="0" style="font-family: Helvetica, Arial, sans-serif; font-size: 12px; color: #2c3e50; max-width: 480px; border-left: 3px solid #dc3545; padding-left: 15px;">
+    <tr>
+        <td style="padding-bottom: 12px;">
+            <img src="https://lkr.mc/img/LKRorizzontalepiccolo.png" alt="LKR Renovation" width="160" style="display: block; border: 0;">
+        </td>
+    </tr>
+    <tr>
+        <td style="padding-bottom: 8px;">
+            <div style="font-size: 14px; font-weight: bold; color: #2c3e50;">
+                ${nome}
+            </div>
+            <div style="font-size: 11px; color: #666; font-style: italic;">
+                ${ruolo}
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding-bottom: 10px;">
+            <div style="font-size: 11px; color: #666; font-style: italic; line-height: 1.4;">
+                Rénovation • Construction • Coordination de travaux
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table cellpadding="0" cellspacing="0" border="0" style="font-size: 12px;">
+                <tr>
+                    <td style="padding-bottom: 4px;">
+                        <span style="color: #dc3545; font-size: 10px;">●</span> <a href="tel:${telefonoFormatted}" style="color: #2c3e50; text-decoration: none;">${telefono}</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-bottom: 4px;">
+                        <span style="color: #dc3545; font-size: 10px;">●</span> <a href="mailto:${email}" style="color: #2c3e50; text-decoration: none;">${email}</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-bottom: 4px;">
+                        <span style="color: #dc3545; font-size: 10px;">●</span> <a href="https://lkr.mc" style="color: #2c3e50; text-decoration: none;">lkr.mc</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding-top: 4px; padding-bottom: 10px; color: #666; font-size: 11px;">
+                        38, Boulevard des Moulins, 98000 Monaco
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding-top: 10px; border-top: 1px solid #e0e0e0;">
+            <div style="font-size: 9px; color: #999; line-height: 1.5;">
+                LKR RENOVATION MC SARL<br>
+                RCI 25S10110 • Capital Social 15.000€ • TVA FR72000188879
+            </div>
+        </td>
+    </tr>
+</table>`;
+
+            const uuid = generateUUID();
+            
+            const fullSignature = `Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+\tcharset=utf-8
+Message-Id: <${uuid}>
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \\(3731.700.6\\))
+
+${signatureHTML}`;
+
+            document.getElementById('signaturePreview').innerHTML = signatureHTML;
+            document.getElementById('signatureCode').textContent = fullSignature;
+            
+            document.getElementById('resultSection').classList.add('active');
+            
+            document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function generateUUID() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = Math.random() * 16 | 0;
+                const v = c == 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16).toUpperCase();
+            });
+        }
+
+        function copyCode() {
+            const codeText = document.getElementById('signatureCode').textContent;
+            
+            navigator.clipboard.writeText(codeText).then(() => {
+                const successMsg = document.getElementById('copySuccess');
+                successMsg.style.display = 'block';
+                
+                setTimeout(() => {
+                    successMsg.style.display = 'none';
+                }, 3000);
+            }).catch(err => {
+                alert('Errore nella copia. Seleziona manualmente il codice e copia con Cmd+C (Mac) o Ctrl+C (Windows)');
+            });
         }
     </script>
 </body>
