@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrat de Prestation - LKR RENOVATION MC SARL</title>
+    <style>
+        @media print {
+            input, select, textarea {
+                border: none !important;
+                border-bottom: 1px solid #000 !important;
+                background: transparent !important;
+            }
+            .no-print { display: none !important; }
+            .container { box-shadow: none; padding: 30px 40px; }
+            h1, h2 { page-break-after: avoid; }
+            .article, .party, .section { page-break-inside: avoid; }
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px 60px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #c41e3a;
+        }
+        
+        .logo-container { flex: 0 0 250px; }
+        .logo { max-width: 100%; height: auto; }
+        
+        .company-info {
+            text-align: right;
+            font-size: 11px;
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .company-info strong {
+            color: #c41e3a;
+            font-size: 13px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #c41e3a;
+            font-size: 26px;
+            margin: 30px 0 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        
+        .contract-date {
+            text-align: center;
+            margin: 20px 0 40px 0;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        h2 {
+            color: #c41e3a;
+            font-size: 16px;
+            margin: 30px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f0f0f0;
+            font-weight: 600;
+        }
+        
+        .section { margin-bottom: 25px; }
+        
+        .parties {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .party {
+            background: #f9f9f9;
+            padding: 20px;
+            border-left: 4px solid #c41e3a;
+            min-height: 400px;
+        }
+        
+        .party h3 {
+            color: #c41e3a;
+            font-size: 14px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        
+        .party p { margin: 5px 0; font-size: 13px; }
+        
+        .field-label {
+            display: block;
+            font-weight: 600;
+            margin-top: 12px;
+            margin-bottom: 5px;
+            font-size: 12px;
+            color: #555;
+        }
+        
+        input[type="text"],
+        input[type="date"],
+        input[type="number"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: inherit;
+            margin: 5px 0;
+            background: white;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #c41e3a;
+            background: #fff9f9;
+        }
+        
+        textarea { min-height: 80px; resize: vertical; }
+        
+        .inline-input {
+            display: inline-block;
+            min-width: 120px;
+            border: none;
+            border-bottom: 1px solid #333;
+            background: transparent;
+            padding: 2px 5px;
+            border-radius: 0;
+        }
+        
+        .article { margin: 20px 0; }
+        
+        .article-content {
+            text-align: justify;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+        
+        .article-content p { margin-bottom: 12px; }
+        .article-content ul { margin: 12px 0 12px 25px; line-height: 2; }
+        .article-content li { margin: 8px 0; }
+        
+        .checkbox-group { margin: 15px 0; }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 12px 0;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .checkbox-item label { font-size: 13px; }
+        
+        .payment-section {
+            background: #f9f9f9;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #c41e3a;
+        }
+        
+        .payment-option {
+            margin: 15px 0;
+            padding: 15px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .payment-option strong {
+            color: #c41e3a;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .bank-details {
+            background: #fff;
+            border: 2px solid #c41e3a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .important-notice {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+        
+        .critical-notice {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+        
+        .important-notice p, .critical-notice p { margin: 8px 0; }
+        .important-notice ul, .critical-notice ul { margin: 10px 0 10px 20px; }
+        
+        .definition-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 13px;
+        }
+        
+        .signatures {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 60px;
+        }
+        
+        .signature-box { text-align: center; }
+        
+        .signature-box > p:first-child {
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #c41e3a;
+            font-size: 14px;
+        }
+        
+        .signature-space {
+            height: 100px;
+            border: 1px dashed #ccc;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 12px;
+            background: #fafafa;
+        }
+        
+        .signature-line {
+            border-top: 2px solid #333;
+            padding-top: 8px;
+            font-size: 11px;
+            color: #666;
+            margin-top: 10px;
+        }
+        
+        .footer {
+            margin-top: 60px;
+            padding-top: 25px;
+            border-top: 3px solid #c41e3a;
+            text-align: center;
+            font-size: 10px;
+            color: #666;
+            line-height: 2;
+        }
+        
+        .footer strong { color: #c41e3a; font-size: 11px; }
+        
+        .legal-ref {
+            font-size: 11px;
+            color: #888;
+            font-style: italic;
+            margin: 10px 0 5px 0;
+            padding-left: 10px;
+            border-left: 2px solid #f0f0f0;
+        }
+        
+        .legal-ref a { color: #c41e3a; text-decoration: none; }
+        
+        .acceptance-box {
+            background: #f9f9f9;
+            border: 2px solid #c41e3a;
+            padding: 25px;
+            margin: 40px 0;
+            text-align: center;
+            border-radius: 4px;
+        }
+        
+        .acceptance-box p:first-child {
+            font-size: 15px;
+            font-weight: 700;
+            color: #c41e3a;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .print-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #c41e3a;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .print-button:hover {
+            background: #a01830;
+            transform: translateY(-2px);
+        }
+        
+        .category-specific {
+            display: none;
+        }
+        
+        .category-specific.active {
+            display: block;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .container { padding: 30px 20px; }
+            .parties, .signatures { grid-template-columns: 1fr; }
+            .header { flex-direction: column; text-align: center; }
+            .company-info { text-align: center; margin-top: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-container">
+                <img src="https://lkr.mc/img/LKRorizzontalepiccolo.png" alt="LKR RENOVATION MC SARL" class="logo">
+            </div>
+            <div class="company-info">
+                <strong>LKR RENOVATION MC SARL</strong>
+                38, Boulevard des Moulins<br>
+                98000 Monaco<br>
+                RCI: 25S10110<br>
+                TVA: FR72000188879<br>
+                info@lkr.mc | +377 6 40 61 56 50
+            </div>
+        </div>
+
+        <h1>Contrat de Prestation de Services</h1>
+        
+        <div class="contract-date">
+            Fait à Monaco, le <input type="date" class="inline-input" id="contract-date" style="width: 180px;">
+        </div>
+
+        <h2>Article 1 - Identification des Parties</h2>
+        
+        <div class="parties">
+            <div class="party">
+                <h3>Le Donneur d'Ordre (Maître d'Ouvrage)</h3>
+                <p><strong>LKR RENOVATION MC SARL</strong></p>
+                <p>Société à Responsabilité Limitée</p>
+                <p>Capital social: 15.000 €</p>
+                <p>Siège social: 38, Boulevard des Moulins, 98000 Monaco</p>
+                <p>RCI: 25S10110</p>
+                <p>TVA: FR72000188879</p>
+                <p style="margin-top: 10px;">Représentée par: <strong>M. Luca Borella</strong>, Gérant</p>
+                <p>Email: info@lkr.mc</p>
+                <p>Téléphone: +377 6 40 61 56 50</p>
+                <p style="margin-top: 10px;">Contact opérationnel: <strong>M. Riccardo Barlozzetti</strong></p>
+                <p>Email: rb@lkr.mc</p>
+                <p>Téléphone: +33 6 80 86 37 70</p>
+            </div>
+
+            <div class="party">
+                <h3>Le Prestataire / Sous-traitant</h3>
+                <label class="field-label">Raison sociale complète *</label>
+                <input type="text" id="vendor-name" placeholder="Ex: ABC Plomberie SARL">
+                
+                <label class="field-label">Forme juridique *</label>
+                <select id="vendor-type">
+                    <option value="">-- Sélectionner --</option>
+                    <option value="ei">Entreprise Individuelle</option>
+                    <option value="sarl">SARL</option>
+                    <option value="sam">SAM</option>
+                    <option value="sas">SAS</option>
+                    <option value="snc">SNC</option>
+                    <option value="autre">Autre</option>
+                </select>
+                
+                <label class="field-label">RCI (Monaco) ou N° TVA Intracommunautaire (UE/Suisse) *</label>
+                <input type="text" id="vendor-rci" placeholder="Ex: 25S10110 (Monaco) ou FR12345678901 (France)">
+                <p style="font-size: 11px; color: #888; margin-top: 5px;">Format TVA: FR/IT/CH suivi du numéro</p>
+                
+                <label class="field-label">Adresse du siège social *</label>
+                <input type="text" id="vendor-address1" placeholder="Numéro et nom de rue">
+                <input type="text" id="vendor-address2" placeholder="Code postal, Ville, Pays">
+                
+                <label class="field-label">Représenté(e) par *</label>
+                <input type="text" id="vendor-rep" placeholder="Nom et qualité du représentant légal">
+                
+                <label class="field-label">Email *</label>
+                <input type="email" id="vendor-email" placeholder="contact@exemple.com">
+                
+                <label class="field-label">Téléphone *</label>
+                <input type="text" id="vendor-phone" placeholder="+377, +33, +39 ou international">
+            </div>
+        </div>
+
+        <p class="legal-ref">Base légale: Art. 1108 et suivants du Code Civil de Monaco relatifs aux conditions de validité des contrats; Loi n° 1.430 du 13 juillet 2016 relative à la sous-traitance - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <h2>Article 2 - Objet du Contrat et Description des Prestations</h2>
+        <div class="article">
+            <div class="article-content">
+                <p>Le présent contrat a pour objet la réalisation par le Prestataire de prestations spécialisées dans le cadre de projets de rénovation et de construction coordonnés par LKR RENOVATION MC SARL dans la Principauté de Monaco et zones limitrophes.</p>
+                
+                <label class="field-label">Catégorie de prestation *</label>
+                <select id="service-category">
+                    <option value="">-- Sélectionner la catégorie --</option>
+                    <option value="electricite">Installations électriques et domotique</option>
+                    <option value="plomberie">Plomberie et sanitaires</option>
+                    <option value="climatisation">Climatisation et chauffage</option>
+                    <option value="gros-oeuvre">Gros œuvre et maçonnerie</option>
+                    <option value="isolation">Isolation thermique et acoustique</option>
+                    <option value="menuiserie">Menuiseries et fermetures</option>
+                    <option value="peinture">Peinture et décoration</option>
+                    <option value="revetements">Revêtements de sols et parquets</option>
+                    <option value="cuisine">Cuisines et électroménager</option>
+                    <option value="facade">Ravalement de façades</option>
+                    <option value="securite">Systèmes de sécurité</option>
+                    <option value="exterieur">Aménagements extérieurs</option>
+                    <option value="restauration">Restauration mobilier ancien</option>
+                    <option value="fourniture">Fourniture de matériaux</option>
+                    <option value="autre">Autre (préciser ci-dessous)</option>
+                </select>
+                
+                <label class="field-label">Description détaillée de la prestation *</label>
+                <textarea id="service-description" placeholder="Décrire précisément: nature des travaux, matériaux à utiliser, quantités, normes à respecter, spécifications techniques..." style="min-height: 120px;"></textarea>
+                
+                <label class="field-label">Adresse du chantier / lieu d'intervention *</label>
+                <input type="text" id="site-address" placeholder="Adresse complète: numéro, rue, bâtiment, code postal, ville">
+                
+                <label class="field-label">Instructions d'accès et informations pratiques chantier *</label>
+                <textarea id="access-instructions" placeholder="Détails essentiels:
+• Contact concierge/gardien: nom et téléphone
+• Codes d'accès: portail, portone, ascenseur
+• Numéro de place parking (si réservée)
+• Étage et numéro appartement/local
+• Horaires autorisés pour intervention
+• Personne de contact sur place
+• Autres instructions spécifiques" style="min-height: 140px;"></textarea>
+            </div>
+        </div>
+
+        <p class="legal-ref">Base légale: Art. 1108 Code Civil de Monaco (objet déterminé ou déterminable); Art. 1134 (force obligatoire des contrats) - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <h2>Article 3 - Prix et Conditions Financières</h2>
+        <div class="article">
+            <div class="article-content">
+                <div class="definition-box">
+                    <p><strong>💡 Principe de Prix Forfaitaire Ferme et Définitif</strong></p>
+                    <p>Le prix convenu au présent contrat est <strong>forfaitaire, ferme et non révisable</strong>, sauf accord écrit exprès formalisé par avenant signé des deux parties. Ce prix inclut l'intégralité des prestations décrites à l'Article 2, ainsi que tous les frais annexes (fournitures, déplacements, outillage, consommables, évacuation déchets) nécessaires à la parfaite exécution des travaux.</p>
+                </div>
+                
+                <label class="field-label">Prix Total Forfaitaire HT *</label>
+                <input type="number" step="0.01" id="prix-total-ht" placeholder="0.00" style="width: 200px; font-size: 16px; font-weight: 600;">
+                <span style="margin-left: 10px; font-weight: 600;">€ HT</span>
+                
+                <div style="margin: 20px 0; padding: 15px; background: #f9f9f9; border-left: 4px solid #c41e3a;">
+                    <p style="margin-bottom: 10px;"><strong>Détail du prix:</strong></p>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="devis-annexe">
+                        <label for="devis-annexe">Voir Devis Détaillé Annexé n° <input type="text" style="width: 150px; display: inline; margin: 0 5px;" placeholder="Ex: DEV-2025-001"> du <input type="date" style="width: 150px; display: inline; margin: 0 5px;"></label>
+                    </div>
+                    <p style="font-size: 12px; color: #666; margin-top: 10px;">Le devis annexé fait partie intégrante du présent contrat et en constitue l'annexe technique et financière</p>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <p><strong>TVA applicable:</strong> <input type="number" step="0.01" id="tva-rate" value="20" style="width: 80px;"> %</p>
+                    <p style="margin-top: 10px;"><strong>Montant TVA:</strong> <span id="tva-amount" style="font-weight: 600;">0,00</span> €</p>
+                    <p style="margin-top: 10px; font-size: 18px;"><strong style="color: #c41e3a;">TOTAL TTC:</strong> <span id="total-ttc" style="font-weight: 700; color: #c41e3a;">0,00</span> €</p>
+                </div>
+                
+                <div class="important-notice" style="margin-top: 20px;">
+                    <p><strong>📌 Travaux supplémentaires et modifications</strong></p>
+                    <p>Tout travail supplémentaire, toute prestation additionnelle ou toute modification par rapport au périmètre initialement défini devra impérativement faire l'objet:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>D'un accord écrit préalable de LKR (email avec confirmation explicite acceptable)</li>
+                        <li>D'un devis complémentaire détaillé validé et signé</li>
+                        <li>D'un avenant au présent contrat si impact sur délais ou conditions générales</li>
+                    </ul>
+                    <p style="margin-top: 10px;"><strong>Aucune facturation de travaux supplémentaires non validés par écrit ne sera acceptée ni payée par LKR.</strong> En cas de litige, seuls les échanges écrits (emails, courriers, avenants signés) feront foi.</p>
+                </div>
+            </div>
+        </div>
+        
+        <p class="legal-ref">Base légale: Art. 1134 et 1315 Code Civil de Monaco (force obligatoire des conventions); Art. 1790 (détermination du prix dans marchés de travaux) - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <h2>Article 4 - Stationnement et Accès Chantier</h2>
+        <div class="article">
+            <div class="article-content">
+                <p><strong>4.1 - Principe général</strong></p>
+                <p>Le stationnement des véhicules du Prestataire sur le chantier ou à proximité immédiate est organisé selon les modalités ci-dessous définies. À Monaco, le stationnement pour travaux nécessite généralement une réservation préalable auprès de la Mairie, avec paiement d'une redevance journalière.</p>
+                
+                <div style="margin: 20px 0; padding: 20px; background: #f9f9f9; border: 2px solid #c41e3a; border-radius: 4px;">
+                    <p style="font-weight: 600; margin-bottom: 15px;">Modalités de stationnement pour le présent contrat:</p>
+                    
+                    <div class="checkbox-item" style="margin: 15px 0;">
+                        <input type="checkbox" id="parking-fourni" name="parking-mode">
+                        <label for="parking-fourni"><strong>Place de parking fournie par LKR</strong><br>
+                        <span style="font-size: 12px;">Numéro place: <input type="text" style="width: 100px; display: inline; margin-left: 10px;" placeholder="Ex: P12"></span></label>
+                    </div>
+                    
+                    <div class="checkbox-item" style="margin: 15px 0;">
+                        <input type="checkbox" id="parking-prestataire" name="parking-mode">
+                        <label for="parking-prestataire"><strong>Stationnement à organiser et financer par le Prestataire</strong><br>
+                        <span style="font-size: 12px;">Le Prestataire s'engage à respecter la réglementation locale et à ne pas gêner l'accès au chantier</span></label>
+                    </div>
+                    
+                    <div class="checkbox-item" style="margin: 15px 0;">
+                        <input type="checkbox" id="parking-reserve-lkr" name="parking-mode">
+                        <label for="parking-reserve-lkr"><strong>Place réservée par LKR avec refacturation au Client final</strong><br>
+                        <span style="font-size: 12px;">Coût estimé: <input type="number" step="0.01" style="width: 80px; display: inline; margin: 0 5px;" placeholder="0.00"> € / jour</span></label>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 15px;"><strong>4.2 - Responsabilité et respect de la réglementation</strong></p>
+                <p>Le Prestataire s'engage à respecter strictement les zones de stationnement autorisées et la réglementation monégasque en matière de circulation et stationnement de chantier. Toute contravention, amende ou pénalité résultant d'un stationnement irrégulier reste à la charge exclusive du Prestataire.</p>
+                
+                <p style="margin-top: 12px;"><strong>4.3 - Conséquence sur les délais</strong></p>
+                <p>L'absence de solution de stationnement ne peut en aucun cas constituer un motif de retard dans l'exécution des travaux ni justifier une demande de prolongation des délais contractuels, sauf si le stationnement devait être fourni par LKR et ne l'a pas été conformément aux engagements pris.</p>
+            </div>
+        </div>
+
+        <p class="legal-ref">Base légale: Réglementation monégasque en matière de stationnement et circulation (Ordonnances Souveraines relatives à la circulation routière); Responsabilité contractuelle art. 1147 Code Civil Monaco</p>
+
+        <h2>Article 5 - Modalités de Paiement</h2>
+        <div class="article">
+            <div class="payment-section">
+                <label class="field-label">Sélectionner le mode de paiement:</label>
+                <select id="payment-mode" style="width: 100%; padding: 12px; font-size: 14px; font-weight: 600;">
+                    <option value="30-70">30% au début des travaux / 70% à la réception définitive</option>
+                    <option value="0-100">100% à la réception définitive sans réserve (paiement unique)</option>
+                    <option value="50-50">50% au début des travaux / 50% à la réception définitive</option>
+                </select>
+                
+                <div class="payment-option" style="margin-top: 20px;">
+                    <strong>Échéancier de paiement détaillé:</strong>
+                    <p id="payment-schedule">• Acompte de 30% au début des travaux: 0,00 € TTC<br>• Solde de 70% à la réception définitive: 0,00 € TTC</p>
+                </div>
+                
+                <div class="important-notice">
+                    <p><strong>⏰ Délai de paiement: 30 jours fin de mois</strong></p>
+                    <p>Conformément à l'article L441-6 du Code de Commerce français applicable à Monaco par usage, le paiement interviendra dans un délai maximum de <strong>30 jours à compter de la date de fin du mois de réception de la facture</strong>, sous les conditions cumulatives suivantes:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Réception définitive des travaux sans réserve majeure (cf. Article 9)</li>
+                        <li>Remise d'une facture conforme aux mentions légales obligatoires</li>
+                        <li>Fourniture de l'ensemble des documents contractuellement exigés (attestations, certificats, garanties, notices, PV de réception)</li>
+                        <li>Levée complète de toutes les réserves éventuellement formulées lors de la réception</li>
+                    </ul>
+                    <p style="margin-top: 10px;">À défaut de respect de l'une de ces conditions, le délai de paiement ne commencera à courir qu'à compter de la régularisation complète de la situation.</p>
+                </div>
+                
+                <div class="bank-details">
+                    <p style="font-weight: 700; margin-bottom: 15px; color: #c41e3a;">Coordonnées bancaires du Prestataire pour virement:</p>
+                    
+                    <label class="field-label">Nom du bénéficiaire (titulaire du compte) *</label>
+                    <input type="text" id="vendor-bank-beneficiary" placeholder="Nom exact figurant sur le compte bancaire">
+                    
+                    <label class="field-label">IBAN *</label>
+                    <input type="text" id="vendor-iban" placeholder="Ex: MC58 3000 3009 1000 0203 3699 939 (Monaco) ou FR76... (France)">
+                    
+                    <label class="field-label">BIC / SWIFT *</label>
+                    <input type="text" id="vendor-bic" placeholder="Ex: SOGEMCM1 ou équivalent">
+                    
+                    <label class="field-label">Nom de la banque</label>
+                    <input type="text" id="vendor-bank-name" placeholder="Nom de l'établissement bancaire">
+                    
+                    <p style="margin-top: 15px; font-size: 12px; color: #666;">Ces coordonnées doivent impérativement correspondre à celles figurant sur les attestations fiscales et sociales du Prestataire. Tout changement de coordonnées bancaires devra être notifié par écrit avec justificatif (RIB/IBAN officiel) au moins 15 jours avant échéance de paiement.</p>
+                </div>
+                
+                <div class="critical-notice">
+                    <p><strong>⚠️ Retard de paiement - Pénalités légales</strong></p>
+                    <p>Conformément à l'article L441-6 du Code de Commerce, en cas de retard de paiement imputable à LKR au-delà du délai contractuel de 30 jours fin de mois, et après mise en demeure restée sans effet pendant 8 jours, des pénalités de retard au taux légal en vigueur seront automatiquement dues.</p>
+                    <p style="margin-top: 10px;"><strong>Toutefois, aucune pénalité ne sera due si le retard de paiement résulte:</strong></p>
+                    <ul style="margin-left: 20px;">
+                        <li>De l'absence de documents obligatoires (attestations assurances, certificats conformité)</li>
+                        <li>De réserves non levées lors de la réception des travaux</li>
+                        <li>D'une facture non conforme ou incomplète</li>
+                        <li>D'un litige sérieux et fondé sur la qualité ou la conformité des prestations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <p class="legal-ref">Base légale: Art. L441-6 Code de Commerce français applicable à Monaco; Art. 1134 Code Civil Monaco (exécution de bonne foi) - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <h2>Article 6 - Délais d'Exécution</h2>
+        <div class="article">
+            <div class="article-content">
+                <div class="definition-box">
+                    <p><strong>📅 Définitions des Délais</strong></p>
+                    <p><strong>Jours calendaires:</strong> Tous les jours du calendrier, incluant samedis, dimanches et jours fériés, de date à date.</p>
+                    <p><strong>Jours ouvrés:</strong> Tous les jours de la semaine du lundi au vendredi, à l'exclusion des samedis, dimanches et jours fériés monégasques officiels.</p>
+                    <p style="margin-top: 10px;">Sauf mention contraire expresse ci-dessous, les délais du présent contrat s'entendent en <strong>jours calendaires</strong>.</p>
+                </div>
+                
+                <div style="margin: 20px 0; padding: 20px; background: #f9f9f9; border: 2px solid #c41e3a; border-radius: 4px;">
+                    <p style="font-weight: 700; margin-bottom: 15px; color: #c41e3a;">DÉLAIS CONTRACTUELS</p>
+                    
+                    <p><strong>Date de début des travaux (ordre de service):</strong> <input type="date" class="inline-input" id="start-date" style="width: 180px;"></p>
+                    
+                    <p style="margin-top: 12px;"><strong>Date de fin contractuelle IMPÉRATIVE:</strong> <input type="date" class="inline-input" id="end-date" style="width: 180px;"></p>
+                    
+                    <p style="margin-top: 12px;"><strong>Durée maximale d'exécution:</strong> <input type="number" class="inline-input" id="duration" style="width: 80px;"> 
+                    <select id="duration-type" style="width: 150px; display: inline; margin-left: 10px;">
+                        <option value="calendaires">jours calendaires</option>
+                        <option value="ouvres">jours ouvrés</option>
+                    </select>
+                    </p>
+                </div>
+                
+                <p style="margin-top: 20px;"><strong>6.1 - Caractère impératif des délais</strong></p>
+                <p>Les délais indiqués ci-dessus sont <strong>de rigueur et d'ordre public entre les parties</strong>. Ils constituent une obligation essentielle et déterminante du consentement de LKR. Tout retard dans l'exécution non justifié par un cas de force majeure ou un fait exclusif de LKR entraînera l'application automatique des pénalités prévues à l'Article 12.</p>
+                
+                <p style="margin-top: 15px;"><strong>6.2 - Obligation d'information préalable</strong></p>
+                <p>Le Prestataire s'engage formellement à informer LKR par écrit (email avec accusé réception) de toute difficulté, contrainte ou événement susceptible de retarder l'exécution des travaux, dans un délai maximum de <strong>48 heures</strong> suivant la survenance ou la connaissance de l'événement.</p>
+                <p style="margin-top: 10px;">Cette information devra préciser:</p>
+                <ul style="margin-left: 20px;">
+                    <li>La nature exacte de la difficulté rencontrée</li>
+                    <li>L'impact estimé sur le délai d'achèvement (en jours)</li>
+                    <li>Les mesures correctives envisagées</li>
+                    <li>La demande éventuelle de prolongation avec justificatifs</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>6.3 - Suspension et prolongation des délais</strong></p>
+                <p>Les délais d'exécution peuvent être suspendus ou prolongés uniquement dans les cas suivants, et sous réserve de notification écrite immédiate à LKR:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Force majeure:</strong> Événement imprévisible, irrésistible et extérieur aux parties (cf. Article 20)</li>
+                    <li><strong>Fait du Donneur d'Ordre:</strong> Impossibilité d'accès au chantier imputable à LKR, modification substantielle demandée par LKR avec avenant, fourniture tardive d'informations essentielles par LKR</li>
+                    <li><strong>Intempéries exceptionnelles:</strong> Uniquement pour travaux extérieurs, et uniquement si conditions météorologiques rendent techniquement impossible l'exécution dans le respect des règles de l'art (pluie torrentielle, gel, vent violent). Justificatifs météo officiels obligatoires.</li>
+                    <li><strong>Retard de livraison fournisseur tiers:</strong> Uniquement si le Prestataire a commandé les matériaux avec délai raisonnable, a relancé le fournisseur, et a notifié immédiatement le retard à LKR. Preuves documentaires obligatoires.</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>Ne constituent notamment PAS des motifs valables de suspension ou prolongation:</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>Difficultés d'organisation interne du Prestataire</li>
+                    <li>Absence ou maladie de personnel du Prestataire</li>
+                    <li>Problèmes de trésorerie du Prestataire</li>
+                    <li>Panne de matériel ou d'outillage</li>
+                    <li>Autres chantiers en cours du Prestataire</li>
+                    <li>Absence de solution de stationnement (cf. Article 4)</li>
+                </ul>
+                
+                <div class="critical-notice" style="margin-top: 20px;">
+                    <p><strong>🚨 CLAUSE CRITIQUE: Respect impératif des délais</strong></p>
+                    <p>Le non-respect de la date de fin contractuelle, en l'absence de motif valable de suspension reconnu par LKR, entraîne l'application <strong>automatique et de plein droit</strong> des pénalités de retard prévues à l'Article 12, sans qu'aucune mise en demeure préalable ne soit nécessaire.</p>
+                    <p style="margin-top: 10px;">Ces pénalités courent à compter du lendemain de la date de fin contractuelle jusqu'à la date de réception provisoire effectivement constatée (avec ou sans réserves).</p>
+                </div>
+            </div>
+        </div>
+        
+        <p class="legal-ref">Base légale: Art. 1146 et 1147 Code Civil de Monaco (inexécution des obligations); Art. 1152 (clause pénale) - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <h2>Article 7 - Obligations Générales du Prestataire</h2>
+        <div class="article">
+            <div class="article-content">
+                <p>Le Prestataire s'engage expressément et irrévocablement à:</p>
+                
+                <p style="margin-top: 15px;"><strong>7.1 - Exécution conforme et professionnelle</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>Exécuter les prestations avec tout le soin, la compétence et la diligence requis, dans le strict respect des <strong>règles de l'art</strong> de sa profession</li>
+                    <li>Respecter l'ensemble des normes techniques applicables: DTU (Documents Techniques Unifiés), normes NF, normes européennes CE, réglementation monégasque en vigueur</li>
+                    <li>Se conformer aux spécifications techniques détaillées dans le devis annexé et/ou dans la description des prestations (Article 2)</li>
+                    <li>Utiliser exclusivement des matériaux de qualité professionnelle, neufs, conformes aux normes CE, et adaptés à l'usage prévu</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>7.2 - Fournitures et moyens</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>Fournir l'intégralité des matériaux, équipements, outillages, consommables et moyens techniques nécessaires à la parfaite exécution des prestations, sauf stipulation contraire expresse prévoyant une fourniture par LKR</li>
+                    <li>S'assurer de la disponibilité et de la conformité de tous les éléments avant le début des travaux</li>
+                    <li>Prévoir les équipements de protection individuelle (EPI) pour son personnel et ses sous-traitants</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>7.3 - Respect des délais</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>Respecter strictement les délais d'intervention et d'achèvement convenus à l'Article 6</li>
+                    <li>Mobiliser les moyens humains et matériels suffisants pour garantir le respect du planning</li>
+                    <li>Informer immédiatement LKR de toute difficulté susceptible d'affecter les délais (cf. Article 6.2)</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>7.4 - Sécurité et conformité réglementaire</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>Respecter l'ensemble des consignes de sécurité applicables aux chantiers et lieux d'intervention</li>
+                    <li>Se conformer à la réglementation monégasque en matière de santé et sécurité au travail</li>
+                    <li>Installer les protections collectives nécessaires (garde-corps, filets, balisage)</li>
+                    <li>Signaler immédiatement à LKR toute situation dangereuse identifiée sur le chantier</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>7.5 - Coordination et communication</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>Coordonner son intervention avec celle des autres corps d'état présents sur le chantier, sous la direction et l'autorité exclusive de LKR qui assure la maîtrise d'œuvre générale</li>
+                    <li>Participer aux réunions de chantier organisées par LKR (fréquence à définir selon projet)</li>
+                    <li>Désigner un interlocuteur unique et joignable pour toute communication avec LKR</li>
+                    <li>Répondre dans un délai maximum de 24 heures aux sollicitations écrites (emails) de LKR</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>7.6 - Propreté et gestion des déchets</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>Nettoyer quotidiennement la zone d'intervention et les espaces communs utilisés</li>
+                    <li>Évacuer régulièrement les gravats, déchets et emballages conformément à la réglementation monégasque en vigueur</li>
+                    <li>Laisser le chantier propre et en état de propreté parfaite à l'achèvement des travaux</li>
+                    <li>Protéger efficacement les surfaces, sols, mobilier et équipements non concernés par les travaux</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>7.7 - Contrôles qualité et réserves</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>Accepter et faciliter les contrôles qualité effectués par LKR à tout moment, en cours d'exécution ou à l'achèvement</li>
+                    <li>Donner accès au chantier aux représentants de LKR et au client final (accompagné de LKR uniquement)</li>
+                    <li>Se conformer immédiatement aux observations et réserves formulées par écrit par LKR</li>
+                    <li>Corriger sans délai et à ses frais exclusifs toute non-conformité ou malfaçon constatée</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>7.8 - Obligation d'information et d'alerte</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>Informer immédiatement LKR de toute difficulté technique, contrainte imprévue ou élément découvert sur le chantier susceptible d'affecter la qualité, les délais ou le coût des prestations</li>
+                    <li>Signaler sans délai toute non-conformité, vice apparent ou problème structurel découvert sur le support ou l'ouvrage existant</li>
+                    <li>Proposer des solutions techniques alternatives si nécessaire, soumises à validation préalable de LKR</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>7.9 - Confidentialité et discrétion (cf. Article 15 détaillé)</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Ne communiquer en AUCUN CAS directement</strong> avec le client final de LKR, sauf autorisation écrite expresse et préalable de LKR pour cas exceptionnel</li>
+                    <li>Respecter la confidentialité absolue des informations commerciales, techniques et personnelles découvertes dans le cadre de la mission</li>
+                    <li>S'interdire de remettre cartes de visite, brochures ou tout support publicitaire au client final ou à ses représentants</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>7.10 - Documentation et traçabilité</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>Tenir un registre/carnet de chantier documentant l'avancement des travaux (photos recommandées)</li>
+                    <li>Fournir à l'achèvement tous les documents obligatoires: procès-verbal de réception, certificats de conformité, attestations, notices techniques, garanties fabricants, plans de récolement si applicable</li>
+                    <li>Remettre à LKR une liste exhaustive des matériaux et équipements installés (marques, références, quantités) pour traçabilité</li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="legal-ref">Base légale: Art. 1137 Code Civil Monaco (obligation de faire); Art. 1147 (dommages-intérêts pour inexécution); Règles de l'art et normes professionnelles - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <h2>Article 8 - Obligations Spécifiques par Catégorie de Prestation</h2>
+        <div class="article">
+            <div class="article-content">
+                <p style="margin-bottom: 15px;">En sus des obligations générales de l'Article 7, le Prestataire doit respecter les obligations spécifiques suivantes en fonction de la catégorie de prestation sélectionnée à l'Article 2:</p>
+                
+                <!-- ÉLECTRICITÉ -->
+                <div class="category-specific" id="cat-cuisine">
+                    <div class="important-notice">
+                        <p><strong>🧊 CUISINES ET ÉLECTROMÉNAGER</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Installation selon notices fabricants (garanties préservées)</li>
+                            <li>Mise en service et test complet chaque appareil</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="category-specific" id="cat-exterieur">
+                    <div class="important-notice">
+                        <p><strong>🌿 AMÉNAGEMENTS EXTÉRIEURS</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>DTU 43.1 (étanchéité terrasses), DTU 51.4 (platelages bois)</li>
+                            <li>Matériaux classe 4 minimum bois extérieurs</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="category-specific" id="cat-autre">
+                    <div class="important-notice">
+                        <p><strong>⚙️ AUTRES PRESTATIONS</strong></p>
+                        <p>Le Prestataire s'engage à respecter l'ensemble des normes professionnelles, DTU et réglementations applicables à son métier.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="legal-ref">Base légale: Normes DTU, règles de l'art professionnelles; Réglementation Monaco travaux (Ordonnances Souveraines); Règlement UE 305/2011 (produits construction) - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <h2>Article 9 - Réception des Travaux et Procédure de Contrôle</h2>
+        <div class="article">
+            <div class="article-content">
+                <p><strong>9.1 - Notification d'achèvement</strong></p>
+                <p>Le Prestataire notifie par écrit à LKR (email rb@lkr.mc avec AR ou LRAR) l'achèvement complet accompagné de: liste prestations, certificats, photos, proposition date réception (3 créneaux 5 jours).</p>
+                
+                <p style="margin-top: 15px;"><strong>9.2 - Délai de réception</strong></p>
+                <p>LKR procède à la réception dans un délai maximum de <strong>8 jours ouvrés</strong> suivant notification complète.</p>
+                
+                <div class="definition-box" style="margin-top: 15px;">
+                    <p><strong>📋 Système de Classification des Réserves</strong></p>
+                    
+                    <p style="margin-top: 15px;"><strong>🟢 Réserve Mineure (RM)</strong></p>
+                    <p>Défaut purement esthétique sans impact fonctionnel. Exemples: petite rayure, ajustement mineur.</p>
+                    <p><strong>Délai:</strong> 15 jours | <strong>Conséquence:</strong> Retenue max 5% solde</p>
+                    
+                    <p style="margin-top: 15px;"><strong>🟡 Réserve Majeure (RMaj)</strong></p>
+                    <p>Non-conformité technique affectant l'usage normal. Exemples: pente insuffisante, réglage incorrect.</p>
+                    <p><strong>Délai:</strong> 7 jours IMPÉRATIF | <strong>Conséquence:</strong> Blocage solde</p>
+                    
+                    <p style="margin-top: 15px;"><strong>🔴 Réserve Critique (RC)</strong></p>
+                    <p>Compromet sécurité ou rend inutilisable. Exemples: installation dangereuse, absence CONSUEL.</p>
+                    <p><strong>Délai:</strong> 48h MAX | <strong>Conséquence:</strong> Réception REFUSÉE. Intervention tiers possible aux frais Prestataire</p>
+                </div>
+                
+                <p style="margin-top: 20px;"><strong>9.3 - Réception définitive</strong></p>
+                <p>Intervient soit lors réception initiale sans réserve, soit après levée complète réserves. Date = point départ garanties et paiement solde.</p>
+            </div>
+        </div>
+
+        <p class="legal-ref">Base légale: Art. 1792-6 Code Civil Monaco (réception travaux et garantie parfait achèvement); Art. 1642-1 (obligation délivrance conforme) - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <h2>Article 10 - Garanties Légales</h2>
+        <div class="article">
+            <div class="article-content">
+                <p><strong>10.1 - Garantie de Parfait Achèvement (1 an)</strong></p>
+                <p>Conformément art. 1792-6 Code Civil Monaco, le Prestataire garantit pendant <strong>1 an</strong> à compter réception définitive la réparation de tous désordres signalés.</p>
+                
+                <p style="margin-top: 15px;"><strong>10.2 - Garantie Biennale (2 ans)</strong></p>
+                <p>Pour éléments d'équipement dissociables (art. 1792-3), garantie bon fonctionnement <strong>2 ans</strong> à compter réception. Concernés: robinetterie, radiateurs, climatiseurs, VMC, équipements électriques, etc.</p>
+                
+                <p style="margin-top: 15px;"><strong>10.3 - Garantie Décennale (10 ans)</strong></p>
+                <p>Pour travaux relevant garantie décennale (art. 1792 - construction, gros œuvre, solidité, destination), garantie <strong>10 ans</strong> à compter réception. <strong>Assurance décennale obligatoire.</strong></p>
+                
+                <p style="margin-top: 15px;"><strong>10.4 - Modalités intervention</strong></p>
+                <p>Notification par LRAR ou email AR. Prestataire s'engage: diagnostic sous 5 jours ouvrés, réparation sous 15 jours, urgence sous 24h.</p>
+            </div>
+        </div>
+
+        <p class="legal-ref">Base légale: Art. 1792, 1792-3, 1792-6 Code Civil Monaco (garanties construction); Loi assurance construction Monaco - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <h2>Article 11 - Assurances Professionnelles Obligatoires</h2>
+        <div class="article">
+            <div class="critical-notice">
+                <p><strong>🚨 CONDITION SUSPENSIVE - FOURNITURE AVANT DÉBUT TRAVAUX</strong></p>
+                
+                <div class="checkbox-group" style="margin-top: 15px;">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="assur-rc">
+                        <label for="assur-rc"><strong>☑️ RC Professionnelle - OBLIGATOIRE</strong><br>
+                        <span style="font-size: 11px;">Couvre dommages corporels, matériels, immatériels. Montant min: 500.000€/sinistre</span></label>
+                    </div>
+                    
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="assur-decennale">
+                        <label for="assur-decennale"><strong>☑️ Assurance Décennale - OBLIGATOIRE travaux construction</strong><br>
+                        <span style="font-size: 11px;">Obligatoire: gros œuvre, second œuvre structurel, façades, étanchéité</span></label>
+                    </div>
+                    
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="assur-trc">
+                        <label for="assur-trc"><strong>☑️ Tous Risques Chantier - Recommandée</strong><br>
+                        <span style="font-size: 11px;">Obligatoire chantiers > 30.000€. Couvre dommages matériels au chantier</span></label>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 20px;"><strong>⚠️ CONSÉQUENCE DÉFAUT:</strong></p>
+                <p>À défaut remise attestations ou suspension couvertures: LKR suspend ou résilie contrat immédiatement de plein droit aux torts exclusifs Prestataire. Pénalités retard continuent courir.</p>
+            </div>
+        </div>
+
+        <p class="legal-ref">Base légale: Loi n° 1.383 du 2 août 2011 assurance construction Monaco; Code Assurances (applicables Monaco) - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <h2>Article 12 - Pénalités de Retard</h2>
+        <div class="article">
+            <div class="article-content">
+                <p><strong>12.1 - Principe</strong></p>
+                <p>En cas non-respect délais (Article 6) sans justification valable, pénalités automatiques de plein droit, sans mise en demeure préalable.</p>
+                
+                <div class="critical-notice" style="margin-top: 15px;">
+                    <p><strong>💰 BARÈME PÉNALITÉS</strong></p>
+                    
+                    <p style="margin-top: 15px;"><strong>Taux journalier:</strong></p>
+                    <p style="margin-left: 20px;">▸ <input type="number" step="0.1" class="inline-input" style="width: 60px;" value="0.5"> % montant total HT par <strong>jour calendaire</strong> retard</p>
+                    
+                    <p style="margin-top: 15px;"><strong>Plafond:</strong></p>
+                    <p style="margin-left: 20px;">▸ <input type="number" step="1" class="inline-input" style="width: 60px;" value="15"> % montant total HT</p>
+                    
+                    <p style="margin-top: 15px;"><strong>Exemple:</strong></p>
+                    <div style="background: white; padding: 15px; margin-top: 10px; border-radius: 4px;">
+                        <p>Contrat: 10.000€ HT | Fin prévue: 15 mars | Réception: 25 mars</p>
+                        <p>Retard: 10 jours | <strong>Pénalités = 10.000€ × 0,5% × 10 = 500€</strong></p>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 20px;"><strong>12.2 - Application</strong></p>
+                <p>Pénalités déduites automatiquement du solde ou facturées séparément. Caractère forfaitaire et libératoire (art. 1152 Code Civil Monaco). N'empêche pas résiliation ni dommages complémentaires justifiés.</p>
+                
+                <div class="definition-box" style="margin-top: 15px;">
+                    <p><strong>💡 Proportionnalité clause pénale</strong></p>
+                    <p>Les pénalités correspondent à évaluation forfaitaire raisonnable du préjudice: perturbations coordination chantier, frais prolongation, risque pénalités vers client final, atteinte réputation LKR.</p>
+                </div>
+            </div>
+        </div>
+
+        <p class="legal-ref">Base légale: Art. 1152 Code Civil Monaco (clause pénale); Art. 1226 (exception inexécution); Jurisprudence proportionnalité clauses pénales - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <h2>Article 13 - Clause de Réserve de Propriété vis-à-vis Client Final</h2>
+        <div class="article">
+            <div class="critical-notice">
+                <p><strong>🔒 PROTECTION CONTRACTUELLE</strong></p>
+                
+                <p style="margin-top: 15px;"><strong>13.1 - Principe</strong></p>
+                <p>Le Prestataire reconnaît que LKR conserve intégralité droits propriété intellectuelle, commerciale et juridique sur projet et relation avec client final. Sous-traitance au sens Loi n° 1.430/2016.</p>
+                
+                <p style="margin-top: 15px;"><strong>13.2 - Conséquences</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>Prestations réalisées pour compte EXCLUSIF LKR</li>
+                    <li>LKR seul interlocuteur client final</li>
+                    <li>Aucun lien juridique direct Prestataire-Client final</li>
+                    <li><strong>Interdiction action directe paiement</strong> client final (art. 12 Loi 1.430/2016)</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>13.3 - Interdictions</strong></p>
+                <p>Le Prestataire s'interdit strictement:</p>
+                <ul style="margin-left: 20px;">
+                    <li>Développer relation commerciale directe client final</li>
+                    <li>Contourner LKR prestations futures</li>
+                    <li>Divulguer conditions commerciales LKR-Prestataire</li>
+                    <li>Dénigrer LKR auprès client final</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>13.4 - Sanctions violation</strong></p>
+                <div style="background: white; padding: 15px; margin-top: 10px; border: 2px solid #dc3545; border-radius: 4px;">
+                    <p style="font-weight: 700; color: #dc3545;">Sanctions cumulatives:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li><strong>Indemnité forfaitaire:</strong> 50% valeur totale HT contrat (minimum)</li>
+                        <li><strong>Résiliation immédiate</strong> plein droit</li>
+                        <li><strong>Dommages complémentaires</strong> préjudice commercial effectif</li>
+                        <li><strong>Perte droit paiement solde</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <p class="legal-ref">Base légale: Loi n° 1.430/2016 sous-traitance, art. 12 et 14; Art. 1134 Code Civil Monaco (force obligatoire); Jurisprudence licéité clauses réserve clientèle - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <h2>Article 14 - Clause d'Exclusivité Territoriale Monaco</h2>
+        <div class="article">
+            <div class="critical-notice">
+                <p><strong>🚫 INTERDICTION CONTACT ET DÉMARCHAGE CLIENT FINAL</strong></p>
+                
+                <p style="margin-top: 15px;"><strong>14.1 - Interdiction absolue pendant exécution</strong></p>
+                <p>Pendant toute durée contrat + garanties, le Prestataire s'interdit FORMELLEMENT ET ABSOLUMENT:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Tout contact direct avec client final LKR sauf autorisation écrite expresse LKR</li>
+                    <li>Remettre cartes visite, brochures, supports publicitaires</li>
+                    <li>Discuter tarifs, conditions, prestations sans LKR</li>
+                    <li>Proposer services additionnels directement</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>14.2 - Interdiction post-contractuelle Monaco (3 ans)</strong></p>
+                <p>Pendant <strong>3 ans</strong> après fin contrat, le Prestataire s'interdit de:</p>
+                <ul style="margin-left: 20px;">
+                    <li>Démarcher directement clients LKR pour projets <strong>sur territoire Monaco</strong></li>
+                    <li>Accepter commandes directes clients LKR Monaco sans accord LKR</li>
+                    <li>Intervenir Monaco pour anciens clients LKR</li>
+                </ul>
+                
+                <div class="definition-box" style="margin-top: 15px;">
+                    <p><strong>💡 Limitation territoriale justifiée</strong></p>
+                    <p>Restriction limitée territoire Monaco (zone géographique restreinte 2 km²) où LKR concentre activité principale et clientèle premium. Prestataire conserve liberté totale hors Monaco.</p>
+                </div>
+                
+                <p style="margin-top: 15px;"><strong>14.3 - Sanctions violation</strong></p>
+                <div style="background: white; padding: 15px; margin-top: 10px; border: 2px solid #dc3545; border-radius: 4px;">
+                    <p style="font-weight: 700; color: #dc3545;">Pénalités automatiques plein droit:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li><strong>Contact direct client final:</strong> 100% montant contrat initial</li>
+                        <li><strong>Contrat direct avec client LKR:</strong> 200% montant contrat conclu + résiliation</li>
+                        <li><strong>Démarchage post-contractuel Monaco:</strong> 50.000€ par infraction</li>
+                    </ul>
+                    <p style="margin-top: 10px;">+ Dommages complémentaires + interdiction définitive collaboration LKR.</p>
+                </div>
+            </div>
+        </div>
+
+        <p class="legal-ref">Base légale: Art. 1134 Code Civil Monaco (liberté contractuelle); Jurisprudence clauses non-concurrence et exclusivité territoriale proportionnées - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <h2>Article 15 - Confidentialité</h2>
+        <div class="article">
+            <div class="article-content">
+                <p><strong>15.1 - Obligation de confidentialité</strong></p>
+                <p>Le Prestataire s'engage à respecter confidentialité STRICTE et ABSOLUE de toutes informations (commerciales, techniques, financières, personnelles) dont il aurait connaissance dans cadre mission, pendant durée contrat + <strong>5 ans</strong> après fin.</p>
+                
+                <p style="margin-top: 15px;"><strong>15.2 - Informations confidentielles</strong></p>
+                <p>Notamment: identité clients LKR, conditions commerciales, marges, méthodes, coordonnées, habitudes, projets, devis, plans, spécifications, données personnelles.</p>
+                
+                <p style="margin-top: 15px;"><strong>15.3 - Interdictions</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>Divulguer à tiers</li>
+                    <li>Utiliser à propre compte</li>
+                    <li>Constituer fichiers clients</li>
+                    <li>Photographier/filmer sans autorisation</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>15.4 - Sanction</strong></p>
+                <p>Violation = dommages minimum 25.000€ + préjudice complémentaire prouvé + résiliation immédiate.</p>
+            </div>
+        </div>
+
+        <p class="legal-ref">Base légale: Art. 1382 Code Civil Monaco (responsabilité délictuelle); Secret des affaires; Loi 1.165/1993 protection données nominatives - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <h2>Article 16 - Sous-traitance</h2>
+        <div class="article">
+            <div class="article-content">
+                <p><strong>16.1 - Principe</strong></p>
+                <p>La sous-traitance par le Prestataire est <strong>INTERDITE sans accord écrit préalable et exprès</strong> de LKR.</p>
+                
+                <p style="margin-top: 15px;"><strong>16.2 - Conditions autorisation</strong></p>
+                <p>Si autorisée:</p>
+                <ul style="margin-left: 20px;">
+                    <li>Prestataire reste seul responsable solidairement avec sous-traitants</li>
+                    <li>Sous-traitants soumis mêmes obligations (assurances, confidentialité, exclusivité)</li>
+                    <li>LKR peut refuser sous-traitant spécifique</li>
+                    <li>Aucune relation contractuelle LKR-sous-traitant</li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="legal-ref">Base légale: Loi n° 1.430/2016 sous-traitance Monaco, art. 3 et suivants - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <h2>Article 17 - Modifications et Avenants</h2>
+        <div class="article">
+            <div class="article-content">
+                <p>Toute modification du présent contrat (prestations, prix, délais, conditions) doit faire objet d'un <strong>avenant écrit daté et signé</strong> par les deux parties pour être opposable.</p>
+                <p style="margin-top: 10px;">Échanges emails constituent commencement preuve mais doivent être formalisés par avenant signé dans 15 jours.</p>
+            </div>
+        </div>
+
+        <p class="legal-ref">Base légale: Art. 1134 Code Civil Monaco (modification conventionnelle); Art. 1315 (preuve écrite) - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <h2>Article 18 - Résiliation</h2>
+        <div class="article">
+            <div class="article-content">
+                <p><strong>18.1 - Résiliation pour inexécution grave</strong></p>
+                <p>LKR peut résilier de plein droit avec effet immédiat en cas de:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Retard > 15 jours calendaires sans justification</li>
+                    <li>Non-respect obligations essentielles (sécurité, assurances, confidentialité, exclusivité)</li>
+                    <li>Malfaçons graves généralisées</li>
+                    <li>Abandon chantier > 5 jours</li>
+                    <li>Fausse déclaration ou fraude</li>
+                    <li>Procédure collective (redressement/liquidation)</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>18.2 - Procédure</strong></p>
+                <p>Mise en demeure LRAR avec 8 jours régularisation. Passé délai, résiliation automatique aux torts exclusifs Prestataire défaillant.</p>
+                
+                <p style="margin-top: 15px;"><strong>18.3 - Conséquences</strong></p>
+                <p>Paiement prestations réalisées conformes - pénalités/dommages. LKR peut faire achever par tiers aux frais Prestataire.</p>
+            </div>
+        </div>
+
+        <p class="legal-ref">Base légale: Art. 1184 Code Civil Monaco (résolution pour inexécution); Art. 1147 (dommages-intérêts) - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <h2>Article 19 - Responsabilité et Limitation</h2>
+        <div class="article">
+            <div class="article-content">
+                <p><strong>19.1 - Responsabilité pleine</strong></p>
+                <p>Le Prestataire responsable plein droit tous dommages directs/indirects résultant inexécution, retard, mauvaise exécution, non-conformité, dommages personnes/biens.</p>
+                
+                <p style="margin-top: 15px;"><strong>19.2 - Absence limitation</strong></p>
+                <p>Responsabilité NON plafonnée contractuellement. S'exerce dans limites assurances + patrimoine professionnel et personnel.</p>
+                
+                <p style="margin-top: 15px;"><strong>19.3 - Exclusions</strong></p>
+                <p>Prestataire non responsable uniquement si:</p>
+                <ul style="margin-left: 20px;">
+                    <li>Force majeure (art. 1148 Code Civil)</li>
+                    <li>Fait exclusif LKR prouvé</li>
+                    <li>Fait tiers totalement étranger imprévisible</li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="legal-ref">Base légale: Art. 1147, 1148, 1382 Code Civil Monaco (responsabilité contractuelle et délictuelle) - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <h2>Article 20 - Force Majeure</h2>
+        <div class="article">
+            <div class="article-content">
+                <p><strong>20.1 - Définition</strong></p>
+                <p>Force majeure (art. 1148 Code Civil Monaco) = événement réunissant CUMULATIVEMENT:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Imprévisibilité:</strong> Non prévu raisonnablement lors conclusion</li>
+                    <li><strong>Irrésistibilité:</strong> Ne peut être empêché malgré efforts</li>
+                    <li><strong>Extériorité:</strong> Totalement extérieur volonté parties</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>20.2 - Exemples</strong></p>
+                <p>Catastrophes naturelles majeures, guerres, terrorisme, épidémies avec restrictions gouvernementales impératives, décisions gouvernementales imprévisibles.</p>
+                
+                <p style="margin-top: 15px;"><strong>20.3 - NON force majeure</strong></p>
+                <p>Difficultés financières, grève interne, intempéries normales, panne matériel, défaillance fournisseur habituel, maladie personnel.</p>
+                
+                <p style="margin-top: 15px;"><strong>20.4 - Obligations</strong></p>
+                <p>Notifier sous 48h par LRAR/email AR avec justificatifs. Mettre en œuvre moyens limiter conséquences.</p>
+                
+                <p style="margin-top: 15px;"><strong>20.5 - Effets</strong></p>
+                <p>Suspension obligations + délais pendant empêchement. Si > 30 jours, résiliation sans pénalité possible moyennant préavis 8 jours.</p>
+            </div>
+        </div>
+
+        <p class="legal-ref">Base légale: Art. 1148 Code Civil Monaco (force majeure et cas fortuit); Jurisprudence caractérisation force majeure - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+        <h2>Article 21 - Protection des Données Personnelles</h2>
+        <div class="article">
+            <div class="article-content">
+                <p>Conformément Loi n° 1.165 du 23/12/1993 Monaco:</p>
+                
+                <p style="margin-top: 15px;"><strong>21.1 - Données Prestataire</strong></p>
+                <p>Données collectées nécessaires exécution contrat, conservées 10 ans. Droit accès/rectification/suppression: info@lkr.mc</p>
+                
+                <p style="margin-top: 15px;"><strong>21.2 - Obligations Prestataire</strong></p>
+                <p>Le Prestataire s'engage:</p>
+                <ul style="margin-left: 20px;">
+                    <li>Ne collecter aucune donnée client final LKR au-delà strict nécessaire technique</li>
+                    <li>Ne pas utiliser/divulguer/transmettre données</li>
+                    <li>Ne pas constituer fichiers clients</li>
+                    <li>Détruire données après exécution</li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="legal-ref">Base légale: Loi n° 1.165 du 23/12/1993 protection informations nominatives Monaco - <a href="https://www.legimonaco.mc/305/legismc.nsf/ViewTNC/37DBE391E460FC80C12569F50032F2F8" target="_blank">legimonaco.mc-specific" id="cat-electricite">
+                    <div class="important-notice">
+                        <p><strong>⚡ INSTALLATIONS ÉLECTRIQUES ET DOMOTIQUE</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li><strong>Norme NF C 15-100:</strong> Respect strict de la norme française NF C 15-100 relative aux installations électriques basse tension, applicable à Monaco</li>
+                            <li><strong>Schémas obligatoires:</strong> Fournir avant début travaux un schéma électrique unifilaire complet et un schéma de position des équipements, validés par LKR</li>
+                            <li><strong>Attestation CONSUEL Monaco:</strong> Remettre attestation de conformité CONSUEL (ou équivalent Monaco) à l'achèvement, obligatoire pour mise en service</li>
+                            <li><strong>Qualification Qualifelec:</strong> Justifier d'une qualification Qualifelec ou certification équivalente reconnue</li>
+                            <li><strong>Domotique:</strong> Fournir codes d'accès, interfaces, manuels en français, formation 2h minimum</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- PLOMBERIE -->
+                <div class="category-specific" id="cat-plomberie">
+                    <div class="important-notice">
+                        <p><strong>🚰 PLOMBERIE ET SANITAIRES</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li><strong>DTU 60.1 et 60.11:</strong> Respect des DTU relatifs à la plomberie sanitaire</li>
+                            <li><strong>Test d'étanchéité:</strong> Essai sous pression 10 bars pendant 2h pour réseaux encastrés AVANT fermeture. PV obligatoire.</li>
+                            <li><strong>Qualification Qualibat 5411:</strong> Justifier qualification Qualibat plomberie ou équivalent</li>
+                            <li><strong>Certificats équipements:</strong> Remettre certificats CE et garanties fabricants de tous équipements</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- CLIMATISATION -->
+                <div class="category-specific" id="cat-climatisation">
+                    <div class="important-notice">
+                        <p><strong>❄️ CLIMATISATION ET CHAUFFAGE</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li><strong>Attestation capacité fluides frigorigènes OBLIGATOIRE:</strong> Conformément Règlement F-Gas UE 517/2014</li>
+                            <li><strong>DTU 65.14:</strong> Respecter DTU installations climatisation</li>
+                            <li><strong>Garantie performances COP/SCOP:</strong> Garantir performances énergétiques annoncées (écart max 5%)</li>
+                            <li><strong>Carnet d'entretien:</strong> Fournir carnet avec planning maintenances préventives</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- GROS OEUVRE -->
+                <div class="category-specific" id="cat-gros-oeuvre">
+                    <div class="important-notice">
+                        <p><strong>🧱 GROS ŒUVRE ET MAÇONNERIE</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li><strong>DTU série 20:</strong> DTU 20.1, 21, 23.1 selon type ouvrage</li>
+                            <li><strong>Étude structure:</strong> Pour murs porteurs, note calcul bureau études qualifié obligatoire</li>
+                            <li><strong>Traçabilité matériaux:</strong> Conserver bons livraison béton avec dosages et heure coulage</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- FAÇADES -->
+                <div class="category-specific" id="cat-facade">
+                    <div class="important-notice">
+                        <p><strong>🏢 RAVALEMENT DE FAÇADES</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li><strong>Autorisation DPUM Monaco OBLIGATOIRE:</strong> Obtenir autorisations Direction Prospective Urbanisme Mobilité</li>
+                            <li><strong>DTU 42.1:</strong> Application DTU revêtements extérieurs peinture</li>
+                            <li><strong>Diagnostic photos:</strong> Rapport photographique détaillé avant intervention</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- RESTAURATION -->
+                <div class="category-specific" id="cat-restauration">
+                    <div class="important-notice">
+                        <p><strong>🪑 RESTAURATION MOBILIER ANCIEN</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li><strong>Formation spécialisée:</strong> Justifier formation restauration d'art ou ébénisterie d'art</li>
+                            <li><strong>Techniques RÉVERSIBLES obligatoires:</strong> Conformément charte ICOM-CC. Interdiction techniques irréversibles</li>
+                            <li><strong>Assurance objets d'art OBLIGATOIRE:</strong> Attestation AVANT prise en charge du meuble</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- FOURNITURE -->
+                <div class="category-specific" id="cat-fourniture">
+                    <div class="important-notice">
+                        <p><strong>📦 FOURNITURE DE MATÉRIAUX</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li><strong>Conformité CE obligatoire:</strong> Marquage CE visible sur tous produits</li>
+                            <li><strong>DOP:</strong> Fournir Déclaration de Performance selon Règlement UE 305/2011</li>
+                            <li><strong>Respect quantités:</strong> Tolérance ±2% maximum. Au-delà, avenant obligatoire</li>
+                            <li><strong>Reprise défectueux:</strong> Reprendre et remplacer sous 48h tout matériau défectueux</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- SÉCURITÉ -->
+                <div class="category-specific" id="cat-securite">
+                    <div class="important-notice">
+                        <p><strong>🔒 SYSTÈMES DE SÉCURITÉ</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li><strong>Certifications APSAD:</strong> Détenir certifications APSAD pour alarmes (P1/P2/P3)</li>
+                            <li><strong>Norme NF A2P:</strong> Équipements certifiés NF A2P systèmes anti-intrusion</li>
+                            <li><strong>RGPD vidéosurveillance:</strong> Garantir conformité RGPD (cryptage, durée conservation, information)</li>
+                            <li><strong>Cybersécurité IoT:</strong> Changer TOUS mots de passe défaut, activer chiffrement, configurer pare-feu</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- AUTRES (simplifié) -->
+                <div class="category-specific" id="cat-isolation">
+                    <div class="important-notice">
+                        <p><strong>🏠 ISOLATION THERMIQUE ET ACOUSTIQUE</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>DTU 45.10 (combles), DTU 25.41 (plaques plâtre)</li>
+                            <li>Certifications ACERMI isolants, ACOTHERM menuiseries</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="category-specific" id="cat-menuiserie">
+                    <div class="important-notice">
+                        <p><strong>🚪 MENUISERIES ET FERMETURES</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>DTU 36.5 (fenêtres), DTU 39 (vitrerie)</li>
+                            <li>Certifications NF, Cekal, classement AEV</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="category-specific" id="cat-peinture">
+                    <div class="important-notice">
+                        <p><strong>🎨 PEINTURE ET DÉCORATION</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>DTU 59.1 (travaux peinture bâtiments)</li>
+                            <li>Peintures COV faibles conformes normes environnementales</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="category-specific" id="cat-revetements">
+                    <div class="important-notice">
+                        <p><strong>🪵 REVÊTEMENTS SOLS ET PARQUETS</strong></p>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>DTU 51.2 (parquets collés), DTU 52.2 (carrelage)</li>
+                            <li>Contrôle planéité/humidité support avant pose</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="category
