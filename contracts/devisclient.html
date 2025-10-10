@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Website designed and developed by Riccardo Barlozzetti -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEVIS - LKR RENOVATION MC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px 60px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        /* HEADER */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #c41e3a;
+            margin-bottom: 30px;
+        }
+
+        .header-left img {
+            height: 60px;
+            width: auto;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .header-right strong {
+            display: block;
+            font-size: 14px;
+            color: #c41e3a;
+            margin-bottom: 5px;
+        }
+
+        /* TITRE */
+        h1 {
+            text-align: center;
+            color: #c41e3a;
+            font-size: 26px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        /* SECTION INFO DEVIS */
+        .devis-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .devis-info-right {
+            text-align: right;
+            background: #f9f9f9;
+            padding: 20px;
+            border-left: 4px solid #c41e3a;
+        }
+
+        .devis-info-right div {
+            margin-bottom: 10px;
+        }
+
+        .devis-info-right label {
+            font-weight: 600;
+            margin-right: 10px;
+            color: #c41e3a;
+        }
+
+        .devis-info-right input {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 14px;
+            width: 200px;
+        }
+
+        /* SECTION CLIENT */
+        .client-section {
+            background: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            border-left: 4px solid #c41e3a;
+        }
+
+        .client-section h3 {
+            color: #c41e3a;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .client-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .client-section label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+
+        .client-section input,
+        .client-section textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 13px;
+            font-family: inherit;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* SECTION PROJET */
+        .projet {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 2px solid #c41e3a;
+            border-radius: 5px;
+        }
+
+        .projet h3 {
+            color: #c41e3a;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .projet label {
+            display: block;
+            font-weight: 600;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .projet input,
+        .projet textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        .projet textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        /* TABLEAU DÉTAILLÉ */
+        .table-container {
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        thead th {
+            background: #c41e3a;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #a01830;
+        }
+
+        tbody td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            background: white;
+        }
+
+        tbody tr:hover {
+            background: #fafafa;
+        }
+
+        .col-num {
+            width: 5%;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .col-designation {
+            width: 40%;
+        }
+
+        .col-qte {
+            width: 10%;
+        }
+
+        .col-unite {
+            width: 10%;
+        }
+
+        .col-prix {
+            width: 15%;
+        }
+
+        .col-total {
+            width: 15%;
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .col-actions {
+            width: 5%;
+            text-align: center;
+        }
+
+        table input,
+        table select {
+            width: 100%;
+            padding: 5px 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+
+        table input[type="number"] {
+            text-align: right;
+        }
+
+        .btn-delete {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-delete:hover {
+            background: #c82333;
+        }
+
+        .btn-add-row {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        .btn-add-row:hover {
+            background: #218838;
+        }
+
+        /* TOTAUX */
+        .totaux {
+            text-align: right;
+            background: #f9f9f9;
+            padding: 20px;
+            border-left: 4px solid #c41e3a;
+            margin-bottom: 30px;
+        }
+
+        .totaux-row {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .totaux-label {
+            font-weight: 600;
+            margin-right: 20px;
+            min-width: 120px;
+        }
+
+        .totaux-value {
+            min-width: 150px;
+            text-align: right;
+        }
+
+        .totaux-separator {
+            border-top: 2px solid #c41e3a;
+            margin: 15px 0;
+        }
+
+        .total-ttc {
+            font-size: 20px;
+            font-weight: 700;
+            color: #c41e3a;
+        }
+
+        /* MODALITÉS PAIEMENT */
+        .paiement {
+            background: #fffef0;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+
+        .paiement h3 {
+            color: #c41e3a;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .paiement-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .paiement-item {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
+            border: 1px solid #ffc107;
+        }
+
+        .paiement-item strong {
+            display: block;
+            color: #c41e3a;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .paiement-item small {
+            color: #666;
+            font-size: 12px;
+        }
+
+        /* CONDITIONS */
+        .conditions {
+            background: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+        .conditions h3 {
+            color: #c41e3a;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .conditions ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .conditions li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .conditions li:before {
+            content: "✓";
+            color: #c41e3a;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* GARANTIES */
+        .garanties {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .garantie-box {
+            background: #e8f5e9;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .garantie-box h4 {
+            color: #28a745;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .garantie-box p {
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        /* SIGNATURES */
+        .signatures {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 40px;
+            page-break-inside: avoid;
+        }
+
+        .signature-box h4 {
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #c41e3a;
+        }
+
+        .signature-box input,
+        .signature-box select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        .signature-space {
+            height: 100px;
+            border: 2px dashed #ccc;
+            background: #fafafa;
+            margin: 20px 0 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        /* FOOTER */
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 3px solid #c41e3a;
+            text-align: center;
+            font-size: 11px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* BOUTON PRINT */
+        .btn-print {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #c41e3a;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
+            z-index: 1000;
+        }
+
+        .btn-print:hover {
+            background: #a01830;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(196, 30, 58, 0.4);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .header-right {
+                text-align: left;
+            }
+
+            .client-grid,
+            .paiement-grid,
+            .garanties,
+            .signatures,
+            .devis-info {
+                grid-template-columns: 1fr;
+            }
+
+            .devis-info-right {
+                text-align: left;
+            }
+
+            .devis-info-right input {
+                width: 100%;
+            }
+
+            table {
+                font-size: 11px;
+            }
+
+            .btn-print {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 15mm;
+                box-shadow: none;
+            }
+
+            .btn-print,
+            .btn-add-row,
+            .btn-delete,
+            .no-print {
+                display: none !important;
+            }
+
+            .header,
+            .client-section,
+            .projet,
+            .table-container,
+            .paiement,
+            .signatures {
+                page-break-inside: avoid;
+            }
+
+            table input,
+            table select,
+            input,
+            textarea,
+            select {
+                border: none !important;
+                border-bottom: 1px solid #ddd !important;
+                background: transparent !important;
+                padding: 2px 0 !important;
+            }
+
+            .signature-space {
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="header-left">
+                <img src="https://lkr.mc/img/LKRorizzontalepiccolo.png" alt="LKR Renovation MC">
+            </div>
+            <div class="header-right">
+                <strong>LKR RENOVATION MC SARL</strong>
+                General Contractor<br>
+                38, Boulevard des Moulins<br>
+                98000 Monaco<br>
+                RCI: 25S10110 | TVA: FR72000188879<br>
+                +377 6 40 61 56 50<br>
+                info@lkr.mc | www.lkr.mc
+            </div>
+        </div>
+
+        <!-- TITRE -->
+        <h1>DEVIS</h1>
+
+        <!-- INFO DEVIS -->
+        <div class="devis-info">
+            <div></div>
+            <div class="devis-info-right">
+                <div>
+                    <label>DEVIS N°:</label>
+                    <input type="text" id="devisNum" placeholder="Ex: DEV-2025-001">
+                </div>
+                <div>
+                    <label>Date:</label>
+                    <input type="date" id="devisDate">
+                </div>
+                <div>
+                    <label>Validité:</label>
+                    <input type="number" id="devisValidite" value="30" style="width: 80px;"> jours
+                </div>
+                <div>
+                    <label>Référence:</label>
+                    <input type="text" id="devisRef" placeholder="Ex: MONACO-APT-2025">
+                </div>
+            </div>
+        </div>
+
+        <!-- CLIENT -->
+        <div class="client-section">
+            <h3>CLIENT</h3>
+            <div class="client-grid">
+                <div>
+                    <label>Nom / Raison sociale *</label>
+                    <input type="text" id="clientNom" required placeholder="M./Mme/Société">
+                </div>
+                <div>
+                    <label>Prénom</label>
+                    <input type="text" id="clientPrenom" placeholder="(si particulier)">
+                </div>
+                <div class="full-width">
+                    <label>Adresse du client</label>
+                    <input type="text" id="clientAdresse" placeholder="Adresse complète">
+                </div>
+                <div>
+                    <label>Email</label>
+                    <input type="email" id="clientEmail" placeholder="email@exemple.com">
+                </div>
+                <div>
+                    <label>Téléphone</label>
+                    <input type="tel" id="clientTel" placeholder="+377 ou +33">
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJET -->
+        <div class="projet">
+            <h3>DESCRIPTION DU PROJET</h3>
+            <label>Intitulé du projet</label>
+            <input type="text" id="projetTitre" placeholder="Ex: Rénovation complète appartement 3 pièces">
+            
+            <label>Lieu des travaux</label>
+            <input type="text" id="projetLieu" placeholder="Adresse précise du chantier">
+            
+            <label>Description détaillée des travaux</label>
+            <textarea id="projetDesc" placeholder="Décrivez en détail les travaux à réaliser: pièces concernées, état actuel, modifications souhaitées, finitions, équipements..."></textarea>
+        </div>
+
+        <!-- TABLEAU DÉTAILLÉ -->
+        <h3 style="color: #c41e3a; margin-bottom: 15px;">DÉTAIL DES PRESTATIONS</h3>
+        <div class="table-container">
+            <table id="devisTable">
+                <thead>
+                    <tr>
+                        <th class="col-num">N°</th>
+                        <th class="col-designation">Désignation / Description</th>
+                        <th class="col-qte">Qté</th>
+                        <th class="col-unite">Unité</th>
+                        <th class="col-prix">Prix Unit. HT (€)</th>
+                        <th class="col-total">Total HT (€)</th>
+                        <th class="col-actions no-print"></th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Les lignes seront générées par JS -->
+                </tbody>
+            </table>
+        </div>
+        <button class="btn-add-row no-print" onclick="ajouterLigne()">+ AJOUTER UNE PRESTATION</button>
+
+        <!-- TOTAUX -->
+        <div class="totaux">
+            <div class="totaux-row">
+                <span class="totaux-label">TOTAL HT:</span>
+                <span class="totaux-value" id="totalHT">0,00 €</span>
+            </div>
+            <div class="totaux-row">
+                <span class="totaux-label">TVA 20%:</span>
+                <span class="totaux-value" id="totalTVA">0,00 €</span>
+            </div>
+            <div class="totaux-separator"></div>
+            <div class="totaux-row total-ttc">
+                <span class="totaux-label">TOTAL TTC:</span>
+                <span class="totaux-value" id="totalTTC">0,00 €</span>
+            </div>
+        </div>
+
+        <!-- MODALITÉS DE PAIEMENT -->
+        <div class="paiement">
+            <h3>MODALITÉS DE PAIEMENT</h3>
+            <p style="margin-bottom: 10px;">Échéancier standard pour ce type de projet:</p>
+            <div class="paiement-grid">
+                <div class="paiement-item">
+                    <strong>30%</strong>
+                    <small>À la signature du devis<br>(Acompte)</small>
+                </div>
+                <div class="paiement-item">
+                    <strong>40%</strong>
+                    <small>À mi-parcours des travaux<br>(Situation d'avancement)</small>
+                </div>
+                <div class="paiement-item">
+                    <strong>30%</strong>
+                    <small>À la livraison finale<br>(Solde)</small>
+                </div>
+            </div>
+            <p style="margin-top: 15px; font-size: 12px; color: #666;">
+                <strong>Modes de paiement acceptés:</strong> Virement bancaire, Chèque<br>
+                <strong>Délais:</strong> Paiement sous 7 jours à réception de facture
+            </p>
+        </div>
+
+        <!-- GARANTIES -->
+        <div class="garanties">
+            <div class="garantie-box">
+                <h4>✓ ASSURANCE DÉCENNALE</h4>
+                <p>LKR Renovation est couvert par une assurance décennale pour tous les travaux de construction et de rénovation structurelle.</p>
+            </div>
+            <div class="garantie-box">
+                <h4>✓ GARANTIE DE PARFAIT ACHÈVEMENT</h4>
+                <p>Garantie d'un an sur tous les travaux réalisés. Intervention rapide pour toute malfaçon constatée.</p>
+            </div>
+        </div>
+
+        <!-- CONDITIONS GÉNÉRALES -->
+        <div class="conditions">
+            <h3>CONDITIONS GÉNÉRALES</h3>
+            <ul>
+                <li>Devis valable <strong id="validiteDays">30</strong> jours à compter de la date d'émission</li>
+                <li>Prix exprimés en Euros TTC (Toutes Taxes Comprises), TVA à 20%</li>
+                <li>Début des travaux: sous 15 jours après signature et réception de l'acompte</li>
+                <li>Durée estimée des travaux: à définir selon planning établi</li>
+                <li>Matériaux: de première qualité, conformes aux normes en vigueur à Monaco</li>
+                <li>Modifications: toute modification en cours de chantier fera l'objet d'un avenant écrit</li>
+                <li>Accès au chantier: le client s'engage à garantir l'accès au chantier durant toute la durée des travaux</li>
+                <li>Évacuation des déchets: incluse dans le prix (selon réglementation monégasque)</li>
+                <li>Assurances: LKR dispose d'une assurance responsabilité civile professionnelle et décennale</li>
+                <li>Litige: en cas de différend, juridiction compétente de la Principauté de Monaco</li>
+            </ul>
+        </div>
+
+        <!-- SIGNATURES -->
+        <div class="signatures">
+            <!-- LKR -->
+            <div class="signature-box">
+                <h4>POUR LKR RENOVATION MC SARL</h4>
+                <label style="font-size: 12px;">Signataire:</label>
+                <select style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 3px; margin-bottom: 10px;">
+                    <option>M. Luca Borella, Gérant</option>
+                    <option>M. Riccardo Barlozzetti, Associé</option>
+                </select>
+                <label style="font-size: 12px;">Date:</label>
+                <input type="date">
+                <div class="signature-space">
+                    Signature et cachet de l'entreprise
+                </div>
+            </div>
+
+            <!-- CLIENT -->
+            <div class="signature-box">
+                <h4>BON POUR ACCORD CLIENT</h4>
+                <label style="font-size: 12px;">Nom et prénom:</label>
+                <input type="text" placeholder="Identité du signataire">
+                <label style="font-size: 12px;">Date:</label>
+                <input type="date">
+                <div class="signature-space">
+                    Signature précédée de la mention<br>"Lu et approuvé - Bon pour accord"
+                </div>
+                <p style="font-size: 11px; color: #666; margin-top: 10px; font-style: italic;">
+                    En signant ce devis, le client reconnaît en avoir pris connaissance et l'accepte dans son intégralité.
+                </p>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <strong>LKR RENOVATION MC SARL</strong> | General Contractor | SARL au capital de 15.000€<br>
+            38, Boulevard des Moulins, 98000 Monaco<br>
+            RCI: 25S10110 | TVA: FR72000188879<br>
+            +377 6 40 61 56 50 | info@lkr.mc | www.lkr.mc<br>
+            <em style="margin-top: 10px; display: block;">Rénovation • Construction • Coordination de travaux</em>
+        </div>
+    </div>
+
+    <!-- BOUTON PRINT -->
+    <button class="btn-print no-print" onclick="imprimer()">🖨️ Imprimer / PDF</button>
+
+    <script>
+        // INIT: Date automatique et création lignes initiales
+        document.addEventListener('DOMContentLoaded', function() {
+            // Date du jour
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('devisDate').value = today;
+            
+            // Créer 10 lignes initiales
+            for (let i = 0; i < 10; i++) {
+                creerLigne();
+            }
+            
+            // Listener sur validité pour mettre à jour texte
+            document.getElementById('devisValidite').addEventListener('input', function() {
+                document.getElementById('validiteDays').textContent = this.value;
+            });
+            
+            calculerTotaux();
+        });
+
+        // Compteur ligne
+        let ligneCounter = 1;
+
+        // CRÉER UNE NOUVELLE LIGNE
+        function creerLigne() {
+            const tbody = document.getElementById('tableBody');
+            const row = tbody.insertRow();
+            const num = ligneCounter++;
+            
+            row.innerHTML = `
+                <td class="col-num">${num}</td>
+                <td class="col-designation">
+                    <input type="text" class="designation" placeholder="Description détaillée de la prestation">
+                </td>
+                <td class="col-qte">
+                    <input type="number" class="qte" min="0" step="0.01" value="0" oninput="calculerLigne(this)">
+                </td>
+                <td class="col-unite">
+                    <select class="unite">
+                        <option value="fft">fft (forfait)</option>
+                        <option value="m²">m²</option>
+                        <option value="ml">ml (mètre linéaire)</option>
+                        <option value="u">u (unité)</option>
+                        <option value="ens">ens (ensemble)</option>
+                        <option value="j">j (jour)</option>
+                        <option value="h">h (heure)</option>
+                    </select>
+                </td>
+                <td class="col-prix">
+                    <input type="number" class="prix" min="0" step="0.01" value="0" oninput="calculerLigne(this)">
+                </td>
+                <td class="col-total">
+                    <span class="total-ligne">0,00</span>
+                </td>
+                <td class="col-actions no-print">
+                    <button class="btn-delete" onclick="supprimerLigne(this)" title="Supprimer la ligne">🗑️</button>
+                </td>
+            `;
+            
+            return row;
+        }
+
+        // AJOUTER UNE LIGNE
+        function ajouterLigne() {
+            creerLigne();
+            calculerTotaux();
+        }
+
+        // SUPPRIMER UNE LIGNE
+        function supprimerLigne(btn) {
+            const tbody = document.getElementById('tableBody');
+            // Garder au moins 1 ligne
+            if (tbody.rows.length > 1) {
+                btn.closest('tr').remove();
+                // Renuméroter les lignes
+                renumeroterLignes();
+                calculerTotaux();
+            } else {
+                alert('Vous devez garder au moins une ligne dans le devis.');
+            }
+        }
+
+        // RENUMÉROTER LES LIGNES
+        function renumeroterLignes() {
+            const tbody = document.getElementById('tableBody');
+            Array.from(tbody.rows).forEach((row, index) => {
+                row.cells[0].textContent = index + 1;
+            });
+        }
+
+        // CALCULER UNE LIGNE
+        function calculerLigne(input) {
+            try {
+                const row = input.closest('tr');
+                const qte = parseFloat(row.querySelector('.qte').value) || 0;
+                const prix = parseFloat(row.querySelector('.prix').value) || 0;
+                const total = qte * prix;
+                
+                row.querySelector('.total-ligne').textContent = formaterNombre(total);
+                
+                calculerTotaux();
+            } catch (error) {
+                console.warn('Erreur calcul ligne:', error);
+            }
+        }
+
+        // CALCULER TOTAUX GLOBAUX
+        function calculerTotaux() {
+            try {
+                const tbody = document.getElementById('tableBody');
+                let totalHT = 0;
+                
+                Array.from(tbody.rows).forEach(row => {
+                    const qte = parseFloat(row.querySelector('.qte').value) || 0;
+                    const prix = parseFloat(row.querySelector('.prix').value) || 0;
+                    totalHT += qte * prix;
+                });
+                
+                const totalTVA = totalHT * 0.20;
+                const totalTTC = totalHT + totalTVA;
+                
+                document.getElementById('totalHT').textContent = formaterNombre(totalHT) + ' €';
+                document.getElementById('totalTVA').textContent = formaterNombre(totalTVA) + ' €';
+                document.getElementById('totalTTC').textContent = formaterNombre(totalTTC) + ' €';
+            } catch (error) {
+                console.warn('Erreur calcul totaux:', error);
+            }
+        }
+
+        // FORMATER NOMBRE (format français: virgule décimale, espace milliers)
+        function formaterNombre(num) {
+            try {
+                return num.toLocaleString('fr-FR', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+            } catch (error) {
+                return num.toFixed(2).replace('.', ',');
+            }
+        }
+
+        // VALIDATION AVANT IMPRESSION
+        function validerDevis() {
+            const erreurs = [];
+            
+            // Vérifier champs obligatoires
+            if (!document.getElementById('clientNom').value.trim()) {
+                erreurs.push('- Nom du client');
+            }
+            if (!document.getElementById('devisNum').value.trim()) {
+                erreurs.push('- Numéro de devis');
+            }
+            if (!document.getElementById('devisDate').value) {
+                erreurs.push('- Date du devis');
+            }
+            
+            // Vérifier au moins une ligne avec description
+            const tbody = document.getElementById('tableBody');
+            let ligneValide = false;
+            Array.from(tbody.rows).forEach(row => {
+                if (row.querySelector('.designation').value.trim()) {
+                    ligneValide = true;
+                }
+            });
+            
+            if (!ligneValide) {
+                erreurs.push('- Au moins une prestation avec description');
+            }
+            
+            if (erreurs.length > 0) {
+                alert('⚠️ Champs obligatoires manquants:\n\n' + erreurs.join('\n') + '\n\nVeuillez compléter ces informations avant d\'imprimer.');
+                return false;
+            }
+            
+            return true;
+        }
+
+        // IMPRIMER / EXPORT PDF
+        function imprimer() {
+            if (validerDevis()) {
+                window.print();
+            }
+        }
+    </script>
+</body>
+</html>
