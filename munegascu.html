@@ -1,0 +1,773 @@
+<!-- Website designed and developed by Riccardo Barlozzetti -->
+<!doctype html>
+<html lang="lij-MC" data-lang="lij-MC">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LKR Renovation - Munegascu</title>
+  <meta name="description" content="LKR Renovation - General contractor pe a renovaçiùn, i travai e a cordinaçiùn a Mùnegu. Chic, Know-how, Smile.">
+  <link rel="canonical" href="https://lkr.mc/munegascu.html">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="theme-color" content="#dc3545">
+  
+  <style>
+    :root {
+      --brand: #dc3545;
+      --brand2: #c82333;
+      --text: #2c3e50;
+      --muted: #6c757d;
+      --glass: rgba(255,255,255,.85);
+      --border: rgba(220,53,69,.12);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    
+    .bg-pattern {
+      position: fixed;
+      inset: 0;
+      opacity: .04;
+      pointer-events: none;
+      background-image:
+        linear-gradient(45deg, var(--brand) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--brand) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--brand) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--brand) 75%);
+      background-size: 60px 60px;
+      background-position: 0 0, 0 30px, 30px -30px, -30px 0;
+    }
+    
+    nav.main-nav {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0,0,0,.06);
+    }
+    
+    nav.main-nav .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 28px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    
+    .nav-logo {
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--brand);
+      text-decoration: none;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      margin-left: auto;
+      align-items: center;
+      list-style: none;
+    }
+    
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: all .2s;
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color: #fff;
+    }
+    
+    nav.lang {
+      display: flex;
+      gap: 6px;
+    }
+    
+    nav.lang button {
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 6px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: .9rem;
+      transition: all .2s;
+      color: var(--text);
+    }
+    
+    nav.lang button.active {
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color: #fff;
+      border-color: transparent;
+    }
+    
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      color: var(--brand);
+      font-size: 1.5rem;
+    }
+    
+    @media (max-width: 900px) {
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--glass);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        box-shadow: 0 8px 24px rgba(0,0,0,.1);
+        transform: translateY(-120%);
+        transition: transform .3s;
+      }
+      
+      .nav-links.open {
+        transform: translateY(0);
+      }
+      
+      .mobile-toggle {
+        display: block;
+        margin-left: auto;
+      }
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 28px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* MONACO FLAG HERO */
+    .monaco-hero {
+      position: relative;
+      margin-bottom: 64px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,.15);
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .flag-red-hero {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: linear-gradient(180deg, var(--brand) 0%, var(--brand2) 100%);
+    }
+    
+    .flag-white-hero {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+    }
+    
+    .monaco-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 60px 40px;
+      background: rgba(255,255,255,.95);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      max-width: 800px;
+      margin: 0 20px;
+      box-shadow: 0 15px 50px rgba(0,0,0,.15);
+      border: 2px solid rgba(220,53,69,.2);
+    }
+    
+    .logo-container {
+      margin-bottom: 24px;
+    }
+    
+    .logo {
+      max-width: 500px;
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 10px 30px rgba(220, 53, 69, 0.12));
+    }
+    
+    .monaco-hero-content h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin: 0 0 16px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    
+    .monaco-hero-content .subtitle {
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+    
+    /* INTRO SECTION */
+    .intro-section {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 48px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+      border: 1px solid var(--border);
+    }
+    
+    .intro-text {
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    
+    .intro-text:last-child {
+      margin-bottom: 0;
+    }
+    
+    .highlight {
+      color: var(--brand);
+      font-weight: 600;
+    }
+    
+    /* FEATURES */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 48px 0;
+    }
+    
+    @media (max-width: 980px) {
+      .features {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    @media (max-width: 680px) {
+      .features {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .feature {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    
+    .feature::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--brand), #ff6b7a);
+      transform: translateX(-100%);
+      transition: transform .3s ease;
+    }
+    
+    .feature:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 42px rgba(220, 53, 69, .12);
+    }
+    
+    .feature:hover::before {
+      transform: translateX(0);
+    }
+    
+    .feature .icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      text-align: center;
+      display: block;
+    }
+    
+    .feature h3 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+      color: var(--brand);
+    }
+    
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    
+    /* VALUES */
+    .values {
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      color: #fff;
+      border-radius: 20px;
+      padding: 48px 32px;
+      margin: 48px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .values::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,.05), transparent);
+      transform: rotate(45deg);
+      animation: shine 4s infinite;
+    }
+    
+    @keyframes shine {
+      0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+      }
+      100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+      }
+    }
+    
+    .values h2 {
+      text-align: center;
+      margin: 0 0 16px;
+      font-weight: 600;
+      color: #fff;
+      font-size: 2rem;
+    }
+    
+    .values-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      opacity: .9;
+      margin-bottom: 40px;
+    }
+    
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    
+    @media (max-width: 980px) {
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .values-item {
+      text-align: center;
+      padding: 1.5rem;
+    }
+    
+    .values-item .icon {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 12px;
+    }
+    
+    .values-item h3 {
+      margin: 12px 0 8px;
+      font-size: 1.2rem;
+    }
+    
+    .values-item p {
+      opacity: .95;
+      line-height: 1.6;
+    }
+    
+    /* CONTACT FORM */
+    section h2 {
+      margin: 12px 0 16px;
+      font-size: 2rem;
+    }
+    
+    form {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, .04);
+    }
+    
+    label {
+      display: block;
+      font-weight: 600;
+      margin: 14px 0 8px;
+      color: var(--text);
+    }
+    
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #ced4da;
+      font: inherit;
+      background: #fff;
+      transition: all .2s;
+    }
+    
+    input:focus,
+    textarea:focus,
+    select:focus {
+      outline: none;
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px rgba(220, 53, 69, .1);
+    }
+    
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    
+    @media (max-width: 680px) {
+      .row {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    button {
+      margin-top: 16px;
+      padding: 14px 24px;
+      border-radius: 12px;
+      border: 0;
+      font-weight: 700;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(220, 53, 69, .22);
+      transition: all .3s;
+      width: 100%;
+      font-size: 1rem;
+    }
+    
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(220, 53, 69, .3);
+    }
+    
+    button:disabled {
+      opacity: .7;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    .help {
+      color: var(--muted);
+      margin-top: 10px;
+      font-size: .95rem;
+    }
+    
+    footer {
+      text-align: center;
+      font-size: .95rem;
+      color: var(--muted);
+      margin: 48px 0 16px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+    
+    footer a {
+      color: var(--brand);
+      text-decoration: none;
+    }
+    
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-pattern" aria-hidden="true"></div>
+  
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">LKR</a>
+      <button class="mobile-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+      <ul class="nav-links">
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/aboutus.html">Qui sommes-nous</a></li>
+        <li><a href="/services.html">Services</a></li>
+        <li><a href="/portfolio.html">Réalisations</a></li>
+        <li><a href="/consigli.html">Conseils</a></li>
+        <li><a href="/munegascu.html" class="active">Munegascu</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+      <nav class="lang" aria-label="Language">
+        <button data-setlang="fr">FR</button>
+        <button data-setlang="it">IT</button>
+        <button data-setlang="en">EN</button>
+        <button data-setlang="ru">RU</button>
+        <button data-setlang="de">DE</button>
+        <button data-setlang="es">ES</button>
+      </nav>
+    </div>
+  </nav>
+  
+  <div class="container">
+    <!-- Monaco Hero with Flag -->
+    <div class="monaco-hero">
+      <div class="flag-red-hero"></div>
+      <div class="flag-white-hero"></div>
+      <div class="monaco-hero-content">
+        <div class="logo-container">
+          <img src="/img/logo-lkr-orizzontale@2x.png" 
+               alt="LKR Renovation MC SARL" 
+               class="logo">
+        </div>
+        <h1>U Vòstru General Contractor a Mùnegu</h1>
+        <p class="subtitle">Renovaçiùn, travai e cordinaçiùn cumpleta cun u surizu. Chic, Know-how, Smile.</p>
+      </div>
+    </div>
+    
+    <!-- Intro Section -->
+    <section class="intro-section" aria-label="Introduction">
+      <p class="intro-text">
+        Bunvegnu inte <span class="highlight">LKR Renovation MC SARL</span>, u vòstru partnë de cunfiança pe töti i prugètti de renovaçiùn, travai e cordinaçiùn a Mùnegu e in sciâ Còsta Asürra.
+      </p>
+      <p class="intro-text">
+        Nòi sémmu u surizu intu Sud de Frància. A nòstra aprotce ünìca a mésccia elegànça, expetiça e n'atençiùn particulàre a-i vòstri bezégni, pe trasfurmà i vòstri spàççi cun simplicità e gentilessa.
+      </p>
+    </section>
+    
+    <!-- Features -->
+    <section aria-label="I nòstri vantaggi" class="features">
+      <article class="feature">
+        <div class="icon">🔑</div>
+        <h3>Serviççiu Ciàve in Màn</h3>
+        <p>Cordinaçiùn cumpleta de töti i mestiéi. Un sulu interlocutù, da-a cunceçiùn a-a cumségna.</p>
+      </article>
+      
+      <article class="feature">
+        <div class="icon">🏢</div>
+        <h3>Rexidençiâle & Cummerciâle</h3>
+        <p>Apartaménti de prestiçu, negòççi, üfiççi e spàççi prufescionâli a Mùnegu e in sciâ Còsta Asürra.</p>
+      </article>
+      
+      <article class="feature">
+        <div class="icon">🎯</div>
+        <h3>Expertiça Locâle</h3>
+        <p>Cugnoçénça apprufundía de norme munegasce e d'u patrimoniu imubiliàre d'u Principatu.</p>
+      </article>
+    </section>
+    
+    <!-- Values -->
+    <section class="values">
+      <h2>I Nòstri Valù</h2>
+      <p class="values-subtitle">Chic, Know-how, Smile</p>
+      <div class="values-grid">
+        <div class="values-item">
+          <div class="icon">✨</div>
+          <h3>Chic</h3>
+          <p>Elegànça e rafinamentu in ogni detàggiu, pe arvià u patrimoniu imubiliàre munegascu</p>
+        </div>
+        <div class="values-item">
+          <div class="icon">🎯</div>
+          <h3>Know-how</h3>
+          <p>Expetiça tècnica, cordinaçiùn perfèta e padrùn de töti i mestiéi d'a custruçiùn</p>
+        </div>
+        <div class="values-item">
+          <div class="icon">😊</div>
+          <h3>Smile</h3>
+          <p>Atituìne puxitìva, ascortu e gentilessa pe capì e realiçà i vòstri deziréi</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Contact Form -->
+    <section id="contact" aria-labelledby="contactTitle">
+      <h2 id="contactTitle">Cuntàtu</h2>
+      <form id="contactForm" novalidate>
+        <!-- Honeypot anti-spam -->
+        <input type="text" name="company" id="company" tabindex="-1" autocomplete="off" 
+               style="position:absolute;left:-5000px" aria-hidden="true">
+        
+        <div class="row">
+          <div>
+            <label for="name">Nómme e Cognómme *</label>
+            <input id="name" name="name" required autocomplete="name">
+          </div>
+          <div>
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" required autocomplete="email" inputmode="email">
+          </div>
+        </div>
+        
+        <div class="row">
+          <div>
+            <label for="phone">Telèfonu</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
+          </div>
+          <div>
+            <label for="projectType">Tipu de Prugèttu</label>
+            <select id="projectType" name="projectType">
+              <option value="">Seleçiunà...</option>
+              <option>Renovaçiùn cumpleta</option>
+              <option>Mudernisaçiùn</option>
+              <option>Arédu negòççiu/üfiççiu</option>
+              <option>Travai elètrici</option>
+              <option>Idràulica</option>
+              <option>Àutru</option>
+            </select>
+          </div>
+        </div>
+        
+        <label for="message">Mesàgiu *</label>
+        <textarea id="message" name="message" required></textarea>
+        
+        <button id="sendBtn" type="submit">Inviâ</button>
+        <p id="formNote" class="help" aria-live="polite"></p>
+      </form>
+    </section>
+    
+    <footer>
+      <p>
+        LKR RENOVATION MC SARL – 38 Boulevard des Moulins, 98000 Monaco • Tel. +377 6 40 61 56 50 • 
+        <a href="mailto:info@lkr.mc">info@lkr.mc</a>
+      </p>
+      <p>RCI: 25S10110 • TVA: FR72000188879</p>
+      <p>
+        <a href="/mentions-legales.html">Menciùn legâli</a> • 
+        <a href="/confidentialite.html">Polìtica de cunfidençialità</a>
+      </p>
+    </footer>
+  </div>
+  
+  <script>
+    // Parallax leggero sul logo
+    (function() {
+      let rafId = null;
+      const logo = document.querySelector('.logo');
+      if (!logo) return;
+      
+      document.addEventListener('mousemove', (e) => {
+        if (rafId) return;
+        rafId = requestAnimationFrame(() => {
+          const x = (e.clientX / window.innerWidth - 0.5) * 10;
+          const y = (e.clientY / window.innerHeight - 0.5) * 10;
+          logo.style.transform = `translateX(${x}px) translateY(${y}px)`;
+          rafId = null;
+        });
+      });
+    })();
+    
+    // Form submission handler
+    (function() {
+      const form = document.getElementById('contactForm');
+      const note = document.getElementById('formNote');
+      const btn = document.getElementById('sendBtn');
+      
+      function mailtoFallback(data) {
+        const subject = `Contact LKR • ${data.get('projectType') || 'Prugèttu'} • ${data.get('name') || ''}`;
+        const lines = [
+          `Nómme: ${data.get('name') || ''}`,
+          `Email: ${data.get('email') || ''}`,
+          `Telèfunu: ${data.get('phone') || ''}`,
+          `Prugèttu: ${data.get('projectType') || ''}`,
+          ``,
+          `Mesàgiu:`,
+          `${(data.get('message') || '').replace(/\n/g, '%0D%0A')}`
+        ];
+        const body = lines.join('%0D%0A');
+        window.location.href = `mailto:info@lkr.mc?subject=${encodeURIComponent(subject)}&body=${body}`;
+      }
+      
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        note.textContent = '';
+        
+        const data = new FormData(form);
+        
+        // Honeypot check
+        if ((data.get('company') || '').trim() !== '') {
+          return;
+        }
+        
+        // Validate required fields
+        if (!data.get('name') || !data.get('email') || !data.get('message')) {
+          note.textContent = 'Pe piâxéi, rempì i ciànpi ubbligatöi (Nómme, Email, Mesàgiu).';
+          return;
+        }
+        
+        btn.disabled = true;
+        const oldText = btn.textContent;
+        btn.textContent = '...';
+        
+        try {
+          const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              name: data.get('name'),
+              email: data.get('email'),
+              phone: data.get('phone'),
+              projectType: data.get('projectType'),
+              message: data.get('message')
+            })
+          });
+          
+          if (res.ok) {
+            form.reset();
+            note.textContent = 'Gràççie, u vòstru mesàgiu o l\'è stætu inviàu. Ve rispondemu prestu.';
+            note.style.color = '#155724';
+          } else {
+            mailtoFallback(data);
+          }
+        } catch (_) {
+          mailtoFallback(data);
+        } finally {
+          btn.disabled = false;
+          btn.textContent = oldText;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
