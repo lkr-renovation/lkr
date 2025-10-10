@@ -675,10 +675,22 @@
 <!-- Contact Form -->
 <section id="contact" aria-labelledby="contactTitle">
   <h2 id="contactTitle" data-i18n="contact">Contact</h2>
-  <form id="contactForm" novalidate>
-    <!-- Honeypot anti-spam -->
-    <input type="text" name="company" id="company" tabindex="-1" autocomplete="off" 
-           style="position:absolute;left:-5000px" aria-hidden="true">
+  
+  <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+    <!-- Web3Forms Access Key -->
+    <input type="hidden" name="access_key" value="dea7ba04-adca-4a8d-a320-db99d3d3e52d">
+    
+    <!-- Redirect dopo invio successo -->
+    <input type="hidden" name="redirect" value="https://lkr.mc/merci.html">
+    
+    <!-- Honeypot anti-spam (nascosto) -->
+    <input type="checkbox" name="botcheck" tabindex="-1" style="position:absolute;left:-5000px" aria-hidden="true">
+    
+    <!-- Subject personalizzato email -->
+    <input type="hidden" name="subject" value="Nouvelle demande de contact depuis lkr.mc">
+    
+    <!-- Da dove viene il form -->
+    <input type="hidden" name="from_name" value="Site Web LKR">
     
     <div class="row">
       <div>
@@ -998,79 +1010,6 @@ document.querySelectorAll('nav.lang button').forEach(b =>
   b.addEventListener('click', () => setLang(b.dataset.setlang))
 );
     
-    // Form submission handler
-    (function() {
-      const form = document.getElementById('contactForm');
-      const note = document.getElementById('formNote');
-      const btn = document.getElementById('sendBtn');
-      
-      function mailtoFallback(data) {
-        const currentLang = document.documentElement.getAttribute('data-lang') || 'fr';
-        const subject = `Contact LKR • ${data.get('projectType') || 'Projet'} • ${data.get('name') || ''}`;
-        const lines = [
-          `Nom/Name: ${data.get('name') || ''}`,
-          `Email: ${data.get('email') || ''}`,
-          `Téléphone/Phone: ${data.get('phone') || ''}`,
-          `Projet/Project: ${data.get('projectType') || ''}`,
-          ``,
-          `Message:`,
-          `${(data.get('message') || '').replace(/\n/g, '%0D%0A')}`
-        ];
-        const body = lines.join('%0D%0A');
-        window.location.href = `mailto:info@lkr.mc?subject=${encodeURIComponent(subject)}&body=${body}`;
-      }
-      
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        note.textContent = '';
-        
-        const data = new FormData(form);
-        const currentLang = document.documentElement.getAttribute('data-lang') || 'fr';
-        const L = I18N[currentLang];
-        
-        // Honeypot check
-        if ((data.get('company') || '').trim() !== '') {
-          return;
-        }
-        
-        // Validate required fields
-        if (!data.get('name') || !data.get('email') || !data.get('message')) {
-          note.textContent = L.form.fill;
-          return;
-        }
-        
-        btn.disabled = true;
-        const oldText = btn.textContent;
-        btn.textContent = '...';
-        
-        try {
-          const res = await fetch('/api/contact', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-              name: data.get('name'),
-              email: data.get('email'),
-              phone: data.get('phone'),
-              projectType: data.get('projectType'),
-              message: data.get('message')
-            })
-          });
-          
-          if (res.ok) {
-            form.reset();
-            note.textContent = L.form.thanks;
-            note.style.color = '#155724';
-          } else {
-            mailtoFallback(data);
-          }
-        } catch (_) {
-          mailtoFallback(data);
-        } finally {
-          btn.disabled = false;
-          btn.textContent = oldText;
-        }
-      });
-    })();
   </script>
 </body>
 </html>
