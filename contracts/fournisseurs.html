@@ -5,17 +5,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contrat de Prestation - LKR RENOVATION MC SARL</title>
     <style>
-        @media print {
-            input, select, textarea {
-                border: none !important;
-                border-bottom: 1px solid #000 !important;
-                background: transparent !important;
-            }
-            .no-print { display: none !important; }
-            .container { box-shadow: none; padding: 30px 40px; }
-            h1, h2 { page-break-after: avoid; }
-            .article, .party, .section { page-break-inside: avoid; }
-        }
+@media print {
+    input, select, textarea {
+        border: none !important;
+        border-bottom: 1px solid #000 !important;
+        background: transparent !important;
+    }
+    .no-print { display: none !important; }
+    
+    /* Margini pagina ottimizzati */
+    @page {
+        margin: 15mm 15mm 15mm 15mm;
+        size: A4;
+    }
+    
+    body {
+        padding: 0;
+        background: white;
+    }
+    
+    .container { 
+        box-shadow: none; 
+        padding: 0;
+        max-width: 100%;
+        margin: 0;
+    }
+    
+    /* Evita interruzioni nei titoli */
+    h1, h2, h3 { 
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+    
+    /* Evita interruzioni negli articoli */
+    .article { 
+        page-break-inside: avoid;
+    }
+    
+    /* Evita interruzioni nelle sezioni party */
+    .parties {
+        page-break-inside: avoid;
+    }
+    
+    .party {
+        page-break-inside: avoid;
+    }
+    
+    /* Evita interruzioni nei box importanti */
+    .important-notice,
+    .critical-notice,
+    .definition-box,
+    .payment-section,
+    .bank-details {
+        page-break-inside: avoid;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    /* Evita interruzioni nelle liste */
+    ul {
+        page-break-inside: avoid;
+    }
+    
+    /* Firme sempre insieme */
+    .signatures {
+        page-break-inside: avoid;
+        page-break-before: auto;
+    }
+    
+    /* Footer sempre in fondo */
+    .footer {
+        page-break-inside: avoid;
+    }
+    
+    /* Acceptance box */
+    .acceptance-box {
+        page-break-inside: avoid;
+    }
+    
+    /* Documenti annexés */
+    .section {
+        page-break-inside: avoid;
+    }
+    
+    /* Riduzione dimensioni font per stampa */
+    body {
+        font-size: 11pt;
+        line-height: 1.4;
+    }
+    
+    h1 {
+        font-size: 20pt;
+        margin: 15px 0 10px 0;
+    }
+    
+    h2 {
+        font-size: 13pt;
+        margin: 15px 0 8px 0;
+    }
+    
+    .article-content {
+        font-size: 10pt;
+        line-height: 1.5;
+    }
+    
+    .legal-ref {
+        font-size: 8pt;
+    }
+    
+    /* Categorie specifiche */
+    .category-specific {
+        page-break-inside: avoid;
+    }
+    
+    /* Header compatto */
+    .header {
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+    }
+    
+    .logo {
+        max-height: 40px;
+    }
+}
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
