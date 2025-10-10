@@ -553,25 +553,69 @@
             <div class="article-content">
                 <p>Le présent contrat a pour objet la réalisation par le Prestataire de prestations spécialisées dans le cadre de projets de rénovation et de construction coordonnés par LKR RENOVATION MC SARL dans la Principauté de Monaco et zones limitrophes.</p>
                 
-                <label class="field-label">Catégorie de prestation *</label>
-                <select id="service-category">
-                    <option value="">-- Sélectionner la catégorie --</option>
-                    <option value="electricite">Installations électriques et domotique</option>
-                    <option value="plomberie">Plomberie et sanitaires</option>
-                    <option value="climatisation">Climatisation et chauffage</option>
-                    <option value="gros-oeuvre">Gros œuvre et maçonnerie</option>
-                    <option value="isolation">Isolation thermique et acoustique</option>
-                    <option value="menuiserie">Menuiseries et fermetures</option>
-                    <option value="peinture">Peinture et décoration</option>
-                    <option value="revetements">Revêtements de sols et parquets</option>
-                    <option value="cuisine">Cuisines et électroménager</option>
-                    <option value="facade">Ravalement de façades</option>
-                    <option value="securite">Systèmes de sécurité</option>
-                    <option value="exterieur">Aménagements extérieurs</option>
-                    <option value="restauration">Restauration mobilier ancien</option>
-                    <option value="fourniture">Fourniture de matériaux</option>
-                    <option value="autre">Autre (préciser ci-dessous)</option>
-                </select>
+                <label class="field-label">Catégorie(s) de prestation * (cocher une ou plusieurs)</label>
+<div class="checkbox-group" style="background: #f9f9f9; padding: 15px; border-left: 4px solid #c41e3a; margin: 10px 0;">
+    <div class="checkbox-item">
+        <input type="checkbox" id="cat-check-electricite" value="electricite" class="category-checkbox">
+        <label for="cat-check-electricite">Installations électriques et domotique</label>
+    </div>
+    <div class="checkbox-item">
+        <input type="checkbox" id="cat-check-plomberie" value="plomberie" class="category-checkbox">
+        <label for="cat-check-plomberie">Plomberie et sanitaires</label>
+    </div>
+    <div class="checkbox-item">
+        <input type="checkbox" id="cat-check-climatisation" value="climatisation" class="category-checkbox">
+        <label for="cat-check-climatisation">Climatisation et chauffage</label>
+    </div>
+    <div class="checkbox-item">
+        <input type="checkbox" id="cat-check-gros-oeuvre" value="gros-oeuvre" class="category-checkbox">
+        <label for="cat-check-gros-oeuvre">Gros œuvre et maçonnerie</label>
+    </div>
+    <div class="checkbox-item">
+        <input type="checkbox" id="cat-check-isolation" value="isolation" class="category-checkbox">
+        <label for="cat-check-isolation">Isolation thermique et acoustique</label>
+    </div>
+    <div class="checkbox-item">
+        <input type="checkbox" id="cat-check-menuiserie" value="menuiserie" class="category-checkbox">
+        <label for="cat-check-menuiserie">Menuiseries et fermetures</label>
+    </div>
+    <div class="checkbox-item">
+        <input type="checkbox" id="cat-check-peinture" value="peinture" class="category-checkbox">
+        <label for="cat-check-peinture">Peinture et décoration</label>
+    </div>
+    <div class="checkbox-item">
+        <input type="checkbox" id="cat-check-revetements" value="revetements" class="category-checkbox">
+        <label for="cat-check-revetements">Revêtements de sols et parquets</label>
+    </div>
+    <div class="checkbox-item">
+        <input type="checkbox" id="cat-check-cuisine" value="cuisine" class="category-checkbox">
+        <label for="cat-check-cuisine">Cuisines et électroménager</label>
+    </div>
+    <div class="checkbox-item">
+        <input type="checkbox" id="cat-check-facade" value="facade" class="category-checkbox">
+        <label for="cat-check-facade">Ravalement de façades</label>
+    </div>
+    <div class="checkbox-item">
+        <input type="checkbox" id="cat-check-securite" value="securite" class="category-checkbox">
+        <label for="cat-check-securite">Systèmes de sécurité</label>
+    </div>
+    <div class="checkbox-item">
+        <input type="checkbox" id="cat-check-exterieur" value="exterieur" class="category-checkbox">
+        <label for="cat-check-exterieur">Aménagements extérieurs</label>
+    </div>
+    <div class="checkbox-item">
+        <input type="checkbox" id="cat-check-restauration" value="restauration" class="category-checkbox">
+        <label for="cat-check-restauration">Restauration mobilier ancien</label>
+    </div>
+    <div class="checkbox-item">
+        <input type="checkbox" id="cat-check-fourniture" value="fourniture" class="category-checkbox">
+        <label for="cat-check-fourniture">Fourniture de matériaux</label>
+    </div>
+    <div class="checkbox-item">
+        <input type="checkbox" id="cat-check-autre" value="autre" class="category-checkbox">
+        <label for="cat-check-autre">Autre (préciser ci-dessous)</label>
+    </div>
+</div>
                 
                 <label class="field-label">Description détaillée de la prestation *</label>
                 <textarea id="service-description" placeholder="Décrire précisément: nature des travaux, matériaux à utiliser, quantités, normes à respecter, spécifications techniques..." style="min-height: 120px;"></textarea>
@@ -1632,30 +1676,29 @@
                 }
             }
             
-            // Affichage obligations spécifiques par catégorie
-            function updateCategorySpecific() {
-                try {
-                    const categorySelect = document.getElementById('service-category');
-                    if (!categorySelect) return;
-                    
-                    const selectedCategory = categorySelect.value;
-                    
-                    // Masquer toutes les catégories
-                    document.querySelectorAll('.category-specific').forEach(function(el) {
-                        el.classList.remove('active');
-                    });
-                    
-                    // Afficher la catégorie sélectionnée
-                    if (selectedCategory) {
-                        const targetDiv = document.getElementById('cat-' + selectedCategory);
-                        if (targetDiv) {
-                            targetDiv.classList.add('active');
-                        }
-                    }
-                } catch (e) {
-                    console.warn('Category update error:', e);
-                }
+            // Affichage obligations spécifiques par catégorie (multi-sélection)
+function updateCategorySpecific() {
+    try {
+        // Masquer toutes les catégories
+        document.querySelectorAll('.category-specific').forEach(function(el) {
+            el.classList.remove('active');
+        });
+        
+        // Trouver toutes les checkbox cochées
+        const checkedBoxes = document.querySelectorAll('.category-checkbox:checked');
+        
+        // Afficher les catégories sélectionnées
+        checkedBoxes.forEach(function(checkbox) {
+            const categoryValue = checkbox.value;
+            const targetDiv = document.getElementById('cat-' + categoryValue);
+            if (targetDiv) {
+                targetDiv.classList.add('active');
             }
+        });
+    } catch (e) {
+        console.warn('Category update error:', e);
+    }
+}
             
             // Event listeners
             document.addEventListener('DOMContentLoaded', function() {
@@ -1685,13 +1728,15 @@
                         });
                     }
                     
-                    // Event sur catégorie service
-                    const categorySelect = document.getElementById('service-category');
-                    if (categorySelect) {
-                        categorySelect.addEventListener('change', updateCategorySpecific);
-                        // Initialiser l'affichage si une catégorie est déjà sélectionnée
-                        updateCategorySpecific();
-                    }
+                    // Event sur catégories service (checkbox multiple)
+const categoryCheckboxes = document.querySelectorAll('.category-checkbox');
+if (categoryCheckboxes.length > 0) {
+    categoryCheckboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', updateCategorySpecific);
+    });
+    // Initialiser l'affichage
+    updateCategorySpecific();
+}
                     
                 } catch (e) {
                     console.warn('Event setup error:', e);
