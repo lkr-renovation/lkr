@@ -1,0 +1,325 @@
+<!-- Website designed and developed by Riccardo Barlozzetti -->
+<!doctype html>
+<html lang="fr" data-lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Message envoyé - LKR Renovation Monaco</title>
+  <meta name="description" content="Merci pour votre message. L'équipe LKR vous répondra dans les plus brefs délais.">
+  <link rel="canonical" href="https://lkr.mc/merci.html">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="theme-color" content="#dc3545">
+  <meta name="robots" content="noindex, nofollow">
+  
+  <style>
+    :root {
+      --brand: #dc3545;
+      --brand2: #c82333;
+      --text: #2c3e50;
+      --muted: #6c757d;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: var(--text);
+    }
+    
+    .success-container {
+      max-width: 600px;
+      background: white;
+      border-radius: 24px;
+      padding: 60px 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.08);
+      text-align: center;
+      animation: fadeInUp 0.6s ease-out;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .success-icon {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 30px;
+      background: linear-gradient(135deg, #28a745, #20c997);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 50px;
+      color: white;
+      animation: scaleIn 0.5s ease-out 0.2s both;
+    }
+    
+    @keyframes scaleIn {
+      from {
+        transform: scale(0);
+      }
+      to {
+        transform: scale(1);
+      }
+    }
+    
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--brand);
+      font-weight: 700;
+    }
+    
+    p {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    
+    .info-box {
+      background: #f8f9fa;
+      border-left: 4px solid var(--brand);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 30px 0;
+      text-align: left;
+    }
+    
+    .info-box p {
+      font-size: 1rem;
+      margin: 0;
+    }
+    
+    .info-box strong {
+      color: var(--brand);
+      display: block;
+      margin-bottom: 8px;
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all .3s;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color: white;
+      box-shadow: 0 8px 20px rgba(220, 53, 69, .25);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(220, 53, 69, .35);
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: var(--text);
+      border: 2px solid #e9ecef;
+    }
+    
+    .btn-secondary:hover {
+      background: #f8f9fa;
+      border-color: var(--brand);
+    }
+    
+    .contact-info {
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 1px solid #e9ecef;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+    
+    .contact-info a {
+      color: var(--brand);
+      text-decoration: none;
+    }
+    
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+    
+    @media (max-width: 600px) {
+      .success-container {
+        padding: 40px 24px;
+      }
+      
+      h1 {
+        font-size: 1.6rem;
+      }
+      
+      p {
+        font-size: 1rem;
+      }
+      
+      .button-group {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="success-container">
+    <div class="success-icon">✓</div>
+    
+    <h1 data-i18n="title">Message envoyé avec succès !</h1>
+    
+    <p data-i18n="thanks">
+      Merci pour votre demande de contact.
+    </p>
+    
+    <p data-i18n="response">
+      Notre équipe vous répondra dans les <strong>plus brefs délais</strong>, généralement sous 24 heures.
+    </p>
+    
+    <div class="info-box">
+      <strong data-i18n="urgent">Besoin urgent ?</strong>
+      <p data-i18n="phone">
+        Appelez-nous directement au <a href="tel:+37764061565">+377 6 40 61 56 50</a>
+      </p>
+    </div>
+    
+    <div class="button-group">
+      <a href="/" class="btn btn-primary" data-i18n="home">Retour à l'accueil</a>
+      <a href="/services.html" class="btn btn-secondary" data-i18n="services">Nos services</a>
+    </div>
+    
+    <div class="contact-info">
+      <p>
+        <strong>LKR RENOVATION MC SARL</strong><br>
+        38 Boulevard des Moulins, 98000 Monaco<br>
+        <a href="mailto:info@lkr.mc">info@lkr.mc</a> • 
+        <a href="tel:+37764061565">+377 6 40 61 56 50</a>
+      </p>
+    </div>
+  </div>
+  
+  <script>
+    // I18N pour page merci
+    const I18N = {
+      fr: {
+        title: "Message envoyé avec succès !",
+        thanks: "Merci pour votre demande de contact.",
+        response: "Notre équipe vous répondra dans les plus brefs délais, généralement sous 24 heures.",
+        urgent: "Besoin urgent ?",
+        phone: "Appelez-nous directement au +377 6 40 61 56 50",
+        home: "Retour à l'accueil",
+        services: "Nos services"
+      },
+      it: {
+        title: "Messaggio inviato con successo!",
+        thanks: "Grazie per la vostra richiesta di contatto.",
+        response: "Il nostro team vi risponderà al più presto, generalmente entro 24 ore.",
+        urgent: "Bisogno urgente?",
+        phone: "Chiamateci direttamente al +377 6 40 61 56 50",
+        home: "Torna alla home",
+        services: "I nostri servizi"
+      },
+      en: {
+        title: "Message sent successfully!",
+        thanks: "Thank you for your contact request.",
+        response: "Our team will respond as soon as possible, usually within 24 hours.",
+        urgent: "Urgent need?",
+        phone: "Call us directly at +377 6 40 61 56 50",
+        home: "Back to home",
+        services: "Our services"
+      },
+      ru: {
+        title: "Сообщение успешно отправлено!",
+        thanks: "Благодарим вас за обращение.",
+        response: "Наша команда ответит в кратчайшие сроки, обычно в течение 24 часов.",
+        urgent: "Срочно?",
+        phone: "Позвоните нам по телефону +377 6 40 61 56 50",
+        home: "На главную",
+        services: "Наши услуги"
+      },
+      de: {
+        title: "Nachricht erfolgreich gesendet!",
+        thanks: "Vielen Dank für Ihre Kontaktanfrage.",
+        response: "Unser Team wird sich so schnell wie möglich bei Ihnen melden, normalerweise innerhalb von 24 Stunden.",
+        urgent: "Dringender Bedarf?",
+        phone: "Rufen Sie uns direkt an unter +377 6 40 61 56 50",
+        home: "Zurück zur Startseite",
+        services: "Unsere Dienstleistungen"
+      },
+      es: {
+        title: "¡Mensaje enviado con éxito!",
+        thanks: "Gracias por su solicitud de contacto.",
+        response: "Nuestro equipo le responderá lo antes posible, generalmente en 24 horas.",
+        urgent: "¿Necesidad urgente?",
+        phone: "Llámenos directamente al +377 6 40 61 56 50",
+        home: "Volver al inicio",
+        services: "Nuestros servicios"
+      }
+    };
+    
+    function detectBrowserLanguage() {
+      const browserLang = navigator.language || navigator.userLanguage;
+      const langCode = browserLang.split('-')[0];
+      const supportedLangs = ['fr', 'it', 'en', 'ru', 'de', 'es'];
+      return supportedLangs.includes(langCode) ? langCode : 'fr';
+    }
+    
+    function setLang(lang) {
+      document.documentElement.setAttribute('lang', lang);
+      document.documentElement.setAttribute('data-lang', lang);
+      
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const translation = I18N[lang][key];
+        if (translation) {
+          if (el.tagName === 'A' && el.classList.contains('btn')) {
+            el.textContent = translation;
+          } else {
+            el.innerHTML = translation;
+          }
+        }
+      });
+    }
+    
+    // Auto-detect e applica lingua
+    setLang(detectBrowserLanguage());
+    
+    // Auto-redirect alla home dopo 10 secondi (opzionale)
+    // setTimeout(() => { window.location.href = '/'; }, 10000);
+  </script>
+</body>
+</html>
