@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrat d'Apport d'Affaires - LKR RENOVATION MC SARL</title>
+    <!-- Website designed and developed by Riccardo Barlozzetti -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 14px;
+            line-height: 1.9;
+            color: #333;
+            background: white;
+            padding: 20px;
+        }
+
+        .contract-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border: 1px solid #ddd;
+        }
+
+        /* Header */
+        .header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: start;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #c41e3a;
+        }
+
+        .header-left img {
+            max-width: 180px;
+            height: auto;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .header-right strong {
+            font-size: 14px;
+            color: #c41e3a;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Title */
+        .contract-title {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .contract-title h1 {
+            font-size: 26px;
+            color: #c41e3a;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .contract-title .subtitle {
+            font-size: 16px;
+            color: #666;
+            font-weight: normal;
+        }
+
+        .contract-date {
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Articles */
+        .article {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .article h2 {
+            font-size: 16px;
+            color: #c41e3a;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f0f0f0;
+            font-weight: 600;
+        }
+
+        .article h3 {
+            font-size: 14px;
+            color: #333;
+            margin: 15px 0 8px 0;
+            font-weight: 600;
+        }
+
+        .article p {
+            margin-bottom: 10px;
+        }
+
+        .article ul {
+            margin-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        .article li {
+            margin-bottom: 6px;
+        }
+
+        /* Boxes */
+        .important-notice {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+
+        .critical-notice {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+
+        .definition-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .definition-box strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #2196F3;
+            font-size: 14px;
+        }
+
+        .success-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .success-box h3 {
+            color: #28a745;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        /* Grid parties */
+        .parties-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 20px 0;
+        }
+
+        .party-box {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        .party-box h3 {
+            color: #c41e3a;
+            margin-bottom: 12px;
+            font-size: 14px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+
+        .party-box p {
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        /* Input fields */
+        .input-group {
+            margin-bottom: 12px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 13px;
+        }
+
+        .input-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        /* Commission table */
+        .commission-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+
+        .commission-table th,
+        .commission-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .commission-table th {
+            background: #28a745;
+            color: white;
+            font-weight: 600;
+        }
+
+        .commission-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        /* Checkboxes */
+        .checkbox-group {
+            margin: 12px 0;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            padding: 8px 0;
+        }
+
+        .checkbox-group input[type="checkbox"],
+        .checkbox-group input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        /* Bank details */
+        .bank-details {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .bank-details h4 {
+            color: #c41e3a;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        /* Lead form */
+        .lead-form {
+            background: #f8f9fa;
+            border: 2px solid #c41e3a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .lead-form h3 {
+            color: #c41e3a;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* Signatures */
+        .signatures-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0 30px 0;
+            page-break-inside: avoid;
+        }
+
+        .signature-box {
+            border: 1px solid #ddd;
+            padding: 20px;
+            min-height: 150px;
+            border-radius: 4px;
+        }
+
+        .signature-box h4 {
+            color: #c41e3a;
+            margin-bottom: 15px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .signature-box p {
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .signature-line {
+            margin-top: 50px;
+            border-top: 2px solid #333;
+            padding-top: 8px;
+            text-align: center;
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        /* Legal refs */
+        .legal-ref {
+            font-size: 11px;
+            color: #888;
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #c41e3a;
+            text-align: center;
+            font-size: 11px;
+            color: #666;
+        }
+
+        /* Print button */
+        .print-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #c41e3a;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            z-index: 1000;
+        }
+
+        .print-button:hover {
+            background: #a01830;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(196, 30, 58, 0.4);
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                padding: 0;
+            }
+
+            .contract-container {
+                max-width: 100%;
+                border: none;
+                padding: 20px;
+            }
+
+            .print-button {
+                display: none;
+            }
+
+            .article {
+                page-break-inside: avoid;
+            }
+
+            .signatures-grid {
+                page-break-before: auto;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contract-container {
+                padding: 20px;
+            }
+
+            .header,
+            .parties-grid,
+            .signatures-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .header-right {
+                text-align: left;
+            }
+
+            .contract-title h1 {
+                font-size: 22px;
+            }
+
+            .print-button {
+                bottom: 15px;
+                right: 15px;
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-button" onclick="window.print()">🖨️ Imprimer</button>
+
+    <div class="contract-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <img src="https://lkr.mc/img/LKRorizzontalepiccolo.png" alt="LKR Renovation Monaco">
+            </div>
+            <div class="header-right">
+                <strong>LKR RENOVATION MC SARL</strong>
+                38, Boulevard des Moulins<br>
+                98000 Monaco<br>
+                RCI: 25S10110 | TVA: FR72000188879<br>
+                info@lkr.mc | +377 6 40 61 56 50
+            </div>
+        </div>
+
+        <!-- Title -->
+        <div class="contract-title">
+            <h1>Contrat d'Apport d'Affaires</h1>
+            <p class="subtitle">Convention de Commission Commerciale</p>
+        </div>
+
+        <div class="contract-date">
+            Fait à Monaco, le <span id="contract-date"></span>
+        </div>
+
+        <!-- Article 1 -->
+        <div class="article">
+            <h2>Article 1 - Identification des Parties</h2>
+            
+            <div class="parties-grid">
+                <div class="party-box">
+                    <h3>Le Bénéficiaire</h3>
+                    <p><strong>LKR RENOVATION MC SARL</strong></p>
+                    <p>SARL au capital de 15.000 €</p>
+                    <p>Siège social: 38, Boulevard des Moulins, 98000 Monaco</p>
+                    <p>RCI: 25S10110</p>
+                    <p>TVA: FR72000188879</p>
+                    <p>Représentée par: <strong>Luca Borella</strong>, Gérant</p>
+                    <p>Contact opérationnel: Riccardo Barlozzetti</p>
+                    <p>Email: rb@lkr.mc</p>
+                    <p>Téléphone: +33 6 80 86 37 70</p>
+                </div>
+
+                <div class="party-box">
+                    <h3>L'Apporteur d'Affaires</h3>
+                    
+                    <div class="input-group">
+                        <label>Nom complet / Raison sociale *</label>
+                        <input type="text" id="apporteur-nom" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Qualité / Profession *</label>
+                        <select id="apporteur-profession" required>
+                            <option value="">-- Sélectionner --</option>
+                            <option value="concierge">Concierge d'immeuble</option>
+                            <option value="gestionnaire">Gestionnaire copropriété</option>
+                            <option value="agent">Agent immobilier</option>
+                            <option value="property">Property manager</option>
+                            <option value="architecte">Architecte d'intérieur</option>
+                            <option value="contact">Contact privilégié</option>
+                            <option value="autre">Autre (préciser ci-dessous)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Statut juridique *</label>
+                        <select id="apporteur-statut" required>
+                            <option value="">-- Sélectionner --</option>
+                            <option value="physique">Personne physique</option>
+                            <option value="entreprise">Entreprise individuelle</option>
+                            <option value="societe">SARL/SAM/SAS</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>RCI ou N° TVA (si professionnel)</label>
+                        <input type="text" id="apporteur-rci">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Adresse complète *</label>
+                        <input type="text" id="apporteur-adresse" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Email *</label>
+                        <input type="email" id="apporteur-email" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Téléphone *</label>
+                        <input type="tel" id="apporteur-telephone" required>
+                    </div>
+                </div>
+            </div>
+
+            <p class="legal-ref">Base légale: Art. 1108 Code Civil Monaco + Loi courtage commercial Monaco</p>
+        </div>
+
+        <!-- Article 2 -->
+        <div class="article">
+            <h2>Article 2 - Objet du Contrat</h2>
+            
+            <p>Le présent contrat a pour objet de définir les conditions dans lesquelles l'Apporteur d'Affaires s'engage à présenter, recommander et mettre en relation LKR RENOVATION MC SARL avec des clients potentiels (prospects) susceptibles d'être intéressés par les services de rénovation proposés par LKR dans la Principauté de Monaco et zones limitrophes.</p>
+            
+            <p>L'Apporteur agit en qualité d'<strong>intermédiaire commercial indépendant</strong> et non comme salarié ou mandataire exclusif de LKR.</p>
+
+            <h3>Nature de la relation:</h3>
+            <div class="checkbox-group">
+                <label>
+                    <input type="radio" name="nature-relation" value="occasionnel" checked>
+                    Apport d'affaires occasionnel (au coup par coup)
+                </label>
+                <label>
+                    <input type="radio" name="nature-relation" value="regulier">
+                    Collaboration régulière continue
+                </label>
+                <label>
+                    <input type="radio" name="nature-relation" value="exclusivite" id="exclusivite-territoriale">
+                    Exclusivité territoriale (préciser zone): <input type="text" id="zone-exclusivite" style="width: 200px; margin-left: 10px;" placeholder="ex: Monte-Carlo">
+                </label>
+            </div>
+        </div>
+
+        <!-- Article 3 -->
+        <div class="article">
+            <h2>Article 3 - Définitions Essentielles</h2>
+            
+            <div class="definition-box">
+                <strong>📌 TERMES CLÉS</strong>
+                
+                <p><strong>Prospect:</strong> Toute personne physique ou morale identifiée par l'Apporteur comme susceptible d'être intéressée par les services de LKR.</p>
+                
+                <p><strong>Lead qualifié:</strong> Prospect ayant exprimé un intérêt concret pour un projet de rénovation et dont les coordonnées complètes ont été transmises à LKR avec autorisation de contact.</p>
+                
+                <p><strong>Client converti:</strong> Prospect devenu client effectif de LKR, c'est-à-dire ayant signé un contrat de prestation avec LKR.</p>
+                
+                <p><strong>Projet éligible:</strong> Projet de rénovation, rafraîchissement, coordination travaux ou services connexes proposés par LKR, d'un montant minimum de <input type="number" id="montant-minimum" value="5000" style="width: 100px;"> € HT.</p>
+                
+                <p><strong>Commission:</strong> Rémunération versée par LKR à l'Apporteur lors de la signature ET du paiement effectif par le client.</p>
+            </div>
+        </div>
+
+        <!-- Article 4 -->
+        <div class="article">
+            <h2>Article 4 - Obligations de l'Apporteur d'Affaires</h2>
+            
+            <p>L'Apporteur s'engage à:</p>
+
+            <h3>4.1 - Identification et recommandation</h3>
+            <ul>
+                <li>Identifier dans son réseau professionnel/personnel des prospects qualifiés susceptibles d'avoir des besoins en rénovation</li>
+                <li>Présenter LKR de manière positive et professionnelle</li>
+                <li>Fournir à LKR les coordonnées complètes du prospect (nom, téléphone, email, adresse bien à rénover) avec autorisation explicite de contact</li>
+            </ul>
+
+            <h3>4.2 - Qualité des leads</h3>
+            <ul>
+                <li>Transmettre uniquement des leads <strong>réels et qualifiés</strong> (projet concret, budget cohérent, autorisation de contact)</li>
+                <li>Ne pas transmettre de leads fictifs, non sérieux ou sans réel besoin</li>
+                <li>Vérifier préalablement que le prospect n'est pas déjà client ou en négociation avec LKR</li>
+            </ul>
+
+            <h3>4.3 - Information et transparence</h3>
+            <ul>
+                <li>Informer le prospect que LKR le contactera et obtenir son accord préalable</li>
+                <li>Ne pas promettre au prospect de prix, délais ou conditions que LKR n'a pas validés</li>
+                <li>Transmettre à LKR toute information utile sur le projet (nature travaux, budget indicatif, urgence)</li>
+            </ul>
+
+            <h3>4.4 - Non-interférence</h3>
+            <ul>
+                <li>Une fois le lead transmis, <strong>laisser LKR gérer intégralement</strong> la relation commerciale (devis, négociation, contrat)</li>
+                <li>Ne pas interférer dans les négociations commerciales entre LKR et le prospect</li>
+                <li>Ne pas court-circuiter LKR en orientant ensuite le prospect vers un concurrent</li>
+            </ul>
+
+            <h3>4.5 - Image et réputation</h3>
+            <ul>
+                <li>Agir de manière professionnelle et respectueuse de l'image de marque LKR</li>
+                <li>Ne jamais dénigrer LKR ou ses concurrents</li>
+                <li>Respecter la confidentialité des informations commerciales de LKR</li>
+            </ul>
+
+            <h3>4.6 - Respect de la légalité</h3>
+            <ul>
+                <li>Respecter la réglementation monégasque sur protection données personnelles (Loi 1.165)</li>
+                <li>Ne jamais utiliser de méthodes commerciales agressives, trompeuses ou illégales</li>
+                <li>Obtenir consentement RGPD du prospect avant transmission coordonnées</li>
+            </ul>
+        </div>
+
+        <!-- Article 5 -->
+        <div class="article">
+            <h2>Article 5 - Obligations de LKR RENOVATION MC SARL</h2>
+            
+            <p>LKR s'engage à:</p>
+
+            <h3>5.1 - Traitement professionnel des leads</h3>
+            <ul>
+                <li>Contacter chaque lead qualifié transmis dans un délai maximum de <strong>48 heures ouvrées</strong></li>
+                <li>Traiter chaque prospect avec professionnalisme et courtoisie</li>
+                <li>Fournir devis détaillés et propositions commerciales adaptées</li>
+            </ul>
+
+            <h3>5.2 - Information et traçabilité</h3>
+            <ul>
+                <li>Confirmer réception de chaque lead par email dans les 24h</li>
+                <li>Tenir informé l'Apporteur du statut du lead: Lead contacté / Devis envoyé / Négociation en cours / Contrat signé ✅ → Commission due / Prospect non intéressé/perdu ❌</li>
+                <li>Fournir numéro de référence unique pour chaque lead (tracking)</li>
+            </ul>
+
+            <h3>5.3 - Calcul et paiement commissions</h3>
+            <ul>
+                <li>Calculer les commissions selon barème Article 6</li>
+                <li>Payer les commissions selon modalités Article 7</li>
+                <li>Fournir relevé détaillé des commissions dues</li>
+            </ul>
+
+            <h3>5.4 - Confidentialité réciproque</h3>
+            <ul>
+                <li>Respecter confidentialité identité de l'Apporteur vis-à-vis du client (si souhaité)</li>
+                <li>Ne pas divulguer conditions commerciales du contrat d'apport d'affaires</li>
+            </ul>
+        </div>
+
+        <!-- Article 6 - CRITIQUE -->
+        <div class="article">
+            <h2>Article 6 - Barème des Commissions</h2>
+            
+            <div class="success-box">
+                <h3>💰 SYSTÈME DE COMMISSION - CALCUL SUR MONTANT HT SIGNÉ</h3>
+                
+                <p>La commission est calculée sur le <strong>montant total HT du contrat signé</strong> entre LKR et le client (hors TVA).</p>
+
+                <h4 style="margin-top: 20px; margin-bottom: 15px; color: #28a745;">BARÈME DÉGRESSIF PAR TRANCHE:</h4>
+
+                <table class="commission-table">
+                    <thead>
+                        <tr>
+                            <th>Montant Projet HT</th>
+                            <th>Taux Commission</th>
+                            <th>Exemple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>5.000€ - 19.999€ HT</td>
+                            <td><strong>10%</strong></td>
+                            <td>10.000€ → <strong>1.000€</strong></td>
+                        </tr>
+                        <tr>
+                            <td>20.000€ - 49.999€ HT</td>
+                            <td><strong>8%</strong></td>
+                            <td>30.000€ → <strong>2.400€</strong></td>
+                        </tr>
+                        <tr>
+                            <td>50.000€ - 99.999€ HT</td>
+                            <td><strong>6%</strong></td>
+                            <td>70.000€ → <strong>4.200€</strong></td>
+                        </tr>
+                        <tr>
+                            <td>100.000€ et plus</td>
+                            <td><strong>5%</strong></td>
+                            <td>150.000€ → <strong>7.500€</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4 style="margin-top: 25px; margin-bottom: 12px;">OU (option alternative - choisir UNE seule option):</h4>
+                
+                <div class="checkbox-group">
+                    <label>
+                        <input type="radio" name="type-commission" value="degressif" checked>
+                        Utiliser le barème dégressif ci-dessus
+                    </label>
+                    <label>
+                        <input type="radio" name="type-commission" value="forfaitaire">
+                        Commission forfaitaire unique: <input type="number" id="taux-forfaitaire" style="width: 60px; margin: 0 5px;" placeholder="7"> % sur tout montant HT
+                    </label>
+                    <label>
+                        <input type="radio" name="type-commission" value="fixe">
+                        Commission fixe par projet: <input type="number" id="montant-fixe" style="width: 100px; margin: 0 5px;" placeholder="1000"> € par contrat signé
+                    </label>
+                </div>
+            </div>
+
+            <h3>CONDITIONS DE VERSEMENT COMMISSION:</h3>
+            <p>✅ La commission est due UNIQUEMENT si:</p>
+            <ol>
+                <li>Le prospect transmis devient client effectif de LKR (contrat signé)</li>
+                <li>Le projet est d'un montant minimum de <span id="montant-min-display">5.000</span>€ HT</li>
+                <li>Le contrat est effectivement payé par le client (pas de commission sur impayés)</li>
+                <li>Le lead n'était pas déjà connu ou en cours de négociation chez LKR</li>
+            </ol>
+
+            <h3>PROJETS NON ÉLIGIBLES (pas de commission):</h3>
+            <ul>
+                <li>❌ Clients déjà existants de LKR avant transmission du lead</li>
+                <li>❌ Prospects déjà en cours de négociation avec LKR</li>
+                <li>❌ Projets < montant minimum défini</li>
+                <li>❌ Contrats annulés ou résiliés avant paiement client</li>
+                <li>❌ Impayés clients (commission versée uniquement sur montants effectivement encaissés par LKR)</li>
+            </ul>
+
+            <h3>CAS PARTICULIER - PROJETS EN PLUSIEURS PHASES:</h3>
+            <p>Si un client réalise plusieurs projets successifs suite à un même apport initial:</p>
+            <div class="checkbox-group">
+                <label>
+                    <input type="radio" name="projets-multiples" value="premier" checked>
+                    Commission uniquement sur le 1er projet
+                </label>
+                <label>
+                    <input type="radio" name="projets-multiples" value="periode">
+                    Commission sur tous les projets pendant <input type="number" id="duree-periode" value="12" style="width: 60px; margin: 0 5px;"> mois suivant 1er contact
+                </label>
+                <label>
+                    <input type="radio" name="projets-multiples" value="negocier">
+                    Commission à négocier au cas par cas
+                </label>
+            </div>
+        </div>
+
+        <!-- Article 7 -->
+        <div class="article">
+            <h2>Article 7 - Modalités de Paiement des Commissions</h2>
+            
+            <h3>7.1 - Déclenchement du paiement</h3>
+            <p>La commission devient exigible lorsque les 3 conditions suivantes sont réunies:</p>
+            <ol>
+                <li><strong>Contrat signé</strong> entre LKR et le client</li>
+                <li><strong>Travaux réalisés et réceptionnés</strong> (ou service délivré)</li>
+                <li><strong>Paiement effectif encaissé</strong> par LKR (totalité ou partie significative >70%)</li>
+            </ol>
+
+            <h3>7.2 - Délai de paiement</h3>
+            <p>LKR versera la commission dans un délai de:</p>
+            <div class="checkbox-group">
+                <label>
+                    <input type="radio" name="delai-paiement" value="30j" checked>
+                    30 jours après encaissement final du client
+                </label>
+                <label>
+                    <input type="radio" name="delai-paiement" value="45j">
+                    45 jours après encaissement final
+                </label>
+                <label>
+                    <input type="radio" name="delai-paiement" value="mensuel">
+                    Mensuellement (récapitulatif des projets du mois)
+                </label>
+            </div>
+
+            <h3>7.3 - Modalités pratiques</h3>
+            <ul>
+                <li>Émission d'un relevé de commissions par LKR mentionnant: projet, client (initiales), montant HT, taux, commission</li>
+                <li>Paiement par virement bancaire sur compte de l'Apporteur</li>
+                <li>Si Apporteur = professionnel assujetti TVA → facture obligatoire de l'Apporteur vers LKR</li>
+                <li>Si Apporteur = particulier → pas de facture, versement direct avec relevé</li>
+            </ul>
+
+            <h3>7.4 - Coordonnées bancaires Apporteur</h3>
+            <div class="bank-details">
+                <h4>Informations Bancaires</h4>
+                <div class="input-group">
+                    <label>Bénéficiaire</label>
+                    <input type="text" id="bank-beneficiaire">
+                </div>
+                <div class="input-group">
+                    <label>IBAN</label>
+                    <input type="text" id="bank-iban" placeholder="MC58 1234 5678 9012 3456 7890 123">
+                </div>
+                <div class="input-group">
+                    <label>BIC</label>
+                    <input type="text" id="bank-bic" placeholder="AGRIFRPP">
+                </div>
+                <div class="input-group">
+                    <label>Banque</label>
+                    <input type="text" id="bank-nom">
+                </div>
+            </div>
+
+            <h3>7.5 - Aspects fiscaux</h3>
+            <div class="important-notice">
+                <strong>⚠️ FISCALITÉ - RESPONSABILITÉ DE L'APPORTEUR:</strong>
+                <ul style="margin-top: 10px;">
+                    <li>L'Apporteur est seul responsable de la déclaration fiscale de ses commissions auprès des autorités compétentes (Monaco, France ou autre pays de résidence fiscale)</li>
+                    <li>LKR ne pratique aucune retenue à la source (sauf obligation légale spécifique)</li>
+                    <li>Si Apporteur professionnel: facturation avec TVA si assujetti</li>
+                    <li>Si Apporteur particulier: déclaration en revenus complémentaires selon législation applicable</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Article 8 -->
+        <div class="article">
+            <h2>Article 8 - Durée du Contrat</h2>
+            
+            <h3>8.1 - Durée initiale</h3>
+            <p>Le présent contrat est conclu pour une durée:</p>
+            <div class="checkbox-group">
+                <label>
+                    <input type="radio" name="duree-contrat" value="indeterminee" checked>
+                    Indéterminée (CDI)
+                </label>
+                <label>
+                    <input type="radio" name="duree-contrat" value="determinee">
+                    Déterminée de <input type="number" id="duree-mois" value="12" style="width: 60px; margin: 0 5px;"> mois à compter de la signature
+                </label>
+            </div>
+
+            <h3>8.2 - Renouvellement</h3>
+            <p>Si durée déterminée: reconduction tacite par périodes de <input type="number" id="renouvellement-mois" value="12" style="width: 60px;"> mois sauf dénonciation par l'une des parties avec préavis de <input type="number" id="preavis-renouvellement" value="30" style="width: 60px;"> jours par LRAR.</p>
+
+            <h3>8.3 - Période d'essai (optionnel)</h3>
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" id="periode-essai">
+                    Période d'essai de <input type="number" id="duree-essai" value="3" style="width: 60px; margin: 0 5px;"> mois durant laquelle chaque partie peut résilier sans motif ni indemnité avec préavis de <input type="number" id="preavis-essai" value="15" style="width: 60px; margin: 0 5px;"> jours
+                </label>
+            </div>
+        </div>
+
+        <!-- Article 9 -->
+        <div class="article">
+            <h2>Article 9 - Exclusivité et Non-Concurrence</h2>
+            
+            <h3>9.1 - Exclusivité (optionnel)</h3>
+            <div class="checkbox-group">
+                <label>
+                    <input type="radio" name="exclusivite" value="pas" checked>
+                    <strong>PAS d'exclusivité:</strong> L'Apporteur peut recommander d'autres entreprises concurrentes de LKR
+                </label>
+                <label>
+                    <input type="radio" name="exclusivite" value="partielle">
+                    <strong>Exclusivité partielle Monaco:</strong> L'Apporteur s'engage à recommander prioritairement LKR pour projets rénovation Monaco, mais peut recommander concurrents pour projets hors Monaco ou hors périmètre LKR
+                </label>
+                <label>
+                    <input type="radio" name="exclusivite" value="totale">
+                    <strong>Exclusivité totale:</strong> L'Apporteur s'engage à recommander EXCLUSIVEMENT LKR pour tous projets rénovation (contrepartie: majoration commission de +<input type="number" id="majoration-exclusivite" value="2" style="width: 60px; margin: 0 5px;">%)
+                </label>
+            </div>
+
+            <h3>9.2 - Non-démarchage clients LKR</h3>
+            <p>L'Apporteur s'interdit formellement de:</p>
+            <ul>
+                <li>Démarcher les clients existants de LKR pour les orienter vers concurrents</li>
+                <li>Utiliser la base clients LKR dont il aurait eu connaissance</li>
+                <li>Détourner un prospect après l'avoir transmis à LKR</li>
+            </ul>
+            <p>Durée engagement: pendant durée contrat + <input type="number" id="duree-non-concurrence" value="24" style="width: 60px;"> mois après fin contrat</p>
+            <p><strong>Sanction:</strong> Indemnité forfaitaire de <input type="number" id="indemnite-non-concurrence" value="5000" style="width: 100px;"> € + restitution commissions perçues sur leads détournés</p>
+        </div>
+
+        <!-- Article 10 -->
+        <div class="article">
+            <h2>Article 10 - Confidentialité</h2>
+            
+            <p>Obligation stricte de confidentialité pendant durée contrat + <input type="number" id="duree-confidentialite" value="3" style="width: 60px;"> ans après terme.</p>
+
+            <h3>Informations couvertes:</h3>
+            <ul>
+                <li>Conditions commerciales et commissions du présent contrat</li>
+                <li>Informations sur clients et prospects LKR</li>
+                <li>Méthodes commerciales, tarifs, marges LKR</li>
+                <li>Toute information sensible découverte dans le cadre de la collaboration</li>
+            </ul>
+
+            <p><strong>Sanction:</strong> Dommages-intérêts selon préjudice + résiliation immédiate</p>
+
+            <p class="legal-ref">Base légale: Art. 1134 Code Civil Monaco (bonne foi contractuelle)</p>
+        </div>
+
+        <!-- Article 11 -->
+        <div class="article">
+            <h2>Article 11 - Indépendance des Parties</h2>
+            
+            <div class="important-notice">
+                <strong>STATUT D'INDÉPENDANT - PAS DE LIEN DE SUBORDINATION</strong>
+                
+                <p style="margin-top: 10px;">Il est expressément convenu que:</p>
+                <ul>
+                    <li>L'Apporteur agit en toute <strong>indépendance juridique et commerciale</strong></li>
+                    <li>Il n'existe <strong>aucun lien de subordination</strong> entre LKR et l'Apporteur</li>
+                    <li>L'Apporteur <strong>n'est pas salarié</strong> de LKR</li>
+                    <li>L'Apporteur <strong>n'est pas mandataire exclusif</strong> de LKR (sauf mention contraire)</li>
+                    <li>L'Apporteur organise librement son activité (horaires, méthodes, prospection)</li>
+                    <li>L'Apporteur <strong>supporte ses propres frais</strong> (déplacements, communication, etc.)</li>
+                </ul>
+                
+                <p style="margin-top: 10px;"><strong>Conséquences:</strong></p>
+                <ul>
+                    <li>Pas de charges sociales employeur pour LKR</li>
+                    <li>Pas de congés payés ni indemnités rupture (sauf accord spécifique)</li>
+                    <li>Responsabilité propre de l'Apporteur pour ses actes</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Article 12 -->
+        <div class="article">
+            <h2>Article 12 - Résiliation</h2>
+            
+            <h3>12.1 - Résiliation libre (si CDI)</h3>
+            <p>Chaque partie peut résilier le contrat à tout moment moyennant préavis de:</p>
+            <ul>
+                <li><input type="number" id="preavis-resiliation" value="30" style="width: 60px;"> jours calendaires par lettre recommandée avec AR</li>
+                <li>Sans motif ni indemnité</li>
+                <li>Commissions sur projets en cours restent acquises selon avancement</li>
+            </ul>
+
+            <h3>12.2 - Résiliation immédiate pour faute grave</h3>
+            <p>Résiliation immédiate sans préavis ni indemnité en cas de:</p>
+            <ul>
+                <li>Manquement grave aux obligations contractuelles</li>
+                <li>Transmission leads fictifs ou frauduleux de manière répétée</li>
+                <li>Violation confidentialité ou non-concurrence</li>
+                <li>Comportement nuisant gravement à image de LKR</li>
+                <li>Pratiques commerciales illégales ou contraires à la déontologie</li>
+            </ul>
+
+            <h3>12.3 - Sort des commissions en cours</h3>
+            <p>En cas de résiliation:</p>
+            <ul>
+                <li>Commissions sur contrats déjà signés avant résiliation: <strong>acquises et payables normalement</strong></li>
+                <li>Leads transmis mais pas encore convertis: <strong>pas de commission</strong> (sauf si conversion intervient dans les <input type="number" id="delai-post-resiliation" value="60" style="width: 60px;"> jours suivant résiliation)</li>
+            </ul>
+        </div>
+
+        <!-- Article 13 -->
+        <div class="article">
+            <h2>Article 13 - Responsabilité</h2>
+            
+            <h3>13.1 - Responsabilité de l'Apporteur</h3>
+            <p>L'Apporteur est responsable de:</p>
+            <ul>
+                <li>Exactitude et licéité des informations transmises</li>
+                <li>Obtention consentements RGPD</li>
+                <li>Ses propres déclarations fiscales et sociales</li>
+            </ul>
+
+            <h3>13.2 - Limitation responsabilité LKR</h3>
+            <p>LKR ne peut être tenu responsable:</p>
+            <ul>
+                <li>Du refus d'un prospect de donner suite</li>
+                <li>De l'échec d'une négociation commerciale avec un prospect</li>
+                <li>Des délais de conversion lead → client</li>
+                <li>De la qualité finale perçue par le client (hors faute LKR)</li>
+            </ul>
+        </div>
+
+        <!-- Article 14 -->
+        <div class="article">
+            <h2>Article 14 - Protection Données Personnelles (RGPD)</h2>
+            
+            <p>Conforme Loi n° 1.165 Monaco + RGPD européen:</p>
+
+            <h3>L'Apporteur s'engage à:</h3>
+            <ul>
+                <li>Obtenir consentement explicite prospect avant transmission coordonnées à LKR</li>
+                <li>Informer prospect de transmission coordonnées à LKR pour contact commercial</li>
+                <li>Ne constituer aucun fichier client de son côté</li>
+                <li>Supprimer données prospects après transmission à LKR</li>
+            </ul>
+
+            <h3>LKR s'engage à:</h3>
+            <ul>
+                <li>Utiliser coordonnées prospects uniquement pour contact commercial légitime</li>
+                <li>Respecter droit d'accès, rectification, suppression des prospects</li>
+                <li>Ne pas revendre base de données prospects</li>
+            </ul>
+
+            <p class="legal-ref">Loi n° 1.165 du 23 décembre 1993 sur la protection des informations nominatives</p>
+        </div>
+
+        <!-- Article 15 -->
+        <div class="article">
+            <h2>Article 15 - Cession du Contrat</h2>
+            
+            <p>Le présent contrat est conclu <em>intuitu personae</em>.</p>
+            <ul>
+                <li>Apporteur <strong>ne peut céder</strong> sans accord écrit préalable de LKR</li>
+                <li>LKR peut céder librement (fusion, acquisition, cession fonds commerce)</li>
+            </ul>
+        </div>
+
+        <!-- Article 16 -->
+        <div class="article">
+            <h2>Article 16 - Règlement des Litiges</h2>
+            
+            <h3>16.1 - Tentative amiable</h3>
+            <p>En cas de désaccord (calcul commission, interprétation clause): négociation amiable obligatoire pendant 30 jours.</p>
+
+            <h3>16.2 - Juridiction compétente</h3>
+            <p>À défaut d'accord amiable: <strong>Tribunaux de Monaco compétence exclusive</strong></p>
+
+            <h3>16.3 - Droit applicable</h3>
+            <p>Contrat régi par <strong>droit monégasque</strong></p>
+
+            <p class="legal-ref">Code Civil Monaco, Code de Commerce Monaco</p>
+        </div>
+
+        <!-- Article 17 -->
+        <div class="article">
+            <h2>Article 17 - Dispositions Finales</h2>
+            
+            <h3>17.1 - Intégralité de l'accord</h3>
+            <p>Le présent contrat constitue l'accord intégral entre les parties et annule tous accords verbaux ou écrits antérieurs portant sur le même objet.</p>
+
+            <h3>17.2 - Modification</h3>
+            <p>Toute modification doit faire l'objet d'un avenant écrit signé par les deux parties.</p>
+
+            <h3>17.3 - Nullité partielle</h3>
+            <p>Si une clause est déclarée nulle ou inapplicable, les autres clauses restent valides et applicables.</p>
+
+            <h3>17.4 - Non-renonciation</h3>
+            <p>Le fait pour l'une des parties de ne pas se prévaloir d'une clause du présent contrat ne vaut pas renonciation à s'en prévaloir ultérieurement.</p>
+
+            <h3>17.5 - Langue du contrat</h3>
+            <p>Le présent contrat est rédigé en langue française qui fait foi en cas de litige.</p>
+        </div>
+
+        <!-- ANNEXE - Lead Form -->
+        <div class="article">
+            <h2>Annexe - Fiche de Transmission Lead</h2>
+            
+            <div class="lead-form">
+                <h3>📋 FICHE TRANSMISSION LEAD</h3>
+                
+                <div class="input-group">
+                    <label>Date de transmission</label>
+                    <input type="date" id="lead-date">
+                </div>
+
+                <div class="input-group">
+                    <label>Apporteur (auto-rempli)</label>
+                    <input type="text" id="lead-apporteur" readonly style="background: #f5f5f5;">
+                </div>
+
+                <div class="input-group">
+                    <label>Référence Lead</label>
+                    <input type="text" id="lead-reference" readonly style="background: #f5f5f5;" placeholder="LKR-LEAD-2025-XXX">
+                </div>
+
+                <h4 style="margin-top: 20px; margin-bottom: 12px; color: #c41e3a;">INFORMATIONS PROSPECT</h4>
+
+                <div class="input-group">
+                    <label>Nom / Prénom *</label>
+                    <input type="text" id="lead-nom">
+                </div>
+
+                <div class="input-group">
+                    <label>Téléphone *</label>
+                    <input type="tel" id="lead-telephone">
+                </div>
+
+                <div class="input-group">
+                    <label>Email *</label>
+                    <input type="email" id="lead-email">
+                </div>
+
+                <div class="input-group">
+                    <label>Adresse bien à rénover *</label>
+                    <input type="text" id="lead-adresse">
+                </div>
+
+                <div class="input-group">
+                    <label>Type de bien</label>
+                    <select id="lead-type-bien">
+                        <option value="">-- Sélectionner --</option>
+                        <option value="appartement">Appartement</option>
+                        <option value="villa">Villa / Maison</option>
+                        <option value="bureau">Bureau / Local commercial</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Surface approximative (m²)</label>
+                    <input type="number" id="lead-surface" placeholder="ex: 85">
+                </div>
+
+                <h4 style="margin-top: 20px; margin-bottom: 12px; color: #c41e3a;">DÉTAILS PROJET</h4>
+
+                <div class="input-group">
+                    <label>Nature des travaux</label>
+                    <textarea id="lead-travaux" placeholder="ex: Rénovation complète salle de bains, peinture appartement, parquet..."></textarea>
+                </div>
+
+                <div class="input-group">
+                    <label>Budget indicatif (€)</label>
+                    <input type="number" id="lead-budget" placeholder="ex: 25000">
+                </div>
+
+                <div class="input-group">
+                    <label>Urgence du projet</label>
+                    <select id="lead-urgence">
+                        <option value="">-- Sélectionner --</option>
+                        <option value="immediat">Immédiate (< 1 mois)</option>
+                        <option value="court">Court terme (1-3 mois)</option>
+                        <option value="moyen">Moyen terme (3-6 mois)</option>
+                        <option value="long">Pas d'urgence (> 6 mois)</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Observations complémentaires</label>
+                    <textarea id="lead-observations" placeholder="Toute information utile pour LKR..."></textarea>
+                </div>
+
+                <div class="checkbox-group" style="margin-top: 20px;">
+                    <label>
+                        <input type="checkbox" id="lead-consent" required>
+                        <strong>☑ Le prospect a donné son accord explicite pour être contacté par LKR (consentement RGPD obtenu)</strong>
+                    </label>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 30px;">Documents annexés:</h3>
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" id="doc-rci">
+                    Copie RCI/SIRET Apporteur (si professionnel)
+                </label>
+                <label>
+                    <input type="checkbox" id="doc-rib">
+                    RIB/IBAN pour paiement commissions
+                </label>
+                <label>
+                    <input type="checkbox" id="doc-statut">
+                    Attestation statut indépendant (si applicable)
+                </label>
+            </div>
+        </div>
+
+        <!-- Acceptance Box -->
+        <div class="article">
+            <div class="important-notice">
+                <strong>DÉCLARATION DES PARTIES</strong>
+                <p style="margin-top: 10px;">Les soussignés déclarent avoir lu et accepté l'intégralité des termes du présent contrat d'apport d'affaires.</p>
+                <p style="margin-top: 10px;"><strong>Lu et approuvé, bon pour accord.</strong></p>
+            </div>
+        </div>
+
+        <!-- Signatures -->
+        <div class="signatures-grid">
+            <div class="signature-box">
+                <h4>Pour LKR RENOVATION MC SARL</h4>
+                <p><strong>Nom:</strong> <input type="text" id="signataire-lkr" value="Luca Borella" style="width: 100%;"></p>
+                <p><strong>Qualité:</strong> <input type="text" id="qualite-lkr" value="Gérant" style="width: 100%;"></p>
+                <p><strong>Date:</strong> <input type="date" id="date-signature-lkr"></p>
+                <div class="signature-line">Signature et cachet</div>
+            </div>
+
+            <div class="signature-box">
+                <h4>Pour l'Apporteur d'Affaires</h4>
+                <p><strong>Nom:</strong> <input type="text" id="signataire-apporteur" style="width: 100%;"></p>
+                <p><strong>Qualité:</strong> <input type="text" id="qualite-apporteur" placeholder="ex: Concierge" style="width: 100%;"></p>
+                <p><strong>Date:</strong> <input type="date" id="date-signature-apporteur"></p>
+                <div class="signature-line">Signature</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>LKR RENOVATION MC SARL</strong> - 38, Boulevard des Moulins, 98000 Monaco</p>
+            <p>RCI: 25S10110 | TVA: FR72000188879 | info@lkr.mc | +377 6 40 61 56 50</p>
+            <p style="margin-top: 10px; font-size: 10px; color: #999;">Document confidentiel - Ne pas diffuser sans autorisation</p>
+        </div>
+    </div>
+
+    <script>
+        // Error handling wrapper
+        function safeExecute(fn, errorMessage) {
+            try {
+                fn();
+            } catch (error) {
+                console.error(errorMessage, error);
+            }
+        }
+
+        // Set current date
+        safeExecute(() => {
+            const today = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = today.toLocaleDateString('fr-FR', options);
+            document.getElementById('contract-date').textContent = dateString;
+        }, 'Erreur lors du paramétrage de la date');
+
+        // Auto-fill lead apporteur name
+        safeExecute(() => {
+            const apporteurNom = document.getElementById('apporteur-nom');
+            const leadApporteur = document.getElementById('lead-apporteur');
+            
+            if (apporteurNom && leadApporteur) {
+                apporteurNom.addEventListener('input', function() {
+                    leadApporteur.value = this.value;
+                });
+            }
+        }, 'Erreur lors de la synchronisation du nom apporteur');
+
+        // Generate lead reference
+        safeExecute(() => {
+            const leadReference = document.getElementById('lead-reference');
+            if (leadReference) {
+                const year = new Date().getFullYear();
+                const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+                leadReference.value = `LKR-LEAD-${year}-${random}`;
+            }
+        }, 'Erreur lors de la génération de la référence lead');
+
+        // Update montant minimum display
+        safeExecute(() => {
+            const montantMinInput = document.getElementById('montant-minimum');
+            const montantMinDisplay = document.getElementById('montant-min-display');
+            
+            if (montantMinInput && montantMinDisplay) {
+                montantMinInput.addEventListener('input', function() {
+                    montantMinDisplay.textContent = this.value;
+                });
+            }
+        }, 'Erreur lors de la mise à jour du montant minimum');
+
+        // Commission calculator
+        safeExecute(() => {
+            function calculateCommission(montant) {
+                let commission = 0;
+                if (montant >= 5000 && montant < 20000) {
+                    commission = montant * 0.10;
+                } else if (montant >= 20000 && montant < 50000) {
+                    commission = montant * 0.08;
+                } else if (montant >= 50000 && montant < 100000) {
+                    commission = montant * 0.06;
+                } else if (montant >= 100000) {
+                    commission = montant * 0.05;
+                }
+                return commission;
+            }
+
+            // You can add interactive commission calculator here if needed
+            window.calculateCommission = calculateCommission;
+        }, 'Erreur lors de l\'initialisation du calculateur de commission');
+
+        // Email validation
+        safeExecute(() => {
+            const emailInputs = document.querySelectorAll('input[type="email"]');
+            emailInputs.forEach(input => {
+                input.addEventListener('blur', function() {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (this.value && !emailRegex.test(this.value)) {
+                        this.style.borderColor = '#dc3545';
+                    } else {
+                        this.style.borderColor = '#ccc';
+                    }
+                });
+            });
+        }, 'Erreur lors de la validation des emails');
+
+        // Phone validation
+        safeExecute(() => {
+            const phoneInputs = document.querySelectorAll('input[type="tel"]');
+            phoneInputs.forEach(input => {
+                input.addEventListener('blur', function() {
+                    const phoneRegex = /^[\+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,9}$/;
+                    if (this.value && !phoneRegex.test(this.value)) {
+                        this.style.borderColor = '#dc3545';
+                    } else {
+                        this.style.borderColor = '#ccc';
+                    }
+                });
+            });
+        }, 'Erreur lors de la validation des téléphones');
+
+        // Auto-set today's date in date inputs
+        safeExecute(() => {
+            const today = new Date().toISOString().split('T')[0];
+            const dateInputs = ['lead-date', 'date-signature-lkr', 'date-signature-apporteur'];
+            dateInputs.forEach(id => {
+                const input = document.getElementById(id);
+                if (input && !input.value) {
+                    input.value = today;
+                }
+            });
+        }, 'Erreur lors du paramétrage des dates par défaut');
+
+        // Lead consent checkbox requirement
+        safeExecute(() => {
+            const consentCheckbox = document.getElementById('lead-consent');
+            if (consentCheckbox) {
+                consentCheckbox.addEventListener('change', function() {
+                    if (!this.checked) {
+                        alert('Le consentement RGPD du prospect est obligatoire pour transmettre le lead à LKR.');
+                    }
+                });
+            }
+        }, 'Erreur lors de la gestion du consentement RGPD');
+
+        // Print preparation
+        safeExecute(() => {
+            window.addEventListener('beforeprint', function() {
+                console.log('Préparation du document pour impression...');
+            });
+
+            window.addEventListener('afterprint', function() {
+                console.log('Impression terminée ou annulée.');
+            });
+        }, 'Erreur lors de la gestion de l\'impression');
+
+        console.log('✅ Contrat d\'Apport d\'Affaires LKR initialisé avec succès');
+    </script>
+</body>
+</html>
