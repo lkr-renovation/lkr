@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avenant au Contrat - LKR Renovation MC</title>
+    <!-- Website designed and developed by Riccardo Barlozzetti -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #ffffff;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #dc3545;
+        }
+
+        .logo-left {
+            max-width: 180px;
+            height: auto;
+        }
+
+        .company-info {
+            text-align: right;
+            font-size: 11px;
+            color: #666;
+        }
+
+        .company-info strong {
+            color: #2c3e50;
+            font-size: 13px;
+        }
+
+        /* Title */
+        .doc-title {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            color: white;
+            border-radius: 8px;
+        }
+
+        .doc-title h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .doc-number {
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .avenant-number {
+            background: white;
+            color: #dc3545;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .counter-controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .counter-controls button {
+            background: white;
+            color: #dc3545;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .counter-controls button:hover {
+            background: #f8f9fa;
+        }
+
+        /* Sections */
+        .section {
+            margin: 25px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-left: 4px solid #dc3545;
+            border-radius: 5px;
+        }
+
+        .section h2 {
+            color: #dc3545;
+            font-size: 16px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Form Elements */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #2c3e50;
+            font-size: 13px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #dee2e6;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #dc3545;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        /* Checkboxes */
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: white;
+            border: 2px solid #dee2e6;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .checkbox-item:hover {
+            border-color: #dc3545;
+            background: #fff5f5;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .checkbox-item label {
+            cursor: pointer;
+            font-weight: normal;
+            margin: 0;
+            flex: 1;
+        }
+
+        /* Financial Table */
+        .financial-table {
+            width: 100%;
+            margin: 20px 0;
+            background: white;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .financial-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .financial-table th {
+            background: #dc3545;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        .financial-table td {
+            padding: 12px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .financial-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .financial-table .label-col {
+            font-weight: bold;
+            color: #2c3e50;
+            width: 50%;
+        }
+
+        .financial-table .amount-col {
+            text-align: right;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .financial-table .amount-col input {
+            text-align: right;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .total-row {
+            background: #fff5f5 !important;
+        }
+
+        .total-row td {
+            font-size: 18px;
+            color: #dc3545;
+            border-top: 3px solid #dc3545 !important;
+        }
+
+        /* Date Calculator */
+        .date-calculator {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .date-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto 1fr;
+            gap: 15px;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .date-operator {
+            font-size: 24px;
+            font-weight: bold;
+            color: #dc3545;
+            text-align: center;
+        }
+
+        .result-date {
+            background: #fff5f5;
+            padding: 10px;
+            border: 2px solid #dc3545;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            color: #dc3545;
+            font-size: 16px;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #0066cc;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .info-box p {
+            margin: 5px 0;
+            font-size: 13px;
+            color: #004080;
+        }
+
+        /* Signatures */
+        .signatures {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+            page-break-inside: avoid;
+        }
+
+        .signature-block {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .signature-block h3 {
+            font-size: 14px;
+            color: #dc3545;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .signature-line {
+            margin-top: 60px;
+            padding-top: 10px;
+            border-top: 2px solid #2c3e50;
+        }
+
+        .signature-info {
+            font-size: 12px;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .action-buttons button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-print {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-print:hover {
+            background: #c82333;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+        }
+
+        .btn-reset {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-reset:hover {
+            background: #5a6268;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+
+            .action-buttons,
+            .counter-controls {
+                display: none !important;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+
+            .signatures {
+                page-break-inside: avoid;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .form-row,
+            .signatures {
+                grid-template-columns: 1fr;
+            }
+
+            .date-row {
+                grid-template-columns: 1fr;
+            }
+
+            .date-operator {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="https://lkr.mc/img/LKRorizzontalepiccolo.png" alt="LKR Renovation" class="logo-left">
+            <div class="company-info">
+                <strong>LKR RENOVATION MC SARL</strong><br>
+                38, Boulevard des Moulins<br>
+                98000 Monaco<br>
+                RCI: 25S10110<br>
+                TVA: FR72000188879<br>
+                info@lkr.mc | +377 6 40 61 56 50
+            </div>
+        </div>
+
+        <!-- Title -->
+        <div class="doc-title">
+            <h1>Avenant au Contrat</h1>
+            <div class="doc-number">
+                <span>AVENANT N°</span>
+                <span class="avenant-number" id="avenantNumber">1</span>
+            </div>
+            <div class="counter-controls">
+                <button onclick="decrementCounter()">← Précédent</button>
+                <button onclick="incrementCounter()">Suivant →</button>
+                <button onclick="resetCounter()">Reset</button>
+            </div>
+        </div>
+
+        <!-- Article 1: Références du Contrat Initial -->
+        <div class="section">
+            <h2>Article 1 - Références du Contrat Initial</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>N° Contrat Initial:</label>
+                    <input type="text" id="contractNumber" placeholder="Ex: LKR-2025-001">
+                </div>
+                <div class="form-group">
+                    <label>Date Signature Contrat:</label>
+                    <input type="date" id="contractDate">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Client:</label>
+                    <input type="text" id="clientName" placeholder="Nom et Prénom / Raison Sociale">
+                </div>
+                <div class="form-group">
+                    <label>Adresse du Bien:</label>
+                    <input type="text" id="propertyAddress" placeholder="Adresse complète">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Objet Contrat Initial:</label>
+                <textarea id="initialObject" placeholder="Description brève des travaux du contrat initial..."></textarea>
+            </div>
+        </div>
+
+        <!-- Article 2: Objet de l'Avenant -->
+        <div class="section">
+            <h2>Article 2 - Objet de l'Avenant</h2>
+            <p style="margin-bottom: 15px; font-size: 14px;">Sélectionner le(s) type(s) de modification(s) concerné(s):</p>
+            
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="modif-technique" onchange="toggleSection('tech-section')">
+                    <label for="modif-technique">Modifications Techniques (matériaux, méthodes, prestations)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="modif-financial" onchange="toggleSection('financial-section')">
+                    <label for="modif-financial">Modifications Financières (augmentation/diminution montant)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="modif-temporal" onchange="toggleSection('temporal-section')">
+                    <label for="modif-temporal">Modifications Temporelles (proroga délais, dates)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="modif-prestations" onchange="toggleSection('prestations-section')">
+                    <label for="modif-prestations">Modifications Prestations (ajouts/suppressions)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="modif-autre" onchange="toggleSection('autre-section')">
+                    <label for="modif-autre">Autre (préciser)</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Article 3: Modifications Techniques -->
+        <div class="section" id="tech-section" style="display:none;">
+            <h2>Article 3 - Modifications Techniques</h2>
+            <div class="form-group">
+                <label>Description Détaillée des Modifications Techniques:</label>
+                <textarea id="techModifications" placeholder="Décrire en détail les changements techniques (matériaux, méthodes, prestations)..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Raison des Modifications:</label>
+                <textarea id="techReason" placeholder="Expliquer pourquoi ces modifications sont nécessaires..."></textarea>
+            </div>
+        </div>
+
+        <!-- Prestations Section -->
+        <div class="section" id="prestations-section" style="display:none;">
+            <h2>Prestations Ajoutées / Supprimées</h2>
+            <div class="form-group">
+                <label>Prestations Ajoutées:</label>
+                <textarea id="prestationsAdded" placeholder="Lister les nouvelles prestations ajoutées..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Prestations Supprimées:</label>
+                <textarea id="prestationsRemoved" placeholder="Lister les prestations retirées du contrat..."></textarea>
+            </div>
+        </div>
+
+        <!-- Autre Section -->
+        <div class="section" id="autre-section" style="display:none;">
+            <h2>Autres Modifications</h2>
+            <div class="form-group">
+                <label>Nature des Modifications:</label>
+                <input type="text" id="autreNature" placeholder="Préciser le type de modification">
+            </div>
+            <div class="form-group">
+                <label>Description Détaillée:</label>
+                <textarea id="autreDescription" placeholder="Décrire en détail les autres modifications..."></textarea>
+            </div>
+        </div>
+
+        <!-- Article 4: Impact Financier -->
+        <div class="section" id="financial-section" style="display:none;">
+            <h2>Article 4 - Impact Financier</h2>
+            
+            <div class="financial-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Montant (€)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="label-col">Montant Initial Contrat (HT)</td>
+                            <td class="amount-col">
+                                <input type="number" id="initialAmount" step="0.01" placeholder="0.00" oninput="calculateFinancial()">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label-col">Modifications (+/-) (HT)</td>
+                            <td class="amount-col">
+                                <input type="number" id="modificationAmount" step="0.01" placeholder="0.00" oninput="calculateFinancial()">
+                            </td>
+                        </tr>
+                        <tr class="total-row">
+                            <td class="label-col">NOUVEAU MONTANT TOTAL (HT)</td>
+                            <td class="amount-col" id="newTotalHT">0.00 €</td>
+                        </tr>
+                        <tr>
+                            <td class="label-col">TVA (20%)</td>
+                            <td class="amount-col" id="tvaAmount">0.00 €</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td class="label-col">NOUVEAU MONTANT TOTAL (TTC)</td>
+                            <td class="amount-col" id="newTotalTTC">0.00 €</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="info-box">
+                <p><strong>TVA applicable:</strong> 20% (adaptée selon régime fiscal client et lieu livraison conformément Accord France-Monaco 1963 et Ordonnance 7.378/1963)</p>
+            </div>
+
+            <div class="form-group">
+                <label>Modalités de Paiement Adaptées:</label>
+                <textarea id="paymentTerms" placeholder="Décrire les nouvelles modalités de paiement (acompte, échelonnement, solde...)"></textarea>
+            </div>
+        </div>
+
+        <!-- Article 5: Impact Planning -->
+        <div class="section" id="temporal-section" style="display:none;">
+            <h2>Article 5 - Impact Planning</h2>
+            
+            <div class="date-calculator">
+                <h3 style="margin-bottom: 15px; color: #dc3545;">Calcul Nouvelle Date de Fin</h3>
+                <div class="date-row">
+                    <div class="form-group">
+                        <label>Date Fin Initiale:</label>
+                        <input type="date" id="initialEndDate" onchange="calculateNewDate()">
+                    </div>
+                    <div class="date-operator">+</div>
+                    <div class="form-group">
+                        <label>Proroga (jours):</label>
+                        <input type="number" id="extensionDays" placeholder="0" min="0" onchange="calculateNewDate()">
+                    </div>
+                    <div class="date-operator">=</div>
+                    <div>
+                        <label style="display: block; margin-bottom: 5px; font-weight: bold; font-size: 13px;">Nouvelle Date Fin:</label>
+                        <div class="result-date" id="newEndDate">--/--/----</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-row" style="margin-top: 20px;">
+                <div class="form-group">
+                    <label>Date Début Modifiée (si applicable):</label>
+                    <input type="date" id="newStartDate">
+                </div>
+                <div class="form-group">
+                    <label>Durée Totale Modifiée (jours):</label>
+                    <input type="number" id="totalDuration" placeholder="Nombre de jours">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Raison de la Proroga:</label>
+                <textarea id="extensionReason" placeholder="Expliquer les raisons de la modification des délais..."></textarea>
+            </div>
+        </div>
+
+        <!-- Article 6: Conditions Inchangées -->
+        <div class="section">
+            <h2>Article 6 - Conditions Inchangées</h2>
+            <div class="info-box" style="border-left-color: #28a745; background: #e8f5e9;">
+                <p><strong>Toutes les autres dispositions du contrat initial restent inchangées et continuent de produire leurs pleins effets.</strong></p>
+                <p>Les parties confirment que seules les modifications expressément mentionnées dans le présent avenant sont applicables. Tous les autres termes, conditions, clauses et obligations du contrat initial demeurent valables et opposables aux parties.</p>
+            </div>
+        </div>
+
+        <!-- Article 7: Entrée en Vigueur -->
+        <div class="section">
+            <h2>Article 7 - Entrée en Vigueur</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Date d'Application de l'Avenant:</label>
+                    <input type="date" id="effectiveDate">
+                </div>
+                <div class="form-group">
+                    <label>Lieu de Signature:</label>
+                    <input type="text" id="signaturePlace" value="Monaco" placeholder="Monaco">
+                </div>
+            </div>
+        </div>
+
+        <!-- Article 8: Signatures -->
+        <div class="section">
+            <h2>Article 8 - Signatures</h2>
+            <p style="margin-bottom: 20px; font-size: 13px; color: #666;">
+                Les parties déclarent avoir lu et accepté l'intégralité du présent avenant et s'engagent à en respecter toutes les dispositions.
+            </p>
+
+            <div class="signatures">
+                <div class="signature-block">
+                    <h3>Pour LKR RENOVATION MC SARL</h3>
+                    <div class="signature-info">
+                        Luca Borella<br>
+                        Gérant
+                    </div>
+                    <div class="signature-line">
+                        Signature et cachet
+                    </div>
+                </div>
+
+                <div class="signature-block">
+                    <h3>Le Client</h3>
+                    <div class="signature-info">
+                        <input type="text" id="signatoryName" placeholder="Nom du signataire" style="border: none; border-bottom: 1px solid #ccc; background: transparent; padding: 5px; text-align: center;">
+                    </div>
+                    <div class="signature-line">
+                        Signature
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="btn-print" onclick="window.print()">
+                🖨️ Imprimer / Sauvegarder PDF
+            </button>
+            <button class="btn-reset" onclick="resetForm()">
+                🔄 Réinitialiser Formulaire
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Counter Management
+        function loadCounter() {
+            const saved = localStorage.getItem('lkr_avenant_counter');
+            return saved ? parseInt(saved) : 1;
+        }
+
+        function saveCounter(value) {
+            localStorage.setItem('lkr_avenant_counter', value);
+        }
+
+        function updateDisplay() {
+            document.getElementById('avenantNumber').textContent = loadCounter();
+        }
+
+        function incrementCounter() {
+            const current = loadCounter();
+            saveCounter(current + 1);
+            updateDisplay();
+        }
+
+        function decrementCounter() {
+            const current = loadCounter();
+            if (current > 1) {
+                saveCounter(current - 1);
+                updateDisplay();
+            }
+        }
+
+        function resetCounter() {
+            if (confirm('Êtes-vous sûr de vouloir réinitialiser le compteur à 1?')) {
+                saveCounter(1);
+                updateDisplay();
+            }
+        }
+
+        // Toggle Sections
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const checkbox = event.target;
+            section.style.display = checkbox.checked ? 'block' : 'none';
+        }
+
+        // Financial Calculations
+        function calculateFinancial() {
+            const initial = parseFloat(document.getElementById('initialAmount').value) || 0;
+            const modification = parseFloat(document.getElementById('modificationAmount').value) || 0;
+            
+            const newTotalHT = initial + modification;
+            const tva = newTotalHT * 0.20;
+            const newTotalTTC = newTotalHT + tva;
+            
+            document.getElementById('newTotalHT').textContent = newTotalHT.toFixed(2) + ' €';
+            document.getElementById('tvaAmount').textContent = tva.toFixed(2) + ' €';
+            document.getElementById('newTotalTTC').textContent = newTotalTTC.toFixed(2) + ' €';
+        }
+
+        // Date Calculations
+        function calculateNewDate() {
+            const initialDate = document.getElementById('initialEndDate').value;
+            const extensionDays = parseInt(document.getElementById('extensionDays').value) || 0;
+            
+            if (initialDate) {
+                const date = new Date(initialDate);
+                date.setDate(date.getDate() + extensionDays);
+                
+                const day = String(date.getDate()).padStart(2, '0');
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const year = date.getFullYear();
+                
+                document.getElementById('newEndDate').textContent = `${day}/${month}/${year}`;
+            }
+        }
+
+        // Reset Form
+        function resetForm() {
+            if (confirm('Êtes-vous sûr de vouloir réinitialiser tout le formulaire?')) {
+                document.querySelectorAll('input[type="text"], input[type="number"], input[type="date"], textarea').forEach(input => {
+                    input.value = '';
+                });
+                document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+                document.querySelectorAll('.section[id$="-section"]').forEach(section => {
+                    section.style.display = 'none';
+                });
+                calculateFinancial();
+                document.getElementById('newEndDate').textContent = '--/--/----';
+            }
+        }
+
+        // Initialize
+        window.addEventListener('load', function() {
+            updateDisplay();
+            
+            // Set default date for effective date (today)
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('effectiveDate').value = today;
+        });
+    </script>
+</body>
+</html>
