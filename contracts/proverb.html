@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Website designed and developed by Riccardo Barlozzetti -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procès-Verbal de Réception des Travaux - LKR RENOVATION MC</title>
+    <style>
+        @media print {
+            input, select, textarea {
+                border: none !important;
+                border-bottom: 1px solid #000 !important;
+                background: transparent !important;
+            }
+            .no-print { display: none !important; }
+            .container { box-shadow: none; padding: 20px 30px; }
+            body { background: white; padding: 0; }
+            h1, h2 { page-break-after: avoid; }
+            .article, .reserves-table, .signatures { page-break-inside: avoid; }
+            table { page-break-inside: auto; }
+            tr { page-break-inside: avoid; page-break-after: auto; }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px 50px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #c41e3a;
+        }
+        
+        .logo-container {
+            flex: 0 0 220px;
+        }
+        
+        .logo {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .company-info {
+            text-align: right;
+            font-size: 11px;
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .company-info strong {
+            color: #c41e3a;
+            font-size: 12px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #c41e3a;
+            font-size: 24px;
+            margin: 25px 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+        
+        h2 {
+            color: #c41e3a;
+            font-size: 15px;
+            margin: 25px 0 12px 0;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #f0f0f0;
+            font-weight: 600;
+        }
+        
+        .article {
+            margin: 20px 0;
+        }
+        
+        .field-label {
+            display: block;
+            font-weight: 600;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-size: 12px;
+            color: #555;
+        }
+        
+        input[type="text"],
+        input[type="date"],
+        input[type="time"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 13px;
+            font-family: inherit;
+            margin: 5px 0;
+            background: white;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #c41e3a;
+            background: #fff9f9;
+        }
+        
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        
+        .inline-input {
+            display: inline-block;
+            width: auto;
+            min-width: 120px;
+            border: none;
+            border-bottom: 1px solid #333;
+            background: transparent;
+            padding: 2px 5px;
+            border-radius: 0;
+        }
+        
+        .info-box {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #c41e3a;
+            border-radius: 3px;
+        }
+        
+        .info-box p {
+            margin: 5px 0;
+            font-size: 13px;
+        }
+        
+        .status-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .status-option {
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .status-option:hover {
+            border-color: #c41e3a;
+            background: #fff9f9;
+        }
+        
+        .status-option input[type="radio"] {
+            width: auto;
+            margin-bottom: 8px;
+        }
+        
+        .status-option.selected {
+            border-color: #28a745;
+            background: #d4edda;
+        }
+        
+        .status-option.warning {
+            border-color: #ffc107;
+            background: #fff3cd;
+        }
+        
+        .status-option.danger {
+            border-color: #dc3545;
+            background: #f8d7da;
+        }
+        
+        .reserves-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 12px;
+        }
+        
+        .reserves-table th,
+        .reserves-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        .reserves-table th {
+            background: #c41e3a;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .reserves-table input,
+        .reserves-table select,
+        .reserves-table textarea {
+            margin: 0;
+            font-size: 12px;
+            padding: 5px;
+        }
+        
+        .reserves-table textarea {
+            min-height: 50px;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        
+        .badge-rm {
+            background: #28a745;
+            color: white;
+        }
+        
+        .badge-rmaj {
+            background: #ffc107;
+            color: #333;
+        }
+        
+        .badge-rc {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-add {
+            background: #28a745;
+            color: white;
+        }
+        
+        .btn-add:hover {
+            background: #218838;
+        }
+        
+        .btn-delete {
+            background: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+        
+        .btn-delete:hover {
+            background: #c82333;
+        }
+        
+        .checkbox-group {
+            margin: 12px 0;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 10px 0;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .checkbox-item label {
+            font-size: 13px;
+        }
+        
+        .decision-box {
+            background: #e7f3ff;
+            border: 2px solid #2196F3;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+        
+        .decision-box h3 {
+            color: #2196F3;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .signatures {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+            page-break-inside: avoid;
+        }
+        
+        .signature-box {
+            text-align: center;
+        }
+        
+        .signature-box h4 {
+            color: #c41e3a;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        
+        .signature-space {
+            height: 100px;
+            border: 2px dashed #ccc;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 12px;
+            background: #fafafa;
+        }
+        
+        .signature-line {
+            border-top: 2px solid #333;
+            padding-top: 8px;
+            font-size: 11px;
+            color: #666;
+            margin-top: 10px;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 3px solid #c41e3a;
+            text-align: center;
+            font-size: 10px;
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .footer strong {
+            color: #c41e3a;
+            font-size: 11px;
+        }
+        
+        .print-button {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #c41e3a;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.3);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        
+        .print-button:hover {
+            background: #a01830;
+            transform: translateY(-2px);
+        }
+        
+        .alert {
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+        
+        .alert-info {
+            background: #d1ecf1;
+            border-left: 4px solid #0c5460;
+            color: #0c5460;
+        }
+        
+        .alert-warning {
+            background: #fff3cd;
+            border-left: 4px solid #856404;
+            color: #856404;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            border-left: 4px solid #155724;
+            color: #155724;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .container { padding: 25px 15px; }
+            .header { flex-direction: column; text-align: center; }
+            .company-info { text-align: center; margin-top: 10px; }
+            .status-box { grid-template-columns: 1fr; }
+            .signatures { grid-template-columns: 1fr; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-container">
+                <img src="https://lkr.mc/img/LKRorizzontalepiccolo.png" alt="LKR RENOVATION MC SARL" class="logo">
+            </div>
+            <div class="company-info">
+                <strong>LKR RENOVATION MC SARL</strong>
+                38, Boulevard des Moulins<br>
+                98000 Monaco<br>
+                RCI: 25S10110 | TVA: FR72000188879<br>
+                info@lkr.mc | +377 6 40 61 56 50
+            </div>
+        </div>
+
+        <!-- Title -->
+        <h1>Procès-Verbal de Réception des Travaux</h1>
+        <p class="subtitle">Document officiel d'acceptation ou de réserves</p>
+
+        <!-- Article 1: Identification Contrat -->
+        <h2>Article 1 - Identification du Contrat</h2>
+        <div class="article">
+            <div class="info-box">
+                <label class="field-label">Numéro / Référence du Contrat *</label>
+                <input type="text" id="contrat-ref" placeholder="Ex: CONT-2025-001">
+                
+                <label class="field-label">Date de signature du Contrat</label>
+                <input type="date" id="contrat-date">
+                
+                <label class="field-label">Client (Nom/Raison sociale) *</label>
+                <input type="text" id="client-name" placeholder="Nom complet du client">
+                
+                <label class="field-label">Adresse du bien concerné *</label>
+                <input type="text" id="bien-adresse" placeholder="Adresse complète du chantier">
+            </div>
+        </div>
+
+        <!-- Article 2: Objet -->
+        <h2>Article 2 - Objet de la Réception</h2>
+        <div class="article">
+            <label class="field-label">Description des travaux réalisés *</label>
+            <textarea id="travaux-desc" placeholder="Résumé des travaux effectués (ex: Rénovation complète appartement 85m² - Peinture, parquet, électricité, plomberie...)"></textarea>
+            
+            <label class="field-label">Montant total du contrat (TTC)</label>
+            <input type="number" step="0.01" id="montant-contrat" placeholder="0.00" style="width: 200px;"> €
+        </div>
+
+        <!-- Article 3: Conditions de Réception -->
+        <h2>Article 3 - Conditions de la Réception</h2>
+        <div class="article">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div>
+                    <label class="field-label">Date de la visite de réception *</label>
+                    <input type="date" id="reception-date">
+                </div>
+                <div>
+                    <label class="field-label">Heure de début</label>
+                    <input type="time" id="reception-heure">
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <p style="font-weight: 600; margin-bottom: 10px;">Personnes présentes:</p>
+                
+                <label class="field-label">Pour LKR RENOVATION MC SARL:</label>
+                <input type="text" id="present-lkr" placeholder="Nom et qualité (ex: M. Luca Borella, Gérant)">
+                
+                <label class="field-label">Pour le Client:</label>
+                <input type="text" id="present-client" placeholder="Nom et qualité du représentant client">
+                
+                <label class="field-label">Autres personnes présentes (facultatif)</label>
+                <textarea id="present-autres" placeholder="Ex: Architecte, Expert, Maître d'œuvre..." style="min-height: 60px;"></textarea>
+            </div>
+        </div>
+
+        <!-- Article 4: État des Lieux -->
+        <h2>Article 4 - Constatations et État des Lieux</h2>
+        <div class="article">
+            <p style="margin-bottom: 15px; font-weight: 600;">Qualification générale de l'état des travaux:</p>
+            
+            <div class="status-box">
+                <div class="status-option" onclick="selectStatus('conforme')">
+                    <input type="radio" name="status" id="status-conforme" value="conforme">
+                    <label for="status-conforme" style="display: block; cursor: pointer;">
+                        <strong style="color: #28a745; font-size: 16px;">✓</strong><br>
+                        <strong>Conforme</strong><br>
+                        <span style="font-size: 12px;">Sans réserve</span>
+                    </label>
+                </div>
+                
+                <div class="status-option" onclick="selectStatus('reserves-mineures')">
+                    <input type="radio" name="status" id="status-reserves-mineures" value="reserves-mineures">
+                    <label for="status-reserves-mineures" style="display: block; cursor: pointer;">
+                        <strong style="color: #ffc107; font-size: 16px;">!</strong><br>
+                        <strong>Réserves Mineures</strong><br>
+                        <span style="font-size: 12px;">Acceptation sous réserve</span>
+                    </label>
+                </div>
+                
+                <div class="status-option" onclick="selectStatus('non-conforme')">
+                    <input type="radio" name="status" id="status-non-conforme" value="non-conforme">
+                    <label for="status-non-conforme" style="display: block; cursor: pointer;">
+                        <strong style="color: #dc3545; font-size: 16px;">✗</strong><br>
+                        <strong>Non Conforme</strong><br>
+                        <span style="font-size: 12px;">Réception refusée</span>
+                    </label>
+                </div>
+            </div>
+            
+            <div id="status-message" style="margin-top: 15px;"></div>
+        </div>
+
+        <!-- Article 5: Liste des Réserves -->
+        <h2>Article 5 - Liste Détaillée des Réserves (si applicable)</h2>
+        <div class="article">
+            <div class="alert alert-info">
+                <strong>📋 Classification des réserves:</strong><br>
+                <span class="badge badge-rm">RM</span> Réserve Mineure (esthétique) - Délai: 15 jours<br>
+                <span class="badge badge-rmaj">RMaj</span> Réserve Majeure (fonctionnelle) - Délai: 7 jours IMPÉRATIF<br>
+                <span class="badge badge-rc">RC</span> Réserve Critique (sécurité) - Délai: 48h MAXIMUM
+            </div>
+            
+            <table class="reserves-table" id="reserves-table">
+                <thead>
+                    <tr>
+                        <th style="width: 5%;">N°</th>
+                        <th style="width: 40%;">Description de la réserve</th>
+                        <th style="width: 15%;">Type</th>
+                        <th style="width: 12%;">Délai (jours)</th>
+                        <th style="width: 20%;">Date limite</th>
+                        <th style="width: 8%;" class="no-print"></th>
+                    </tr>
+                </thead>
+                <tbody id="reserves-tbody">
+                    <!-- Les lignes seront ajoutées dynamiquement -->
+                </tbody>
+            </table>
+            
+            <button class="btn btn-add no-print" onclick="ajouterReserve()">+ Ajouter une réserve</button>
+            
+            <div id="reserves-summary" style="margin-top: 20px; display: none;"></div>
+        </div>
+
+        <!-- Article 6: Documents Remis -->
+        <h2>Article 6 - Documents et Éléments Remis au Client</h2>
+        <div class="article">
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="doc-notices">
+                    <label for="doc-notices">Notices techniques des équipements et matériaux installés</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="doc-certificats">
+                    <label for="doc-certificats">Certificats de conformité (électricité CONSUEL, plomberie, etc.)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="doc-garanties">
+                    <label for="doc-garanties">Certificats de garanties fabricants (équipements, matériaux)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="doc-photos">
+                    <label for="doc-photos">Photos avant / après travaux (support numérique ou papier)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="doc-plans">
+                    <label for="doc-plans">Plans de récolement / Plans mis à jour (si applicable)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="doc-facture">
+                    <label for="doc-facture">Facture finale détaillée</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="doc-attestation-assurance">
+                    <label for="doc-attestation-assurance">Attestations d'assurance RC et Décennale (copie)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="doc-autre">
+                    <label for="doc-autre">Autre: <input type="text" style="width: 300px; display: inline; margin-left: 10px;" placeholder="Préciser"></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Article 7: Décisions -->
+        <h2>Article 7 - Décisions et Conséquences Contractuelles</h2>
+        <div class="article">
+            <div class="decision-box" id="decision-summary">
+                <h3>📌 Résumé de la Réception</h3>
+                <p id="decision-text">Sélectionnez un statut à l'Article 4 pour voir le résumé...</p>
+            </div>
+            
+            <label class="field-label">Observations complémentaires (facultatif)</label>
+            <textarea id="observations" placeholder="Remarques particulières, engagements oraux, précisions sur les délais..."></textarea>
+        </div>
+
+        <!-- Signatures -->
+        <h2>Article 8 - Signatures et Acceptation</h2>
+        <div class="article">
+            <p style="margin-bottom: 20px; font-style: italic; text-align: center;">
+                Les soussignés déclarent avoir lu et approuvé le présent procès-verbal de réception.
+            </p>
+            
+            <div class="signatures">
+                <div class="signature-box">
+                    <h4>Pour LKR RENOVATION MC SARL</h4>
+                    <input type="text" id="signature-lkr-nom" placeholder="Nom et qualité" style="margin-bottom: 10px;">
+                    <p style="font-size: 13px;">Date: <input type="date" id="signature-lkr-date" style="width: 150px; display: inline;"></p>
+                    <div class="signature-space">Signature et cachet</div>
+                    <div class="signature-line">Signature LKR RENOVATION</div>
+                </div>
+                
+                <div class="signature-box">
+                    <h4>Pour le Client</h4>
+                    <input type="text" id="signature-client-nom" placeholder="Nom et qualité" style="margin-bottom: 10px;">
+                    <p style="font-size: 13px;">Date: <input type="date" id="signature-client-date" style="width: 150px; display: inline;"></p>
+                    <div class="signature-space">Signature et cachet</div>
+                    <div class="signature-line">Signature du Client</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>LKR RENOVATION MC SARL</strong> | SARL au capital de 15.000 €</p>
+            <p>38, Boulevard des Moulins, 98000 Monaco</p>
+            <p>RCI: 25S10110 | TVA: FR72000188879</p>
+            <p>+377 6 40 61 56 50 | info@lkr.mc | www.lkr.mc</p>
+            <p style="margin-top: 10px; font-size: 9px;">
+                Document contractuel - Valeur juridique - Conservation obligatoire<br>
+                À conserver avec le contrat initial pendant toute la durée des garanties
+            </p>
+        </div>
+    </div>
+
+    <!-- Print Button -->
+    <button class="print-button no-print" onclick="window.print()">🖨️ Imprimer / PDF</button>
+
+    <script>
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Date du jour par défaut
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('reception-date').value = today;
+            document.getElementById('signature-lkr-date').value = today;
+            document.getElementById('signature-client-date').value = today;
+            
+            // Ajouter une réserve initiale (masquée si non utilisée)
+            // ajouterReserve();
+        });
+
+        // Compteur réserves
+        let reserveCounter = 1;
+
+        // Ajouter une réserve
+        function ajouterReserve() {
+            const tbody = document.getElementById('reserves-tbody');
+            const row = tbody.insertRow();
+            const num = reserveCounter++;
+            
+            row.innerHTML = `
+                <td style="text-align: center; font-weight: 600;">${num}</td>
+                <td><textarea class="reserve-desc" placeholder="Décrire précisément la réserve..." style="width: 100%; min-height: 60px;"></textarea></td>
+                <td>
+                    <select class="reserve-type" onchange="calculerDelaiReserve(this)">
+                        <option value="">-- Type --</option>
+                        <option value="RM">RM - Mineure</option>
+                        <option value="RMaj">RMaj - Majeure</option>
+                        <option value="RC">RC - Critique</option>
+                    </select>
+                </td>
+                <td><input type="number" class="reserve-delai" readonly style="text-align: center; background: #f9f9f9;"></td>
+                <td><input type="date" class="reserve-date-limite" readonly style="background: #f9f9f9;"></td>
+                <td class="no-print" style="text-align: center;">
+                    <button class="btn-delete" onclick="supprimerReserve(this)">🗑️</button>
+                </td>
+            `;
+            
+            updateReservesSummary();
+        }
+
+        // Supprimer une réserve
+        function supprimerReserve(button) {
+            const row = button.closest('tr');
+            row.remove();
+            renumeroterReserves();
+            updateReservesSummary();
+        }
+
+        // Renuméroter les réserves
+        function renumeroterReserves() {
+            const tbody = document.getElementById('reserves-tbody');
+            Array.from(tbody.rows).forEach((row, index) => {
+                row.cells[0].textContent = index + 1;
+            });
+            reserveCounter = tbody.rows.length + 1;
+        }
+
+        // Calculer délai selon type réserve
+        function calculerDelaiReserve(select) {
+            const row = select.closest('tr');
+            const delaiInput = row.querySelector('.reserve-delai');
+            const dateLimiteInput = row.querySelector('.reserve-date-limite');
+            const type = select.value;
+            
+            let delaiJours = 0;
+            
+            switch(type) {
+                case 'RM':
+                    delaiJours = 15;
+                    break;
+                case 'RMaj':
+                    delaiJours = 7;
+                    break;
+                case 'RC':
+                    delaiJours = 2; // 48h = 2 jours
+                    break;
+            }
+            
+            delaiInput.value = delaiJours;
+            
+            // Calculer date limite
+            if (delaiJours > 0) {
+                const dateReception = new Date(document.getElementById('reception-date').value || new Date());
+                const dateLimite = new Date(dateReception);
+                dateLimite.setDate(dateLimite.getDate() + delaiJours);
+                dateLimiteInput.value = dateLimite.toISOString().split('T')[0];
+            }
+            
+            updateReservesSummary();
+            updateDecisionSummary();
+        }
+
+        // Sélectionner un statut
+        function selectStatus(status) {
+            // Désélectionner tous
+            document.querySelectorAll('.status-option').forEach(opt => {
+                opt.classList.remove('selected', 'warning', 'danger');
+            });
+            
+            // Sélectionner le bon radio
+            document.getElementById('status-' + status).checked = true;
+            
+            // Mettre en évidence
+            const selected = document.querySelector(`#status-${status}`).closest('.status-option');
+            if (status === 'conforme') {
+                selected.classList.add('selected');
+            } else if (status === 'reserves-mineures') {
+                selected.classList.add('warning');
+            } else if (status === 'non-conforme') {
+                selected.classList.add('danger');
+            }
+            
+            updateDecisionSummary();
+        }
+
+        // Mettre à jour le résumé des réserves
+        function updateReservesSummary() {
+            const tbody = document.getElementById('reserves-tbody');
+            const summaryDiv = document.getElementById('reserves-summary');
+            
+            if (tbody.rows.length === 0) {
+                summaryDiv.style.display = 'none';
+                return;
+            }
+            
+            let countRM = 0, countRMaj = 0, countRC = 0;
+            
+            Array.from(tbody.rows).forEach(row => {
+                const type = row.querySelector('.reserve-type').value;
+                if (type === 'RM') countRM++;
+                if (type === 'RMaj') countRMaj++;
+                if (type === 'RC') countRC++;
+            });
+            
+            let html = '<div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #ffc107; border-radius: 4px;">';
+            html += '<p style="font-weight: 600; margin-bottom: 10px;">📊 Résumé des réserves:</p>';
+            html += `<p style="font-size: 13px;">`;
+            if (countRM > 0) html += `<span class="badge badge-rm">RM: ${countRM}</span> `;
+            if (countRMaj > 0) html += `<span class="badge badge-rmaj">RMaj: ${countRMaj}</span> `;
+            if (countRC > 0) html += `<span class="badge badge-rc">RC: ${countRC}</span>`;
+            html += `</p>`;
+            html += `<p style="margin-top: 10px; font-size: 13px;"><strong>Total: ${tbody.rows.length} réserve(s)</strong></p>`;
+            html += '</div>';
+            
+            summaryDiv.innerHTML = html;
+            summaryDiv.style.display = 'block';
+        }
+
+        // Mettre à jour le résumé de décision
+        function updateDecisionSummary() {
+            const status = document.querySelector('input[name="status"]:checked')?.value;
+            const decisionText = document.getElementById('decision-text');
+            const tbody = document.getElementById('reserves-tbody');
+            const nbReserves = tbody.rows.length;
+            
+            if (!status) {
+                decisionText.innerHTML = 'Sélectionnez un statut à l\'Article 4 pour voir le résumé...';
+                return;
+            }
+            
+            let html = '';
+            
+            switch(status) {
+                case 'conforme':
+                    html = `
+                        <p style="color: #28a745; font-weight: 600; font-size: 16px; margin-bottom: 10px;">✓ RÉCEPTION DÉFINITIVE SANS RÉSERVE</p>
+                        <p style="margin-bottom: 8px;"><strong>Conséquences:</strong></p>
+                        <ul style="margin-left: 20px; line-height: 1.8;">
+                            <li>Les travaux sont <strong>réceptionnés définitivement</strong></li>
+                            <li>Le <strong>solde du contrat devient immédiatement exigible</strong></li>
+                            <li>Début de la période de garantie de parfait achèvement (1 an)</li>
+                            <li>Point de départ des garanties légales (biennale, décennale)</li>
+                        </ul>
+                    `;
+                    break;
+                    
+                case 'reserves-mineures':
+                    const dateLimiteMax = calculerDateLimiteMax();
+                    html = `
+                        <p style="color: #ffc107; font-weight: 600; font-size: 16px; margin-bottom: 10px;">! RÉCEPTION AVEC RÉSERVES</p>
+                        <p style="margin-bottom: 8px;"><strong>Nombre de réserves formulées: ${nbReserves}</strong></p>
+                        <p style="margin-bottom: 8px;"><strong>Conséquences:</strong></p>
+                        <ul style="margin-left: 20px; line-height: 1.8;">
+                            <li>Les travaux sont <strong>provisoirement réceptionnés</strong></li>
+                            <li>Le Prestataire doit lever toutes les réserves dans les délais indiqués</li>
+                            <li>Date limite maximale pour levée: <strong>${dateLimiteMax || 'À calculer'}</strong></li>
+                            <li>Le solde sera versé <strong>après levée complète des réserves</strong></li>
+                            <li>Une retenue de garantie peut être appliquée (max 10% du solde)</li>
+                        </ul>
+                    `;
+                    break;
+                    
+                case 'non-conforme':
+                    html = `
+                        <p style="color: #dc3545; font-weight: 600; font-size: 16px; margin-bottom: 10px;">✗ RÉCEPTION REFUSÉE</p>
+                        <p style="margin-bottom: 8px;"><strong>Nombre de non-conformités: ${nbReserves}</strong></p>
+                        <p style="margin-bottom: 8px;"><strong>Conséquences:</strong></p>
+                        <ul style="margin-left: 20px; line-height: 1.8;">
+                            <li>Les travaux <strong>ne sont PAS réceptionnés</strong></li>
+                            <li>Le Prestataire doit corriger les non-conformités majeures</li>
+                            <li>Le solde du contrat <strong>n'est pas exigible</strong></li>
+                            <li>Une nouvelle visite de réception sera organisée après corrections</li>
+                            <li>Les garanties légales ne commencent pas à courir</li>
+                            <li>Pénalités de retard éventuelles continuent de s'appliquer</li>
+                        </ul>
+                    `;
+                    break;
+            }
+            
+            decisionText.innerHTML = html;
+        }
+
+        // Calculer la date limite maximale parmi toutes les réserves
+        function calculerDateLimiteMax() {
+            const tbody = document.getElementById('reserves-tbody');
+            let dateMax = null;
+            
+            Array.from(tbody.rows).forEach(row => {
+                const dateLimite = row.querySelector('.reserve-date-limite').value;
+                if (dateLimite) {
+                    const date = new Date(dateLimite);
+                    if (!dateMax || date > dateMax) {
+                        dateMax = date;
+                    }
+                }
+            });
+            
+            if (dateMax) {
+                return dateMax.toLocaleDateString('fr-FR', { 
+                    day: '2-digit', 
+                    month: 'long', 
+                    year: 'numeric' 
+                });
+            }
+            return null;
+        }
+
+        // Mise à jour automatique des dates limites si la date de réception change
+        document.getElementById('reception-date').addEventListener('change', function() {
+            const tbody = document.getElementById('reserves-tbody');
+            Array.from(tbody.rows).forEach(row => {
+                const select = row.querySelector('.reserve-type');
+                if (select.value) {
+                    calculerDelaiReserve(select);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
