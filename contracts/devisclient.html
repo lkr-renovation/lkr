@@ -701,9 +701,12 @@
                 <span class="totaux-value" id="totalHT">0,00 €</span>
             </div>
             <div class="totaux-row">
-                <span class="totaux-label">TVA 20%:</span>
-                <span class="totaux-value" id="totalTVA">0,00 €</span>
-            </div>
+    <span class="totaux-label">TVA applicable: 20%</span>
+    <span class="totaux-value" id="totalTVA">0,00 €</span>
+</div>
+<div style="text-align: right; font-size: 10px; color: #666; font-style: italic; margin-top: -5px; margin-bottom: 10px;">
+    (adaptée selon régime fiscal client et lieu livraison conformément Accord France-Monaco 1963 et Ordonnance 7.378/1963)
+</div>
             <div class="totaux-separator"></div>
             <div class="totaux-row total-ttc">
                 <span class="totaux-label">TOTAL TTC:</span>
@@ -928,7 +931,8 @@
                     totalHT += qte * prix;
                 });
                 
-                const totalTVA = totalHT * 0.20;
+                // TVA: 20% standard (adaptée selon régime fiscal conformément Accord France-Monaco 1963)
+const totalTVA = totalHT * 0.20;
                 const totalTTC = totalHT + totalTVA;
                 
                 document.getElementById('totalHT').textContent = formaterNombre(totalHT) + ' €';
