@@ -677,7 +677,21 @@
                 <p>Siège social: 38, Boulevard des Moulins, 98000 Monaco</p>
                 <p>RCI: 25S10110</p>
                 <p>TVA: FR72000188879</p>
-                <p style="margin-top: 10px;">Représentée par: <strong>M. Luca Borella</strong>, Gérant</p>
+                <p style="margin-top: 10px;">Représentée par: 
+<select id="lkr-representative" style="width: 200px; padding: 5px; font-weight: 600;">
+    <option value="Luca Borella">M. Luca Borella</option>
+    <option value="Riccardo Barlozzetti">M. Riccardo Barlozzetti</option>
+    <option value="Simona Fantato">Mme Simona Fantato</option>
+    <option value="Autre">Autre (préciser ci-dessous)</option>
+</select>, Gérant</p>
+<input type="text" id="lkr-rep-autre" placeholder="Si 'Autre', préciser nom et qualité" style="width: 100%; margin-top: 5px; display: none;">
+
+<script>
+document.getElementById('lkr-representative').addEventListener('change', function() {
+    const autreInput = document.getElementById('lkr-rep-autre');
+    autreInput.style.display = (this.value === 'Autre') ? 'block' : 'none';
+});
+</script>
                 <p>Email: info@lkr.mc</p>
                 <p>Téléphone: +377 6 40 61 56 50</p>
             </div>
@@ -697,8 +711,8 @@
                     <option value="autre">Autre</option>
                 </select>
                 
-                <label class="field-label">RCI (si société monégasque)</label>
-                <input type="text" id="client-rci" placeholder="Ex: 12S34567">
+                <label class="field-label">RCI (Monaco) ou N° TVA Intracommunautaire (France/Italie/UE)</label>
+<input type="text" id="client-rci" placeholder="Ex: 12S34567 (Monaco) ou FR12345678901 (France) ou IT12345678901 (Italie)">
                 
                 <label class="field-label">Adresse complète *</label>
                 <input type="text" id="client-address1" placeholder="Numéro et nom de rue">
@@ -1153,30 +1167,24 @@
             </div>
         </div>
 
-        <!-- Article 12: Sous-traitance et Assurances -->
-        <h2>Article 12 - Sous-Traitance et Assurances Professionnelles</h2>
-        <div class="article">
-            <div class="article-content">
-                <p><strong>12.1 - Sous-traitance</strong></p>
-                <p>Le Prestataire se réserve le droit de faire appel à des sous-traitants qualifiés pour l'exécution de tout ou partie des travaux. Le Prestataire demeure seul responsable de la bonne exécution de l'intégralité des prestations vis-à-vis du Client.</p>
-                
-                <p style="margin-top: 15px;">Le Prestataire s'assure que tous les intervenants (employés directs ou sous-traitants) disposent des qualifications professionnelles requises et des assurances obligatoires pour les travaux qui leur sont confiés.</p>
-                
-                <p style="margin-top: 20px;"><strong>12.2 - Assurances professionnelles</strong></p>
-                <p>Le Prestataire déclare être titulaire d'une <strong>assurance Responsabilité Civile Professionnelle</strong> couvrant les dommages pouvant résulter de son activité de coordination de travaux et de rénovation.</p>
-                
-                <p style="margin-top: 12px;">Pour les travaux relevant de la garantie décennale (gros œuvre, éléments d'équipement indissociables, etc.), le Prestataire déclare être couvert par une <strong>assurance Décennale</strong> conformément aux dispositions légales en vigueur à Monaco.</p>
-                
-                <p style="margin-top: 12px;">Le Prestataire s'engage à maintenir ces assurances valides pendant toute la durée du contrat et de la période de garantie.</p>
-                
-                <div class="important-notice" style="margin-top: 15px;">
-                    <p><strong>📋 Information en cas de sinistre</strong></p>
-                    <p style="margin-top: 10px;">En cas de sinistre ou de dommage survenant pendant ou après les travaux, le Prestataire communiquera au Client les coordonnées complètes de ses assurances ainsi que les attestations en cours de validité afin de faciliter la prise en charge et l'indemnisation.</p>
-                </div>
-            </div>
-        </div>
+        <!-- Article 12: Assurances Professionnelles -->
+<h2>Article 12 - Assurances Professionnelles</h2>
+<div class="article">
+    <div class="article-content">
+        <p>Le Prestataire déclare être titulaire d'une <strong>assurance Responsabilité Civile Professionnelle</strong> couvrant les dommages pouvant résulter de son activité de coordination de travaux et de rénovation.</p>
         
-        <p class="legal-ref">Base légale: Art. 1382-1384 Code Civil Monaco (responsabilité civile); Loi n° 1.430 du 13 juillet 2016 relative à la sous-traitance; Loi n° 1.383 du 2 août 2011 relative à l'assurance construction - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+        <p style="margin-top: 12px;">Pour les travaux relevant de la garantie décennale (gros œuvre, éléments d'équipement indissociables, etc.), le Prestataire déclare être couvert par une <strong>assurance Décennale</strong> conformément aux dispositions légales en vigueur à Monaco.</p>
+        
+        <p style="margin-top: 12px;">Le Prestataire s'engage à maintenir ces assurances valides pendant toute la durée du contrat et de la période de garantie.</p>
+        
+        <div class="important-notice" style="margin-top: 15px;">
+            <p><strong>📋 Information en cas de sinistre</strong></p>
+            <p style="margin-top: 10px;">En cas de sinistre ou de dommage survenant pendant ou après les travaux, le Prestataire communiquera au Client les coordonnées complètes de ses assurances ainsi que les attestations en cours de validité afin de faciliter la prise en charge et l'indemnisation.</p>
+        </div>
+    </div>
+</div>
+
+<p class="legal-ref">Base légale: Art. 1382-1384 Code Civil Monaco (responsabilité civile); Loi n° 1.383 du 2 août 2011 relative à l'assurance construction - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
 
         <!-- Article 13: Modifications en cours d'exécution -->
         <h2>Article 13 - Modifications en Cours d'Exécution et Procédure d'Avenant</h2>
@@ -1261,9 +1269,126 @@
         
         <p class="legal-ref">Base légale: Art. 1184 Code Civil de Monaco (résolution pour inexécution); Art. 1794 Code Civil (droit de résiliation des marchés de travaux) - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
 
-        <!-- Article 15-22: Conserver du contratto rafraichissement.html -->
-        <!-- ... [Gli altri articoli 15-22 rimangono identici al rafraichissement.html] ... -->
+        <!-- Article 15: Limitation de Responsabilité -->
+<h2>Article 15 - Limitation de Responsabilité</h2>
+<div class="article">
+    <div class="article-content">
+        <p>La responsabilité du Prestataire ne pourra être recherchée que pour les dommages directs et prévisibles résultant de son intervention ou de celle de ses sous-traitants.</p>
+        
+        <p style="margin-top: 12px;">Le Prestataire ne saurait être tenu responsable:</p>
+        <ul>
+            <li>Des vices cachés de construction ou des défauts structurels préexistants</li>
+            <li>Des problèmes d'humidité, d'infiltration ou de condensation non apparents lors du diagnostic initial</li>
+            <li>Des dommages causés par des tiers intervenants après sa prestation</li>
+            <li>Des retards dus à des cas de force majeure ou à un fait du Client</li>
+            <li>De la non-conformité des teintes si le Client n'a pas validé d'échantillon préalable</li>
+            <li>Des défauts résultant d'un usage anormal du bien ou d'un défaut d'entretien</li>
+        </ul>
+        
+        <p style="margin-top: 12px;">En tout état de cause, la responsabilité totale du Prestataire est plafonnée au montant des prestations effectivement facturées au titre du présent contrat, hors garantie décennale qui suit son propre régime.</p>
+    </div>
+</div>
 
+<p class="legal-ref">Base légale: Art. 1147-1150 Code Civil de Monaco (responsabilité contractuelle); Art. 1382 (responsabilité délictuelle) - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+<!-- Article 16: Force Majeure -->
+<h2>Article 16 - Force Majeure</h2>
+<div class="article">
+    <div class="article-content">
+        <p>Les parties ne pourront être tenues responsables si l'inexécution ou le retard dans l'exécution de l'une quelconque de leurs obligations découle d'un cas de force majeure tel que défini par la jurisprudence monégasque.</p>
+        
+        <p style="margin-top: 12px;">Sont notamment considérés comme cas de force majeure: catastrophes naturelles, incendies, inondations, grèves générales affectant les transports ou l'approvisionnement, épidémies, restrictions gouvernementales, guerres, actes de terrorisme, interruption prolongée des réseaux de communication ou d'approvisionnement en matériaux.</p>
+        
+        <p style="margin-top: 12px;">En cas de force majeure, les délais d'exécution seront suspendus pendant toute la durée de l'événement. Si l'empêchement persiste au-delà de 30 jours, chaque partie pourra résilier le contrat sans pénalité.</p>
+    </div>
+</div>
+
+<p class="legal-ref">Base légale: Art. 1148 Code Civil de Monaco (force majeure) - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+<!-- Article 17: Protection des Données -->
+<h2>Article 17 - Protection des Données Personnelles</h2>
+<div class="article">
+    <div class="article-content">
+        <p>Conformément à la Loi n° 1.165 du 23 décembre 1993 réglementant les traitements d'informations nominatives, le Client est informé que les données personnelles collectées dans le cadre du présent contrat sont nécessaires à son exécution et à la gestion de la relation contractuelle.</p>
+        
+        <p style="margin-top: 12px;">Ces données sont destinées exclusivement au Prestataire et à ses sous-traitants éventuels dans le cadre strict de l'exécution des travaux. Elles sont conservées pendant la durée légale de prescription.</p>
+        
+        <p style="margin-top: 12px;">Le Client dispose d'un droit d'accès, de rectification et de suppression des données le concernant en adressant sa demande par écrit à: info@lkr.mc ou LKR RENOVATION MC SARL, 38 Boulevard des Moulins, 98000 Monaco.</p>
+    </div>
+</div>
+
+<p class="legal-ref">Base légale: Loi n° 1.165 du 23 décembre 1993 relative à la protection des informations nominatives - <a href="https://www.legimonaco.mc/305/legismc.nsf/ViewTNC/37DBE391E460FC80C12569F50032F2F8" target="_blank">legimonaco.mc</a></p>
+
+<!-- Article 18: Confidentialité -->
+<h2>Article 18 - Confidentialité</h2>
+<div class="article">
+    <div class="article-content">
+        <p>Les parties s'engagent à respecter la confidentialité de toutes les informations échangées dans le cadre du présent contrat, notamment concernant:</p>
+        <ul>
+            <li>Les conditions commerciales et tarifaires</li>
+            <li>Les caractéristiques et l'état du bien immobilier</li>
+            <li>Les coordonnées et données personnelles</li>
+            <li>Toute information sensible découverte lors de l'intervention</li>
+        </ul>
+        <p style="margin-top: 12px;">Cette obligation de confidentialité demeure applicable pendant toute la durée du contrat et pour une période de 3 ans après son terme.</p>
+    </div>
+</div>
+
+<!-- Article 19: Cession du Contrat -->
+<h2>Article 19 - Cession du Contrat</h2>
+<div class="article">
+    <div class="article-content">
+        <p>Le présent contrat est conclu intuitu personae. Il ne peut être cédé, en tout ou partie, par l'une ou l'autre des parties sans l'accord écrit et préalable de l'autre partie, sous peine de nullité de la cession.</p>
+    </div>
+</div>
+
+<!-- Article 20: Intégralité de l'Accord -->
+<h2>Article 20 - Intégralité de l'Accord</h2>
+<div class="article">
+    <div class="article-content">
+        <p>Le présent contrat, accompagné de ses éventuelles annexes, constitue l'intégralité de l'accord entre les parties et annule et remplace tout accord verbal ou écrit, lettre d'intention, offre ou proposition antérieure ayant le même objet.</p>
+        
+        <p style="margin-top: 12px;">Toute modification ou complément au présent contrat devra faire l'objet d'un avenant écrit, daté et signé par les deux parties pour être opposable.</p>
+    </div>
+</div>
+
+<!-- Article 21: Nullité Partielle -->
+<h2>Article 21 - Nullité Partielle</h2>
+<div class="article">
+    <div class="article-content">
+        <p>Si une ou plusieurs stipulations du présent contrat sont tenues pour non valides ou déclarées telles en application d'une loi, d'un règlement ou à la suite d'une décision définitive d'une juridiction compétente, les autres stipulations garderont toute leur force et leur portée.</p>
+        
+        <p style="margin-top: 12px;">Les parties s'engagent dans ce cas à remplacer la clause annulée par une clause valide d'effet équivalent.</p>
+    </div>
+</div>
+
+<!-- Article 22: Règlement des Différends -->
+<h2>Article 22 - Règlement des Différends et Juridiction Compétente</h2>
+<div class="article">
+    <div class="article-content">
+        <p>En cas de différend relatif à l'interprétation, l'exécution ou la résiliation du présent contrat, les parties s'efforceront de trouver une solution amiable dans un esprit de bonne foi.</p>
+        
+        <p style="margin-top: 12px;">À défaut d'accord amiable dans un délai de 30 jours suivant la notification du différend par lettre recommandée avec accusé de réception, le litige sera porté devant les tribunaux compétents de la Principauté de Monaco, auxquels les parties attribuent compétence exclusive.</p>
+        
+        <p style="margin-top: 12px;"><strong>Droit applicable:</strong> Le présent contrat est intégralement régi par le droit monégasque.</p>
+    </div>
+</div>
+
+<p class="legal-ref">Base légale: Compétence des Tribunaux de Monaco (Tribunal de Première Instance, Cour d'Appel); Code de Procédure Civile de Monaco - <a href="https://www.legimonaco.mc" target="_blank">legimonaco.mc</a></p>
+
+<!-- Article 23: Déclarations des Parties -->
+<h2>Article 23 - Déclarations des Parties</h2>
+<div class="article">
+    <div class="article-content">
+        <p>Les parties déclarent:</p>
+        <ul>
+            <li>Avoir pris connaissance de l'ensemble des termes et conditions du présent contrat</li>
+            <li>En accepter pleinement le contenu sans réserve</li>
+            <li>Disposer de la capacité juridique et des pouvoirs nécessaires pour le conclure</li>
+            <li>Avoir été en mesure de faire vérifier le présent contrat par un conseil de leur choix avant signature</li>
+        </ul>
+    </div>
+</div>
         <!-- Article 23bis: NOUVEAU - Suspension travaux -->
         <h2>Article 23bis - Clause de Sauvegarde et Suspension des Travaux</h2>
         <div class="article">
