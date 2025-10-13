@@ -678,20 +678,19 @@
                 <p>RCI: 25S10110</p>
                 <p>TVA: FR72000188879</p>
                 <p style="margin-top: 10px;">Représentée par: 
-<select id="lkr-representative" style="width: 200px; padding: 5px; font-weight: 600;">
-    <option value="Luca Borella">M. Luca Borella</option>
-    <option value="Riccardo Barlozzetti">M. Riccardo Barlozzetti</option>
-    <option value="Simona Fantato">Mme Simona Fantato</option>
-    <option value="Autre">Autre (préciser ci-dessous)</option>
-</select>, Gérant</p>
-<input type="text" id="lkr-rep-autre" placeholder="Si 'Autre', préciser nom et qualité" style="width: 100%; margin-top: 5px; display: none;">
-
-<script>
-document.getElementById('lkr-representative').addEventListener('change', function() {
-    const autreInput = document.getElementById('lkr-rep-autre');
-    autreInput.style.display = (this.value === 'Autre') ? 'block' : 'none';
-});
-</script>
+<select id="lkr-representative" style="width: 250px; padding: 5px; font-weight: 600; border: 1px solid #ddd; border-radius: 3px;">
+    <option value="Luca Borella|Gérant">M. Luca Borella, Gérant</option>
+    <option value="Riccardo Barlozzetti|Associé">M. Riccardo Barlozzetti, Associé</option>
+    <option value="Simona Fantato|Associée">Mme Simona Fantato, Associée</option>
+    <option value="Autre|Représentant légal">Autre représentant...</option>
+</select>
+</p>
+<div id="lkr-rep-autre-container" style="display: none; margin-top: 10px; padding: 10px; background: #f9f9f9; border-radius: 4px;">
+    <label style="display: block; font-size: 12px; font-weight: 600; margin-bottom: 5px;">Nom et prénom du représentant:</label>
+    <input type="text" id="lkr-rep-autre-nom" placeholder="Ex: Jean Dupont" style="width: 100%; padding: 8px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 3px;">
+    <label style="display: block; font-size: 12px; font-weight: 600; margin-bottom: 5px;">Qualité / Fonction:</label>
+    <input type="text" id="lkr-rep-autre-qualite" placeholder="Ex: Directeur, Mandataire" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 3px;">
+</div>
                 <p>Email: info@lkr.mc</p>
                 <p>Téléphone: +377 6 40 61 56 50</p>
             </div>
@@ -1088,6 +1087,56 @@ document.getElementById('lkr-representative').addEventListener('change', functio
                 <textarea id="access-details" placeholder="Ex: codes d'accès, instructions particulières, horaires autorisés, personne de contact sur place..."></textarea>
                 
                 <p style="margin-top: 15px;">Le Client garantit que le bien est libre d'occupation et accessible pendant toute la durée des travaux. En cas d'impossibilité d'accès non imputable au Prestataire, les délais seront prolongés d'autant.</p>
+
+                <h3 style="margin-top: 25px; color: #c41e3a; font-size: 15px;">Stationnement pour travaux</h3>
+                
+                <p>Le Client s'engage à garantir une solution de stationnement pour les véhicules et équipements du Prestataire et de ses sous-traitants pendant toute la durée des travaux, selon les modalités suivantes:</p>
+                
+                <div style="background: #f9f9f9; padding: 20px; margin: 15px 0; border-left: 4px solid #c41e3a; border-radius: 4px;">
+                    <p style="font-weight: 600; margin-bottom: 15px; color: #c41e3a;">Modalités de stationnement:</p>
+                    
+                    <div class="checkbox-item" style="margin: 15px 0;">
+                        <input type="radio" id="parking-client-prive" name="parking-mode" style="width: auto;">
+                        <label for="parking-client-prive"><strong>Place de parking privée fournie par le Client</strong><br>
+                        <span style="font-size: 12px;">Numéro place: <input type="text" style="width: 150px; display: inline; margin-left: 5px; padding: 5px;" placeholder="Ex: Box 12"></span></label>
+                    </div>
+                    
+                    <div class="checkbox-item" style="margin: 15px 0;">
+                        <input type="radio" id="parking-client-public" name="parking-mode" style="width: auto;">
+                        <label for="parking-client-public"><strong>Demande de place publique par le Client auprès de la Mairie de Monaco</strong><br>
+                        <span style="font-size: 12px;">Le Client s'engage à effectuer les démarches nécessaires auprès de la Direction de l'Aménagement Urbain pour obtenir une autorisation de stationnement travaux sur la voie publique. Coût à la charge du Client.</span></label>
+                    </div>
+                    
+                    <div class="checkbox-item" style="margin: 15px 0;">
+                        <input type="radio" id="parking-lkr-gestion" name="parking-mode" style="width: auto;" onchange="toggleParkingLKR()">
+                        <label for="parking-lkr-gestion"><strong>Gestion par LKR (démarches + réservation) - Service payant</strong><br>
+                        <span style="font-size: 12px;">LKR se charge d'effectuer toutes les démarches administratives et de réserver le stationnement nécessaire. Coût du service + redevance communale refacturés au Client.</span></label>
+                    </div>
+                    
+                    <div id="parking-lkr-details" style="display: none; margin-left: 30px; margin-top: 10px; padding: 15px; background: white; border: 2px solid #ffc107; border-radius: 4px;">
+                        <p style="font-weight: 600; color: #c41e3a; margin-bottom: 10px;">💰 Coûts estimatifs service gestion parking LKR:</p>
+                        <p style="font-size: 13px; margin-left: 15px;">
+                            • Frais de gestion administrative LKR: <input type="number" step="50" style="width: 100px; display: inline; padding: 5px;" placeholder="150"> € HT<br>
+                            • Redevance Mairie Monaco (estimation): <input type="number" step="10" style="width: 100px; display: inline; padding: 5px; margin-top: 5px;" placeholder="30"> € / jour × <input type="number" style="width: 60px; display: inline; padding: 5px;" placeholder="15"> jours<br>
+                            • <strong>Total estimé TTC: <span id="parking-total-estimate">0</span> €</strong>
+                        </p>
+                        
+                        <div class="checkbox-item" style="margin-top: 15px; padding: 15px; background: #fff3cd; border-left: 3px solid #ffc107;">
+                            <input type="checkbox" id="parking-lkr-acceptation" style="width: auto;">
+                            <label for="parking-lkr-acceptation" style="font-weight: 600;"><strong>☑ ACCEPTATION CLIENT:</strong> Je reconnais avoir été informé des coûts liés à la gestion du stationnement par LKR et j'accepte que ces frais soient ajoutés à la facture finale des travaux.</label>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-item" style="margin: 15px 0;">
+                        <input type="radio" id="parking-prestataire" name="parking-mode" style="width: auto;">
+                        <label for="parking-prestataire"><strong>Stationnement à organiser par le Prestataire (sans assistance Client ni LKR)</strong><br>
+                        <span style="font-size: 12px; color: #dc3545;">⚠️ Attention: Cette option peut entraîner des frais de parking publics répercutés au Client et/ou des difficultés d'accès pouvant allonger les délais.</span></label>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 15px; font-size: 13px;"><strong>Responsabilité:</strong> Le Client ou le Prestataire (selon modalité choisie) reste responsable du respect de la réglementation monégasque en matière de stationnement. Toute contravention ou pénalité résultant d'un stationnement irrégulier sera à la charge de la partie ayant organisé le stationnement.</p>
+                
+                <p style="margin-top: 10px; font-size: 13px;"><strong>Impact sur les délais:</strong> L'absence de solution de stationnement adéquate peut entraîner des retards dans l'exécution des travaux. Dans ce cas, les délais contractuels seront prolongés en conséquence, sauf si le stationnement devait être fourni par le Client et ne l'a pas été.</p>
             </div>
         </div>
 
@@ -1678,5 +1727,48 @@ document.getElementById('lkr-representative').addEventListener('change', functio
             }
         }
     </script>
+<script>
+        // Gestione rappresentante LKR con qualità variabile
+        document.addEventListener('DOMContentLoaded', function() {
+            const repSelect = document.getElementById('lkr-representative');
+            const repContainer = document.getElementById('lkr-rep-autre-container');
+            
+            if (repSelect && repContainer) {
+                repSelect.addEventListener('change', function() {
+                    repContainer.style.display = this.value.startsWith('Autre') ? 'block' : 'none';
+                });
+            }
+        });
+    </script>
+    <script>
+// Gestione visualizzazione détails parking LKR
+function toggleParkingLKR() {
+    const detailsDiv = document.getElementById('parking-lkr-details');
+    const radio = document.getElementById('parking-lkr-gestion');
+    if (detailsDiv) {
+        detailsDiv.style.display = radio.checked ? 'block' : 'none';
+    }
+}
+
+// Calcolo automatico costo parking (opzionale, per comodità)
+document.addEventListener('input', function(e) {
+    if (e.target.closest('#parking-lkr-details')) {
+        const inputs = document.querySelectorAll('#parking-lkr-details input[type="number"]');
+        if (inputs.length >= 3) {
+            const fraisGestion = parseFloat(inputs[0].value) || 0;
+            const redevanceJour = parseFloat(inputs[1].value) || 0;
+            const nbJours = parseFloat(inputs[2].value) || 0;
+            const totalHT = fraisGestion + (redevanceJour * nbJours);
+            const totalTTC = totalHT * 1.20; // TVA 20%
+            const estimateSpan = document.getElementById('parking-total-estimate');
+            if (estimateSpan) {
+                estimateSpan.textContent = totalTTC.toFixed(2).replace('.', ',');
+            }
+        }
+    }
+});
+</script>
+</body>
+</html>
 </body>
 </html>
