@@ -127,6 +127,47 @@
           "descrizione": "Test ES"
         }
       }
+    },
+    {
+      "id": "progetto-1761470913381",
+      "anno": "2025",
+      "categoria": "rénovation-complète",
+      "immagini": [
+        "/img/portfolio/2025/progetto-default/progetto-default_prima_01.jpg",
+        "/img/portfolio/2025/progetto-default/progetto-default_dopo_01.jpg"
+      ],
+      "traduzioni": {
+        "fr": {
+          "titolo": "progetto-default",
+          "luogo": "Monaco",
+          "descrizione": "Projet de rénovation"
+        },
+        "it": {
+          "titolo": "progetto-default",
+          "luogo": "Monaco",
+          "descrizione": "Progetto di ristrutturazione"
+        },
+        "en": {
+          "titolo": "progetto-default",
+          "luogo": "Monaco",
+          "descrizione": "Renovation project"
+        },
+        "ru": {
+          "titolo": "progetto-default",
+          "luogo": "Монако",
+          "descrizione": "Проект ремонта"
+        },
+        "de": {
+          "titolo": "progetto-default",
+          "luogo": "Monaco",
+          "descrizione": "Renovierungsprojekt"
+        },
+        "es": {
+          "titolo": "progetto-default",
+          "luogo": "Mónaco",
+          "descrizione": "Proyecto de renovación"
+        }
+      }
     }
   ]
 }
