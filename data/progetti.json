@@ -86,6 +86,55 @@
           "descrizione": "Instalación profesional de papeles pintados decorativos de alta gama en múltiples residencias. Motivos de rayas elegantes y panorámico tropical con uniones perfectas y acabados impecables."
         }
       }
+    },
+    {
+      "id": "progetto-1761471753438",
+      "anno": "2025",
+      "categoria": "rénovation-salle-de-bain",
+      "immagini": [
+        "/img/portfolio/2025/MimiCoco-Nice-Port/MimiCoco-Nice-Port_prima_01.jpg",
+        "/img/portfolio/2025/MimiCoco-Nice-Port/MimiCoco-Nice-Port_prima_02.jpg",
+        "/img/portfolio/2025/MimiCoco-Nice-Port/MimiCoco-Nice-Port_prima_03.jpg",
+        "/img/portfolio/2025/MimiCoco-Nice-Port/MimiCoco-Nice-Port_dopo_01.jpg",
+        "/img/portfolio/2025/MimiCoco-Nice-Port/MimiCoco-Nice-Port_dopo_02.jpg",
+        "/img/portfolio/2025/MimiCoco-Nice-Port/MimiCoco-Nice-Port_dopo_03.jpg",
+        "/img/portfolio/2025/MimiCoco-Nice-Port/MimiCoco-Nice-Port_dopo_04.jpg",
+        "/img/portfolio/2025/MimiCoco-Nice-Port/MimiCoco-Nice-Port_dopo_05.jpg",
+        "/img/portfolio/2025/MimiCoco-Nice-Port/MimiCoco-Nice-Port_dopo_06.jpg",
+        "/img/portfolio/2025/MimiCoco-Nice-Port/MimiCoco-Nice-Port_dopo_07.jpg"
+      ],
+      "traduzioni": {
+        "fr": {
+          "titolo": "Rénovation de salle de bain MimiCoco-Nice-Port",
+          "luogo": "Monaco",
+          "descrizione": "Transformation complète d'une salle de bain avec installation de nouveaux équipements, matériaux et décoration. Le résultat est un espace moderne et élégant."
+        },
+        "it": {
+          "titolo": "Rinnovamento bagno MimiCoco-Nice-Port",
+          "luogo": "Monaco",
+          "descrizione": "Trasformazione completa di un bagno con installazione di nuovi impianti, materiali e decorazioni. Il risultato è uno spazio moderno ed elegante."
+        },
+        "en": {
+          "titolo": "MimiCoco-Nice-Port Bathroom Renovation",
+          "luogo": "Monaco",
+          "descrizione": "Complete transformation of a bathroom with new fixtures, materials, and decor. The result is a modern and elegant space."
+        },
+        "ru": {
+          "titolo": "Ремонт ванной комнаты MimiCoco-Nice-Port",
+          "luogo": "Монако",
+          "descrizione": "Полная трансформация ванной комнаты с установкой нового оборудования, материалов и декора. Результат - современное и элегантное пространство."
+        },
+        "de": {
+          "titolo": "Badezimmer-Renovierung MimiCoco-Nice-Port",
+          "luogo": "Monaco",
+          "descrizione": "Vollständige Transformation eines Badezimmers mit neuen Armaturen, Materialien und Dekorationen. Das Ergebnis ist ein moderner und eleganter Raum."
+        },
+        "es": {
+          "titolo": "Renovación de baño MimiCoco-Nice-Port",
+          "luogo": "Mónaco",
+          "descrizione": "Transformación completa de un baño con instalación de nuevos equipos, materiales y decoración. El resultado es un espacio moderno y elegante."
+        }
+      }
     }
   ]
 }
