@@ -135,6 +135,55 @@
           "descrizione": "Transformación completa de un baño con instalación de nuevos equipos, materiales y decoración. El resultado es un espacio moderno y elegante."
         }
       }
+    },
+    {
+      "id": "progetto-1761474752118",
+      "anno": "2025",
+      "categoria": "rénovation-complète",
+      "immagini": [
+        "/img/portfolio/2025/Mimi & Coco Nice/Mimi & Coco Nice_prima_01.jpg",
+        "/img/portfolio/2025/Mimi & Coco Nice/Mimi & Coco Nice_dopo_01.jpg",
+        "/img/portfolio/2025/Mimi & Coco Nice/Mimi & Coco Nice_dopo_02.jpg",
+        "/img/portfolio/2025/Mimi & Coco Nice/Mimi & Coco Nice_dopo_03.jpg",
+        "/img/portfolio/2025/Mimi & Coco Nice/Mimi & Coco Nice_dopo_04.jpg",
+        "/img/portfolio/2025/Mimi & Coco Nice/Mimi & Coco Nice_dopo_05.jpg",
+        "/img/portfolio/2025/Mimi & Coco Nice/Mimi & Coco Nice_dopo_06.jpg",
+        "/img/portfolio/2025/Mimi & Coco Nice/Mimi & Coco Nice_dopo_07.jpg",
+        "/img/portfolio/2025/Mimi & Coco Nice/Mimi & Coco Nice_dopo_08.jpg",
+        "/img/portfolio/2025/Mimi & Coco Nice/Mimi & Coco Nice_dopo_09.jpg"
+      ],
+      "traduzioni": {
+        "fr": {
+          "titolo": "Rénovation complète du bar Mimi & Coco",
+          "luogo": "Monaco",
+          "descrizione": "Transformation d'un espace de restauration en un lieu moderne et élégant. Le projet inclut la pose de nouveaux sols, la rénovation des murs et l'aménagement de mobilier design."
+        },
+        "it": {
+          "titolo": "Ristrutturazione completa del bar Mimi & Coco",
+          "luogo": "Monaco",
+          "descrizione": "Trasformazione di un locale di ristorazione in un luogo moderno ed elegante. Il progetto include la posa di nuovi pavimenti, la ristrutturazione delle pareti e l'arredamento con mobili design."
+        },
+        "en": {
+          "titolo": "Mimi & Coco Bar Full Renovation",
+          "luogo": "Monaco",
+          "descrizione": "Transformation of a dining space into a modern and elegant venue. The project includes new flooring, wall renovations, and design furniture arrangement."
+        },
+        "ru": {
+          "titolo": "Полная реконструкция бара Mimi & Coco",
+          "luogo": "Монако",
+          "descrizione": "Преобразование обеденного пространства в современное и элегантное место. Проект включает в себя укладку нового напольного покрытия, реконструкцию стен и дизайнерскую расстановку мебели."
+        },
+        "de": {
+          "titolo": "Komplette Renovierung des Bars Mimi & Coco",
+          "luogo": "Monaco",
+          "descrizione": "Umwandlung eines Essbereichs in eine moderne und elegante Location. Das Projekt umfasst die Verlegung neuer Böden, die Renovierung von Wänden und die Gestaltung mit Designermöbeln."
+        },
+        "es": {
+          "titolo": "Renovación completa del bar Mimi & Coco",
+          "luogo": "Mónaco",
+          "descrizione": "Transformación de un espacio de comedor en un lugar moderno y elegante. El proyecto incluye la colocación de nuevos suelos, la renovación de las paredes y el diseño de muebles."
+        }
+      }
     }
   ]
 }
