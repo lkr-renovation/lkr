@@ -86,6 +86,47 @@
           "descrizione": "Instalación profesional de papeles pintados decorativos de alta gama en múltiples residencias. Motivos de rayas elegantes y panorámico tropical con uniones perfectas y acabados impecables."
         }
       }
+    },
+    {
+      "id": "progetto-1761470071488",
+      "anno": "2025",
+      "categoria": "rénovation-complète",
+      "immagini": [
+        "/img/portfolio/2025/test-progetto-monaco/test-progetto-monaco_prima_01.jpg",
+        "/img/portfolio/2025/test-progetto-monaco/test-progetto-monaco_dopo_01.jpg"
+      ],
+      "traduzioni": {
+        "fr": {
+          "titolo": "Test Monaco",
+          "luogo": "Monaco",
+          "descrizione": "Test FR"
+        },
+        "it": {
+          "titolo": "Test Monaco",
+          "luogo": "Monaco",
+          "descrizione": "Test IT"
+        },
+        "en": {
+          "titolo": "Test Monaco",
+          "luogo": "Monaco",
+          "descrizione": "Test EN"
+        },
+        "ru": {
+          "titolo": "Тест Монако",
+          "luogo": "Монако",
+          "descrizione": "Test RU"
+        },
+        "de": {
+          "titolo": "Test Monaco",
+          "luogo": "Monaco",
+          "descrizione": "Test DE"
+        },
+        "es": {
+          "titolo": "Test Mónaco",
+          "luogo": "Mónaco",
+          "descrizione": "Test ES"
+        }
+      }
     }
   ]
 }
