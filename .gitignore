@@ -1,0 +1,18 @@
+# LKR - File da NON committare su GitHub
+
+# Admin configuration (contiene API keys sensibili)
+admin/config.js
+
+# Backup locali
+backups/
+
+# MacOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.log
