@@ -721,6 +721,44 @@ function checkExistingSession() {
     document.body.appendChild(toggleBtn);
   }
 
+  function init() {
+  console.log('🔵 Admin init chiamata');
+  
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = '/admin/admin.css';
+  document.head.appendChild(link);
+  
+  createAdminToggle();
+  
+  // Aspetta che I18N sia disponibile prima di controllare sessione
+  const checkI18N = setInterval(() => {
+    if (window.I18N) {
+      console.log('🟢 window.I18N disponibile');
+      clearInterval(checkI18N);
+      if (checkExistingSession()) {
+        initAdminMode();
+      }
+    } else {
+      console.log('⏳ Aspetto window.I18N...');
+    }
+  }, 100);
+  
+  // Timeout dopo 5 secondi
+  setTimeout(() => {
+    clearInterval(checkI18N);
+    if (!window.I18N) {
+      console.warn('⚠️ window.I18N non disponibile dopo 5 secondi');
+    }
+  }, 5000);
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+  
   function initAdminMode() {
   console.log('🔵 initAdminMode chiamata');
   
