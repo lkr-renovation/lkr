@@ -149,18 +149,23 @@
     btn.addEventListener('click', () => {
   const password = input.value.trim();
   
+  // DEBUG: Mostra tutto
+  alert('Password digitata: "' + password + '"');
+  alert('Password configurata: "' + LKR_CONFIG.adminPassword + '"');
+  alert('Sono uguali? ' + (password === LKR_CONFIG.adminPassword));
+  
   if (password === LKR_CONFIG.adminPassword) {
     sessionStorage.setItem('lkr-admin-session', 'logged-in');
-        LKR_ADMIN.isLoggedIn = true;
-        modal.remove();
-        initAdminMode();
-        showNotification('Login effettuato', 'Modalità editing attivata', 'success');
-      } else {
-        error.textContent = 'Password errata';
-        input.value = '';
-        input.focus();
-      }
-    });
+    LKR_ADMIN.isLoggedIn = true;
+    modal.remove();
+    initAdminMode();
+    showNotification('Login effettuato', 'Modalità editing attivata', 'success');
+  } else {
+    error.textContent = 'Password errata';
+    input.value = '';
+    input.focus();
+  }
+});
   }
 
   function checkExistingSession() {
