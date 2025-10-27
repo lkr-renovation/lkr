@@ -150,7 +150,7 @@
   const hash = await sha256(password);
   
   if (hash === LKR_CONFIG.adminPasswordHash) {
-    sessionStorage.setItem('lkr-admin-session', hash);
+    sessionStorage.setItem('lkr-admin-session', LKR_CONFIG.adminPasswordHash);
     LKR_ADMIN.isLoggedIn = true;
     modal.remove();
     initAdminMode();
