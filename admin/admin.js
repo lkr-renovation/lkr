@@ -1,0 +1,836 @@
+/**
+ * LKR ADMIN PANEL - SISTEMA EDITING INLINE
+ * 
+ * Funzionalità:
+ * - Login con password
+ * - Editing inline testi con data-i18n
+ * - Traduzione automatica con Groq AI
+ * - Salvataggio su GitHub con backup
+ * - Preview modifiche in tempo reale
+ */
+
+(function() {
+  'use strict';
+
+  // ============================================
+  // STATO GLOBALE
+  // ============================================
+  
+  const LKR_ADMIN = {
+    isLoggedIn: false,
+    isEditMode: false,
+    currentEditingElement: null,
+    currentI18nKey: null,
+    originalI18N: null, // Backup dizionario originale
+    modifiedI18N: null, // Dizionario con modifiche
+    currentPage: window.location.pathname
+  };
+
+  // ============================================
+  // UTILITY FUNCTIONS
+  // ============================================
+
+  /**
+   * Hash SHA-256 per verificare password
+   */
+  async function sha256(message) {
+    const msgBuffer = new TextEncoder().encode(message);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  /**
+   * Mostra notifica toast
+   */
+  function showNotification(title, message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `lkr-notification ${type}`;
+    
+    const icons = {
+      success: '✅',
+      error: '❌',
+      info: 'ℹ️',
+      warning: '⚠️'
+    };
+    
+    notification.innerHTML = `
+      <div class="lkr-notification-icon">${icons[type]}</div>
+      <div class="lkr-notification-content">
+        <div class="lkr-notification-title">${title}</div>
+        <div class="lkr-notification-message">${message}</div>
+      </div>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+      notification.style.opacity = '0';
+      setTimeout(() => notification.remove(), 300);
+    }, 4000);
+  }
+
+  /**
+   * Ottiene valore da dizionario i18n tramite chiave (es: "nav.home")
+   */
+  function getI18nValue(lang, key) {
+    const keys = key.split('.');
+    let value = window.I18N[lang];
+    
+    for (const k of keys) {
+      if (value === undefined) return null;
+      value = value[k];
+    }
+    
+    return value;
+  }
+
+  /**
+   * Imposta valore nel dizionario i18n tramite chiave
+   */
+  function setI18nValue(lang, key, newValue) {
+    const keys = key.split('.');
+    let obj = LKR_ADMIN.modifiedI18N[lang];
+    
+    for (let i = 0; i < keys.length - 1; i++) {
+      if (obj[keys[i]] === undefined) {
+        obj[keys[i]] = {};
+      }
+      obj = obj[keys[i]];
+    }
+    
+    obj[keys[keys.length - 1]] = newValue;
+  }
+
+  // ============================================
+  // LOGIN SYSTEM
+  // ============================================
+
+  /**
+   * Crea e mostra modal di login
+   */
+  function showLoginModal() {
+    const modal = document.createElement('div');
+    modal.id = 'lkr-admin-login-modal';
+    modal.innerHTML = `
+      <div class="lkr-admin-login-box">
+        <h2>🔐 LKR Admin Panel</h2>
+        <input type="password" id="lkr-admin-password" placeholder="Password" autocomplete="off">
+        <button id="lkr-admin-login-btn">Accedi</button>
+        <div class="lkr-admin-error" id="lkr-admin-error"></div>
+      </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    const input = document.getElementById('lkr-admin-password');
+    const btn = document.getElementById('lkr-admin-login-btn');
+    const error = document.getElementById('lkr-admin-error');
+    
+    input.focus();
+    
+    // Login con Enter
+    input.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') btn.click();
+    });
+    
+    // Click bottone login
+    btn.addEventListener('click', async () => {
+      const password = input.value;
+      const hash = await sha256(password);
+      
+      if (hash === LKR_CONFIG.adminPasswordHash) {
+        sessionStorage.setItem('lkr-admin-session', hash);
+        LKR_ADMIN.isLoggedIn = true;
+        modal.remove();
+        initAdminMode();
+        showNotification('Login effettuato', 'Modalità editing attivata', 'success');
+      } else {
+        error.textContent = 'Password errata';
+        input.value = '';
+        input.focus();
+      }
+    });
+  }
+
+  /**
+   * Verifica se admin è già loggato (sessionStorage)
+   */
+  function checkExistingSession() {
+    const session = sessionStorage.getItem('lkr-admin-session');
+    if (session === LKR_CONFIG.adminPasswordHash) {
+      LKR_ADMIN.isLoggedIn = true;
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * Logout admin
+   */
+  function logout() {
+    sessionStorage.removeItem('lkr-admin-session');
+    LKR_ADMIN.isLoggedIn = false;
+    LKR_ADMIN.isEditMode = false;
+    
+    // Rimuovi evidenziazioni
+    document.querySelectorAll('.lkr-editable').forEach(el => {
+      el.classList.remove('lkr-editable');
+    });
+    
+    // Chiudi sidebar se aperta
+    const sidebar = document.getElementById('lkr-admin-sidebar');
+    if (sidebar) sidebar.remove();
+    
+    // Aggiorna bottone
+    const toggleBtn = document.getElementById('lkr-admin-toggle');
+    if (toggleBtn) {
+      toggleBtn.textContent = '🔧 Admin';
+      toggleBtn.classList.remove('active');
+    }
+    
+    showNotification('Logout effettuato', 'Modalità editing disattivata', 'info');
+  }
+
+  // ============================================
+  // EDIT MODE
+  // ============================================
+
+  /**
+   * Inizializza modalità admin dopo login
+   */
+  function initAdminMode() {
+    // Backup dizionario originale
+    LKR_ADMIN.originalI18N = JSON.parse(JSON.stringify(window.I18N));
+    LKR_ADMIN.modifiedI18N = JSON.parse(JSON.stringify(window.I18N));
+    
+    // Aggiorna bottone admin
+    const toggleBtn = document.getElementById('lkr-admin-toggle');
+    if (toggleBtn) {
+      toggleBtn.classList.add('active');
+      toggleBtn.textContent = '✅ Admin ON';
+    }
+    
+    // Abilita edit mode
+    enableEditMode();
+  }
+
+  /**
+   * Attiva modalità editing (evidenzia elementi editabili)
+   */
+  function enableEditMode() {
+    LKR_ADMIN.isEditMode = true;
+    
+    // Trova tutti gli elementi con data-i18n
+    const editableElements = document.querySelectorAll('[data-i18n]');
+    
+    editableElements.forEach(element => {
+      // Aggiungi classe per evidenziare
+      element.classList.add('lkr-editable');
+      
+      // Click per editare
+      element.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        openEditSidebar(element);
+      });
+    });
+    
+    showNotification('Edit Mode ON', `${editableElements.length} elementi editabili trovati`, 'success');
+  }
+
+  /**
+   * Disattiva modalità editing
+   */
+  function disableEditMode() {
+    LKR_ADMIN.isEditMode = false;
+    
+    document.querySelectorAll('.lkr-editable').forEach(el => {
+      el.classList.remove('lkr-editable');
+    });
+  }
+
+  // ============================================
+  // SIDEBAR EDITING
+  // ============================================
+
+  /**
+   * Apre sidebar di editing per elemento selezionato
+   */
+  function openEditSidebar(element) {
+    const i18nKey = element.getAttribute('data-i18n');
+    const currentLang = document.documentElement.getAttribute('data-lang') || 'fr';
+    const currentValue = getI18nValue('it', i18nKey); // IT è master
+    
+    LKR_ADMIN.currentEditingElement = element;
+    LKR_ADMIN.currentI18nKey = i18nKey;
+    
+    // Segna elemento come in editing
+    document.querySelectorAll('.lkr-editable').forEach(el => {
+      el.classList.remove('editing');
+    });
+    element.classList.add('editing');
+    
+    // Crea sidebar se non esiste
+    let sidebar = document.getElementById('lkr-admin-sidebar');
+    if (!sidebar) {
+      sidebar = createSidebar();
+    }
+    
+    // Popola contenuto sidebar
+    updateSidebarContent(i18nKey, currentValue);
+    
+    // Mostra sidebar
+    sidebar.classList.add('open');
+    
+    // Mostra overlay
+    let overlay = document.getElementById('lkr-admin-overlay');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.id = 'lkr-admin-overlay';
+      overlay.addEventListener('click', closeSidebar);
+      document.body.appendChild(overlay);
+    }
+    overlay.classList.add('visible');
+  }
+
+  /**
+   * Crea struttura HTML sidebar
+   */
+  function createSidebar() {
+    const sidebar = document.createElement('div');
+    sidebar.id = 'lkr-admin-sidebar';
+    sidebar.innerHTML = `
+      <div class="lkr-sidebar-header">
+        <h3>✏️ Modifica Testo</h3>
+        <button class="lkr-sidebar-close" id="lkr-sidebar-close">✕</button>
+      </div>
+      <div class="lkr-sidebar-content" id="lkr-sidebar-content">
+        <!-- Contenuto dinamico -->
+      </div>
+      <div class="lkr-sidebar-footer">
+        <button class="lkr-btn-cancel" id="lkr-btn-cancel">Annulla</button>
+        <button class="lkr-btn-translate" id="lkr-btn-translate">🌍 Traduci</button>
+        <button class="lkr-btn-save" id="lkr-btn-save">💾 Salva</button>
+      </div>
+    `;
+    
+    document.body.appendChild(sidebar);
+    
+    // Event listeners
+    document.getElementById('lkr-sidebar-close').addEventListener('click', closeSidebar);
+    document.getElementById('lkr-btn-cancel').addEventListener('click', closeSidebar);
+    document.getElementById('lkr-btn-translate').addEventListener('click', translateCurrentText);
+    document.getElementById('lkr-btn-save').addEventListener('click', saveChanges);
+    
+    return sidebar;
+  }
+
+  /**
+   * Aggiorna contenuto sidebar con valori attuali
+   */
+  function updateSidebarContent(i18nKey, currentValue) {
+    const content = document.getElementById('lkr-sidebar-content');
+    
+    // Sezione Italiano (master editabile)
+    let html = `
+      <div class="lkr-sidebar-section">
+        <label>🇮🇹 ITALIANO (Master)</label>
+        <textarea id="lkr-edit-it" rows="4">${currentValue || ''}</textarea>
+        <small style="color: #6c757d; font-size: 0.85rem; display: block; margin-top: 8px;">
+          Chiave: <code style="background: #f8f9fa; padding: 2px 6px; border-radius: 4px;">${i18nKey}</code>
+        </small>
+      </div>
+      
+      <div class="lkr-sidebar-section">
+        <label>🌍 TRADUZIONI</label>
+        <small style="color: #6c757d; font-size: 0.85rem; display: block; margin-bottom: 12px;">
+          Click su "Traduci" per generare automaticamente tutte le traduzioni
+        </small>
+        <div class="lkr-translation-grid">
+    `;
+    
+    // Sezioni traduzioni (altre lingue)
+    const languages = [
+      { code: 'fr', flag: '🇫🇷', name: 'Français' },
+      { code: 'en', flag: '🇬🇧', name: 'English' },
+      { code: 'de', flag: '🇩🇪', name: 'Deutsch' },
+      { code: 'ru', flag: '🇷🇺', name: 'Русский' },
+      { code: 'es', flag: '🇪🇸', name: 'Español' }
+    ];
+    
+    languages.forEach(lang => {
+      const value = getI18nValue(lang.code, i18nKey) || '';
+      html += `
+        <div class="lkr-translation-item">
+          <label>
+            <span class="lang-flag">${lang.flag}</span>
+            <span>${lang.name}</span>
+          </label>
+          <textarea id="lkr-edit-${lang.code}" rows="3">${value}</textarea>
+        </div>
+      `;
+    });
+    
+    html += `
+        </div>
+      </div>
+    `;
+    
+    content.innerHTML = html;
+  }
+
+  /**
+   * Chiude sidebar
+   */
+  function closeSidebar() {
+    const sidebar = document.getElementById('lkr-admin-sidebar');
+    const overlay = document.getElementById('lkr-admin-overlay');
+    
+    if (sidebar) sidebar.classList.remove('open');
+    if (overlay) overlay.classList.remove('visible');
+    
+    // Rimuovi evidenziazione editing
+    if (LKR_ADMIN.currentEditingElement) {
+      LKR_ADMIN.currentEditingElement.classList.remove('editing');
+    }
+    
+    LKR_ADMIN.currentEditingElement = null;
+    LKR_ADMIN.currentI18nKey = null;
+  }
+
+  // ============================================
+  // TRADUZIONE AUTOMATICA (GROQ)
+  // ============================================
+
+  /**
+   * Traduce testo corrente in tutte le lingue con Groq
+   */
+  async function translateCurrentText() {
+    const textIT = document.getElementById('lkr-edit-it').value.trim();
+    
+    if (!textIT) {
+      showNotification('Errore', 'Inserisci prima il testo italiano', 'error');
+      return;
+    }
+    
+    // Verifica API key
+    if (LKR_CONFIG.groqApiKey === 'gsk_YOUR_GROQ_API_KEY_HERE') {
+      showNotification('Errore', 'Groq API key non configurata. Compila admin/config.js', 'error');
+      return;
+    }
+    
+    const translateBtn = document.getElementById('lkr-btn-translate');
+    translateBtn.disabled = true;
+    translateBtn.innerHTML = '<span class="lkr-loading"></span> Traduzione...';
+    
+    try {
+      const translations = await translateWithGroq(textIT);
+      
+      // Aggiorna textareas con traduzioni
+      Object.keys(translations).forEach(lang => {
+        const textarea = document.getElementById(`lkr-edit-${lang}`);
+        if (textarea) {
+          textarea.value = translations[lang];
+        }
+      });
+      
+      showNotification('Traduzione completata', 'Tutte le lingue sono state tradotte', 'success');
+      
+    } catch (error) {
+      console.error('Errore traduzione:', error);
+      showNotification('Errore traduzione', error.message, 'error');
+    } finally {
+      translateBtn.disabled = false;
+      translateBtn.innerHTML = '🌍 Traduci';
+    }
+  }
+
+  /**
+   * Chiama Groq API per tradurre in tutte le lingue
+   */
+  async function translateWithGroq(textIT) {
+    const targetLanguages = {
+      fr: 'francese (Francia)',
+      en: 'inglese',
+      de: 'tedesco',
+      ru: 'russo',
+      es: 'spagnolo'
+    };
+    
+    const translations = {};
+    
+    // Traduce una lingua alla volta per maggiore accuratezza
+    for (const [langCode, langName] of Object.entries(targetLanguages)) {
+      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${LKR_CONFIG.groqApiKey}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          model: LKR_CONFIG.groqModel,
+          messages: [{
+            role: 'system',
+            content: `Sei un traduttore professionale specializzato in contenuti per l'industria del lusso e della ristrutturazione. 
+                      Traduci il testo in ${langName} mantenendo:
+                      - Tono elegante e professionale
+                      - Terminologia del settore edile/ristrutturazione
+                      - Stile adatto a clientela alta gamma Monaco/Costa Azzurra
+                      - Lunghezza simile all'originale
+                      
+                      Rispondi SOLO con la traduzione, senza commenti o spiegazioni.`
+          }, {
+            role: 'user',
+            content: textIT
+          }],
+          temperature: 0.3, // Bassa temperatura per traduzioni più fedeli
+          max_tokens: 500
+        })
+      });
+      
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(`Groq API error: ${error.error?.message || 'Unknown error'}`);
+      }
+      
+      const data = await response.json();
+      translations[langCode] = data.choices[0].message.content.trim();
+    }
+    
+    return translations;
+  }
+
+  // ============================================
+  // SALVATAGGIO MODIFICHE
+  // ============================================
+
+  /**
+   * Salva modifiche nel dizionario i18n
+   */
+  async function saveChanges() {
+    const i18nKey = LKR_ADMIN.currentI18nKey;
+    
+    // Leggi valori da textareas
+    const newValues = {
+      it: document.getElementById('lkr-edit-it').value.trim(),
+      fr: document.getElementById('lkr-edit-fr').value.trim(),
+      en: document.getElementById('lkr-edit-en').value.trim(),
+      de: document.getElementById('lkr-edit-de').value.trim(),
+      ru: document.getElementById('lkr-edit-ru').value.trim(),
+      es: document.getElementById('lkr-edit-es').value.trim()
+    };
+    
+    // Verifica che almeno italiano sia compilato
+    if (!newValues.it) {
+      showNotification('Errore', 'Il testo italiano è obbligatorio', 'error');
+      return;
+    }
+    
+    // Aggiorna dizionario modificato
+    Object.keys(newValues).forEach(lang => {
+      setI18nValue(lang, i18nKey, newValues[lang]);
+    });
+    
+    // Aggiorna anche il dizionario globale per vedere cambiamenti immediati
+    Object.keys(newValues).forEach(lang => {
+      setI18nValue(lang, i18nKey, newValues[lang]);
+      // Copia in I18N globale
+      const keys = i18nKey.split('.');
+      let obj = window.I18N[lang];
+      for (let i = 0; i < keys.length - 1; i++) {
+        obj = obj[keys[i]];
+      }
+      obj[keys[keys.length - 1]] = newValues[lang];
+    });
+    
+    // Aggiorna visuale pagina
+    updatePageVisuals();
+    
+    closeSidebar();
+    
+    showNotification('Modifiche salvate', 'Le modifiche sono visibili nella pagina. Clicca "Pubblica su GitHub" per rendere definitive.', 'success');
+    
+    // Mostra bottone "Pubblica su GitHub"
+    showPublishButton();
+  }
+
+  /**
+   * Aggiorna i testi visibili nella pagina dopo modifica
+   */
+  function updatePageVisuals() {
+    const currentLang = document.documentElement.getAttribute('data-lang') || 'fr';
+    
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const newValue = getI18nValue(currentLang, key);
+      if (newValue && typeof newValue === 'string') {
+        el.textContent = newValue;
+      }
+    });
+  }
+
+  /**
+   * Mostra bottone per pubblicare modifiche su GitHub
+   */
+  function showPublishButton() {
+    let publishBtn = document.getElementById('lkr-publish-btn');
+    
+    if (!publishBtn) {
+      publishBtn = document.createElement('button');
+      publishBtn.id = 'lkr-publish-btn';
+      publishBtn.innerHTML = '🚀 Pubblica su GitHub';
+      publishBtn.style.cssText = `
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 9999;
+        background: linear-gradient(135deg, #28a745, #218838);
+        color: white;
+        border: none;
+        padding: 16px 24px;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 8px 24px rgba(40, 167, 69, 0.4);
+        transition: all 0.3s;
+      `;
+      
+      publishBtn.addEventListener('click', publishToGitHub);
+      publishBtn.addEventListener('mouseenter', () => {
+        publishBtn.style.transform = 'translateY(-4px)';
+        publishBtn.style.boxShadow = '0 12px 32px rgba(40, 167, 69, 0.5)';
+      });
+      publishBtn.addEventListener('mouseleave', () => {
+        publishBtn.style.transform = 'translateY(0)';
+        publishBtn.style.boxShadow = '0 8px 24px rgba(40, 167, 69, 0.4)';
+      });
+      
+      document.body.appendChild(publishBtn);
+    }
+  }
+
+  /**
+   * Pubblica modifiche su GitHub
+   */
+  async function publishToGitHub() {
+    if (!confirm('Confermi la pubblicazione delle modifiche su GitHub?\n\nIl sito verrà aggiornato automaticamente via Vercel.')) {
+      return;
+    }
+    
+    const publishBtn = document.getElementById('lkr-publish-btn');
+    publishBtn.disabled = true;
+    publishBtn.innerHTML = '<span class="lkr-loading"></span> Pubblicazione...';
+    
+    try {
+      // Verifica GitHub token
+      if (LKR_CONFIG.githubToken === 'ghp_YOUR_GITHUB_TOKEN_HERE') {
+        throw new Error('GitHub token non configurato. Compila admin/config.js');
+      }
+      
+      showNotification('Pubblicazione', 'Preparazione commit...', 'info');
+      
+      // Ottieni file HTML corrente da GitHub
+      const currentFile = await getFileFromGitHub(LKR_ADMIN.currentPage);
+      
+      // Sostituisci sezione I18N nel file
+      const updatedFile = replaceI18NInFile(currentFile, LKR_ADMIN.modifiedI18N);
+      
+      // Commit su GitHub
+      await commitToGitHub(LKR_ADMIN.currentPage, updatedFile, 'Admin panel: aggiornamento testi i18n');
+      
+      showNotification('Pubblicazione completata', 'Modifiche pubblicate su GitHub. Vercel aggiornerà il sito automaticamente.', 'success');
+      
+      // Rimuovi bottone pubblica
+      publishBtn.remove();
+      
+    } catch (error) {
+      console.error('Errore pubblicazione:', error);
+      showNotification('Errore pubblicazione', error.message, 'error');
+      publishBtn.disabled = false;
+      publishBtn.innerHTML = '🚀 Pubblica su GitHub';
+    }
+  }
+
+  // ============================================
+  // GITHUB API
+  // ============================================
+
+  /**
+   * Ottiene contenuto file da GitHub
+   */
+  async function getFileFromGitHub(filePath) {
+    const path = filePath === '/' ? 'index.html' : filePath.replace(/^\//, '');
+    const url = `https://api.github.com/repos/${LKR_CONFIG.githubOwner}/${LKR_CONFIG.githubRepo}/contents/${path}`;
+    
+    const response = await fetch(url, {
+      headers: {
+        'Authorization': `Bearer ${LKR_CONFIG.githubToken}`,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    });
+    
+    if (!response.ok) {
+      throw new Error(`GitHub API error: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    return {
+      content: atob(data.content), // Decodifica da base64
+      sha: data.sha // Necessario per commit
+    };
+  }
+
+  /**
+   * Sostituisce sezione const I18N nel file HTML
+   */
+  function replaceI18NInFile(fileData, newI18N) {
+    let content = fileData.content;
+    
+    // Trova inizio e fine dizionario I18N
+    const startMarker = 'const I18N = {';
+    const startIndex = content.indexOf(startMarker);
+    
+    if (startIndex === -1) {
+      throw new Error('Dizionario I18N non trovato nel file');
+    }
+    
+    // Trova la chiusura del dizionario (cerca }; dopo startIndex)
+    let braceCount = 0;
+    let endIndex = -1;
+    let inString = false;
+    let stringChar = '';
+    
+    for (let i = startIndex + startMarker.length; i < content.length; i++) {
+      const char = content[i];
+      const prevChar = i > 0 ? content[i - 1] : '';
+      
+      // Gestione stringhe (ignora parentesi dentro stringhe)
+      if ((char === '"' || char === "'" || char === '`') && prevChar !== '\\') {
+        if (!inString) {
+          inString = true;
+          stringChar = char;
+        } else if (char === stringChar) {
+          inString = false;
+        }
+      }
+      
+      if (!inString) {
+        if (char === '{') braceCount++;
+        if (char === '}') braceCount--;
+        
+        if (braceCount === 0 && char === '}') {
+          endIndex = i + 1;
+          // Cerca il ; dopo la }
+          if (content[i + 1] === ';') {
+            endIndex = i + 2;
+          }
+          break;
+        }
+      }
+    }
+    
+    if (endIndex === -1) {
+      throw new Error('Fine dizionario I18N non trovata');
+    }
+    
+    // Genera nuovo dizionario formattato
+    const newI18NString = 'const I18N = ' + JSON.stringify(newI18N, null, 2) + ';';
+    
+    // Sostituisci
+    const newContent = content.substring(0, startIndex) + newI18NString + content.substring(endIndex);
+    
+    return {
+      content: newContent,
+      sha: fileData.sha
+    };
+  }
+
+  /**
+   * Commit file modificato su GitHub
+   */
+  async function commitToGitHub(filePath, fileData, message) {
+    const path = filePath === '/' ? 'index.html' : filePath.replace(/^\//, '');
+    const url = `https://api.github.com/repos/${LKR_CONFIG.githubOwner}/${LKR_CONFIG.githubRepo}/contents/${path}`;
+    
+    const response = await fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${LKR_CONFIG.githubToken}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: message,
+        content: btoa(unescape(encodeURIComponent(fileData.content))), // Encode UTF-8 to base64
+        sha: fileData.sha,
+        branch: LKR_CONFIG.githubBranch
+      })
+    });
+    
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(`GitHub commit error: ${error.message}`);
+    }
+    
+    return await response.json();
+  }
+
+  // ============================================
+  // INIZIALIZZAZIONE
+  // ============================================
+
+  /**
+   * Crea bottone admin nell'header
+   */
+  function createAdminToggle() {
+    const toggleBtn = document.createElement('button');
+    toggleBtn.id = 'lkr-admin-toggle';
+    toggleBtn.innerHTML = '🔧 Admin';
+    
+    toggleBtn.addEventListener('click', () => {
+      if (!LKR_ADMIN.isLoggedIn) {
+        showLoginModal();
+      } else {
+        // Toggle edit mode
+        if (LKR_ADMIN.isEditMode) {
+          if (confirm('Disattivare modalità editing?\n\nLe modifiche non salvate andranno perse.')) {
+            logout();
+          }
+        } else {
+          initAdminMode();
+        }
+      }
+    });
+    
+    document.body.appendChild(toggleBtn);
+  }
+
+  /**
+   * Init al caricamento pagina
+   */
+  function init() {
+    // Carica CSS
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = '/admin/admin.css';
+    document.head.appendChild(link);
+    
+    // Crea bottone admin
+    createAdminToggle();
+    
+    // Verifica sessione esistente
+    if (checkExistingSession()) {
+      initAdminMode();
+    }
+  }
+
+  // Avvia quando DOM è pronto
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
