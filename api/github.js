@@ -122,6 +122,70 @@ export default async function handler(req, res) {
       });
     }
 
+
+    // ============================================
+    // ACTION: UPDATE JSON
+    // ============================================
+    if (action === 'updateJSON') {
+      if (!content) {
+        return res.status(400).json({ 
+          error: 'Missing content for updateJSON' 
+        });
+      }
+
+      // Get file esistente per ottenere SHA
+      const getResponse = await fetch(apiUrl, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,
+          'Accept': 'application/vnd.github.v3+json',
+          'User-Agent': 'LKR-Admin-Panel'
+        }
+      });
+
+      if (!getResponse.ok) {
+        return res.status(getResponse.status).json({ 
+          error: 'File not found on GitHub' 
+        });
+      }
+
+      const fileData = await getResponse.json();
+
+      // Codifica nuovo contenuto in base64
+      const encodedContent = Buffer.from(content, 'utf-8').toString('base64');
+
+      // Commit modifiche
+      const updateResponse = await fetch(apiUrl, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json',
+          'User-Agent': 'LKR-Admin-Panel'
+        },
+        body: JSON.stringify({
+          message: message || 'Admin panel: aggiornamento progetti.json',
+          content: encodedContent,
+          sha: fileData.sha,
+          branch: branch
+        })
+      });
+
+      if (!updateResponse.ok) {
+        const error = await updateResponse.json();
+        return res.status(updateResponse.status).json({ 
+          error: `GitHub update error: ${error.message}` 
+        });
+      }
+
+      const updateData = await updateResponse.json();
+
+      return res.status(200).json({
+        success: true,
+        commit: updateData.commit
+      });
+    }
+
     // Azione non riconosciuta
     return res.status(400).json({ error: `Unknown action: ${action}` });
 
