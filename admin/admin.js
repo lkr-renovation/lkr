@@ -721,23 +721,37 @@ function checkExistingSession() {
     document.body.appendChild(toggleBtn);
   }
 
-  function init() {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = '/admin/admin.css';
-    document.head.appendChild(link);
+  function initAdminMode() {
+  console.log('🔵 initAdminMode chiamata');
+  
+  // Verifica che I18N esista
+  if (!window.I18N) {
+    console.error('❌ window.I18N non trovato!');
+    showNotification('Errore', 'Dizionario I18N non ancora caricato. Riprova tra un momento.', 'error');
     
-    createAdminToggle();
-    
-    if (checkExistingSession()) {
-      initAdminMode();
-    }
+    // Riprova dopo 500ms
+    setTimeout(() => {
+      if (window.I18N) {
+        console.log('🟢 window.I18N ora disponibile, riprovo...');
+        initAdminMode();
+      }
+    }, 500);
+    return;
   }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
+  
+  console.log('🟢 window.I18N trovato:', Object.keys(window.I18N));
+  
+  LKR_ADMIN.originalI18N = JSON.parse(JSON.stringify(window.I18N));
+  LKR_ADMIN.modifiedI18N = JSON.parse(JSON.stringify(window.I18N));
+  
+  const toggleBtn = document.getElementById('lkr-admin-toggle');
+  if (toggleBtn) {
+    toggleBtn.classList.add('active');
+    toggleBtn.textContent = '✅ Admin ON';
   }
+  
+  console.log('🟢 Chiamo enableEditMode');
+  enableEditMode();
+}
 
 })();
