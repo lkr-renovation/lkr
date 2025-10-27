@@ -218,35 +218,56 @@ function checkExistingSession() {
   // ============================================
 
   function initAdminMode() {
-    LKR_ADMIN.originalI18N = JSON.parse(JSON.stringify(window.I18N));
-    LKR_ADMIN.modifiedI18N = JSON.parse(JSON.stringify(window.I18N));
-    
-    const toggleBtn = document.getElementById('lkr-admin-toggle');
-    if (toggleBtn) {
-      toggleBtn.classList.add('active');
-      toggleBtn.textContent = '✅ Admin ON';
-    }
-    
-    enableEditMode();
+  console.log('🔵 initAdminMode chiamata');
+  
+  // Verifica che I18N esista
+  if (!window.I18N) {
+    console.error('❌ window.I18N non trovato!');
+    showNotification('Errore', 'Dizionario I18N non trovato in questa pagina', 'error');
+    logout();
+    return;
   }
+  
+  console.log('🟢 window.I18N trovato:', Object.keys(window.I18N));
+  
+  LKR_ADMIN.originalI18N = JSON.parse(JSON.stringify(window.I18N));
+  LKR_ADMIN.modifiedI18N = JSON.parse(JSON.stringify(window.I18N));
+  
+  const toggleBtn = document.getElementById('lkr-admin-toggle');
+  if (toggleBtn) {
+    toggleBtn.classList.add('active');
+    toggleBtn.textContent = '✅ Admin ON';
+  }
+  
+  console.log('🟢 Chiamo enableEditMode');
+  enableEditMode();
+}
 
   function enableEditMode() {
-    LKR_ADMIN.isEditMode = true;
-    
-    const editableElements = document.querySelectorAll('[data-i18n]');
-    
-    editableElements.forEach(element => {
-      element.classList.add('lkr-editable');
-      
-      element.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        openEditSidebar(element);
-      });
-    });
-    
-    showNotification('Edit Mode ON', `${editableElements.length} elementi editabili trovati`, 'success');
+  console.log('🔵 enableEditMode chiamata');
+  LKR_ADMIN.isEditMode = true;
+  
+  const editableElements = document.querySelectorAll('[data-i18n]');
+  console.log('🔵 Elementi con data-i18n trovati:', editableElements.length);
+  
+  if (editableElements.length === 0) {
+    console.warn('⚠️ Nessun elemento editabile trovato!');
+    showNotification('Attenzione', 'Nessun elemento editabile trovato in questa pagina', 'warning');
+    return;
   }
+  
+  editableElements.forEach(element => {
+    element.classList.add('lkr-editable');
+    
+    element.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openEditSidebar(element);
+    });
+  });
+  
+  showNotification('Edit Mode ON', `${editableElements.length} elementi editabili trovati`, 'success');
+}
 
   function disableEditMode() {
     LKR_ADMIN.isEditMode = false;
