@@ -20,8 +20,7 @@
   // ============================================
   
   const LKR_CONFIG = {
-  // Password admin (usa metodo semplice per evitare problemi)
-  adminPassword: "lkradmin",
+  adminPasswordHash: "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
   
   // Endpoint API (Vercel Serverless Functions)
   apiTranslate: '/api/translate',
@@ -146,16 +145,12 @@
       if (e.key === 'Enter') btn.click();
     });
     
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
   const password = input.value.trim();
+  const hash = await sha256(password);
   
-  // DEBUG: Mostra tutto
-  alert('Password digitata: "' + password + '"');
-  alert('Password configurata: "' + LKR_CONFIG.adminPassword + '"');
-  alert('Sono uguali? ' + (password === LKR_CONFIG.adminPassword));
-  
-  if (password === LKR_CONFIG.adminPassword) {
-    sessionStorage.setItem('lkr-admin-session', 'logged-in');
+  if (hash === LKR_CONFIG.adminPasswordHash) {
+    sessionStorage.setItem('lkr-admin-session', hash);
     LKR_ADMIN.isLoggedIn = true;
     modal.remove();
     initAdminMode();
@@ -170,7 +165,7 @@
 
   function checkExistingSession() {
   const session = sessionStorage.getItem('lkr-admin-session');
-  if (session === 'logged-in') {
+  if (session === LKR_CONFIG.adminPasswordHash) {
       LKR_ADMIN.isLoggedIn = true;
       return true;
     }
