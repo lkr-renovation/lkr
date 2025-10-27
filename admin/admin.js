@@ -192,14 +192,49 @@ function checkExistingSession() {
   return false;
 }
 
-  function logout() {
+    function logout() {
+    // Pulisci TUTTO
     sessionStorage.removeItem('lkr-admin-session');
     LKR_ADMIN.isLoggedIn = false;
     LKR_ADMIN.isEditMode = false;
+    LKR_ADMIN.currentEditingElement = null;
+    LKR_ADMIN.currentI18nKey = null;
     
+    // Rimuovi classi editable
     document.querySelectorAll('.lkr-editable').forEach(el => {
       el.classList.remove('lkr-editable');
+      el.classList.remove('editing');
     });
+    
+    // Chiudi sidebar se aperta
+    closeSidebar();
+    
+    // Rimuovi sidebar
+    const sidebar = document.getElementById('lkr-admin-sidebar');
+    if (sidebar) sidebar.remove();
+    
+    // Rimuovi overlay
+    const overlay = document.getElementById('lkr-admin-overlay');
+    if (overlay) overlay.remove();
+    
+    // Rimuovi bottone pubblica
+    const publishBtn = document.getElementById('lkr-publish-btn');
+    if (publishBtn) publishBtn.remove();
+    
+    // Reset bottone toggle
+    const toggleBtn = document.getElementById('lkr-admin-toggle');
+    if (toggleBtn) {
+      toggleBtn.textContent = '🔧 Admin';
+      toggleBtn.classList.remove('active');
+    }
+    
+    showNotification('Logout effettuato', 'Modalità editing disattivata', 'info');
+    
+    // IMPEDISCI riattivazione automatica alla navigazione
+    window.addEventListener('beforeunload', () => {
+      sessionStorage.removeItem('lkr-admin-session');
+    }, { once: true });
+  });
     
     const sidebar = document.getElementById('lkr-admin-sidebar');
     if (sidebar) sidebar.remove();
