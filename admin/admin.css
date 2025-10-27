@@ -7,28 +7,7 @@
    BOTTONE ADMIN NELL'HEADER
    ============================================ */
 
-#lkr-admin-toggle {
-  position: fixed !important;
-  top: 20px !important;
-  right: 120px !important;
-  width: auto !important;
-  height: auto !important;
-  z-index: 9999 !important;
-  background: linear-gradient(135deg, #dc3545, #c82333) !important;
-  color: white !important;
-  border: none !important;
-  padding: 10px 16px !important;
-  border-radius: 8px !important;
-  font-size: 0.9rem !important;
-  font-weight: 600 !important;
-  cursor: pointer !important;
-  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3) !important;
-  transition: all 0.3s ease !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 6px !important;
-  white-space: nowrap !important;
-}
+
 
 #lkr-admin-toggle:hover {
   transform: translateY(-2px);
@@ -40,12 +19,7 @@
 }
 
 @media (max-width: 768px) {
-  #lkr-admin-toggle {
-    top: 10px;
-    right: 80px;
-    padding: 8px 12px;
-    font-size: 0.85rem;
-  }
+  
 }
 
 /* ============================================
@@ -473,4 +447,50 @@ button:disabled {
 
 #lkr-admin-overlay.visible {
   display: block;
+}
+
+
+#lkr-admin-toggle {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 9999;
+  background: linear-gradient(135deg, #dc3545, #c82333);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+  transition: all 0.3s;
+}
+
+#lkr-admin-toggle.active {
+  background: linear-gradient(135deg, #28a745, #218838);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+#lkr-admin-toggle:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(220, 53, 69, 0.4);
+}
+
+/* RESPONSIVE: evita sovrapposizione con menu lingue */
+@media (max-width: 900px) {
+  #lkr-admin-toggle {
+    top: auto;
+    bottom: 24px;
+    right: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  #lkr-admin-toggle {
+    bottom: 16px;
+    right: 16px;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
 }
