@@ -15,12 +15,12 @@ const LKR_CONFIG = {
   
   // Groq API (per traduzioni automatiche)
   // Ottieni la tua key gratuita su: https://console.groq.com/keys
-  groqApiKey: "gsk_YOUR_GROQ_API_KEY_HERE",
+  groqApiKey: "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",
   
   // GitHub Personal Access Token (per auto-commit)
   // Deve avere permessi: repo (full control)
   // Usa lo stesso token di n8n se lo hai già
-  githubToken: "ghp_YOUR_GITHUB_TOKEN_HERE",
+  githubToken: "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",
   
   // Repository GitHub
   githubOwner: "lkr-renovation",
