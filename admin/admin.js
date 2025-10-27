@@ -122,55 +122,75 @@
   // ============================================
 
   function showLoginModal() {
-    const modal = document.createElement('div');
-    modal.id = 'lkr-admin-login-modal';
-    modal.innerHTML = `
-      <div class="lkr-admin-login-box">
-        <h2>🔐 LKR Admin Panel</h2>
-        <input type="password" id="lkr-admin-password" placeholder="Password" autocomplete="off">
-        <button id="lkr-admin-login-btn">Accedi</button>
-        <div class="lkr-admin-error" id="lkr-admin-error"></div>
-      </div>
-    `;
-    
-    document.body.appendChild(modal);
-    
-    const input = document.getElementById('lkr-admin-password');
-    const btn = document.getElementById('lkr-admin-login-btn');
-    const error = document.getElementById('lkr-admin-error');
-    
-    input.focus();
-    
-    input.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') btn.click();
-    });
-    
-    btn.addEventListener('click', async () => {
-  const password = input.value.trim();
-  const hash = await sha256(password);
+  console.log('🔵 showLoginModal chiamata');
+  const modal = document.createElement('div');
+  modal.id = 'lkr-admin-login-modal';
+  modal.innerHTML = `
+    <div class="lkr-admin-login-box">
+      <h2>🔐 LKR Admin Panel</h2>
+      <input type="password" id="lkr-admin-password" placeholder="Password" autocomplete="off">
+      <button id="lkr-admin-login-btn">Accedi</button>
+      <div class="lkr-admin-error" id="lkr-admin-error"></div>
+    </div>
+  `;
   
-  if (hash === LKR_CONFIG.adminPasswordHash) {
-    sessionStorage.setItem('lkr-admin-session', LKR_CONFIG.adminPasswordHash);
-    LKR_ADMIN.isLoggedIn = true;
-    modal.remove();
-    initAdminMode();
-    showNotification('Login effettuato', 'Modalità editing attivata', 'success');
-  } else {
-    error.textContent = 'Password errata';
-    input.value = '';
-    input.focus();
-  }
-});
-  }
-
-  function checkExistingSession() {
-  const session = sessionStorage.getItem('lkr-admin-session');
-  if (session === LKR_CONFIG.adminPasswordHash) {
+  document.body.appendChild(modal);
+  console.log('🔵 Modal aggiunta al DOM');
+  
+  const input = document.getElementById('lkr-admin-password');
+  const btn = document.getElementById('lkr-admin-login-btn');
+  const error = document.getElementById('lkr-admin-error');
+  
+  input.focus();
+  
+  input.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') btn.click();
+  });
+  
+  btn.addEventListener('click', async () => {
+    console.log('🔵 Click bottone Accedi');
+    const password = input.value.trim();
+    console.log('🔵 Password:', password);
+    
+    const hash = await sha256(password);
+    console.log('🔵 Hash calcolato:', hash);
+    console.log('🔵 Hash atteso:', LKR_CONFIG.adminPasswordHash);
+    console.log('🔵 Match:', hash === LKR_CONFIG.adminPasswordHash);
+    
+    if (hash === LKR_CONFIG.adminPasswordHash) {
+      console.log('🟢 Password corretta!');
+      sessionStorage.setItem('lkr-admin-session', LKR_CONFIG.adminPasswordHash);
+      console.log('🟢 Sessione salvata');
       LKR_ADMIN.isLoggedIn = true;
-      return true;
+      console.log('🟢 isLoggedIn = true');
+      modal.remove();
+      console.log('🟢 Modal rimossa');
+      console.log('🟢 Chiamo initAdminMode...');
+      initAdminMode();
+      console.log('🟢 initAdminMode completata');
+      showNotification('Login effettuato', 'Modalità editing attivata', 'success');
+    } else {
+      console.log('🔴 Password errata');
+      error.textContent = 'Password errata';
+      input.value = '';
+      input.focus();
     }
-    return false;
+  });
+}
+
+function checkExistingSession() {
+  console.log('🔵 checkExistingSession chiamata');
+  const session = sessionStorage.getItem('lkr-admin-session');
+  console.log('🔵 Sessione trovata:', session);
+  console.log('🔵 Hash atteso:', LKR_CONFIG.adminPasswordHash);
+  if (session === LKR_CONFIG.adminPasswordHash) {
+    console.log('🟢 Sessione valida');
+    LKR_ADMIN.isLoggedIn = true;
+    return true;
   }
+  console.log('🔴 Sessione non valida');
+  return false;
+}
 
   function logout() {
     sessionStorage.removeItem('lkr-admin-session');
