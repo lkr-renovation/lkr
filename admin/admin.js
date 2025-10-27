@@ -20,12 +20,12 @@
   // ============================================
   
   const LKR_CONFIG = {
-    // Password admin (hash SHA-256 di "lkradmin")
-    adminPasswordHash: "lkradmin",
-    
-    // Endpoint API (Vercel Serverless Functions)
-    apiTranslate: '/api/translate',
-    apiGithub: '/api/github',
+  // Password admin (usa metodo semplice per evitare problemi)
+  adminPassword: "lkradmin",
+  
+  // Endpoint API (Vercel Serverless Functions)
+  apiTranslate: '/api/translate',
+  apiGithub: '/api/github',
     
     // Lingue supportate
     languages: {
