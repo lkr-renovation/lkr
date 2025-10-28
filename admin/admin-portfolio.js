@@ -59,7 +59,8 @@
 
   async function loadProgettiJSON() {
     try {
-      const response = await fetch('/data/progetti.json');
+      const timestamp = new Date().getTime();
+      const response = await fetch(`/data/progetti.json?t=${timestamp}`);
       const data = await response.json();
       PORTFOLIO_ADMIN.progetti = data.progetti || [];
       return PORTFOLIO_ADMIN.progetti;
