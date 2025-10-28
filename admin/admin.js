@@ -235,8 +235,8 @@
     if (publishBtn) publishBtn.remove();
     
     // Reset bottone toggle
-    const portfolioBtn = document.getElementById('lkr-portfolio-admin-btn');
-    if (portfolioBtn) portfolioBtn.style.display = 'none';
+    // La logica di visualizzazione del bottone Portfolio è stata spostata in admin-portfolio.js.
+    // Il bottone si nasconderà automaticamente al prossimo ricaricamento della pagina.
     const toggleBtn = document.getElementById('lkr-admin-toggle');
     if (toggleBtn) {
       toggleBtn.textContent = '🔧 Admin';
@@ -283,16 +283,7 @@
     if (toggleBtn) {
       toggleBtn.classList.add('active');
       
-      // Se siamo nella pagina portfolio, mostra il bottone Portfolio Admin
-      if (window.location.pathname.includes('portfolio')) {
-        // Aggiungo un piccolo ritardo per assicurarmi che admin-portfolio.js abbia creato il bottone
-        setTimeout(() => {
-          const portfolioBtn = document.getElementById('lkr-portfolio-admin-btn');
-          if (portfolioBtn) {
-            portfolioBtn.style.display = 'flex';
-          }
-        }, 1000);
-      }
+      // La logica di visualizzazione del bottone Portfolio è stata spostata in admin-portfolio.js per eliminare problemi di timing.
       toggleBtn.textContent = '✅ Admin ON';
     }
     

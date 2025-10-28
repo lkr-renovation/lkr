@@ -547,7 +547,10 @@
     
     document.body.appendChild(btn);
     
-    // Il bottone viene reso visibile da admin.js quando l'utente effettua il login.
+    // Mostra il bottone se la sessione admin è attiva
+    if (sessionStorage.getItem('lkr-admin-session')) {
+      btn.style.display = 'flex';
+    }
   }
 
   // Inizializza quando il DOM è pronto
