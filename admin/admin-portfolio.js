@@ -374,8 +374,8 @@
     const index = PORTFOLIO_ADMIN.progetti.findIndex(p => p.id === projectId);
     if (index === -1) return;
     
-    const updatedProject = extractProjectFromForm();
-    updatedProject.id = projectId;
+	    const updatedProject = extractProjectFromForm();
+	    updatedProject.id = projectId;
     
     PORTFOLIO_ADMIN.progetti[index] = updatedProject;
     PORTFOLIO_ADMIN.hasChanges = true;
@@ -401,48 +401,28 @@
     showNotificationPortfolio('Progetto eliminato', 'Ricorda di cliccare "Salva Modifiche"', 'info');
   }
 
-  function extractProjectFromForm() {
-    const immaginiText = document.getElementById('project-immagini').value.trim();
-    const immagini = immaginiText.split('\n').map(s => s.trim()).filter(s => s.length > 0);
-    
-    return {
-      anno: document.getElementById('project-anno').value,
-      categoria: document.getElementById('project-categoria').value,
-      immagini: immagini,
-      traduzioni: {
-        fr: {
-          titolo: document.getElementById('project-titolo-fr').value.trim(),
-          luogo: document.getElementById('project-luogo-fr').value.trim(),
-          descrizione: document.getElementById('project-desc-fr').value.trim()
-        },
-        it: {
-          titolo: document.getElementById('project-titolo-it').value.trim(),
-          luogo: document.getElementById('project-luogo-it').value.trim(),
-          descrizione: document.getElementById('project-desc-it').value.trim()
-        },
-        en: {
-          titolo: document.getElementById('project-titolo-en').value.trim(),
-          luogo: document.getElementById('project-luogo-en').value.trim(),
-          descrizione: document.getElementById('project-desc-en').value.trim()
-        },
-        ru: {
-          titolo: document.getElementById('project-titolo-ru').value.trim(),
-          luogo: document.getElementById('project-luogo-ru').value.trim(),
-          descrizione: document.getElementById('project-desc-ru').value.trim()
-        },
-        de: {
-          titolo: document.getElementById('project-titolo-de').value.trim(),
-          luogo: document.getElementById('project-luogo-de').value.trim(),
-          descrizione: document.getElementById('project-desc-de').value.trim()
-        },
-        es: {
-          titolo: document.getElementById('project-titolo-es').value.trim(),
-          luogo: document.getElementById('project-luogo-es').value.trim(),
-          descrizione: document.getElementById('project-desc-es').value.trim()
-        }
-      }
-    };
-  }
+	  function extractProjectFromForm() {
+	    const immaginiText = document.getElementById('project-immagini').value.trim();
+	    const immagini = immaginiText.split('\n').map(s => s.trim()).filter(s => s.length > 0);
+	    
+	    const traduzioni = {};
+	    const languages = ['it', 'fr', 'en', 'de', 'ru', 'es'];
+	    
+	    languages.forEach(lang => {
+	      traduzioni[lang] = {
+	        titolo: document.getElementById(`project-titolo-${lang}`).value.trim(),
+	        luogo: document.getElementById(`project-luogo-${lang}`).value.trim(),
+	        descrizione: document.getElementById(`project-desc-${lang}`).value.trim()
+	      };
+	    });
+
+	    return {
+	      anno: document.getElementById('project-anno').value,
+	      categoria: document.getElementById('project-categoria').value,
+	      immagini: immagini,
+	      traduzioni: traduzioni
+	    };
+	  }
 
   function refreshProjectsList() {
     const list = document.getElementById('projects-list');
