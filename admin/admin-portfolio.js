@@ -124,7 +124,8 @@
     });
     
     document.querySelectorAll('.project-delete-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
+       btn.addEventListener('click', () => {
+      openPortfolioManager();
         const projectId = e.target.closest('.project-card-admin').dataset.projectId;
         deleteProject(projectId);
       });
@@ -442,7 +443,7 @@
       });
       
       document.querySelectorAll('.project-delete-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
+        btn.addEventListener('click', openPortfolioManager);
           const projectId = e.target.closest('.project-card-admin').dataset.projectId;
           deleteProject(projectId);
         });
@@ -546,16 +547,7 @@
     
     document.body.appendChild(btn);
     
-    // Mostra solo se siamo in portfolio.html E loggati
-    if (window.location.pathname.includes('portfolio')) {
-      const checkSession = setInterval(() => {
-        const session = sessionStorage.getItem('lkr-admin-session');
-        if (session) {
-          btn.style.display = 'block';
-          clearInterval(checkSession);
-        }
-      }, 500);
-    }
+    // Il bottone viene reso visibile da admin.js quando l'utente effettua il login.
   }
 
   // Inizializza quando il DOM è pronto

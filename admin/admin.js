@@ -230,6 +230,8 @@
     if (publishBtn) publishBtn.remove();
     
     // Reset bottone toggle
+    const portfolioBtn = document.getElementById('lkr-portfolio-admin-btn');
+    if (portfolioBtn) portfolioBtn.style.display = 'none';
     const toggleBtn = document.getElementById('lkr-admin-toggle');
     if (toggleBtn) {
       toggleBtn.textContent = '🔧 Admin';
@@ -275,6 +277,14 @@
     const toggleBtn = document.getElementById('lkr-admin-toggle');
     if (toggleBtn) {
       toggleBtn.classList.add('active');
+      
+      // Se siamo nella pagina portfolio, mostra il bottone Portfolio Admin
+      if (window.location.pathname.includes('portfolio')) {
+        const portfolioBtn = document.getElementById('lkr-portfolio-admin-btn');
+        if (portfolioBtn) {
+          portfolioBtn.style.display = 'flex';
+        }
+      }
       toggleBtn.textContent = '✅ Admin ON';
     }
     
