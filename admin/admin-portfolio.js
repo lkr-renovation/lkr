@@ -118,6 +118,8 @@
     // Bottoni edit/delete per ogni progetto
     document.querySelectorAll('.project-edit-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         const projectId = e.target.closest('.project-card-admin').dataset.projectId;
         editProject(projectId);
       });
@@ -125,6 +127,8 @@
     
 	    document.querySelectorAll('.project-delete-btn').forEach(btn => {
 	       btn.addEventListener('click', (e) => {
+	        e.preventDefault();
+	        e.stopPropagation();
 	        const projectId = e.target.closest('.project-card-admin').dataset.projectId;
 	        deleteProject(projectId);
 	      });
