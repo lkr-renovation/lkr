@@ -123,13 +123,12 @@
       });
     });
     
-    document.querySelectorAll('.project-delete-btn').forEach(btn => {
-       btn.addEventListener('click', () => {
-      openPortfolioManager();
-        const projectId = e.target.closest('.project-card-admin').dataset.projectId;
-        deleteProject(projectId);
-      });
-    });
+	    document.querySelectorAll('.project-delete-btn').forEach(btn => {
+	       btn.addEventListener('click', (e) => {
+	        const projectId = e.target.closest('.project-card-admin').dataset.projectId;
+	        deleteProject(projectId);
+	      });
+	    });
   }
 
   function renderProjectsList(progetti) {
@@ -434,20 +433,7 @@
     if (list) {
       list.innerHTML = renderProjectsList(PORTFOLIO_ADMIN.progetti);
       
-      // Re-attach event listeners
-      document.querySelectorAll('.project-edit-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          const projectId = e.target.closest('.project-card-admin').dataset.projectId;
-          editProject(projectId);
-        });
-      });
-      
-      document.querySelectorAll('.project-delete-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          const projectId = e.target.closest('.project-card-admin').dataset.projectId;
-          deleteProject(projectId);
-        });
-      });
+      // Gli event listener sono aggiunti in openPortfolioManager e non devono essere aggiunti qui.
     }
   }
 
