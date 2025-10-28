@@ -208,10 +208,15 @@
     LKR_ADMIN.currentEditingElement = null;
     LKR_ADMIN.currentI18nKey = null;
     
-    // Rimuovi classi editable
-    document.querySelectorAll('.lkr-editable').forEach(el => {
+    // Rimuovi classi editable e listener
+    document.querySelectorAll('[data-i18n]').forEach(el => {
       el.classList.remove('lkr-editable');
       el.classList.remove('editing');
+      // Rimuovi il listener se esiste
+      if (el.lkrClickListener) {
+        el.removeEventListener('click', el.lkrClickListener);
+        el.lkrClickListener = null;
+      }
     });
     
     // Chiudi sidebar se aperta
@@ -286,7 +291,7 @@
           if (portfolioBtn) {
             portfolioBtn.style.display = 'flex';
           }
-        }, 100);
+        }, 500);
       }
       toggleBtn.textContent = '✅ Admin ON';
     }
@@ -311,11 +316,15 @@
     editableElements.forEach(element => {
       element.classList.add('lkr-editable');
       
-      element.addEventListener('click', (e) => {
+      // Salva il listener per poterlo rimuovere al logout
+      const clickListener = (e) => {
         e.preventDefault();
         e.stopPropagation();
         openEditSidebar(element);
-      });
+      };
+      
+      element.addEventListener('click', clickListener);
+      element.lkrClickListener = clickListener; // Salva il riferimento al listener
     });
     
     showNotification('Edit Mode ON', `${editableElements.length} elementi editabili trovati`, 'success');
@@ -801,7 +810,7 @@
       } else {
         console.log('⏳ Aspetto window.I18N...');
       }
-    }, 100);
+    }, 500);
     
     // Timeout dopo 5 secondi
     setTimeout(() => {
