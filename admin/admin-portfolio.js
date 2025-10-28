@@ -124,12 +124,12 @@
         if (editBtn) {
             e.preventDefault();
             e.stopPropagation();
-            const projectId = editBtn.closest('.project-card-admin').dataset.projectId;
+            const projectId = editBtn.closest('.project-card-admin')?.dataset.projectId;
             editProject(projectId);
         } else if (deleteBtn) {
             e.preventDefault();
             e.stopPropagation();
-            const projectId = deleteBtn.closest('.project-card-admin').dataset.projectId;
+            const projectId = deleteBtn.closest('.project-card-admin')?.dataset.projectId;
             deleteProject(projectId);
         }
     });
