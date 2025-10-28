@@ -184,6 +184,54 @@
         }
       },
       "id": "progetto-1761474752118"
+    },
+    {
+      "id": "progetto-1761672544105",
+      "anno": "2025",
+      "categoria": "rénovation-complète",
+      "immagini": [
+        "/img/portfolio/2025/Rifacimento appartamento Monaco/Rifacimento appartamento Monaco_prima_01.jpg",
+        "/img/portfolio/2025/Rifacimento appartamento Monaco/Rifacimento appartamento Monaco_prima_02.jpg",
+        "/img/portfolio/2025/Rifacimento appartamento Monaco/Rifacimento appartamento Monaco_prima_03.jpg",
+        "/img/portfolio/2025/Rifacimento appartamento Monaco/Rifacimento appartamento Monaco_prima_04.jpg",
+        "/img/portfolio/2025/Rifacimento appartamento Monaco/Rifacimento appartamento Monaco_prima_05.jpg",
+        "/img/portfolio/2025/Rifacimento appartamento Monaco/Rifacimento appartamento Monaco_prima_06.jpg",
+        "/img/portfolio/2025/Rifacimento appartamento Monaco/Rifacimento appartamento Monaco_prima_07.jpg",
+        "/img/portfolio/2025/Rifacimento appartamento Monaco/Rifacimento appartamento Monaco_dopo_01.jpg",
+        "/img/portfolio/2025/Rifacimento appartamento Monaco/Rifacimento appartamento Monaco_dopo_02.jpg"
+      ],
+      "traduzioni": {
+        "fr": {
+          "titolo": "Rifacimento appartamento Monaco",
+          "luogo": "Monaco",
+          "descrizione": "Transformation complète d'un appartement à Monaco. La rénovation inclut une cuisine moderne avec îlot central, salle de bain luxueuse et espaces de vie élégants."
+        },
+        "it": {
+          "titolo": "Rifacimento appartamento Monaco",
+          "luogo": "Monaco",
+          "descrizione": "Trasformazione completa di un appartamento a Monaco. La ristrutturazione comprende una cucina moderna con isola centrale, bagno di lusso e spazi abitativi eleganti."
+        },
+        "en": {
+          "titolo": "Monaco Apartment Refurbishment",
+          "luogo": "Monaco",
+          "descrizione": "Complete transformation of an apartment in Monaco. The renovation includes a modern kitchen with central island, luxurious bathroom, and elegant living spaces."
+        },
+        "ru": {
+          "titolo": "Ремонт квартиры в Монако",
+          "luogo": "Монако",
+          "descrizione": "Полная трансформация квартиры в Монако. Ремонт включает современную кухню с центральным островом, роскошную ванную комнату и элегантные жилые помещения."
+        },
+        "de": {
+          "titolo": "Wohnungsrenovierung in Monaco",
+          "luogo": "Monaco",
+          "descrizione": "Komplette Transformation einer Wohnung in Monaco. Die Renovierung umfasst eine moderne Küche mit Zentralinsel, luxuriöses Badezimmer und elegante Wohnräume."
+        },
+        "es": {
+          "titolo": "Reforma de apartamento en Mónaco",
+          "luogo": "Mónaco",
+          "descrizione": "Transformación completa de un apartamento en Mónaco. La reforma incluye una cocina moderna con isla central, baño de lujo y espacios de vida elegantes."
+        }
+      }
     }
   ]
 }
