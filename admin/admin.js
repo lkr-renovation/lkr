@@ -283,7 +283,16 @@
     if (toggleBtn) {
       toggleBtn.classList.add('active');
       
-      // La logica di visualizzazione del bottone Portfolio è stata spostata in admin-portfolio.js per eliminare problemi di timing.
+      // Visualizzazione immediata del bottone Portfolio dopo il login (solo se siamo in portfolio.html)
+      if (window.location.pathname.includes('portfolio')) {
+        const portfolioBtn = document.getElementById('lkr-portfolio-admin-btn');
+        if (portfolioBtn) {
+          portfolioBtn.style.display = 'flex';
+          console.log('🟢 Bottone Portfolio reso visibile da admin.js dopo il login.');
+        } else {
+          console.error('🔴 Bottone Portfolio non trovato in initAdminMode di admin.js.');
+        }
+      }
       toggleBtn.textContent = '✅ Admin ON';
     }
     

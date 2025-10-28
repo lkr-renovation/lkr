@@ -547,12 +547,14 @@
     
     document.body.appendChild(btn);
     
-    // Mostra il bottone se la sessione admin è attiva
+    // Il bottone è inizialmente nascosto (display: none nel CSS inline)
+    // Viene reso visibile da admin.js dopo il login (per il login dinamico)
+    // O viene reso visibile al caricamento della pagina se la sessione è già attiva.
     if (sessionStorage.getItem('lkr-admin-session')) {
       btn.style.display = 'flex';
-      console.log('🟢 Bottone Portfolio visibile (sessione attiva)');
+      console.log('🟢 Bottone Portfolio visibile (sessione attiva al caricamento della pagina)');
     } else {
-      console.log('🔴 Bottone Portfolio nascosto (sessione non attiva)');
+      console.log('🔴 Bottone Portfolio nascosto (sessione non attiva al caricamento della pagina)');
     }
   }
 
