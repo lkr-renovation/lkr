@@ -1,6 +1,6 @@
 /**
  * LKR ADMIN PANEL - SISTEMA EDITING INLINE
- * Versione 2.0 - Serverless API
+ * Versione 2.1 - Serverless API + Fix window.I18N
  * 
  * Funzionalità:
  * - Login con password
@@ -20,11 +20,11 @@
   // ============================================
   
   const LKR_CONFIG = {
-  adminPasswordHash: "21bc62c695e168a7576b91e2965bc1a34f8def2b5fb55b0adbe50e1065863600",
-  
-  // Endpoint API (Vercel Serverless Functions)
-  apiTranslate: '/api/translate',
-  apiGithub: '/api/github',
+    adminPasswordHash: "21bc62c695e168a7576b91e2965bc1a34f8def2b5fb55b0adbe50e1065863600",
+    
+    // Endpoint API (Vercel Serverless Functions)
+    apiTranslate: '/api/translate',
+    apiGithub: '/api/github',
     
     // Lingue supportate
     languages: {
@@ -122,77 +122,79 @@
   // ============================================
 
   function showLoginModal() {
-  console.log('🔵 showLoginModal chiamata');
-  const modal = document.createElement('div');
-  modal.id = 'lkr-admin-login-modal';
-  modal.innerHTML = `
-    <div class="lkr-admin-login-box">
-      <h2>🔐 LKR Admin Panel</h2>
-      <input type="password" id="lkr-admin-password" placeholder="Password" autocomplete="off">
-      <button id="lkr-admin-login-btn">Accedi</button>
-      <div class="lkr-admin-error" id="lkr-admin-error"></div>
-    </div>
-  `;
-  
-  document.body.appendChild(modal);
-  console.log('🔵 Modal aggiunta al DOM');
-  
-  const input = document.getElementById('lkr-admin-password');
-  const btn = document.getElementById('lkr-admin-login-btn');
-  const error = document.getElementById('lkr-admin-error');
-  
-  input.focus();
-  
-  input.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') btn.click();
-  });
-  
-  btn.addEventListener('click', async () => {
-    console.log('🔵 Click bottone Accedi');
-    const password = input.value.trim();
-    console.log('🔵 Password:', password);
+    console.log('🔵 showLoginModal chiamata');
+    const modal = document.createElement('div');
+    modal.id = 'lkr-admin-login-modal';
+    modal.innerHTML = `
+      <div class="lkr-admin-login-box">
+        <h2>🔐 LKR Admin Panel</h2>
+        <input type="password" id="lkr-admin-password" placeholder="Password" autocomplete="off">
+        <button id="lkr-admin-login-btn">Accedi</button>
+        <div class="lkr-admin-error" id="lkr-admin-error"></div>
+      </div>
+    `;
     
-    const hash = await sha256(password);
-    console.log('🔵 Hash calcolato:', hash);
-    console.log('🔵 Hash atteso:', LKR_CONFIG.adminPasswordHash);
-    console.log('🔵 Match:', hash === LKR_CONFIG.adminPasswordHash);
+    document.body.appendChild(modal);
+    console.log('🔵 Modal aggiunta al DOM');
     
-    if (hash === LKR_CONFIG.adminPasswordHash) {
-      console.log('🟢 Password corretta!');
-      sessionStorage.setItem('lkr-admin-session', LKR_CONFIG.adminPasswordHash);
-      console.log('🟢 Sessione salvata');
-      LKR_ADMIN.isLoggedIn = true;
-      console.log('🟢 isLoggedIn = true');
-      modal.remove();
-      console.log('🟢 Modal rimossa');
-      console.log('🟢 Chiamo initAdminMode...');
-      initAdminMode();
-      console.log('🟢 initAdminMode completata');
-      showNotification('Login effettuato', 'Modalità editing attivata', 'success');
-    } else {
-      console.log('🔴 Password errata');
-      error.textContent = 'Password errata';
-      input.value = '';
-      input.focus();
-    }
-  });
-}
-
-function checkExistingSession() {
-  console.log('🔵 checkExistingSession chiamata');
-  const session = sessionStorage.getItem('lkr-admin-session');
-  console.log('🔵 Sessione trovata:', session);
-  console.log('🔵 Hash atteso:', LKR_CONFIG.adminPasswordHash);
-  if (session === LKR_CONFIG.adminPasswordHash) {
-    console.log('🟢 Sessione valida');
-    LKR_ADMIN.isLoggedIn = true;
-    return true;
+    const input = document.getElementById('lkr-admin-password');
+    const btn = document.getElementById('lkr-admin-login-btn');
+    const error = document.getElementById('lkr-admin-error');
+    
+    input.focus();
+    
+    input.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') btn.click();
+    });
+    
+    btn.addEventListener('click', async () => {
+      console.log('🔵 Click bottone Accedi');
+      const password = input.value.trim();
+      console.log('🔵 Password inserita');
+      
+      const hash = await sha256(password);
+      console.log('🔵 Hash calcolato:', hash);
+      console.log('🔵 Hash atteso:', LKR_CONFIG.adminPasswordHash);
+      console.log('🔵 Match:', hash === LKR_CONFIG.adminPasswordHash);
+      
+      if (hash === LKR_CONFIG.adminPasswordHash) {
+        console.log('🟢 Password corretta!');
+        sessionStorage.setItem('lkr-admin-session', LKR_CONFIG.adminPasswordHash);
+        console.log('🟢 Sessione salvata');
+        LKR_ADMIN.isLoggedIn = true;
+        console.log('🟢 isLoggedIn = true');
+        modal.remove();
+        console.log('🟢 Modal rimossa');
+        console.log('🟢 Chiamo initAdminMode...');
+        initAdminMode();
+        console.log('🟢 initAdminMode completata');
+        showNotification('Login effettuato', 'Modalità editing attivata', 'success');
+      } else {
+        console.log('🔴 Password errata');
+        error.textContent = 'Password errata';
+        input.value = '';
+        input.focus();
+      }
+    });
   }
-  console.log('🔴 Sessione non valida');
-  return false;
-}
 
-    function logout() {
+  function checkExistingSession() {
+    console.log('🔵 checkExistingSession chiamata');
+    const session = sessionStorage.getItem('lkr-admin-session');
+    console.log('🔵 Sessione trovata:', session);
+    console.log('🔵 Hash atteso:', LKR_CONFIG.adminPasswordHash);
+    if (session === LKR_CONFIG.adminPasswordHash) {
+      console.log('🟢 Sessione valida');
+      LKR_ADMIN.isLoggedIn = true;
+      return true;
+    }
+    console.log('🔴 Sessione non valida');
+    return false;
+  }
+
+  function logout() {
+    console.log('🔵 Logout chiamato');
+    
     // Pulisci TUTTO
     sessionStorage.removeItem('lkr-admin-session');
     LKR_ADMIN.isLoggedIn = false;
@@ -230,22 +232,7 @@ function checkExistingSession() {
     
     showNotification('Logout effettuato', 'Modalità editing disattivata', 'info');
     
-    // IMPEDISCI riattivazione automatica alla navigazione
-    window.addEventListener('beforeunload', () => {
-      sessionStorage.removeItem('lkr-admin-session');
-    }, { once: true });
-  });
-    
-    const sidebar = document.getElementById('lkr-admin-sidebar');
-    if (sidebar) sidebar.remove();
-    
-    const toggleBtn = document.getElementById('lkr-admin-toggle');
-    if (toggleBtn) {
-      toggleBtn.textContent = '🔧 Admin';
-      toggleBtn.classList.remove('active');
-    }
-    
-    showNotification('Logout effettuato', 'Modalità editing disattivata', 'info');
+    console.log('🟢 Logout completato');
   }
 
   // ============================================
@@ -253,56 +240,67 @@ function checkExistingSession() {
   // ============================================
 
   function initAdminMode() {
-  console.log('🔵 initAdminMode chiamata');
-  
-  // Verifica che I18N esista
-  if (!window.I18N) {
-    console.error('❌ window.I18N non trovato!');
-    showNotification('Errore', 'Dizionario I18N non trovato in questa pagina', 'error');
-    logout();
-    return;
+    console.log('🔵 initAdminMode chiamata');
+    
+    // Verifica che I18N esista
+    if (!window.I18N) {
+      console.error('❌ window.I18N non trovato!');
+      showNotification('Errore', 'Dizionario I18N non ancora caricato. Riprova tra un momento.', 'error');
+      
+      // Riprova dopo 1 secondo
+      setTimeout(() => {
+        if (window.I18N) {
+          console.log('🟢 window.I18N ora disponibile, riprovo...');
+          initAdminMode();
+        } else {
+          console.error('❌ window.I18N ancora non disponibile dopo 1 secondo');
+          showNotification('Errore', 'Impossibile caricare il dizionario I18N. Verifica che la pagina sia compatibile.', 'error');
+          logout();
+        }
+      }, 1000);
+      return;
+    }
+    
+    console.log('🟢 window.I18N trovato:', Object.keys(window.I18N));
+    
+    LKR_ADMIN.originalI18N = JSON.parse(JSON.stringify(window.I18N));
+    LKR_ADMIN.modifiedI18N = JSON.parse(JSON.stringify(window.I18N));
+    
+    const toggleBtn = document.getElementById('lkr-admin-toggle');
+    if (toggleBtn) {
+      toggleBtn.classList.add('active');
+      toggleBtn.textContent = '✅ Admin ON';
+    }
+    
+    console.log('🟢 Chiamo enableEditMode');
+    enableEditMode();
   }
-  
-  console.log('🟢 window.I18N trovato:', Object.keys(window.I18N));
-  
-  LKR_ADMIN.originalI18N = JSON.parse(JSON.stringify(window.I18N));
-  LKR_ADMIN.modifiedI18N = JSON.parse(JSON.stringify(window.I18N));
-  
-  const toggleBtn = document.getElementById('lkr-admin-toggle');
-  if (toggleBtn) {
-    toggleBtn.classList.add('active');
-    toggleBtn.textContent = '✅ Admin ON';
-  }
-  
-  console.log('🟢 Chiamo enableEditMode');
-  enableEditMode();
-}
 
   function enableEditMode() {
-  console.log('🔵 enableEditMode chiamata');
-  LKR_ADMIN.isEditMode = true;
-  
-  const editableElements = document.querySelectorAll('[data-i18n]');
-  console.log('🔵 Elementi con data-i18n trovati:', editableElements.length);
-  
-  if (editableElements.length === 0) {
-    console.warn('⚠️ Nessun elemento editabile trovato!');
-    showNotification('Attenzione', 'Nessun elemento editabile trovato in questa pagina', 'warning');
-    return;
-  }
-  
-  editableElements.forEach(element => {
-    element.classList.add('lkr-editable');
+    console.log('🔵 enableEditMode chiamata');
+    LKR_ADMIN.isEditMode = true;
     
-    element.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      openEditSidebar(element);
+    const editableElements = document.querySelectorAll('[data-i18n]');
+    console.log('🔵 Elementi con data-i18n trovati:', editableElements.length);
+    
+    if (editableElements.length === 0) {
+      console.warn('⚠️ Nessun elemento editabile trovato!');
+      showNotification('Attenzione', 'Nessun elemento editabile trovato in questa pagina', 'warning');
+      return;
+    }
+    
+    editableElements.forEach(element => {
+      element.classList.add('lkr-editable');
+      
+      element.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        openEditSidebar(element);
+      });
     });
-  });
-  
-  showNotification('Edit Mode ON', `${editableElements.length} elementi editabili trovati`, 'success');
-}
+    
+    showNotification('Edit Mode ON', `${editableElements.length} elementi editabili trovati`, 'success');
+  }
 
   function disableEditMode() {
     LKR_ADMIN.isEditMode = false;
@@ -655,11 +653,16 @@ function checkExistingSession() {
   function replaceI18NInFile(fileData, newI18N) {
     let content = fileData.content;
     
-    const startMarker = 'const I18N = {';
-    const startIndex = content.indexOf(startMarker);
+    const startMarker = 'window.I18N = {';
+    let startIndex = content.indexOf(startMarker);
     
+    // Se non trova window.I18N, cerca const I18N
     if (startIndex === -1) {
-      throw new Error('Dizionario I18N non trovato nel file');
+      const altMarker = 'const I18N = {';
+      startIndex = content.indexOf(altMarker);
+      if (startIndex === -1) {
+        throw new Error('Dizionario I18N non trovato nel file');
+      }
     }
     
     let braceCount = 0;
@@ -667,7 +670,9 @@ function checkExistingSession() {
     let inString = false;
     let stringChar = '';
     
-    for (let i = startIndex + startMarker.length; i < content.length; i++) {
+    const searchStart = content.indexOf('{', startIndex);
+    
+    for (let i = searchStart; i < content.length; i++) {
       const char = content[i];
       const prevChar = i > 0 ? content[i - 1] : '';
       
@@ -698,7 +703,7 @@ function checkExistingSession() {
       throw new Error('Fine dizionario I18N non trovata');
     }
     
-    const newI18NString = 'const I18N = ' + JSON.stringify(newI18N, null, 2) + ';';
+    const newI18NString = 'window.I18N = ' + JSON.stringify(newI18N, null, 2) + ';';
     const newContent = content.substring(0, startIndex) + newI18NString + content.substring(endIndex);
     
     return {
@@ -757,74 +762,41 @@ function checkExistingSession() {
   }
 
   function init() {
-  console.log('🔵 Admin init chiamata');
-  
-  const link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = '/admin/admin.css';
-  document.head.appendChild(link);
-  
-  createAdminToggle();
-  
-  // Aspetta che I18N sia disponibile prima di controllare sessione
-  const checkI18N = setInterval(() => {
-    if (window.I18N) {
-      console.log('🟢 window.I18N disponibile');
-      clearInterval(checkI18N);
-      if (checkExistingSession()) {
-        initAdminMode();
-      }
-    } else {
-      console.log('⏳ Aspetto window.I18N...');
-    }
-  }, 100);
-  
-  // Timeout dopo 5 secondi
-  setTimeout(() => {
-    clearInterval(checkI18N);
-    if (!window.I18N) {
-      console.warn('⚠️ window.I18N non disponibile dopo 5 secondi');
-    }
-  }, 5000);
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
-  init();
-}
-  
-  function initAdminMode() {
-  console.log('🔵 initAdminMode chiamata');
-  
-  // Verifica che I18N esista
-  if (!window.I18N) {
-    console.error('❌ window.I18N non trovato!');
-    showNotification('Errore', 'Dizionario I18N non ancora caricato. Riprova tra un momento.', 'error');
+    console.log('🔵 Admin init chiamata');
     
-    // Riprova dopo 500ms
-    setTimeout(() => {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = '/admin/admin.css';
+    document.head.appendChild(link);
+    
+    createAdminToggle();
+    
+    // Aspetta che I18N sia disponibile prima di controllare sessione
+    const checkI18N = setInterval(() => {
       if (window.I18N) {
-        console.log('🟢 window.I18N ora disponibile, riprovo...');
-        initAdminMode();
+        console.log('🟢 window.I18N disponibile');
+        clearInterval(checkI18N);
+        if (checkExistingSession()) {
+          initAdminMode();
+        }
+      } else {
+        console.log('⏳ Aspetto window.I18N...');
       }
-    }, 500);
-    return;
+    }, 100);
+    
+    // Timeout dopo 5 secondi
+    setTimeout(() => {
+      clearInterval(checkI18N);
+      if (!window.I18N) {
+        console.warn('⚠️ window.I18N non disponibile dopo 5 secondi');
+      }
+    }, 5000);
   }
-  
-  console.log('🟢 window.I18N trovato:', Object.keys(window.I18N));
-  
-  LKR_ADMIN.originalI18N = JSON.parse(JSON.stringify(window.I18N));
-  LKR_ADMIN.modifiedI18N = JSON.parse(JSON.stringify(window.I18N));
-  
-  const toggleBtn = document.getElementById('lkr-admin-toggle');
-  if (toggleBtn) {
-    toggleBtn.classList.add('active');
-    toggleBtn.textContent = '✅ Admin ON';
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
-  
-  console.log('🟢 Chiamo enableEditMode');
-  enableEditMode();
-}
 
 })();
