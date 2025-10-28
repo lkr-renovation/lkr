@@ -109,8 +109,8 @@
           "descrizione": "Transformation complète d'une salle de bain avec installation de nouveaux équipements, matériaux et décoration. Le résultat est un espace moderne et élégant."
         },
         "it": {
-          "titolo": "Rinnovamento bagno MimiCoco-Nice-Port",
-          "luogo": "Nizza Porto Vecchio",
+          "titolo": "Rinnovamento bagno Mimi & Coco - Nizza",
+          "luogo": "Nizza - Vecchio Porto",
           "descrizione": "Trasformazione completa di un bagno con installazione di nuovi impianti, materiali e decorazioni. Il risultato è uno spazio moderno ed elegante."
         },
         "en": {
@@ -137,7 +137,6 @@
       "id": "progetto-1761471753438"
     },
     {
-      "id": "progetto-1761474752118",
       "anno": "2025",
       "categoria": "rénovation-complète",
       "immagini": [
@@ -159,8 +158,8 @@
           "descrizione": "Transformation d'un espace de restauration en un lieu moderne et élégant. Le projet inclut la pose de nouveaux sols, la rénovation des murs et l'aménagement de mobilier design."
         },
         "it": {
-          "titolo": "Ristrutturazione completa del bar Mimi & Coco",
-          "luogo": "Monaco",
+          "titolo": "Ristrutturazione completa del bar Mimi & Coco - Nizza",
+          "luogo": "Nizza - Vecchio Porto",
           "descrizione": "Trasformazione di un locale di ristorazione in un luogo moderno ed elegante. Il progetto include la posa di nuovi pavimenti, la ristrutturazione delle pareti e l'arredamento con mobili design."
         },
         "en": {
@@ -183,7 +182,8 @@
           "luogo": "Mónaco",
           "descrizione": "Transformación de un espacio de comedor en un lugar moderno y elegante. El proyecto incluye la colocación de nuevos suelos, la renovación de las paredes y el diseño de muebles."
         }
-      }
+      },
+      "id": "progetto-1761474752118"
     }
   ]
 }
