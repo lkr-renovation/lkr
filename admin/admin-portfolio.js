@@ -153,8 +153,10 @@
           <p><strong>Immagini:</strong> ${p.immagini.length}</p>
         </div>
         <div class="project-actions">
-          <button class="project-edit-btn">✏️ Modifica</button>
-          <button class="project-delete-btn">🗑️ Elimina</button>
+          <div class="project-actions-buttons">
+            <button class="project-edit-btn">✏️ Modifica</button>
+            <button class="project-delete-btn">🗑️ Elimina</button>
+          </div>
         </div>
       </div>
     `).join('');
