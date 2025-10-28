@@ -443,7 +443,7 @@
       });
       
       document.querySelectorAll('.project-delete-btn').forEach(btn => {
-        btn.addEventListener('click', openPortfolioManager);
+        btn.addEventListener('click', (e) => {
           const projectId = e.target.closest('.project-card-admin').dataset.projectId;
           deleteProject(projectId);
         });
@@ -550,6 +550,9 @@
     // Mostra il bottone se la sessione admin è attiva
     if (sessionStorage.getItem('lkr-admin-session')) {
       btn.style.display = 'flex';
+      console.log('🟢 Bottone Portfolio visibile (sessione attiva)');
+    } else {
+      console.log('🔴 Bottone Portfolio nascosto (sessione non attiva)');
     }
   }
 
