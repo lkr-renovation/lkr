@@ -85,7 +85,16 @@
     // Carica progetti
     const progetti = await loadProgettiJSON();
     
-    // Crea modal
+	  // Inietta CSS se non presente
+	  if (!document.getElementById('lkr-portfolio-css')) {
+	    const link = document.createElement('link');
+	    link.id = 'lkr-portfolio-css';
+	    link.rel = 'stylesheet';
+	    link.href = '/admin/admin-portfolio.css';
+	    document.head.appendChild(link);
+	  }
+
+	  // Crea modal
     const modal = document.createElement('div');
     modal.id = 'lkr-portfolio-manager-modal';
     modal.className = 'lkr-portfolio-modal';
