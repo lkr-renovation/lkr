@@ -291,7 +291,7 @@
           if (portfolioBtn) {
             portfolioBtn.style.display = 'flex';
           }
-        }, 500);
+        }, 1000);
       }
       toggleBtn.textContent = '✅ Admin ON';
     }
@@ -810,7 +810,7 @@
       } else {
         console.log('⏳ Aspetto window.I18N...');
       }
-    }, 500);
+    }, 1000);
     
     // Timeout dopo 5 secondi
     setTimeout(() => {
