@@ -280,10 +280,13 @@
       
       // Se siamo nella pagina portfolio, mostra il bottone Portfolio Admin
       if (window.location.pathname.includes('portfolio')) {
-        const portfolioBtn = document.getElementById('lkr-portfolio-admin-btn');
-        if (portfolioBtn) {
-          portfolioBtn.style.display = 'flex';
-        }
+        // Aggiungo un piccolo ritardo per assicurarmi che admin-portfolio.js abbia creato il bottone
+        setTimeout(() => {
+          const portfolioBtn = document.getElementById('lkr-portfolio-admin-btn');
+          if (portfolioBtn) {
+            portfolioBtn.style.display = 'flex';
+          }
+        }, 100);
       }
       toggleBtn.textContent = '✅ Admin ON';
     }
