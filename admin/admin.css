@@ -48,6 +48,7 @@
 }
 
 .lkr-admin-login-box {
+  position: relative;
   background: white;
   border-radius: 16px;
   padding: 32px;

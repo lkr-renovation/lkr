@@ -126,7 +126,8 @@
     const modal = document.createElement('div');
     modal.id = 'lkr-admin-login-modal';
     modal.innerHTML = `
-      <div class="lkr-admin-login-box">
+        <div class="lkr-admin-login-box">
+          <button id="lkr-admin-close-modal" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #6c757d;">&times;</button>
         <h2>🔐 LKR Admin Panel</h2>
         <input type="password" id="lkr-admin-password" placeholder="Password" autocomplete="off">
         <button id="lkr-admin-login-btn">Accedi</button>
@@ -135,6 +136,11 @@
     `;
     
     document.body.appendChild(modal);
+
+    const closeBtn = document.getElementById('lkr-admin-close-modal');
+    closeBtn.addEventListener('click', () => {
+      modal.remove();
+    });
     console.log('🔵 Modal aggiunta al DOM');
     
     const input = document.getElementById('lkr-admin-password');
