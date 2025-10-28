@@ -234,6 +234,10 @@
     const publishBtn = document.getElementById('lkr-publish-btn');
     if (publishBtn) publishBtn.remove();
     
+    // Rimuovi bottone Portfolio
+    const portfolioBtn = document.getElementById('lkr-portfolio-admin-btn');
+    if (portfolioBtn) portfolioBtn.remove();
+    
     // Reset bottone toggle
     // La logica di visualizzazione del bottone Portfolio è stata spostata in admin-portfolio.js.
     // Il bottone si nasconderà automaticamente al prossimo ricaricamento della pagina.
