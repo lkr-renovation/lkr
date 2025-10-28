@@ -115,24 +115,24 @@
     document.getElementById('add-project-btn').addEventListener('click', showAddProjectForm);
     document.getElementById('save-json-btn').addEventListener('click', saveProgettiToGitHub);
     
-    // Bottoni edit/delete per ogni progetto
-    document.querySelectorAll('.project-edit-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const projectId = e.target.closest('.project-card-admin').dataset.projectId;
-        editProject(projectId);
-      });
+// Delega degli eventi per i bottoni edit/delete
+    const projectsList = document.getElementById('projects-list');
+    projectsList.addEventListener('click', (e) => {
+        const editBtn = e.target.closest('.project-edit-btn');
+        const deleteBtn = e.target.closest('.project-delete-btn');
+        
+        if (editBtn) {
+            e.preventDefault();
+            e.stopPropagation();
+            const projectId = editBtn.closest('.project-card-admin').dataset.projectId;
+            editProject(projectId);
+        } else if (deleteBtn) {
+            e.preventDefault();
+            e.stopPropagation();
+            const projectId = deleteBtn.closest('.project-card-admin').dataset.projectId;
+            deleteProject(projectId);
+        }
     });
-    
-	    document.querySelectorAll('.project-delete-btn').forEach(btn => {
-	       btn.addEventListener('click', (e) => {
-	        e.preventDefault();
-	        e.stopPropagation();
-	        const projectId = e.target.closest('.project-card-admin').dataset.projectId;
-	        deleteProject(projectId);
-	      });
-	    });
   }
 
   function renderProjectsList(progetti) {
