@@ -88,7 +88,6 @@
       }
     },
     {
-      "id": "progetto-1761471753438",
       "anno": "2025",
       "categoria": "rénovation-salle-de-bain",
       "immagini": [
@@ -111,7 +110,7 @@
         },
         "it": {
           "titolo": "Rinnovamento bagno MimiCoco-Nice-Port",
-          "luogo": "Monaco",
+          "luogo": "Nizza Porto Vecchio",
           "descrizione": "Trasformazione completa di un bagno con installazione di nuovi impianti, materiali e decorazioni. Il risultato è uno spazio moderno ed elegante."
         },
         "en": {
@@ -134,7 +133,8 @@
           "luogo": "Mónaco",
           "descrizione": "Transformación completa de un baño con instalación de nuevos equipos, materiales y decoración. El resultado es un espacio moderno y elegante."
         }
-      }
+      },
+      "id": "progetto-1761471753438"
     },
     {
       "id": "progetto-1761474752118",
