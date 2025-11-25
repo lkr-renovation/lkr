@@ -717,20 +717,39 @@
         <!-- MODALITÉS DE PAIEMENT -->
         <div class="paiement">
             <h3>MODALITÉS DE PAIEMENT</h3>
-            <p style="margin-bottom: 10px;">Échéancier standard pour ce type de projet:</p>
-            <div class="paiement-grid">
-                <div class="paiement-item">
-                    <strong>30%</strong>
-                    <small>À la signature du devis<br>(Acompte)</small>
+            <div class="no-print" style="margin-bottom: 15px;">
+                <label for="paiementSelect" style="font-weight: 600; color: #c41e3a;">Sélectionner un échéancier:</label>
+                <select id="paiementSelect" onchange="updatePaiementDetails(this.value)" style="padding: 8px; border: 1px solid #ddd; border-radius: 3px; width: 100%; max-width: 300px; margin-top: 5px;">
+                    <option value="standard">Standard (30% / 40% / 30%)</option>
+                    <option value="saldo">Solde à la livraison (100% à la fin)</option>
+                    <option value="anticipo">100% en avance (Réduction de 5%)</option>
+                    <option value="trenta-settanta">30% / 70%</option>
+                    <option value="personnalise">Personnalisé (Écrire ci-dessous)</option>
+                </select>
+            </div>
+            
+            <div id="paiementDetails">
+                <!-- Dettagli di pagamento predefiniti (Standard) -->
+                <p style="margin-bottom: 10px;">Échéancier standard pour ce type de projet:</p>
+                <div class="paiement-grid">
+                    <div class="paiement-item">
+                        <strong>30%</strong>
+                        <small>À la signature du devis<br>(Acompte)</small>
+                    </div>
+                    <div class="paiement-item">
+                        <strong>40%</strong>
+                        <small>À mi-parcours des travaux<br>(Situation d'avancement)</small>
+                    </div>
+                    <div class="paiement-item">
+                        <strong>30%</strong>
+                        <small>À la livraison finale<br>(Solde)</small>
+                    </div>
                 </div>
-                <div class="paiement-item">
-                    <strong>40%</strong>
-                    <small>À mi-parcours des travaux<br>(Situation d'avancement)</small>
-                </div>
-                <div class="paiement-item">
-                    <strong>30%</strong>
-                    <small>À la livraison finale<br>(Solde)</small>
-                </div>
+            </div>
+            
+            <div id="paiementCustom" style="display: none; margin-top: 15px;">
+                <label for="paiementCustomText" style="font-weight: 600; color: #c41e3a;">Détails de l'échéancier personnalisé:</label>
+                <textarea id="paiementCustomText" rows="4" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 3px; font-family: inherit;"></textarea>
             </div>
             <p style="margin-top: 15px; font-size: 12px; color: #666;">
                 <strong>Modes de paiement acceptés:</strong> Virement bancaire, Chèque<br>
@@ -902,6 +921,96 @@
                 row.cells[0].textContent = index + 1;
             });
         }
+
+        // LOGICA PAGAMENTO
+        function updatePaiementDetails(mode) {
+            const detailsDiv = document.getElementById('paiementDetails');
+            const customDiv = document.getElementById('paiementCustom');
+            const customTextarea = document.getElementById('paiementCustomText');
+            
+            // Nascondi tutto
+            detailsDiv.innerHTML = '';
+            customDiv.style.display = 'none';
+            
+            let htmlContent = '';
+            
+            switch (mode) {
+                case 'standard':
+                    htmlContent = `
+                        <p style="margin-bottom: 10px;">Échéancier standard pour ce type de projet:</p>
+                        <div class="paiement-grid">
+                            <div class="paiement-item">
+                                <strong>30%</strong>
+                                <small>À la signature du devis<br>(Acompte)</small>
+                            </div>
+                            <div class="paiement-item">
+                                <strong>40%</strong>
+                                <small>À mi-parcours des travaux<br>(Situation d'avancement)</small>
+                            </div>
+                            <div class="paiement-item">
+                                <strong>30%</strong>
+                                <small>À la livraison finale<br>(Solde)</small>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'saldo':
+                    htmlContent = `
+                        <p style="margin-bottom: 10px;">Modalité: Solde à la livraison</p>
+                        <div class="paiement-grid" style="grid-template-columns: 1fr;">
+                            <div class="paiement-item">
+                                <strong>100%</strong>
+                                <small>À la livraison finale<br>(Solde)</small>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'anticipo':
+                    htmlContent = `
+                        <p style="margin-bottom: 10px;">Modalité: Paiement 100% anticipé (avec réduction)</p>
+                        <div class="paiement-grid" style="grid-template-columns: 1fr;">
+                            <div class="paiement-item">
+                                <strong>100%</strong>
+                                <small>À la signature du devis<br>(Réduction de 5% appliquée sur le Total HT)</small>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'trenta-settanta':
+                    htmlContent = `
+                        <p style="margin-bottom: 10px;">Échéancier 30% / 70%:</p>
+                        <div class="paiement-grid" style="grid-template-columns: 1fr 1fr;">
+                            <div class="paiement-item">
+                                <strong>30%</strong>
+                                <small>À la signature du devis<br>(Acompte)</small>
+                            </div>
+                            <div class="paiement-item">
+                                <strong>70%</strong>
+                                <small>À la livraison finale<br>(Solde)</small>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'personnalise':
+                    customDiv.style.display = 'block';
+                    htmlContent = `
+                        <p style="margin-bottom: 10px;">Échéancier personnalisé:</p>
+                        <div class="paiement-custom-output" id="paiementCustomOutput">${customTextarea.value.trim() || 'Détails à compléter manuellement'}</div>
+                    `;
+                    // Aggiungi un listener per aggiornare l'output in tempo reale
+                    customTextarea.oninput = () => {
+                        document.getElementById('paiementCustomOutput').textContent = customTextarea.value.trim() || 'Détails à compléter manuellement';
+                    };
+                    break;
+            }
+            
+            detailsDiv.innerHTML = htmlContent;
+        }
+        
+        // Inizializza al caricamento
+        document.addEventListener('DOMContentLoaded', () => {
+            updatePaiementDetails(document.getElementById('paiementSelect').value);
+        });
 
         // CALCULER UNE LIGNE
         function calculerLigne(input) {
