@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facture LKR Renovation MC</title>
+    <!-- Website designed and developed by Riccardo Barlozzetti -->
+    <style>
+        @media print {
+            .no-print {
+                display: none;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #dc3545;
+        }
+
+        .logo-section {
+            flex: 1;
+        }
+
+        .logo-section img {
+            max-width: 200px;
+            height: auto;
+        }
+
+        .company-info {
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        .company-info h1 {
+            color: #dc3545;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .company-info p {
+            font-size: 11px;
+            line-height: 1.4;
+            color: #2c3e50;
+        }
+
+        .invoice-title {
+            text-align: right;
+            flex: 1;
+        }
+
+        .invoice-title h2 {
+            font-size: 32px;
+            color: #dc3545;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .invoice-meta {
+            text-align: right;
+            font-size: 12px;
+        }
+
+        .invoice-meta p {
+            margin: 5px 0;
+        }
+
+        .invoice-meta strong {
+            color: #dc3545;
+        }
+
+        .parties {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            gap: 30px;
+        }
+
+        .party-box {
+            flex: 1;
+            padding: 20px;
+            background: #f8f9fa;
+            border-left: 4px solid #dc3545;
+        }
+
+        .party-box h3 {
+            color: #dc3545;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .party-box p {
+            font-size: 12px;
+            line-height: 1.6;
+            margin: 3px 0;
+        }
+
+        .editable {
+            background: #fff3cd;
+            padding: 2px 5px;
+            border: 1px dashed #ffc107;
+            min-width: 200px;
+            display: inline-block;
+        }
+
+        .items-table {
+            width: 100%;
+            margin-bottom: 30px;
+            border-collapse: collapse;
+        }
+
+        .items-table thead {
+            background: #dc3545;
+            color: white;
+        }
+
+        .items-table th {
+            padding: 12px;
+            text-align: left;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .items-table tbody tr {
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .items-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .items-table td {
+            padding: 12px;
+            font-size: 12px;
+        }
+
+        .items-table .text-right {
+            text-align: right;
+        }
+
+        .items-table .text-center {
+            text-align: center;
+        }
+
+        .totals {
+            margin-left: auto;
+            width: 400px;
+            margin-bottom: 40px;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 15px;
+            font-size: 13px;
+        }
+
+        .total-row.subtotal {
+            background: #f8f9fa;
+        }
+
+        .total-row.tax {
+            background: #e9ecef;
+        }
+
+        .total-row.final {
+            background: #dc3545;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        .payment-info {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-left: 4px solid #dc3545;
+        }
+
+        .payment-info h3 {
+            color: #dc3545;
+            font-size: 14px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .payment-info p {
+            font-size: 12px;
+            line-height: 1.8;
+            margin: 5px 0;
+        }
+
+        .payment-info strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .bank-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .notes {
+            background: #fff3cd;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .notes h4 {
+            color: #856404;
+            font-size: 12px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .notes p {
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        .signature-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            margin-bottom: 40px;
+        }
+
+        .signature-box {
+            width: 45%;
+            text-align: center;
+        }
+
+        .signature-box p {
+            font-size: 12px;
+            margin-bottom: 50px;
+            font-weight: 600;
+        }
+
+        .signature-line {
+            border-top: 1px solid #2c3e50;
+            padding-top: 10px;
+            font-size: 11px;
+            color: #6c757d;
+        }
+
+        .cgv-section {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 3px solid #dc3545;
+        }
+
+        .cgv-section h2 {
+            color: #dc3545;
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .cgv-content h3 {
+            color: #2c3e50;
+            font-size: 13px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .cgv-content p, .cgv-content ul {
+            font-size: 10px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .cgv-content ul {
+            margin-left: 20px;
+        }
+
+        .cgv-content li {
+            margin-bottom: 5px;
+        }
+
+        .print-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .print-button:hover {
+            background: #c82333;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(220, 53, 69, 0.4);
+        }
+
+        .instructions {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .instructions h3 {
+            color: #0c5460;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .instructions p {
+            font-size: 12px;
+            line-height: 1.6;
+            color: #0c5460;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .header {
+                flex-direction: column;
+            }
+
+            .invoice-title {
+                text-align: left;
+                margin-top: 20px;
+            }
+
+            .parties {
+                flex-direction: column;
+            }
+
+            .bank-details {
+                grid-template-columns: 1fr;
+            }
+
+            .totals {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="instructions no-print">
+        <h3>📋 Instructions d'utilisation</h3>
+        <p><strong>1.</strong> Cliquez sur les zones surlignées en jaune pour modifier les informations de la facture<br>
+        <strong>2.</strong> Remplissez tous les champs nécessaires (client, prestations, montants)<br>
+        <strong>3.</strong> Cliquez sur le bouton "Imprimer / Générer PDF" en bas à droite<br>
+        <strong>4.</strong> Dans la fenêtre d'impression, sélectionnez "Enregistrer au format PDF"</p>
+    </div>
+
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="logo-section">
+                <img src="https://lkr.mc/img/LKRorizzontalepiccolo.png" alt="LKR Renovation MC">
+                <div class="company-info">
+                    <h1>LKR RENOVATION MC SARL</h1>
+                    <p><strong>Siège social:</strong> 38, Boulevard des Moulins, 98000 Monaco</p>
+                    <p><strong>RCI:</strong> 25S10110 | <strong>Capital:</strong> 15.000 €</p>
+                    <p><strong>TVA:</strong> FR72000188879</p>
+                    <p><strong>Tél:</strong> +377 6 40 61 56 50 | <strong>Email:</strong> info@lkr.mc</p>
+                    <p><strong>Web:</strong> www.lkr.mc</p>
+                </div>
+            </div>
+            <div class="invoice-title">
+                <h2>FACTURE</h2>
+                <div class="invoice-meta">
+                    <p><strong>N° Facture:</strong> <span class="editable" contenteditable="true">LKR-2025-001</span></p>
+                    <p><strong>Date:</strong> <span class="editable" contenteditable="true">05/12/2025</span></p>
+                    <p><strong>Date d'échéance:</strong> <span class="editable" contenteditable="true">05/01/2026</span></p>
+                    <p><strong>Référence devis:</strong> <span class="editable" contenteditable="true">DEV-2025-001</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PARTIES -->
+        <div class="parties">
+            <div class="party-box">
+                <h3>Prestataire</h3>
+                <p><strong>LKR RENOVATION MC SARL</strong></p>
+                <p>38, Boulevard des Moulins</p>
+                <p>98000 Monaco</p>
+                <p>Principauté de Monaco</p>
+                <p><strong>RCI:</strong> 25S10110</p>
+                <p><strong>TVA:</strong> FR72000188879</p>
+                <p><strong>Gérant:</strong> Luca Borella</p>
+            </div>
+            <div class="party-box">
+                <h3>Client</h3>
+                <p><strong class="editable" contenteditable="true">NOM DU CLIENT</strong></p>
+                <p class="editable" contenteditable="true">Adresse ligne 1</p>
+                <p class="editable" contenteditable="true">Code postal Ville</p>
+                <p class="editable" contenteditable="true">Pays</p>
+                <p><strong>Email:</strong> <span class="editable" contenteditable="true">client@example.com</span></p>
+                <p><strong>Tél:</strong> <span class="editable" contenteditable="true">+377 XX XX XX XX</span></p>
+            </div>
+        </div>
+
+        <!-- DESCRIPTION PRESTATIONS -->
+        <table class="items-table">
+            <thead>
+                <tr>
+                    <th style="width: 50%;">Description</th>
+                    <th class="text-center" style="width: 10%;">Qté</th>
+                    <th class="text-right" style="width: 15%;">Prix Unit. HT</th>
+                    <th class="text-right" style="width: 10%;">TVA</th>
+                    <th class="text-right" style="width: 15%;">Total HT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="editable" contenteditable="true">Coordination et gestion de projet de rénovation complète</td>
+                    <td class="text-center editable" contenteditable="true">1</td>
+                    <td class="text-right editable" contenteditable="true">15.000,00 €</td>
+                    <td class="text-right editable" contenteditable="true">20%</td>
+                    <td class="text-right editable" contenteditable="true">15.000,00 €</td>
+                </tr>
+                <tr>
+                    <td class="editable" contenteditable="true">Travaux de peinture et revêtements muraux</td>
+                    <td class="text-center editable" contenteditable="true">1</td>
+                    <td class="text-right editable" contenteditable="true">8.500,00 €</td>
+                    <td class="text-right editable" contenteditable="true">20%</td>
+                    <td class="text-right editable" contenteditable="true">8.500,00 €</td>
+                </tr>
+                <tr>
+                    <td class="editable" contenteditable="true">Installation électrique et éclairage</td>
+                    <td class="text-center editable" contenteditable="true">1</td>
+                    <td class="text-right editable" contenteditable="true">6.200,00 €</td>
+                    <td class="text-right editable" contenteditable="true">20%</td>
+                    <td class="text-right editable" contenteditable="true">6.200,00 €</td>
+                </tr>
+                <tr>
+                    <td class="editable" contenteditable="true">Plomberie et sanitaires</td>
+                    <td class="text-center editable" contenteditable="true">1</td>
+                    <td class="text-right editable" contenteditable="true">5.800,00 €</td>
+                    <td class="text-right editable" contenteditable="true">20%</td>
+                    <td class="text-right editable" contenteditable="true">5.800,00 €</td>
+                </tr>
+                <tr>
+                    <td colspan="5" style="text-align: center; padding: 15px; font-style: italic; color: #6c757d;">
+                        Ajoutez ou supprimez des lignes selon vos besoins
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- TOTAUX -->
+        <div class="totals">
+            <div class="total-row subtotal">
+                <span>Total HT</span>
+                <strong class="editable" contenteditable="true">35.500,00 €</strong>
+            </div>
+            <div class="total-row tax">
+                <span>TVA 20%</span>
+                <strong class="editable" contenteditable="true">7.100,00 €</strong>
+            </div>
+            <div class="total-row final">
+                <span>TOTAL TTC</span>
+                <strong class="editable" contenteditable="true">42.600,00 €</strong>
+            </div>
+        </div>
+
+        <!-- INFORMATIONS DE PAIEMENT -->
+        <div class="payment-info">
+            <h3>Modalités de paiement</h3>
+            <p><strong>Échéance:</strong> <span class="editable" contenteditable="true">30 jours à réception de facture</span></p>
+            <p><strong>Mode de paiement:</strong> <span class="editable" contenteditable="true">Virement bancaire</span></p>
+            <p><strong>Pénalités de retard:</strong> 1,5% par mois de retard (soit 18% annuel)</p>
+            
+            <div class="bank-details">
+                <div>
+                    <p><strong>Titulaire:</strong> LKR RENOVATION MC</p>
+                    <p><strong>Banque:</strong> Société Générale Monaco</p>
+                    <p><strong>Agence:</strong> Monaco Regina (00910)</p>
+                </div>
+                <div>
+                    <p><strong>IBAN:</strong> MC58 3000 3009 1000 0203 3699 939</p>
+                    <p><strong>BIC:</strong> SOGEMCM1</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NOTES -->
+        <div class="notes">
+            <h4>Notes importantes</h4>
+            <p class="editable" contenteditable="true">Cette facture fait référence au devis DEV-2025-001 accepté le XX/XX/2025. Les travaux ont été réalisés conformément aux termes du contrat signé. LKR Renovation MC intervient en qualité de general contractor et coordonne l'ensemble des corps de métier.</p>
+        </div>
+
+        <!-- SIGNATURES -->
+        <div class="signature-section">
+            <div class="signature-box">
+                <p>Pour LKR RENOVATION MC SARL</p>
+                <div class="signature-line">
+                    Luca Borella<br>
+                    Gérant
+                </div>
+            </div>
+            <div class="signature-box">
+                <p>Le Client</p>
+                <div class="signature-line">
+                    Signature et tampon
+                </div>
+            </div>
+        </div>
+
+        <!-- CONDITIONS GÉNÉRALES DE VENTE -->
+        <div class="cgv-section page-break">
+            <h2>Conditions Générales de Vente (CGV)</h2>
+            
+            <div class="cgv-content">
+                <h3>1. OBJET ET CHAMP D'APPLICATION</h3>
+                <p>Les présentes Conditions Générales de Vente (ci-après « CGV ») s'appliquent à l'ensemble des prestations de coordination de travaux de rénovation, réhabilitation et construction réalisées par LKR RENOVATION MC SARL (ci-après « LKR » ou « le Prestataire »), société immatriculée au Répertoire du Commerce et de l'Industrie de Monaco sous le numéro RCI 25S10110, ayant son siège social au 38, Boulevard des Moulins, 98000 Monaco.</p>
+                <p>LKR intervient exclusivement en qualité de <strong>general contractor</strong> (entrepreneur général) et assure la coordination et la gestion globale des projets de travaux. LKR ne réalise pas directement les travaux techniques qui sont confiés à des entreprises spécialisées et qualifiées.</p>
+
+                <h3>2. NATURE DES PRESTATIONS</h3>
+                <p><strong>2.1. Rôle de General Contractor</strong></p>
+                <p>LKR assure les missions suivantes :</p>
+                <ul>
+                    <li>Coordination générale du projet de travaux</li>
+                    <li>Gestion administrative et technique du chantier</li>
+                    <li>Sélection et contractualisation des entreprises sous-traitantes</li>
+                    <li>Planification et suivi de l'avancement des travaux</li>
+                    <li>Contrôle qualité et conformité des réalisations</li>
+                    <li>Interface unique entre le Client et les différents corps de métier</li>
+                    <li>Gestion des relations avec les autorités compétentes (DPUM, etc.)</li>
+                </ul>
+
+                <p><strong>2.2. Exclusions</strong></p>
+                <p>LKR n'est pas habilité à réaliser directement des travaux relevant de professions réglementées ou nécessitant des autorisations administratives spécifiques de la DPUM (Direction de la Prospective, de l'Urbanisme et de la Mobilité) de la Principauté de Monaco. Ces travaux sont confiés à des entreprises dûment qualifiées et autorisées.</p>
+
+                <h3>3. DEVIS ET ACCEPTATION</h3>
+                <p><strong>3.1. Établissement du devis</strong></p>
+                <p>Tout projet fait l'objet d'un devis détaillé établi par LKR après étude des besoins du Client. Le devis précise :</p>
+                <ul>
+                    <li>La nature et l'étendue des prestations de coordination</li>
+                    <li>Le descriptif des travaux à coordonner</li>
+                    <li>Le prix global et le détail des coûts</li>
+                    <li>Les délais d'exécution prévisionnels</li>
+                    <li>Les modalités de paiement</li>
+                    <li>Les conditions particulières le cas échéant</li>
+                </ul>
+
+                <p><strong>3.2. Validité et acceptation</strong></p>
+                <p>Le devis est valable 30 jours à compter de sa date d'émission. Son acceptation par le Client, matérialisée par sa signature précédée de la mention manuscrite « Bon pour accord », vaut conclusion du contrat et acceptation pleine et entière des présentes CGV.</p>
+
+                <p><strong>3.3. Modifications</strong></p>
+                <p>Toute modification des prestations initialement prévues fera l'objet d'un avenant écrit signé par les deux parties et pourra entraîner une révision du prix et des délais.</p>
+
+                <h3>4. PRIX ET CONDITIONS FINANCIÈRES</h3>
+                <p><strong>4.1. Prix</strong></p>
+                <p>Les prix sont exprimés en Euros (€), hors taxes (HT) et toutes taxes comprises (TTC). Ils comprennent la rémunération de LKR pour ses services de coordination ainsi que l'ensemble des coûts des travaux réalisés par les sous-traitants.</p>
+                <p>Les prix sont fermes et définitifs, sauf stipulation contraire dans le devis (clause de révision de prix pour les projets de longue durée).</p>
+
+                <p><strong>4.2. TVA - Application de l'Accord France-Monaco de 1963</strong></p>
+                <p>Conformément à l'Accord du 18 mai 1963 entre la France et Monaco concernant les rapports entre les deux États en matière fiscale, la TVA française s'applique aux prestations réalisées dans la Principauté de Monaco selon les conditions suivantes :</p>
+                <ul>
+                    <li><strong>Taux normal de 20%</strong> applicable aux travaux de rénovation et construction</li>
+                    <li><strong>Taux réduit de 10%</strong> applicable sous conditions pour certains travaux d'amélioration, transformation et aménagement dans des locaux d'habitation achevés depuis plus de deux ans</li>
+                    <li><strong>Taux réduit de 5,5%</strong> applicable sous conditions pour certains travaux de rénovation énergétique</li>
+                </ul>
+                <p>Le Client s'engage à fournir toutes les pièces justificatives nécessaires à l'application du taux de TVA approprié. En cas de fourniture de documents incomplets ou inexacts, le taux normal de 20% sera appliqué.</p>
+
+                <p><strong>4.3. Modalités de paiement</strong></p>
+                <p>Le paiement s'effectue selon l'une des options suivantes, précisée dans le devis :</p>
+                
+                <p><strong>OPTION A - Paiement échelonné standard :</strong></p>
+                <ul>
+                    <li>30% à la signature du contrat (acompte)</li>
+                    <li>40% à l'avancement des travaux (selon états d'avancement validés)</li>
+                    <li>30% à la réception des travaux</li>
+                </ul>
+
+                <p><strong>OPTION B - Paiement en deux temps :</strong></p>
+                <ul>
+                    <li>50% à la signature du contrat (acompte)</li>
+                    <li>50% à la réception des travaux</li>
+                </ul>
+
+                <p><strong>OPTION C - Paiement à la réception :</strong></p>
+                <ul>
+                    <li>100% à la réception des travaux (sous conditions et validation préalable de LKR)</li>
+                </ul>
+
+                <p><strong>4.4. Délais de paiement</strong></p>
+                <p>Sauf mention contraire sur la facture, le règlement est exigible à réception de la facture, sans escompte. Les paiements s'effectuent par virement bancaire sur le compte dont les coordonnées figurent sur la facture.</p>
+
+                <p><strong>4.5. Retard de paiement</strong></p>
+                <p>Conformément à la réglementation monégasque, tout retard de paiement entraîne de plein droit et sans mise en demeure préalable :</p>
+                <ul>
+                    <li>L'application de pénalités de retard au taux de <strong>1,5% par mois</strong> de retard (soit 18% annuel), calculées sur le montant TTC de la somme due</li>
+                    <li>L'exigibilité immédiate de l'ensemble des sommes restant dues, quelle que soit l'échéance initialement prévue</li>
+                    <li>La possibilité pour LKR de suspendre ou d'arrêter les travaux en cours jusqu'à complet règlement, sans préjudice de tous dommages et intérêts</li>
+                </ul>
+
+                <h3>5. DÉLAIS D'EXÉCUTION</h3>
+                <p><strong>5.1. Délais indicatifs</strong></p>
+                <p>Les délais d'exécution indiqués dans le devis sont donnés à titre indicatif et constituent un objectif que LKR s'efforce de respecter. Le point de départ des délais est fixé à la date de signature du contrat et de réception de l'acompte.</p>
+
+                <p><strong>5.2. Prolongation des délais</strong></p>
+                <p>Les délais peuvent être prolongés en cas de :</p>
+                <ul>
+                    <li>Force majeure ou événements imprévisibles (intempéries exceptionnelles, catastrophe naturelle, conflit social, etc.)</li>
+                    <li>Modifications demandées par le Client en cours de chantier</li>
+                    <li>Retard dans l'obtention des autorisations administratives</li>
+                    <li>Retard de paiement du Client</li>
+                    <li>Difficultés techniques imprévues découvertes en cours de travaux</li>
+                    <li>Indisponibilité de matériaux ou équipements pour des raisons indépendantes de la volonté de LKR</li>
+                </ul>
+
+                <p><strong>5.3. Pénalités de retard</strong></p>
+                <p>En cas de dépassement du délai contractuel imputable exclusivement à LKR et après mise en demeure restée sans effet pendant 15 jours, le Client pourra prétendre à des pénalités de retard dont le montant et les modalités sont précisés dans le contrat. Ces pénalités ne pourront excéder 10% du montant total TTC du contrat.</p>
+
+                <h3>6. OBLIGATIONS DU CLIENT</h3>
+                <p>Le Client s'engage à :</p>
+                <ul>
+                    <li>Fournir toutes les informations nécessaires à l'établissement du devis et à la bonne exécution des travaux</li>
+                    <li>Permettre l'accès aux locaux aux horaires convenus et assurer leur disponibilité pendant toute la durée du chantier</li>
+                    <li>Effectuer les paiements aux échéances prévues</li>
+                    <li>Obtenir, si nécessaire, les autorisations administratives requises (autorisation du syndic de copropriété, déclaration préalable de travaux, etc.)</li>
+                    <li>Fournir les attestations et documents nécessaires pour l'application du taux de TVA approprié</li>
+                    <li>Informer LKR de toute contrainte particulière liée aux locaux (présence d'amiante, plomb, installations classées, etc.)</li>
+                    <li>Souscrire une assurance dommages-ouvrage si le projet le nécessite</li>
+                </ul>
+
+                <h3>7. OBLIGATIONS DE LKR</h3>
+                <p>LKR s'engage à :</p>
+                <ul>
+                    <li>Réaliser ses prestations de coordination avec professionnalisme et diligence</li>
+                    <li>Sélectionner des entreprises sous-traitantes qualifiées, assurées et en conformité avec la réglementation monégasque</li>
+                    <li>Assurer le suivi et le contrôle de la bonne exécution des travaux par les sous-traitants</li>
+                    <li>Informer régulièrement le Client de l'avancement du projet</li>
+                    <li>Respecter les normes et règlements en vigueur dans la Principauté de Monaco</li>
+                    <li>Coordonner l'intervention des différents corps de métier</li>
+                    <li>Organiser la réception des travaux avec le Client</li>
+                </ul>
+
+                <h3>8. SOUS-TRAITANCE</h3>
+                <p><strong>8.1. Principe</strong></p>
+                <p>Dans le cadre de sa mission de general contractor, LKR fait appel à des entreprises sous-traitantes spécialisées pour la réalisation des travaux techniques. Ces entreprises sont sélectionnées par LKR en fonction de leurs qualifications, de leur expérience et de leurs assurances professionnelles.</p>
+
+                <p><strong>8.2. Responsabilité</strong></p>
+                <p>LKR assume la responsabilité de plein droit vis-à-vis du Client de la bonne exécution des prestations confiées aux sous-traitants. Le Client ne contracte qu'avec LKR et n'a aucun lien juridique direct avec les entreprises sous-traitantes.</p>
+
+                <p><strong>8.3. Coordination</strong></p>
+                <p>LKR assure la coordination générale entre tous les intervenants, gère le planning d'intervention de chaque corps de métier et veille au respect des règles de sécurité sur le chantier.</p>
+
+                <h3>9. RÉCEPTION DES TRAVAUX</h3>
+                <p><strong>9.1. Réception provisoire</strong></p>
+                <p>À l'achèvement des travaux, une réception provisoire est organisée en présence du Client et du représentant de LKR. Un procès-verbal de réception est établi, mentionnant :</p>
+                <ul>
+                    <li>Les travaux réalisés conformément au contrat</li>
+                    <li>Les éventuelles réserves du Client sur des points précis à corriger</li>
+                    <li>La date de prise d'effet de la garantie</li>
+                </ul>
+
+                <p><strong>9.2. Levée des réserves</strong></p>
+                <p>LKR s'engage à faire procéder aux corrections nécessaires dans un délai de 30 jours suivant la réception provisoire, sauf cas particulier nécessitant un délai plus long (précisé dans le PV de réception).</p>
+
+                <p><strong>9.3. Réception définitive</strong></p>
+                <p>La réception définitive intervient après levée de toutes les réserves éventuellement émises lors de la réception provisoire. Si aucune réserve n'a été formulée, la réception provisoire vaut réception définitive.</p>
+
+                <p><strong>9.4. Refus de réception</strong></p>
+                <p>Le Client ne peut refuser la réception des travaux que si les non-conformités constatées sont suffisamment graves pour rendre les travaux impropres à leur destination. Un simple défaut esthétique mineur ne justifie pas un refus de réception mais donnera lieu à réserves.</p>
+
+                <h3>10. GARANTIES</h3>
+                <p><strong>10.1. Garantie de bon fonctionnement</strong></p>
+                <p>LKR garantit le bon fonctionnement des travaux coordonnés pendant une durée de <strong>un (1) an</strong> à compter de la date de réception définitive des travaux. Cette garantie couvre les défauts de conformité et les vices apparents signalés par le Client dans ce délai.</p>
+
+                <p><strong>10.2. Garantie des équipements</strong></p>
+                <p>Les équipements et matériaux installés bénéficient des garanties constructeur dont les durées et conditions sont communiquées au Client. LKR transmet au Client l'ensemble des certificats de garantie et notices d'utilisation.</p>
+
+                <p><strong>10.3. Extension de garantie</strong></p>
+                <p>Le Client peut souscrire, à sa demande et moyennant un coût supplémentaire, une extension de garantie au-delà de la période standard d'un an. Les conditions et le coût de cette extension sont précisés dans un avenant au contrat.</p>
+
+                <p><strong>10.4. Exclusions de garantie</strong></p>
+                <p>Sont exclus de la garantie :</p>
+                <ul>
+                    <li>L'usure normale des matériaux et équipements</li>
+                    <li>Les dommages résultant d'un usage anormal ou non conforme</li>
+                    <li>Les modifications ou réparations effectuées par le Client ou par un tiers non autorisé par LKR</li>
+                    <li>Le défaut d'entretien régulier des installations</li>
+                    <li>Les dommages causés par un cas de force majeure</li>
+                </ul>
+
+                <h3>11. ASSURANCES</h3>
+                <p><strong>11.1. Assurances de LKR</strong></p>
+                <p>LKR est titulaire d'une assurance responsabilité civile professionnelle couvrant les conséquences pécuniaires de sa responsabilité civile en cas de dommages corporels, matériels et immatériels causés aux tiers dans le cadre de son activité de coordination de travaux.</p>
+
+                <p><strong>11.2. Assurance dommages-ouvrage (facultatif)</strong></p>
+                <p>Pour certains projets de rénovation lourde ou de construction, le Client peut être invité à souscrire une assurance dommages-ouvrage garantissant le préfinancement des travaux de réparation des dommages relevant de la garantie décennale (si applicable). LKR peut assister le Client dans cette démarche sur demande.</p>
+
+                <p><strong>11.3. Justificatifs</strong></p>
+                <p>LKR s'engage à fournir sur demande une attestation d'assurance en cours de validité. De même, LKR s'assure que les entreprises sous-traitantes sont correctement assurées pour leurs interventions.</p>
+
+                <h3>12. RESPONSABILITÉ</h3>
+                <p><strong>12.1. Responsabilité de LKR</strong></p>
+                <p>En sa qualité de general contractor, LKR est responsable de plein droit vis-à-vis du Client de la bonne exécution des prestations confiées aux sous-traitants, comme s'il les réalisait lui-même. LKR répond des dommages directs et prévisibles résultant d'une faute prouvée dans l'exécution de ses obligations contractuelles.</p>
+
+                <p><strong>12.2. Limitation de responsabilité</strong></p>
+                <p>La responsabilité de LKR ne saurait être engagée en cas de :</p>
+                <ul>
+                    <li>Force majeure ou événement imprévisible et irrésistible</li>
+                    <li>Faute, négligence ou manquement du Client à ses obligations</li>
+                    <li>Non-respect par le Client des conseils et recommandations de LKR</li>
+                    <li>Intervention d'un tiers non autorisé par LKR sur le chantier</li>
+                    <li>Vices cachés affectant les locaux et non décelables lors de l'état des lieux initial</li>
+                </ul>
+                <p>En tout état de cause, la responsabilité pécuniaire de LKR est limitée au montant total TTC du contrat, à l'exclusion de tout préjudice indirect (perte d'exploitation, perte de chance, préjudice commercial, etc.).</p>
+
+                <p><strong>12.3. Découverte de vices cachés ou contraintes techniques</strong></p>
+                <p>Si au cours des travaux, LKR découvre des vices cachés, des contraintes techniques imprévues ou des non-conformités des locaux nécessitant des travaux supplémentaires, LKR en informe immédiatement le Client. Un avenant au contrat est alors établi pour définir les travaux complémentaires nécessaires et leur coût.</p>
+
+                <h3>13. RÈGLEMENT DES LITIGES</h3>
+                <p><strong>13.1. Réclamations</strong></p>
+                <p>Toute réclamation relative à l'exécution du contrat doit être adressée par écrit à LKR dans un délai de 15 jours suivant la constatation du fait générateur de la réclamation, à l'adresse suivante : LKR RENOVATION MC SARL, 38 Boulevard des Moulins, 98000 Monaco, ou par email à info@lkr.mc.</p>
+
+                <p><strong>13.2. Tentative de résolution amiable</strong></p>
+                <p>En cas de différend relatif à l'interprétation ou à l'exécution du contrat, les parties s'engagent à rechercher une solution amiable avant toute action judiciaire. Une réunion de médiation pourra être organisée à l'initiative de l'une ou l'autre des parties.</p>
+
+                <p><strong>13.3. Loi applicable et juridiction compétente</strong></p>
+                <p>Le contrat est soumis au droit monégasque. En cas d'échec de la tentative de résolution amiable, tout litige relatif à l'interprétation, l'exécution ou la résiliation du contrat relève de la compétence exclusive des tribunaux de la Principauté de Monaco.</p>
+
+                <h3>14. RÉSILIATION</h3>
+                <p><strong>14.1. Résiliation par le Client</strong></p>
+                <p>Le Client peut résilier le contrat à tout moment, moyennant le paiement :</p>
+                <ul>
+                    <li>De l'intégralité des travaux déjà réalisés</li>
+                    <li>Des frais engagés et non récupérables par LKR (commandes de matériaux, acomptes versés aux sous-traitants)</li>
+                    <li>D'une indemnité forfaitaire de résiliation égale à 20% du montant restant à réaliser</li>
+                </ul>
+
+                <p><strong>14.2. Résiliation par LKR</strong></p>
+                <p>LKR peut résilier le contrat de plein droit, sans indemnité, dans les cas suivants :</p>
+                <ul>
+                    <li>Non-paiement d'une échéance dans les 30 jours suivant sa date d'exigibilité, après mise en demeure restée sans effet pendant 15 jours</li>
+                    <li>Impossibilité d'accéder aux locaux ou obstacles répétés à l'exécution des travaux du fait du Client</li>
+                    <li>Comportement du Client rendant impossible la poursuite du contrat (insultes, menaces, harcèlement, etc.)</li>
+                    <li>Force majeure rendant impossible la poursuite du contrat</li>
+                </ul>
+                <p>Dans ces cas, le Client reste redevable des sommes dues pour les travaux déjà réalisés et les frais engagés.</p>
+
+                <h3>15. PROTECTION DES DONNÉES PERSONNELLES</h3>
+                <p><strong>15.1. Collecte et traitement</strong></p>
+                <p>Les données personnelles collectées par LKR (nom, adresse, coordonnées, informations relatives au projet) sont nécessaires à l'exécution du contrat et à la gestion de la relation client. Ces données sont traitées conformément à la Loi n° 1.165 du 23 décembre 1993 réglementant les traitements d'informations nominatives en Principauté de Monaco.</p>
+
+                <p><strong>15.2. Droits du Client</strong></p>
+                <p>Conformément à la réglementation en vigueur, le Client dispose d'un droit d'accès, de rectification et de suppression des données le concernant. Ces droits peuvent être exercés en adressant une demande écrite à LKR à l'adresse info@lkr.mc ou au siège social.</p>
+
+                <p><strong>15.3. Conservation des données</strong></p>
+                <p>Les données sont conservées pendant la durée nécessaire à l'exécution du contrat et aux obligations légales de LKR (notamment la conservation des documents comptables et contractuels pendant 10 ans).</p>
+
+                <h3>16. PROPRIÉTÉ INTELLECTUELLE</h3>
+                <p>Tous les documents remis par LKR au Client (plans, études, devis, rapports) restent la propriété intellectuelle de LKR et ne peuvent être communiqués à des tiers sans l'accord préalable écrit de LKR, sauf aux professionnels intervenant dans le cadre du projet (architectes, bureaux d'études, etc.).</p>
+
+                <h3>17. CLAUSE DE SAUVEGARDE</h3>
+                <p>Si une ou plusieurs stipulations des présentes CGV sont tenues pour non valides ou déclarées comme telles en application d'une loi, d'un règlement ou à la suite d'une décision définitive d'une juridiction compétente, les autres stipulations conservent toute leur force et leur portée.</p>
+
+                <h3>18. MODIFICATION DES CGV</h3>
+                <p>LKR se réserve le droit de modifier à tout moment les présentes CGV. Les CGV applicables sont celles en vigueur à la date de signature du contrat par le Client. Toute modification ultérieure ne sera pas applicable aux contrats en cours d'exécution.</p>
+
+                <h3>19. CONFORMITÉ RÉGLEMENTAIRE MONACO</h3>
+                <p><strong>19.1. Respect de la réglementation</strong></p>
+                <p>LKR s'engage à respecter l'ensemble de la réglementation applicable dans la Principauté de Monaco, notamment :</p>
+                <ul>
+                    <li>Les règlements d'urbanisme et de construction de la DPUM</li>
+                    <li>Les règles de sécurité sur les chantiers</li>
+                    <li>Les normes environnementales et énergétiques</li>
+                    <li>Les règles relatives à l'emploi et à la protection sociale</li>
+                    <li>Les obligations en matière de gestion des déchets de chantier</li>
+                </ul>
+
+                <p><strong>19.2. Autorisations administratives</strong></p>
+                <p>Le Client est informé que certains travaux peuvent nécessiter des autorisations préalables de la DPUM (déclaration préalable, permis de construire, autorisation de travaux en copropriété, etc.). LKR peut assister le Client dans les démarches administratives mais la responsabilité de l'obtention de ces autorisations incombe au Client en tant que maître d'ouvrage.</p>
+
+                <h3>20. CONTACT ET INFORMATION</h3>
+                <p>Pour toute question ou information complémentaire concernant les présentes CGV ou les prestations de LKR, le Client peut contacter :</p>
+                <p><strong>LKR RENOVATION MC SARL</strong><br>
+                38, Boulevard des Moulins<br>
+                98000 Monaco<br>
+                Tél : +377 6 40 61 56 50<br>
+                Email : info@lkr.mc<br>
+                Site web : www.lkr.mc</p>
+
+                <p style="margin-top: 30px; text-align: center; font-weight: bold;">
+                    Date de dernière mise à jour des CGV : 05 décembre 2025
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <button class="print-button no-print" onclick="window.print()">📄 Imprimer / Générer PDF</button>
+
+    <script>
+        // Calcul automatique des totaux (optionnel - peut être activé si besoin)
+        // Cette fonction n'est pas activée par défaut pour garder la simplicité du template
+        
+        // Script pour améliorer l'expérience d'impression
+        window.onbeforeprint = function() {
+            document.body.style.background = 'white';
+        };
+        
+        window.onafterprint = function() {
+            document.body.style.background = '#f8f9fa';
+        };
+
+        // Avertissement si tentative de fermeture avec données non sauvegardées
+        let isEdited = false;
+        document.querySelectorAll('.editable').forEach(element => {
+            element.addEventListener('input', function() {
+                isEdited = true;
+            });
+        });
+
+        window.addEventListener('beforeunload', function(e) {
+            if (isEdited) {
+                e.preventDefault();
+                e.returnValue = '';
+            }
+        });
+    </script>
+</body>
+</html>
