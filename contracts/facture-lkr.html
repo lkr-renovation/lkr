@@ -1036,11 +1036,12 @@
     <script>
         let rowCounter = 4;
 
-        function formatNumber(num) {
-            const parts = num.toString().split(".");
-            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-            return parts.join(",") + " €";
-        }
+function formatNumber(num) {
+    const fixed = num.toFixed(2); // Forza sempre 2 decimali
+    const parts = fixed.split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return parts.join(",") + " €";
+}
 
         function parseNumber(str) {
             return parseFloat(str.replace(/[^\d,-]/g, "").replace(/\./g, "").replace(",", ".")) || 0;
