@@ -130,17 +130,33 @@
             margin: 3px 0;
         }
 
+        .party-box .client-field {
+            display: flex;
+            align-items: baseline;
+            gap: 5px;
+        }
+
+        .party-box .client-field label {
+            min-width: 45px;
+            font-weight: 600;
+        }
+
         .editable {
             background: #fff3cd;
             padding: 2px 5px;
             border: 1px dashed #ffc107;
             min-width: 200px;
             display: inline-block;
+            text-align: right;
+        }
+
+        .editable.left-align {
+            text-align: left;
         }
 
         .items-table {
             width: 100%;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
             border-collapse: collapse;
             table-layout: fixed;
         }
@@ -159,11 +175,12 @@
             border: 1px solid white;
         }
 
-        .items-table th:nth-child(1) { width: 40%; text-align: left; }
+        .items-table th:nth-child(1) { width: 35%; text-align: left; }
         .items-table th:nth-child(2) { width: 10%; text-align: center; }
         .items-table th:nth-child(3) { width: 18%; text-align: right; }
         .items-table th:nth-child(4) { width: 12%; text-align: right; }
         .items-table th:nth-child(5) { width: 20%; text-align: right; }
+        .items-table th:nth-child(6) { width: 5%; text-align: center; }
 
         .items-table tbody tr {
             border-bottom: 1px solid #e9ecef;
@@ -184,11 +201,12 @@
             border-right: none;
         }
 
-        .items-table td:nth-child(1) { width: 40%; text-align: left; }
+        .items-table td:nth-child(1) { width: 35%; text-align: left; }
         .items-table td:nth-child(2) { width: 10%; text-align: center; }
         .items-table td:nth-child(3) { width: 18%; text-align: right; }
         .items-table td:nth-child(4) { width: 12%; text-align: right; }
         .items-table td:nth-child(5) { width: 20%; text-align: right; font-weight: 600; }
+        .items-table td:nth-child(6) { width: 5%; text-align: center; }
 
         .items-table .editable {
             background: #fff3cd;
@@ -196,6 +214,37 @@
             border: 1px dashed #ffc107;
             display: inline-block;
             min-width: 80%;
+        }
+
+        .delete-row-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            font-size: 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .delete-row-btn:hover {
+            background: #c82333;
+        }
+
+        .add-row-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .add-row-btn:hover {
+            background: #218838;
         }
 
         .totals {
@@ -301,6 +350,31 @@
             padding-top: 10px;
             font-size: 11px;
             color: #6c757d;
+        }
+
+        .signature-selector {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .signature-selector label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #0c5460;
+            font-size: 13px;
+        }
+
+        .signature-selector select {
+            width: 100%;
+            padding: 10px;
+            font-size: 13px;
+            border: 2px solid #17a2b8;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
         }
 
         .cgv-section {
@@ -413,9 +487,10 @@
     <div class="instructions no-print">
         <h3>📋 Instructions d'utilisation</h3>
         <p><strong>1.</strong> Cliquez sur les zones surlignées en jaune pour modifier les informations de la facture<br>
-        <strong>2.</strong> Remplissez tous les champs nécessaires (client, prestations, montants)<br>
-        <strong>3.</strong> Cliquez sur le bouton "Imprimer / Générer PDF" en bas à droite<br>
-        <strong>4.</strong> Dans la fenêtre d'impression, sélectionnez "Enregistrer au format PDF"</p>
+        <strong>2.</strong> Utilisez les boutons "+" pour ajouter des lignes et "×" pour supprimer des lignes<br>
+        <strong>3.</strong> Remplissez tous les champs nécessaires (client, prestations, montants)<br>
+        <strong>4.</strong> Cliquez sur le bouton "Imprimer / Générer PDF" en bas à droite<br>
+        <strong>5.</strong> Dans la fenêtre d'impression, sélectionnez "Enregistrer au format PDF"</p>
     </div>
 
     <div class="container">
@@ -458,12 +533,18 @@
             </div>
             <div class="party-box">
                 <h3>Client</h3>
-                <p><strong class="editable" contenteditable="true">NOM DU CLIENT</strong></p>
-                <p class="editable" contenteditable="true">Adresse ligne 1</p>
-                <p class="editable" contenteditable="true">Code postal Ville</p>
-                <p class="editable" contenteditable="true">Pays</p>
-                <p><strong>Email:</strong> <span class="editable" contenteditable="true">client@example.com</span></p>
-                <p><strong>Tél:</strong> <span class="editable" contenteditable="true">+377 XX XX XX XX</span></p>
+                <p><strong class="editable left-align" contenteditable="true">NOM DU CLIENT</strong></p>
+                <p class="editable left-align" contenteditable="true">Adresse ligne 1</p>
+                <p class="editable left-align" contenteditable="true">Code postal Ville</p>
+                <p class="editable left-align" contenteditable="true">Pays</p>
+                <div class="client-field">
+                    <label>Email:</label>
+                    <span class="editable left-align" contenteditable="true" style="flex: 1;">client@example.com</span>
+                </div>
+                <div class="client-field">
+                    <label>Tél:</label>
+                    <span class="editable left-align" contenteditable="true" style="flex: 1;">+377 XX XX XX XX</span>
+                </div>
             </div>
         </div>
 
@@ -476,79 +557,94 @@
                     <th>Prix Unit. HT</th>
                     <th>TVA</th>
                     <th>Total HT</th>
+                    <th class="no-print"></th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
+            <tbody id="items-tbody">
+                <tr class="item-row">
                     <td>
-                        <span class="editable" contenteditable="true">Coordination et gestion de projet de rénovation complète</span>
+                        <span class="editable left-align" contenteditable="true">Coordination et gestion de projet de rénovation complète</span>
                     </td>
                     <td>
-                        <span class="editable" contenteditable="true">1</span>
+                        <span class="editable item-qty" contenteditable="true" data-row="0">1</span>
                     </td>
                     <td>
-                        <span class="editable" contenteditable="true">15.000,00 €</span>
+                        <span class="editable item-price" contenteditable="true" data-row="0">15000</span>
                     </td>
                     <td>
                         <span class="editable" contenteditable="true">20%</span>
                     </td>
                     <td>
-                        <span class="editable" contenteditable="true">15.000,00 €</span>
+                        <span class="item-total" data-row="0">15.000,00 €</span>
+                    </td>
+                    <td class="no-print">
+                        <button class="delete-row-btn" onclick="deleteRow(this)">×</button>
                     </td>
                 </tr>
-                <tr>
+                <tr class="item-row">
                     <td>
-                        <span class="editable" contenteditable="true">Travaux de peinture et revêtements muraux</span>
+                        <span class="editable left-align" contenteditable="true">Travaux de peinture et revêtements muraux</span>
                     </td>
                     <td>
-                        <span class="editable" contenteditable="true">1</span>
+                        <span class="editable item-qty" contenteditable="true" data-row="1">1</span>
                     </td>
                     <td>
-                        <span class="editable" contenteditable="true">8.500,00 €</span>
+                        <span class="editable item-price" contenteditable="true" data-row="1">8500</span>
                     </td>
                     <td>
                         <span class="editable" contenteditable="true">20%</span>
                     </td>
                     <td>
-                        <span class="editable" contenteditable="true">8.500,00 €</span>
+                        <span class="item-total" data-row="1">8.500,00 €</span>
+                    </td>
+                    <td class="no-print">
+                        <button class="delete-row-btn" onclick="deleteRow(this)">×</button>
                     </td>
                 </tr>
-                <tr>
+                <tr class="item-row">
                     <td>
-                        <span class="editable" contenteditable="true">Installation électrique et éclairage</span>
+                        <span class="editable left-align" contenteditable="true">Installation électrique et éclairage</span>
                     </td>
                     <td>
-                        <span class="editable" contenteditable="true">1</span>
+                        <span class="editable item-qty" contenteditable="true" data-row="2">1</span>
                     </td>
                     <td>
-                        <span class="editable" contenteditable="true">6.200,00 €</span>
+                        <span class="editable item-price" contenteditable="true" data-row="2">6200</span>
                     </td>
                     <td>
                         <span class="editable" contenteditable="true">20%</span>
                     </td>
                     <td>
-                        <span class="editable" contenteditable="true">6.200,00 €</span>
+                        <span class="item-total" data-row="2">6.200,00 €</span>
+                    </td>
+                    <td class="no-print">
+                        <button class="delete-row-btn" onclick="deleteRow(this)">×</button>
                     </td>
                 </tr>
-                <tr>
+                <tr class="item-row">
                     <td>
-                        <span class="editable" contenteditable="true">Plomberie et sanitaires</span>
+                        <span class="editable left-align" contenteditable="true">Plomberie et sanitaires</span>
                     </td>
                     <td>
-                        <span class="editable" contenteditable="true">1</span>
+                        <span class="editable item-qty" contenteditable="true" data-row="3">1</span>
                     </td>
                     <td>
-                        <span class="editable" contenteditable="true">5.800,00 €</span>
+                        <span class="editable item-price" contenteditable="true" data-row="3">5800</span>
                     </td>
                     <td>
                         <span class="editable" contenteditable="true">20%</span>
                     </td>
                     <td>
-                        <span class="editable" contenteditable="true">5.800,00 €</span>
+                        <span class="item-total" data-row="3">5.800,00 €</span>
+                    </td>
+                    <td class="no-print">
+                        <button class="delete-row-btn" onclick="deleteRow(this)">×</button>
                     </td>
                 </tr>
             </tbody>
         </table>
+
+        <button class="add-row-btn no-print" onclick="addRow()">+ Ajouter une ligne</button>
 
         <!-- TOTAUX -->
         <div class="totals">
@@ -620,16 +716,26 @@
         <!-- NOTES -->
         <div class="notes">
             <h4>Notes importantes</h4>
-            <p id="auto-notes" class="editable" contenteditable="true">Cette facture fait référence au devis <span id="devis-ref-copy">DEV-2025-001</span> accepté le <span id="date-accept-copy">XX/XX/2025</span>. Les travaux ont été réalisés conformément aux termes du contrat signé. LKR Renovation MC intervient en qualité de general contractor et coordonne l'ensemble des corps de métier.</p>
+            <p id="auto-notes" class="editable left-align" contenteditable="true">Cette facture fait référence au devis <span id="devis-ref-copy">DEV-2025-001</span> accepté le <span id="date-accept-copy">XX/XX/2025</span>. Les travaux ont été réalisés conformément aux termes du contrat signé. LKR Renovation MC intervient en qualité de general contractor et coordonne l'ensemble des corps de métier.</p>
+        </div>
+
+        <!-- SÉLECTION SIGNATURE -->
+        <div class="signature-selector no-print">
+            <label for="signature-select">Sélectionner le signataire pour LKR RENOVATION MC:</label>
+            <select id="signature-select">
+                <option value="luca">Luca Borella (Gérant)</option>
+                <option value="riccardo">Riccardo Barlozzetti (Business Development Manager)</option>
+                <option value="simona">Simona Fantato (Interior Designer)</option>
+            </select>
         </div>
 
         <!-- SIGNATURES -->
-        <div class="signature-section">
+        <div class="signature-section page-break">
             <div class="signature-box">
                 <p>Pour LKR RENOVATION MC SARL</p>
-                <div class="signature-line">
-                    Luca Borella<br>
-                    Gérant
+                <div class="signature-line" id="signature-lkr">
+                    <span id="signer-name">Luca Borella</span><br>
+                    <span id="signer-title">Gérant</span>
                 </div>
             </div>
             <div class="signature-box">
@@ -641,7 +747,7 @@
         </div>
 
         <!-- CONDITIONS GÉNÉRALES DE VENTE -->
-        <div class="cgv-section page-break">
+        <div class="cgv-section">
             <h2>Conditions Générales de Vente (CGV)</h2>
             
             <div class="cgv-content">
@@ -928,6 +1034,144 @@
     <button class="print-button no-print" onclick="window.print()">📄 Imprimer / Générer PDF</button>
 
     <script>
+        let rowCounter = 4; // Inizia da 4 perché ci sono già 4 righe
+
+        // FORMATTAZIONE AUTOMATICA NUMERI CON SEPARATORE MIGLIAIA
+        function formatNumber(num) {
+            const parts = num.toString().split('.');
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+            return parts.join(',') + ' €';
+        }
+
+        function parseNumber(str) {
+            return parseFloat(str.replace(/[^\d,.-]/g, '').replace(',', '.')) || 0;
+        }
+
+        // CALCOLO AUTOMATICO TOTALI RIGHE
+        function calculateRowTotal(rowIndex) {
+            const qtyElement = document.querySelector(`.item-qty[data-row="${rowIndex}"]`);
+            const priceElement = document.querySelector(`.item-price[data-row="${rowIndex}"]`);
+            const totalElement = document.querySelector(`.item-total[data-row="${rowIndex}"]`);
+
+            if (qtyElement && priceElement && totalElement) {
+                const qty = parseFloat(qtyElement.textContent.replace(',', '.')) || 0;
+                const price = parseNumber(priceElement.textContent);
+                const total = qty * price;
+                
+                totalElement.textContent = formatNumber(total);
+            }
+        }
+
+        // AGGIUNGI NUOVA RIGA
+        function addRow() {
+            const tbody = document.getElementById('items-tbody');
+            const newRow = document.createElement('tr');
+            newRow.className = 'item-row';
+            newRow.innerHTML = `
+                <td>
+                    <span class="editable left-align" contenteditable="true">Nouvelle prestation</span>
+                </td>
+                <td>
+                    <span class="editable item-qty" contenteditable="true" data-row="${rowCounter}">1</span>
+                </td>
+                <td>
+                    <span class="editable item-price" contenteditable="true" data-row="${rowCounter}">0</span>
+                </td>
+                <td>
+                    <span class="editable" contenteditable="true">20%</span>
+                </td>
+                <td>
+                    <span class="item-total" data-row="${rowCounter}">0,00 €</span>
+                </td>
+                <td class="no-print">
+                    <button class="delete-row-btn" onclick="deleteRow(this)">×</button>
+                </td>
+            `;
+            
+            tbody.appendChild(newRow);
+            
+            // Aggiungi event listeners alla nuova riga
+            attachRowEventListeners(rowCounter);
+            
+            rowCounter++;
+            isEdited = true;
+        }
+
+        // ELIMINA RIGA
+        function deleteRow(button) {
+            const row = button.closest('tr');
+            const tbody = document.getElementById('items-tbody');
+            
+            // Previeni eliminazione se c'è solo una riga
+            if (tbody.querySelectorAll('tr').length <= 1) {
+                alert('Impossible de supprimer la dernière ligne');
+                return;
+            }
+            
+            row.remove();
+            updateRowIndexes();
+            isEdited = true;
+        }
+
+        // AGGIORNA INDICI DOPO ELIMINAZIONE
+        function updateRowIndexes() {
+            const rows = document.querySelectorAll('.item-row');
+            rows.forEach((row, index) => {
+                const qtyElement = row.querySelector('.item-qty');
+                const priceElement = row.querySelector('.item-price');
+                const totalElement = row.querySelector('.item-total');
+                
+                if (qtyElement) qtyElement.setAttribute('data-row', index);
+                if (priceElement) priceElement.setAttribute('data-row', index);
+                if (totalElement) totalElement.setAttribute('data-row', index);
+            });
+        }
+
+        // AGGIUNGI EVENT LISTENERS A UNA RIGA
+        function attachRowEventListeners(rowIndex) {
+            const qtyElement = document.querySelector(`.item-qty[data-row="${rowIndex}"]`);
+            const priceElement = document.querySelector(`.item-price[data-row="${rowIndex}"]`);
+
+            if (qtyElement) {
+                qtyElement.addEventListener('blur', function() {
+                    calculateRowTotal(rowIndex);
+                });
+                qtyElement.addEventListener('input', function() {
+                    calculateRowTotal(rowIndex);
+                });
+            }
+
+            if (priceElement) {
+                priceElement.addEventListener('blur', function() {
+                    const value = parseNumber(this.textContent);
+                    this.textContent = formatNumber(value);
+                    calculateRowTotal(rowIndex);
+                });
+                priceElement.addEventListener('input', function() {
+                    calculateRowTotal(rowIndex);
+                });
+            }
+        }
+
+        // Event listeners per righe esistenti
+        document.querySelectorAll('.item-qty, .item-price').forEach(element => {
+            element.addEventListener('blur', function() {
+                const rowIndex = this.getAttribute('data-row');
+                
+                if (this.classList.contains('item-price')) {
+                    const value = parseNumber(this.textContent);
+                    this.textContent = formatNumber(value);
+                }
+                
+                calculateRowTotal(rowIndex);
+            });
+
+            element.addEventListener('input', function() {
+                const rowIndex = this.getAttribute('data-row');
+                calculateRowTotal(rowIndex);
+            });
+        });
+
         // Sincronizzazione automatica devis e data nelle note
         const devisRefField = document.getElementById('devis-ref');
         const dateAcceptField = document.getElementById('date-accept');
@@ -940,6 +1184,27 @@
         
         dateAcceptField.addEventListener('input', function() {
             dateAcceptCopy.textContent = this.textContent;
+        });
+        
+        // GESTIONE SELEZIONE FIRMA
+        document.getElementById('signature-select').addEventListener('change', function() {
+            const signerName = document.getElementById('signer-name');
+            const signerTitle = document.getElementById('signer-title');
+            
+            switch(this.value) {
+                case 'luca':
+                    signerName.textContent = 'Luca Borella';
+                    signerTitle.textContent = 'Gérant';
+                    break;
+                case 'riccardo':
+                    signerName.textContent = 'Riccardo Barlozzetti';
+                    signerTitle.textContent = 'Business Development Manager';
+                    break;
+                case 'simona':
+                    signerName.textContent = 'Simona Fantato';
+                    signerTitle.textContent = 'Interior Designer';
+                    break;
+            }
         });
         
         // Gestione cambio modalità di pagamento
