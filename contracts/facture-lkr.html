@@ -1034,27 +1034,25 @@
     <button class="print-button no-print" onclick="window.print()">📄 Imprimer / Générer PDF</button>
 
     <script>
-        let rowCounter = 4; // Inizia da 4 perché ci sono già 4 righe
+        let rowCounter = 4;
 
-        // FORMATTAZIONE AUTOMATICA NUMERI CON SEPARATORE MIGLIAIA
         function formatNumber(num) {
-            const parts = num.toString().split('.');
-            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-            return parts.join(',') + ' €';
+            const parts = num.toString().split(".");
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            return parts.join(",") + " €";
         }
 
         function parseNumber(str) {
-            return parseFloat(str.replace(/[^\d,.-]/g, '').replace(',', '.')) || 0;
+            return parseFloat(str.replace(/[^\d,-]/g, "").replace(/\./g, "").replace(",", ".")) || 0;
         }
 
-        // CALCOLO AUTOMATICO TOTALI RIGHE
         function calculateRowTotal(rowIndex) {
             const qtyElement = document.querySelector(`.item-qty[data-row="${rowIndex}"]`);
             const priceElement = document.querySelector(`.item-price[data-row="${rowIndex}"]`);
             const totalElement = document.querySelector(`.item-total[data-row="${rowIndex}"]`);
 
             if (qtyElement && priceElement && totalElement) {
-                const qty = parseFloat(qtyElement.textContent.replace(',', '.')) || 0;
+                const qty = parseFloat(qtyElement.textContent.replace(",", ".")) || 0;
                 const price = parseNumber(priceElement.textContent);
                 const total = qty * price;
                 
@@ -1062,11 +1060,10 @@
             }
         }
 
-        // AGGIUNGI NUOVA RIGA
         function addRow() {
-            const tbody = document.getElementById('items-tbody');
-            const newRow = document.createElement('tr');
-            newRow.className = 'item-row';
+            const tbody = document.getElementById("items-tbody");
+            const newRow = document.createElement("tr");
+            newRow.className = "item-row";
             newRow.innerHTML = `
                 <td>
                     <span class="editable left-align" contenteditable="true">Nouvelle prestation</span>
@@ -1089,22 +1086,17 @@
             `;
             
             tbody.appendChild(newRow);
-            
-            // Aggiungi event listeners alla nuova riga
             attachRowEventListeners(rowCounter);
-            
             rowCounter++;
             isEdited = true;
         }
 
-        // ELIMINA RIGA
         function deleteRow(button) {
-            const row = button.closest('tr');
-            const tbody = document.getElementById('items-tbody');
+            const row = button.closest("tr");
+            const tbody = document.getElementById("items-tbody");
             
-            // Previeni eliminazione se c'è solo una riga
-            if (tbody.querySelectorAll('tr').length <= 1) {
-                alert('Impossible de supprimer la dernière ligne');
+            if (tbody.querySelectorAll("tr").length <= 1) {
+                alert("Impossible de supprimer la dernière ligne");
                 return;
             }
             
@@ -1113,52 +1105,49 @@
             isEdited = true;
         }
 
-        // AGGIORNA INDICI DOPO ELIMINAZIONE
         function updateRowIndexes() {
-            const rows = document.querySelectorAll('.item-row');
+            const rows = document.querySelectorAll(".item-row");
             rows.forEach((row, index) => {
-                const qtyElement = row.querySelector('.item-qty');
-                const priceElement = row.querySelector('.item-price');
-                const totalElement = row.querySelector('.item-total');
+                const qtyElement = row.querySelector(".item-qty");
+                const priceElement = row.querySelector(".item-price");
+                const totalElement = row.querySelector(".item-total");
                 
-                if (qtyElement) qtyElement.setAttribute('data-row', index);
-                if (priceElement) priceElement.setAttribute('data-row', index);
-                if (totalElement) totalElement.setAttribute('data-row', index);
+                if (qtyElement) qtyElement.setAttribute("data-row", index);
+                if (priceElement) priceElement.setAttribute("data-row", index);
+                if (totalElement) totalElement.setAttribute("data-row", index);
             });
         }
 
-        // AGGIUNGI EVENT LISTENERS A UNA RIGA
         function attachRowEventListeners(rowIndex) {
             const qtyElement = document.querySelector(`.item-qty[data-row="${rowIndex}"]`);
             const priceElement = document.querySelector(`.item-price[data-row="${rowIndex}"]`);
 
             if (qtyElement) {
-                qtyElement.addEventListener('blur', function() {
+                qtyElement.addEventListener("blur", function() {
                     calculateRowTotal(rowIndex);
                 });
-                qtyElement.addEventListener('input', function() {
+                qtyElement.addEventListener("input", function() {
                     calculateRowTotal(rowIndex);
                 });
             }
 
             if (priceElement) {
-                priceElement.addEventListener('blur', function() {
+                priceElement.addEventListener("blur", function() {
                     const value = parseNumber(this.textContent);
                     this.textContent = formatNumber(value);
                     calculateRowTotal(rowIndex);
                 });
-                priceElement.addEventListener('input', function() {
+                priceElement.addEventListener("input", function() {
                     calculateRowTotal(rowIndex);
                 });
             }
         }
 
-        // Event listeners per righe esistenti
-        document.querySelectorAll('.item-qty, .item-price').forEach(element => {
-            element.addEventListener('blur', function() {
-                const rowIndex = this.getAttribute('data-row');
+        document.querySelectorAll(".item-qty, .item-price").forEach(element => {
+            element.addEventListener("blur", function() {
+                const rowIndex = this.getAttribute("data-row");
                 
-                if (this.classList.contains('item-price')) {
+                if (this.classList.contains("item-price")) {
                     const value = parseNumber(this.textContent);
                     this.textContent = formatNumber(value);
                 }
@@ -1166,55 +1155,52 @@
                 calculateRowTotal(rowIndex);
             });
 
-            element.addEventListener('input', function() {
-                const rowIndex = this.getAttribute('data-row');
+            element.addEventListener("input", function() {
+                const rowIndex = this.getAttribute("data-row");
                 calculateRowTotal(rowIndex);
             });
         });
 
-        // Sincronizzazione automatica devis e data nelle note
-        const devisRefField = document.getElementById('devis-ref');
-        const dateAcceptField = document.getElementById('date-accept');
-        const devisRefCopy = document.getElementById('devis-ref-copy');
-        const dateAcceptCopy = document.getElementById('date-accept-copy');
+        const devisRefField = document.getElementById("devis-ref");
+        const dateAcceptField = document.getElementById("date-accept");
+        const devisRefCopy = document.getElementById("devis-ref-copy");
+        const dateAcceptCopy = document.getElementById("date-accept-copy");
         
-        devisRefField.addEventListener('input', function() {
+        devisRefField.addEventListener("input", function() {
             devisRefCopy.textContent = this.textContent;
         });
         
-        dateAcceptField.addEventListener('input', function() {
+        dateAcceptField.addEventListener("input", function() {
             dateAcceptCopy.textContent = this.textContent;
         });
         
-        // GESTIONE SELEZIONE FIRMA
-        document.getElementById('signature-select').addEventListener('change', function() {
-            const signerName = document.getElementById('signer-name');
-            const signerTitle = document.getElementById('signer-title');
+        document.getElementById("signature-select").addEventListener("change", function() {
+            const signerName = document.getElementById("signer-name");
+            const signerTitle = document.getElementById("signer-title");
             
             switch(this.value) {
-                case 'luca':
-                    signerName.textContent = 'Luca Borella';
-                    signerTitle.textContent = 'Gérant';
+                case "luca":
+                    signerName.textContent = "Luca Borella";
+                    signerTitle.textContent = "Gérant";
                     break;
-                case 'riccardo':
-                    signerName.textContent = 'Riccardo Barlozzetti';
-                    signerTitle.textContent = 'Business Development Manager';
+                case "riccardo":
+                    signerName.textContent = "Riccardo Barlozzetti";
+                    signerTitle.textContent = "Business Development Manager";
                     break;
-                case 'simona':
-                    signerName.textContent = 'Simona Fantato';
-                    signerTitle.textContent = 'Interior Designer';
+                case "simona":
+                    signerName.textContent = "Simona Fantato";
+                    signerTitle.textContent = "Interior Designer";
                     break;
             }
         });
         
-        // Gestione cambio modalità di pagamento
-        document.getElementById('payment-option').addEventListener('change', function() {
-            const paymentDetails = document.getElementById('payment-details');
+        document.getElementById("payment-option").addEventListener("change", function() {
+            const paymentDetails = document.getElementById("payment-details");
             const selectedValue = this.value;
             
-            let htmlContent = '';
+            let htmlContent = "";
             
-            if (selectedValue === 'standard') {
+            if (selectedValue === "standard") {
                 htmlContent = `
                     <div class="payment-schedule">
                         <p style="font-weight: 600; margin-bottom: 10px;">Échéancier standard pour ce type de projet:</p>
@@ -1234,7 +1220,7 @@
                         </div>
                     </div>
                 `;
-            } else if (selectedValue === 'deux-temps') {
+            } else if (selectedValue === "deux-temps") {
                 htmlContent = `
                     <div class="payment-schedule">
                         <p style="font-weight: 600; margin-bottom: 10px;">Solde à la livraison (100% à la fin):</p>
@@ -1244,7 +1230,7 @@
                         </div>
                     </div>
                 `;
-            } else if (selectedValue === 'avance') {
+            } else if (selectedValue === "avance") {
                 htmlContent = `
                     <div class="payment-schedule">
                         <p style="font-weight: 600; margin-bottom: 10px;">100% en avance (Réduction de 5%):</p>
@@ -1255,7 +1241,7 @@
                         </div>
                     </div>
                 `;
-            } else if (selectedValue === 'moitie') {
+            } else if (selectedValue === "moitie") {
                 htmlContent = `
                     <div class="payment-schedule">
                         <p style="font-weight: 600; margin-bottom: 10px;">Échéancier 30% / 70%:</p>
@@ -1271,7 +1257,7 @@
                         </div>
                     </div>
                 `;
-            } else if (selectedValue === 'personnalise') {
+            } else if (selectedValue === "personnalise") {
                 htmlContent = `
                     <div class="payment-schedule">
                         <p style="font-weight: 600; margin-bottom: 10px;">Échéancier personnalisé:</p>
@@ -1283,27 +1269,25 @@
             paymentDetails.innerHTML = htmlContent;
         });
         
-        // Script per améliorer l'expérience d'impression
         window.onbeforeprint = function() {
-            document.body.style.background = 'white';
+            document.body.style.background = "white";
         };
         
         window.onafterprint = function() {
-            document.body.style.background = '#f8f9fa';
+            document.body.style.background = "#f8f9fa";
         };
 
-        // Avertissement si tentative de fermeture avec données non sauvegardées
         let isEdited = false;
-        document.querySelectorAll('.editable').forEach(element => {
-            element.addEventListener('input', function() {
+        document.querySelectorAll(".editable").forEach(element => {
+            element.addEventListener("input", function() {
                 isEdited = true;
             });
         });
 
-        window.addEventListener('beforeunload', function(e) {
+        window.addEventListener("beforeunload", function(e) {
             if (isEdited) {
                 e.preventDefault();
-                e.returnValue = '';
+                e.returnValue = "";
             }
         });
     </script>
