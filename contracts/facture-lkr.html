@@ -276,6 +276,10 @@
             margin-top: 5px;
         }
 
+        .total-row.final strong {
+    color: #2c3e50; /* AGGIUNGI QUESTA RIGA */
+}
+
         .payment-info {
             background: #f8f9fa;
             padding: 20px;
@@ -1047,20 +1051,36 @@ function formatNumber(num) {
             return parseFloat(str.replace(/[^\d,-]/g, "").replace(/\./g, "").replace(",", ".")) || 0;
         }
 
-        function calculateRowTotal(rowIndex) {
-            const qtyElement = document.querySelector(`.item-qty[data-row="${rowIndex}"]`);
-            const priceElement = document.querySelector(`.item-price[data-row="${rowIndex}"]`);
-            const totalElement = document.querySelector(`.item-total[data-row="${rowIndex}"]`);
+function calculateRowTotal(rowIndex) {
+    const qtyElement = document.querySelector(`.item-qty[data-row="${rowIndex}"]`);
+    const priceElement = document.querySelector(`.item-price[data-row="${rowIndex}"]`);
+    const totalElement = document.querySelector(`.item-total[data-row="${rowIndex}"]`);
 
-            if (qtyElement && priceElement && totalElement) {
-                const qty = parseFloat(qtyElement.textContent.replace(",", ".")) || 0;
-                const price = parseNumber(priceElement.textContent);
-                const total = qty * price;
-                
-                totalElement.textContent = formatNumber(total);
-            }
-        }
+    if (qtyElement && priceElement && totalElement) {
+        const qty = parseFloat(qtyElement.textContent.replace(',', '.')) || 0;
+        const price = parseNumber(priceElement.textContent);
+        const total = qty * price;
+        
+        totalElement.textContent = formatNumber(total);
+        updateTotals(); // AGGIUNGI QUESTA RIGA
+    }
+}
 
+        function updateTotals() {
+    let totalHT = 0;
+    document.querySelectorAll('.item-total').forEach(element => {
+        const value = parseNumber(element.textContent);
+        totalHT += value;
+    });
+    
+    const tva = totalHT * 0.20;
+    const totalTTC = totalHT + tva;
+    
+    document.querySelector('.totals .subtotal strong').textContent = formatNumber(totalHT);
+    document.querySelector('.totals .tax strong').textContent = formatNumber(tva);
+    document.querySelector('.totals .final strong').textContent = formatNumber(totalTTC);
+}
+        
         function addRow() {
             const tbody = document.getElementById("items-tbody");
             const newRow = document.createElement("tr");
@@ -1092,19 +1112,20 @@ function formatNumber(num) {
             isEdited = true;
         }
 
-        function deleteRow(button) {
-            const row = button.closest("tr");
-            const tbody = document.getElementById("items-tbody");
-            
-            if (tbody.querySelectorAll("tr").length <= 1) {
-                alert("Impossible de supprimer la dernière ligne");
-                return;
-            }
-            
-            row.remove();
-            updateRowIndexes();
-            isEdited = true;
-        }
+function deleteRow(button) {
+    const row = button.closest("tr");
+    const tbody = document.getElementById("items-tbody");
+    
+    if (tbody.querySelectorAll("tr").length <= 1) {
+        alert("Impossible de supprimer la dernière ligne");
+        return;
+    }
+    
+    row.remove();
+    updateRowIndexes();
+    updateTotals(); // AGGIUNGI QUESTA RIGA
+    isEdited = true;
+}
 
         function updateRowIndexes() {
             const rows = document.querySelectorAll(".item-row");
